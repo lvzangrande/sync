@@ -21,28 +21,53 @@
     </section>
 
 
+    <section>
 
-    <div class="card">
+        <div class="card">
 
-        <div class="disponibilidade">Disponivel</div>
+            <div class="disponibilidade">Disponivel</div>
 
-        <div class="avaliacao">4.9</div>
+            <div class="avaliacao">4.9</div>
 
-        <img src="https://static.vecteezy.com/ti/fotos-gratis/t2/57068323-solteiro-fresco-vermelho-morango-em-mesa-verde-fundo-comida-fruta-doce-macro-suculento-plantar-imagem-foto.jpg"alt="">
+            <img src="https://static.vecteezy.com/ti/fotos-gratis/t2/57068323-solteiro-fresco-vermelho-morango-em-mesa-verde-fundo-comida-fruta-doce-macro-suculento-plantar-imagem-foto.jpg"
+                alt="">
 
-        <p>Nome Profissional</p>
+            <p>Nome Profissional</p>
 
-        <p>Especialidade Profissional</p>
+            <p>Especialidade Profissional</p>
 
-        <span>Tempo de empresa</span>
+            <span>Tempo de empresa</span>
 
-        <span>Quantidade de Trabalhos</span>
+            <span>Quantidade de Trabalhos</span>
 
-        <p>Preço do serviço</p>
-        <p>por dia</p>
+            <p>Preço do serviço</p>
+            <p>por dia</p>
+
+            <a href="./contratar profissional">Contatra Profissional</a>
+        </div>
+
+        <div class="box-filtro">
+            <p>Especialidade</p>
+            <input type="checkbox" name=""> <span>Automção Industrial</span>
+            <input type="checbox" name=""> <span>Manutenção Preventiva</span>
+            <input type="checbox" name=""> <span>Engenharia de Precisão</span>
+            <input type="checbox" name=""> <span>Mecatronica</span>
         
-        <a href="./contratar profissional">Contatra Profissional</a>
-    </div>
+        
+        </div>
+
+        <div class="box-filtro">
+            <p>Disponibilidade</p>
+            <input type="checkbox" name=""> <span>Disponivel</span>      
+            <input type="checkbox" name=""> <span>Em Serviço</span>
+            <input type="checkbox" name=""> <span>Indisponivel</span>
+
+        </div>
+        
+        <button>Limpar Filtros</button>
+
+    </section>
+
 </body>
 
 </html>
