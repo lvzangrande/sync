@@ -1,0 +1,26 @@
+:root {
+  --color-sky-light: #8bc0d6;
+  --color-ocean-blue: #326b93;
+  --color-deep-blue: #164578;
+  --color-navy-dark: #092848;
+  --color-night-blue: #001233;
+  --color-slate-blue: #33415c;
+  --color-cool-gray: #7d8597;
+  --color-light-gray: #979dac;
+}
+
+* {
+    background-color: #001233;
+}
+
+
+.box-intro {
+    display: flex;
+    
+}
+
+.box-intro {
+
+}
+
+
