@@ -12,24 +12,24 @@
 
     <section class="topo">
 
-    <div class="textos">
-        <span>Rede de Especialistas</span>
+        <div class="textos">
+            <span>Rede de Especialistas</span>
 
-        <h1>Catálogo de Profissionais</h1>
+            <h1>Catálogo de Profissionais</h1>
 
-        <p>
-            Sincronize sua operação com técnicos mecatrônicos 
-            certificados e disponíveis em tempo real.
-        </p>
-    </div>
+            <p>
+                Sincronize sua operação com técnicos mecatrônicos
+                certificados e disponíveis em tempo real.
+            </p>
+        </div>
 
-    <select>
-        <option>Ordenar: Melhor Avaliação</option>
-        <option>Ordenar: Maior Preço</option>
-        <option>Ordenar: Menor Preço</option>
-    </select>
+        <select>
+            <option>Ordenar: Melhor Avaliação</option>
+            <option>Ordenar: Maior Preço</option>
+            <option>Ordenar: Menor Preço</option>
+        </select>
 
-</section>
+    </section>
 
     <section>
 
@@ -56,26 +56,58 @@
             <a href="./contratar">Contatra Profissional</a>
         </div>
 
-        <div class="box-filtro">
-            <p>Especialidade</p>
-            <input type="checkbox" name=""> <span>Automção Industrial</span>
-            <input type="checbox" name=""> <span>Manutenção Preventiva</span>
-            <input type="checbox" name=""> <span>Engenharia de Precisão</span>
-            <input type="checbox" name=""> <span>Mecatronica</span>
-        
-        
+        <div class="sidebar-filtros">
+
+            <div class="box-filtro">
+
+                <p>Especialidade</p>
+
+                <label>
+                    <input type="checkbox">
+                    <span>Automação Industrial</span>
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    <span>Manutenção Preventiva</span>
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    <span>Engenharia de Precisão</span>
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    <span>Mecatrônica</span>
+                </label>
+
+            </div>
+
+            <div class="box-filtro">
+
+                <p>Disponibilidade</p>
+
+                <label>
+                    <input type="checkbox">
+                    <span>Disponível</span>
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    <span>Em Serviço</span>
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    <span>Indisponível</span>
+                </label>
+
+            </div>
+
+            <button>Limpar Filtros</button>
+
         </div>
-
-        <div class="box-filtro">
-            <p>Disponibilidade</p>
-            <input type="checkbox" name=""> <span>Disponivel</span>      
-            <input type="checkbox" name=""> <span>Em Serviço</span>
-            <input type="checkbox" name=""> <span>Indisponivel</span>
-
-        </div>
-        
-        <button>Limpar Filtros</button>
-
     </section>
 
 </body>
