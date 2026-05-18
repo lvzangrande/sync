@@ -1,18 +1,28 @@
+:root{
+    
+    --deep-midnight: #001233;
+    --navy-dark: #092848;
+    --royal-industrial: #164578;
+    --steel-blue: #326B93;
+    --slate-gray: #33415C;
+    --cool-gray: #7D8597;
+    --light-slate: #979DAC;
+    --misty-blue: #8BC0D6;
+    --text-primary: #FFFFFF;
+    --text-secondary: #979DAC;
+}
+
 body{
     font-family: "Lexend", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  background-color: #001233;
+  background-color: var(--deep-midnight);
 }
 
 .card{
     width: 320px;
-    background: linear-gradient(
-        180deg,
-        #1a2f55 0%,
-        #0b1833 100%
-    );
+    background: linear-gradient( 180deg,#1a2f55 0%,#0b1833 100% );
     border: 1px solid rgba(139, 192, 214, 0.15);
     border-radius: 22px;
     overflow: hidden;
