@@ -1,0 +1,151 @@
+body{
+    font-family: "Lexend", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #001233;
+}
+
+.card{
+    width: 320px;
+    background: linear-gradient(
+        180deg,
+        #1a2f55 0%,
+        #0b1833 100%
+    );
+    border: 1px solid rgba(139, 192, 214, 0.15);
+    border-radius: 22px;
+    overflow: hidden;
+    position: relative;
+    font-family: 'Segoe UI', sans-serif;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    transition: 0.3s ease;
+}
+
+.card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.45);
+}
+
+/* IMAGEM */
+.card img{
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+    display: block;
+}
+
+/* EFEITO ESCURO SOBRE IMAGEM */
+.card::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 270px;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0) 40%,
+        rgba(9,40,72,0.95) 100%
+    );
+    z-index: 1;
+}
+
+/* TAG DISPONÍVEL */
+.disponibilidade{
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: rgba(139, 192, 214, 0.2);
+    backdrop-filter: blur(6px);
+    color: #d9f6ff;
+    padding: 8px 14px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    z-index: 3;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* AVALIAÇÃO */
+.avaliacao{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: #092848;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 14px;
+    z-index: 3;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* CONTEÚDO */
+.card p,
+.card span,
+.card a{
+    position: relative;
+    z-index: 2;
+}
+
+.card p:nth-of-type(1){
+    font-size: 32px;
+    font-weight: 700;
+    color: white;
+    margin: 24px 24px 5px;
+}
+
+.card p:nth-of-type(2){
+    font-size: 18px;
+    font-weight: 600;
+    color: #8BC0D6;
+    margin: 0 24px 15px;
+}
+
+/* INFOS */
+.card span{
+    display: inline-block;
+    color: #979DAC;
+    font-size: 14px;
+    margin-left: 24px;
+    margin-bottom: 18px;
+}
+
+/* PREÇO */
+.card p:nth-of-type(3){
+    font-size: 42px;
+    font-weight: 700;
+    color: #8BC0D6;
+    margin: 10px 24px 0;
+    display: inline-block;
+}
+
+.card p:nth-of-type(4){
+    display: inline-block;
+    color: #979DAC;
+    font-size: 16px;
+    margin-left: 5px;
+}
+
+/* BOTÃO */
+.card a{
+    display: block;
+    width: calc(100% - 48px);
+    margin: 20px 24px 24px;
+    text-align: center;
+    background: #164578;
+    color: white;
+    text-decoration: none;
+    padding: 16px;
+    border-radius: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.card a:hover{
+    background: #326B93;
+    transform: scale(1.02);
+}
