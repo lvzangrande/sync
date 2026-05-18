@@ -9,130 +9,132 @@
 </head>
 
 <body>
+    <main class="container">
+        <section class="topo">
 
-    <section class="topo">
+            <div class="textos">
+                <span>Rede de Especialistas</span>
 
-        <div class="textos">
-            <span>Rede de Especialistas</span>
+                <h1>Catálogo de Profissionais</h1>
 
-            <h1>Catálogo de Profissionais</h1>
+                <p>
+                    Sincronize sua operação com técnicos mecatrônicos
+                    certificados e disponíveis em tempo real.
+                </p>
+            </div>
 
-            <p>
-                Sincronize sua operação com técnicos mecatrônicos
-                certificados e disponíveis em tempo real.
-            </p>
-        </div>
+            <select>
+                <option>Ordenar: Melhor Avaliação</option>
+                <option>Ordenar: Maior Preço</option>
+                <option>Ordenar: Menor Preço</option>
+            </select>
 
-        <select>
-            <option>Ordenar: Melhor Avaliação</option>
-            <option>Ordenar: Maior Preço</option>
-            <option>Ordenar: Menor Preço</option>
-        </select>
+        </section>
 
-    </section>
+        <section class="catalogo">
+            <div class="sidebar-filtros">
 
-    <section class="catalogo">
-         <div class="sidebar-filtros">
+                <div class="box-filtro">
 
-            <div class="box-filtro">
+                    <p>Especialidade</p>
 
-                <p>Especialidade</p>
+                    <label>
+                        <input type="checkbox">
+                        <span>Automação Industrial</span>
+                    </label>
 
-                <label>
-                    <input type="checkbox">
-                    <span>Automação Industrial</span>
-                </label>
+                    <label>
+                        <input type="checkbox">
+                        <span>Manutenção Preventiva</span>
+                    </label>
 
-                <label>
-                    <input type="checkbox">
-                    <span>Manutenção Preventiva</span>
-                </label>
+                    <label>
+                        <input type="checkbox">
+                        <span>Engenharia de Precisão</span>
+                    </label>
 
-                <label>
-                    <input type="checkbox">
-                    <span>Engenharia de Precisão</span>
-                </label>
+                    <label>
+                        <input type="checkbox">
+                        <span>Mecatrônica</span>
+                    </label>
 
-                <label>
-                    <input type="checkbox">
-                    <span>Mecatrônica</span>
-                </label>
+                </div>
+
+                <div class="box-filtro">
+
+                    <p>Disponibilidade</p>
+
+                    <label>
+                        <input type="checkbox">
+                        <span>Disponível</span>
+                    </label>
+
+                    <label>
+                        <input type="checkbox">
+                        <span>Em Serviço</span>
+                    </label>
+
+                    <label>
+                        <input type="checkbox">
+                        <span>Indisponível</span>
+                    </label>
+
+                </div>
+
+                <button>Limpar Filtros</button>
 
             </div>
 
-            <div class="box-filtro">
+            <div class="cards">
+                <div class="card">
 
-                <p>Disponibilidade</p>
+                    <div class="disponibilidade">Disponivel</div>
 
-                <label>
-                    <input type="checkbox">
-                    <span>Disponível</span>
-                </label>
+                    <div class="avaliacao">4.9</div>
 
-                <label>
-                    <input type="checkbox">
-                    <span>Em Serviço</span>
-                </label>
+                    <img src="https://static.vecteezy.com/ti/fotos-gratis/t2/57068323-solteiro-fresco-vermelho-morango-em-mesa-verde-fundo-comida-fruta-doce-macro-suculento-plantar-imagem-foto.jpg"
+                        alt="">
 
-                <label>
-                    <input type="checkbox">
-                    <span>Indisponível</span>
-                </label>
+                    <p>Nome Profissional</p>
 
+                    <p>Especialidade Profissional</p>
+
+                    <span>Tempo de empresa</span>
+
+                    <span>Quantidade de Trabalhos</span>
+
+                    <p>Preço do serviço</p>
+                    <p>por dia</p>
+
+                    <a href="./contratar">Contatra Profissional</a>
+                </div>
+                <div class="card">
+
+                    <div class="disponibilidade">Disponivel</div>
+
+                    <div class="avaliacao">4.9</div>
+
+                    <img src="https://static.vecteezy.com/ti/fotos-gratis/t2/57068323-solteiro-fresco-vermelho-morango-em-mesa-verde-fundo-comida-fruta-doce-macro-suculento-plantar-imagem-foto.jpg"
+                        alt="">
+
+                    <p>Nome Profissional</p>
+
+                    <p>Especialidade Profissional</p>
+
+                    <span>Tempo de empresa</span>
+
+                    <span>Quantidade de Trabalhos</span>
+
+                    <p>Preço do serviço</p>
+                    <p>por dia</p>
+
+                    <a href="./contratar">Contatra Profissional</a>
+                </div>
             </div>
 
-            <button>Limpar Filtros</button>
+        </section>
+    </main>
 
-        </div>
-
-        <div class="cards">
-            <div class="card">
-
-                <div class="disponibilidade">Disponivel</div>
-
-                <div class="avaliacao">4.9</div>
-
-                <img src="https://static.vecteezy.com/ti/fotos-gratis/t2/57068323-solteiro-fresco-vermelho-morango-em-mesa-verde-fundo-comida-fruta-doce-macro-suculento-plantar-imagem-foto.jpg"
-                    alt="">
-
-                <p>Nome Profissional</p>
-
-                <p>Especialidade Profissional</p>
-
-                <span>Tempo de empresa</span>
-
-                <span>Quantidade de Trabalhos</span>
-
-                <p>Preço do serviço</p>
-                <p>por dia</p>
-
-                <a href="./contratar">Contatra Profissional</a>
-            </div>
-             <div class="card">
-
-                <div class="disponibilidade">Disponivel</div>
-
-                <div class="avaliacao">4.9</div>
-
-                <img src="https://static.vecteezy.com/ti/fotos-gratis/t2/57068323-solteiro-fresco-vermelho-morango-em-mesa-verde-fundo-comida-fruta-doce-macro-suculento-plantar-imagem-foto.jpg"
-                    alt="">
-
-                <p>Nome Profissional</p>
-
-                <p>Especialidade Profissional</p>
-
-                <span>Tempo de empresa</span>
-
-                <span>Quantidade de Trabalhos</span>
-
-                <p>Preço do serviço</p>
-                <p>por dia</p>
-
-                <a href="./contratar">Contatra Profissional</a>
-            </div>
-        </div>
-
-    </section>
 
 </body>
 

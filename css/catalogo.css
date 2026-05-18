@@ -21,6 +21,12 @@ body{
 }
 
 
+.container {
+    max-width: 1550px;
+    margin: 0 auto;
+    padding: 60px 40px;
+}
+
 /* Section da parte de cima sem o Header */
 .topo{
     width: 100%;
@@ -128,9 +134,42 @@ body{
         min-width: unset;
     }
 }
+/* Section dos cards */
+.catalogo{
+    width: 100%;
+    padding: 0 80px 60px;
+    display: flex;
+    gap: 30px;
+    align-items: start;
+}
+
+/* Filtro */
+.sidebar-filtros{
+    width: 280px;
+
+    position: sticky;
+
+    top: 20px;
+}
+
+/* CONTEÚDO DIREITO */
+.conteudo-catalogo{
+    flex: 1;
+}
+
+
+/* Espaçamento do cards */
+.cards{
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
 
 .card{
-    width: 320px;
+    width: 20vw;
+
     background: linear-gradient( 180deg,#1a2f55 0%,#0b1833 100% );
     border: 1px solid rgba(139, 192, 214, 0.15);
     border-radius: 22px;
@@ -396,64 +435,4 @@ input[type="checkbox"]:checked::before{
     background: #132a52;
 
     border-color: var(--steel-blue);
-}
-
-
-
-/* semparação do box de filtro e o card */
-
-/* Section */
-.catalogo{
-    width: 100%;
-
-    padding: 0 80px 60px;
-
-    display: flex;
-
-    gap: 30px;
-
-    align-items: start;
-}
-
-/* Filtro */
-.sidebar-filtros{
-    width: 280px;
-
-    position: sticky;
-
-    top: 20px;
-}
-
-/* CONTEÚDO DIREITO */
-.conteudo-catalogo{
-    flex: 1;
-}
-
-
-/* Espaçamento do cards */
-.cards{
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 25px;
-}
-
-@media(max-width: 1000px){
-
-    .catalogo{
-        flex-direction: column;
-
-        padding: 0 30px 50px;
-    }
-
-    .sidebar-filtros{
-        width: 100%;
-
-        position: static;
-    }
-
-    .cards{
-        grid-template-columns: 1fr;
-    }
 }
