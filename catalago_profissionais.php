@@ -43,7 +43,7 @@
             <p>Preço do serviço</p>
             <p>por dia</p>
 
-            <a href="./contratar profissional">Contatra Profissional</a>
+            <a href="./contratar">Contatra Profissional</a>
         </div>
 
         <div class="box-filtro">
