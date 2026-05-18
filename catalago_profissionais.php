@@ -129,7 +129,7 @@
                         <p class="preco">R$ 200</p>
                         <p class="p-d">/dia</p>
 
-                        <a href="./contratar">Contratar</a>
+                        <a href="./contratar.php">Contratar</a>
                     </div>
 
                 </div>
