@@ -20,6 +20,115 @@ body{
   background-color: var(--deep-midnight);
 }
 
+
+/* Section da parte de cima sem o Header */
+.topo{
+    width: 100%;
+
+    background-color: var(--bg-primary);
+
+    padding: 70px 80px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+
+    gap: 40px;
+
+    flex-wrap: wrap;
+}
+
+
+.topo .textos{
+    max-width: 650px;
+}
+
+.topo .textos span{
+    display: block;
+
+    color: var(--misty-blue);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    margin-bottom: 18px;
+}
+
+.topo .textos h1{
+    color: var(--text-primary);
+
+    font-size: 58px;
+    font-weight: 700;
+
+    line-height: 1.1;
+
+    margin-bottom: 18px;
+}
+
+.topo .textos p{
+    color: var(--light-slate);
+
+    font-size: 22px;
+
+    line-height: 1.6;
+}
+
+.topo select{
+    background-color: #102449;
+
+    color: var(--text-primary);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 14px;
+
+    padding: 18px 22px;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    outline: none;
+
+    cursor: pointer;
+
+    min-width: 320px;
+
+    transition: 0.3s;
+}
+
+.topo select:hover{
+    border-color: var(--steel-blue);
+    background-color: #16335f;
+}
+
+.topo select:focus{
+    border-color: var(--misty-blue);
+}
+
+@media(max-width: 900px){
+
+    .topo{
+        padding: 50px 30px;
+        align-items: start;
+    }
+
+    .topo .textos h1{
+        font-size: 42px;
+    }
+
+    .topo .textos p{
+        font-size: 18px;
+    }
+
+    .topo select{
+        width: 100%;
+        min-width: unset;
+    }
+}
+
 .card{
     width: 320px;
     background: linear-gradient( 180deg,#1a2f55 0%,#0b1833 100% );
@@ -37,7 +146,7 @@ body{
     box-shadow: 0 15px 40px rgba(0,0,0,0.45);
 }
 
-/* IMAGEM */
+/* Imagem do card */
 .card img{
     width: 100%;
     height: 270px;
@@ -45,7 +154,7 @@ body{
     display: block;
 }
 
-/* EFEITO ESCURO SOBRE IMAGEM */
+/* Deixa a a parte de baixo da imagem mais escura igual na refenrencia criada */
 .card::before{
     content: "";
     position: absolute;
@@ -61,7 +170,7 @@ body{
     z-index: 1;
 }
 
-/* TAG DISPONÍVEL */
+/* Caixa da Disponibilidade/Indisponibilidade */
 .disponibilidade{
     position: absolute;
     top: 16px;
@@ -78,7 +187,7 @@ body{
     border: 1px solid rgba(255,255,255,0.15);
 }
 
-/* AVALIAÇÃO */
+/* Avaliação */
 .avaliacao{
     position: absolute;
     top: 16px;
@@ -93,7 +202,7 @@ body{
     border: 1px solid rgba(255,255,255,0.1);
 }
 
-/* CONTEÚDO */
+/* Textos no card*/
 .card p,
 .card span,
 .card a{
@@ -115,7 +224,7 @@ body{
     margin: 0 24px 15px;
 }
 
-/* INFOS */
+/* Descrição */
 .card span{
     display: inline-block;
     color: #979DAC;
@@ -124,7 +233,7 @@ body{
     margin-bottom: 18px;
 }
 
-/* PREÇO */
+/* Preço */
 .card p:nth-of-type(3){
     font-size: 42px;
     font-weight: 700;
@@ -140,7 +249,7 @@ body{
     margin-left: 5px;
 }
 
-/* BOTÃO */
+/* Contratar */
 .card a{
     display: block;
     width: calc(100% - 48px);

@@ -10,17 +10,26 @@
 
 <body>
 
-    <section>
-        <span>Rede de Especialistas</span>
-        <h1>Catalogo de Profissionais</h1>
-        <p>Sincronize sua operação com técnicos mecatrônicos certificados e disponíveis em tempo real.</p>
-        <select name="" id="">
-            <option value="">Ordernar: Melhor Avaliação</option>
-            <option value="">Ordernar: Maior Preço</option>
-            <option value="">Ordernar: Menor Preço</option>
-        </select>
-    </section>
+    <section class="topo">
 
+    <div class="textos">
+        <span>Rede de Especialistas</span>
+
+        <h1>Catálogo de Profissionais</h1>
+
+        <p>
+            Sincronize sua operação com técnicos mecatrônicos 
+            certificados e disponíveis em tempo real.
+        </p>
+    </div>
+
+    <select>
+        <option>Ordenar: Melhor Avaliação</option>
+        <option>Ordenar: Maior Preço</option>
+        <option>Ordenar: Menor Preço</option>
+    </select>
+
+</section>
 
     <section>
 
