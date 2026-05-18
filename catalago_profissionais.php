@@ -32,33 +32,7 @@
     </section>
 
     <section class="catalogo">
-        <div class="cards">
-            <div class="card">
-
-                <div class="disponibilidade">Disponivel</div>
-
-                <div class="avaliacao">4.9</div>
-
-                <img src="https://static.vecteezy.com/ti/fotos-gratis/t2/57068323-solteiro-fresco-vermelho-morango-em-mesa-verde-fundo-comida-fruta-doce-macro-suculento-plantar-imagem-foto.jpg"
-                    alt="">
-
-                <p>Nome Profissional</p>
-
-                <p>Especialidade Profissional</p>
-
-                <span>Tempo de empresa</span>
-
-                <span>Quantidade de Trabalhos</span>
-
-                <p>Preço do serviço</p>
-                <p>por dia</p>
-
-                <a href="./contratar">Contatra Profissional</a>
-            </div>
-        </div>
-
-
-        <div class="sidebar-filtros">
+         <div class="sidebar-filtros">
 
             <div class="box-filtro">
 
@@ -110,6 +84,32 @@
             <button>Limpar Filtros</button>
 
         </div>
+
+        <div class="cards">
+            <div class="card">
+
+                <div class="disponibilidade">Disponivel</div>
+
+                <div class="avaliacao">4.9</div>
+
+                <img src="https://static.vecteezy.com/ti/fotos-gratis/t2/57068323-solteiro-fresco-vermelho-morango-em-mesa-verde-fundo-comida-fruta-doce-macro-suculento-plantar-imagem-foto.jpg"
+                    alt="">
+
+                <p>Nome Profissional</p>
+
+                <p>Especialidade Profissional</p>
+
+                <span>Tempo de empresa</span>
+
+                <span>Quantidade de Trabalhos</span>
+
+                <p>Preço do serviço</p>
+                <p>por dia</p>
+
+                <a href="./contratar">Contatra Profissional</a>
+            </div>
+        </div>
+
     </section>
 
 </body>
