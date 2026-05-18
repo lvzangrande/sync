@@ -265,7 +265,7 @@ body{
 }
 
 .card a:hover{
-    background: #326B93;
+    background: var(--steel-blue);
     transform: scale(1.02);
 }
 
