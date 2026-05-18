@@ -360,7 +360,7 @@ input[type="checkbox"]:checked::before{
     transform: translate(-50%, -50%);
 }
 
-/* Textos */
+/* Textos do filtro  */
 .box-filtro span{
     color: var(--light-slate);
 
@@ -396,4 +396,64 @@ input[type="checkbox"]:checked::before{
     background: #132a52;
 
     border-color: var(--steel-blue);
+}
+
+
+
+/* semparação do box de filtro e o card */
+
+/* Section */
+.catalogo{
+    width: 100%;
+
+    padding: 0 80px 60px;
+
+    display: flex;
+
+    gap: 30px;
+
+    align-items: start;
+}
+
+/* Filtro */
+.sidebar-filtros{
+    width: 280px;
+
+    position: sticky;
+
+    top: 20px;
+}
+
+/* CONTEÚDO DIREITO */
+.conteudo-catalogo{
+    flex: 1;
+}
+
+
+/* Espaçamento do cards */
+.cards{
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+    gap: 25px;
+}
+
+@media(max-width: 1000px){
+
+    .catalogo{
+        flex-direction: column;
+
+        padding: 0 30px 50px;
+    }
+
+    .sidebar-filtros{
+        width: 100%;
+
+        position: static;
+    }
+
+    .cards{
+        grid-template-columns: 1fr;
+    }
 }
