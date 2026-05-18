@@ -85,8 +85,7 @@
 
             </div>
 
-            <div class="cards">
-                <div class="card">
+             <div class="card">
 
                     <div class="disponibilidade">Disponivel</div>
 
@@ -95,18 +94,20 @@
                     <img src="https://static.vecteezy.com/ti/fotos-gratis/t2/57068323-solteiro-fresco-vermelho-morango-em-mesa-verde-fundo-comida-fruta-doce-macro-suculento-plantar-imagem-foto.jpg"
                         alt="">
 
-                    <p>Nome Profissional</p>
+                    <p class="nome-profi">Nome Profissional</p>
 
-                    <p>Especialidade Profissional</p>
+                    <p class="especialidade">Especialidade Profissional</p>
 
                     <span>Tempo de empresa</span>
 
                     <span>Quantidade de Trabalhos</span>
+                    <div class="rodape">
+                        <p class="preco">R$ 200</p>
+                        <p class="p-d">/dia</p>
 
-                    <p>Preço do serviço</p>
-                    <p>por dia</p>
+                        <a href="./contratar">Contratar</a>
+                    </div>
 
-                    <a href="./contratar">Contatra Profissional</a>
                 </div>
                 <div class="card">
 
@@ -117,18 +118,20 @@
                     <img src="https://static.vecteezy.com/ti/fotos-gratis/t2/57068323-solteiro-fresco-vermelho-morango-em-mesa-verde-fundo-comida-fruta-doce-macro-suculento-plantar-imagem-foto.jpg"
                         alt="">
 
-                    <p>Nome Profissional</p>
+                    <p class="nome-profi">Nome Profissional</p>
 
-                    <p>Especialidade Profissional</p>
+                    <p class="especialidade">Especialidade Profissional</p>
 
                     <span>Tempo de empresa</span>
 
                     <span>Quantidade de Trabalhos</span>
+                    <div class="rodape">
+                        <p class="preco">R$ 200</p>
+                        <p class="p-d">/dia</p>
 
-                    <p>Preço do serviço</p>
-                    <p>por dia</p>
+                        <a href="./contratar">Contratar</a>
+                    </div>
 
-                    <a href="./contratar">Contatra Profissional</a>
                 </div>
             </div>
 

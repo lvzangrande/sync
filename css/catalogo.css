@@ -84,14 +84,10 @@ body{
 
 .topo select{
     background-color: #102449;
-
     color: var(--text-primary);
-
     border: 1px solid rgba(255,255,255,0.08);
-
     border-radius: 14px;
-
-    padding: 18px 22px;
+    padding: 18px 20px;
 
     font-size: 16px;
     font-weight: 500;
@@ -100,9 +96,8 @@ body{
 
     cursor: pointer;
 
-    min-width: 320px;
-
     transition: 0.3s;
+
 }
 
 .topo select:hover{
@@ -114,26 +109,6 @@ body{
     border-color: var(--misty-blue);
 }
 
-@media(max-width: 900px){
-
-    .topo{
-        padding: 50px 30px;
-        align-items: start;
-    }
-
-    .topo .textos h1{
-        font-size: 42px;
-    }
-
-    .topo .textos p{
-        font-size: 18px;
-    }
-
-    .topo select{
-        width: 100%;
-        min-width: unset;
-    }
-}
 /* Section dos cards */
 .catalogo{
     width: 100%;
@@ -249,14 +224,14 @@ body{
     z-index: 2;
 }
 
-.card p:nth-of-type(1){
+.nome-profi{
     font-size: 32px;
     font-weight: 700;
     color: white;
     margin: 24px 24px 5px;
 }
 
-.card p:nth-of-type(2){
+.especialidade{
     font-size: 18px;
     font-weight: 600;
     color: var(--misty-blue);
@@ -269,30 +244,36 @@ body{
     color: var(--light-slate);
     font-size: 14px;
     margin-left: 24px;
-    margin-bottom: 18px;
+}
+
+/* Rodape do card */
+
+.rodape {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding: 20px;
 }
 
 /* Preço */
-.card p:nth-of-type(3){
-    font-size: 42px;
-    font-weight: 700;
+.preco{
+    font-size: 26px;
     color: var(--misty-blue);
     margin: 10px 24px 0;
     display: inline-block;
 }
 
-.card p:nth-of-type(4){
+.p-d {
     display: inline-block;
     color:var(--light-slate);
     font-size: 16px;
-    margin-left: 5px;
+    margin-left: -3rem;
 }
 
 /* Contratar */
 .card a{
     display: block;
-    width: calc(100% - 48px);
-    margin: 20px 24px 24px;
+    width: 150px;
     text-align: center;
     background: var(--royal-industrial);
     color: white;
