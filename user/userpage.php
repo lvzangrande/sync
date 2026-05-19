@@ -1,5 +1,3 @@
-
-<?php require_once '../crud.php' ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -13,7 +11,11 @@
     require_once '../php/saudacao.php';
     //require_once '../partials/header.php';
     ?>
-    <img src=../img/joia.jfif>
+    <div class='imgperfil'>
+        <img src=../img/joia.jfif>
+        <br>
+        <a href='editardados.php'><img src=../img/lapiseditar.png width='50'></a>
+    </div>
     <h1>Zé</h1>
     <a class="historico" href="historicodecontratacoes.php">Ver histórico de contratações</a>
     <footer>

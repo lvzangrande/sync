@@ -24,6 +24,9 @@ header{
     width: 100%;
     height: 50px;
 }
+
+/*HISTÓRICO DE CONTRAÇÕES*/
+
 .botaovoltar{
     background-color: red;
     
@@ -47,4 +50,14 @@ td{
 }
 td{
     margin: 100px;
+}
+
+/*EDITAR DADOS PESSOAIS*/
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+input{
+    padding: 20px;
 }
