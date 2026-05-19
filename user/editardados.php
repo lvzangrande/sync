@@ -7,6 +7,9 @@
     <title>Editar dados pessoas</title>
 </head>
 <body>
+    <header>
+    <a class="botaovoltar" href="userpage.php"><img href="botaovoltar.png" width='200'></a>
+</header>
     <h2>Editar Dados Pessoais</h2>
     <div class='formulario'>
         <form action="#" method="POST" class="form-editar-usuario">
@@ -17,7 +20,7 @@
 
         <input type="tel" name="telefone" placeholder="Telefone" required>
 
-        <input type="text" name="cpf_cnpj" placeholder="CPF" required>>
+        <input type="text" name="cpf_cnpj" placeholder="CPF" required>
 
         <input type="file" name="img_user">
 
@@ -26,7 +29,7 @@
         </button>
         
         </form>
-        <a href='../'>Editar senha
+        <a class='editarsenha' href='../editarsenha.php'>Quero editar minha senha</a>
     </div>
 
 </body>
