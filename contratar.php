@@ -38,9 +38,9 @@
                     <p class="subespecialidade">Automação Industrial</p>
 
                     <div class="meta-info">
-                        <span class="avaliacao">⭐ 4.9 </span>
+                        <span class="avaliacao"> 4.9 </span>
                         <span>(247 trabalhos)</span>
-                        <span>⏱ 12 anos</span>
+                        <span>12 anos</span>
                     </div>
                 </div>
 
@@ -55,16 +55,62 @@
         </section>
 
         <!-- -----Formulario e div de descrição ------ -->
-        <section>
-            <form action="">
-                <select name="" id="">
-                    <option value="">Automção Industrial</option>
-                    <option value="">Manutenção Preventiva</option>
-                    <option value="">Engenharia de Precisão</option>
-                    <option value="">Mecatronica</option>
-                </select>
-            </form>
-        </section>
+        <section class="solicitacao-container">
+
+            <!-- FORMULÁRIO -->
+            <div class="formulario-card">
+                <h2>Solicitação de Serviço</h2>
+                <p class="descricao-formulario">
+                    Preencha os dados do serviço para prosseguir.
+                </p>
+
+                <form action="./insert.php">
+
+                    <div class="campo">
+                        <label>Tipo de Serviço</label>
+                        <select>
+                            <option selected disabled>Selecione o tipo de serviço</option>
+                            <option>Automação Industrial</option>
+                            <option>Manutenção Preventiva</option>
+                            <option>Engenharia de Precisão</option>
+                            <option>Mecatrônica</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label>Descrição do Problema</label>
+                        <textarea maxlength="500"
+                            placeholder="Descreva detalhadamente o problema, equipamento, modelo, sintomas observados..."></textarea>
+                        <span class="contador">0/500</span>
+                    </div>
+
+                    <div class="linha-dupla">
+                        <div class="campo">
+                            <label>Data Desejada</label>
+                            <input type="date">
+                        </div>
+
+                        <div class="campo">
+                            <label>Horário Preferencial</label>
+                            <select>
+                                <option selected disabled>Selecione</option>
+                                <option>Manhã</option>
+                                <option>Tarde</option>
+                                <option>Noite</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="campo">
+                        <label>Local da Intervenção</label>
+                        <input type="text" placeholder="Endereço completo da unidade industrial">
+                    </div>
+
+                    <button type="submit" class="btn-prosseguir">
+                        Prosseguir
+                    </button>
+                </form>
+            </div>
 
     </main>
 
