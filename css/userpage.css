@@ -1,13 +1,50 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
 body{
     background-color: #001233;
     color: aliceblue;
     font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 20px;
+}
+a{
+     text-decoration: none;
+     color: azure;
 }
 img{
     border-radius: 10px;
+}
+header{
+    background-color: brown;
+    width: 100%;
+    height: 50px;
+}
+.botaovoltar{
+    background-color: red;
+    
+    
 }
 .historico{
     padding: 20px;
     border-radius: 50px;
     background-color: #164578;
+
+}
+table{
+    background-color: #164578;
+    padding: 20px;
+    border-radius: 50px;
+    background-color: #164578;
+}
+td{
+    background-color:#326b93;
+    margin: 20px;
+}
+td{
+    margin: 100px;
 }
