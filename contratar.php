@@ -9,8 +9,9 @@
 </head>
 
 <body>
-
+    <!-- ----- Card Funcionario ----- -->
     <section>
+
         <a href="./catalogo_profissionais">Voltar ao Catalogo</a>
 
         <div class="card">
@@ -35,8 +36,21 @@
 
         </div>
         
-        
     </section>
+
+    <!-- -----Formulario e div de descrição ------ -->
+    <section>
+        <form action="">
+            <select name="" id="">
+                <option value="">Automção Industrial</option>                
+                <option value="">Manutenção Preventiva</option>
+                <option value="">Engenharia de Precisão</option>
+                <option value="">Mecatronica</option>
+            </select>
+        </form>
+    </section>
+
+
 </body>
 
 </html>
