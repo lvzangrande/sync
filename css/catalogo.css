@@ -1,0 +1,390 @@
+:root{
+    
+    --deep-midnight: #001233;
+    --navy-dark: #092848;
+    --royal-industrial: #164578;
+    --steel-blue: #326B93;
+    --slate-gray: #33415C;
+    --cool-gray: #7D8597;
+    --light-slate: #979DAC;
+    --misty-blue: #8BC0D6;
+    --text-primary: #FFFFFF;
+    --text-secondary: #979DAC;
+}
+
+body{
+    font-family: "Lexend", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  background-color: var(--deep-midnight);
+}
+
+
+.container {
+    max-width: 1550px;
+    margin: 0 auto;
+    padding: 60px 40px;
+}
+
+/* Section da parte de cima sem o Header */
+.topo{
+    width: 100%;
+
+    background-color: var(--bg-primary);
+
+    padding: 70px 80px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+
+    gap: 40px;
+
+    flex-wrap: wrap;
+}
+
+
+.topo .textos{
+    max-width: 650px;
+}
+
+.topo .textos span{
+    display: block;
+
+    color: var(--misty-blue);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    margin-bottom: 18px;
+}
+
+.topo .textos h1{
+    color: var(--text-primary);
+
+    font-size: 58px;
+    font-weight: 700;
+
+    line-height: 1.1;
+
+    margin-bottom: 18px;
+}
+
+.topo .textos p{
+    color: var(--light-slate);
+
+    font-size: 22px;
+
+    line-height: 1.6;
+}
+
+.topo select{
+    background-color: #102449;
+    color: var(--text-primary);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 18px 20px;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    outline: none;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+.topo select:hover{
+    border-color: var(--steel-blue);
+    background-color: #16335f;
+}
+
+.topo select:focus{
+    border-color: var(--misty-blue);
+}
+
+/* Section dos cards */
+.catalogo{
+    width: 100%;
+    padding: 0 80px 60px;
+    display: flex;
+    gap: 30px;
+    align-items: start;
+}
+
+/* Filtro */
+.sidebar-filtros{
+    width: 280px;
+
+    position: sticky;
+
+    top: 20px;
+}
+
+/* CONTEÚDO DIREITO */
+.conteudo-catalogo{
+    flex: 1;
+}
+
+
+/* Espaçamento do cards */
+.cards{
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.card{
+    width: 20vw;
+
+    background: linear-gradient( 180deg,#1a2f55 0%,#0b1833 100% );
+    border: 1px solid rgba(139, 192, 214, 0.15);
+    border-radius: 22px;
+    overflow: hidden;
+    position: relative;
+    font-family: 'Segoe UI', sans-serif;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    transition: 0.3s ease;
+}
+
+.card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.45);
+}
+
+/* Imagem do card */
+.card img{
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Deixa a a parte de baixo da imagem mais escura igual na refenrencia criada */
+.card::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 270px;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0) 40%,
+        rgba(9,40,72,0.95) 100%
+    );
+    z-index: 1;
+}
+
+/* Caixa da Disponibilidade/Indisponibilidade */
+.disponibilidade{
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: rgba(139, 192, 214, 0.2);
+    backdrop-filter: blur(6px);
+    color: #d9f6ff;
+    padding: 8px 14px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    z-index: 3;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* Avaliação */
+.avaliacao{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--navy-dark);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 14px;
+    z-index: 3;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Textos no card*/
+.card p,
+.card span,
+.card a{
+    position: relative;
+    z-index: 2;
+}
+
+.nome-profi{
+    font-size: 32px;
+    font-weight: 700;
+    color: white;
+    margin: 24px 24px 5px;
+}
+
+.especialidade{
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--misty-blue);
+    margin: 0 24px 15px;
+}
+
+/* Descrição */
+.card span{
+    display: inline-block;
+    color: var(--light-slate);
+    font-size: 14px;
+    margin-left: 24px;
+}
+
+/* Rodape do card */
+
+.rodape {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding: 20px;
+}
+
+/* Preço */
+.preco{
+    font-size: 26px;
+    color: var(--misty-blue);
+    margin: 10px 24px 0;
+    display: inline-block;
+}
+
+.p-d {
+    display: inline-block;
+    color:var(--light-slate);
+    font-size: 16px;
+    margin-left: -3rem;
+}
+
+/* Contratar */
+.card a{
+    display: block;
+    width: 150px;
+    text-align: center;
+    background: var(--royal-industrial);
+    color: white;
+    text-decoration: none;
+    padding: 16px;
+    border-radius: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.card a:hover{
+    background: var(--steel-blue);
+    transform: scale(1.02);
+}
+
+
+/* Pate latela filtros de pesquisa side bar */
+
+.sidebar-filtros{
+    display: flex;
+    width: 280px;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Box Filtros */
+.box-filtro{  
+    display: flex;
+    background: #0f2145;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 18px;
+    padding: 22px;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Titulos*/
+.box-filtro p{
+    color: var(--text-primary);
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    margin-top: -5px;
+}
+
+/* Label */
+.box-filtro label{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+/* Checkbox */
+.box-filtro 
+input[type="checkbox"]{
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    border: 2px solid #3f5275;
+    background: transparent;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+}
+
+/* Parte de dentro da check box */
+.box-filtro 
+input[type="checkbox"]:checked{
+    background: var(--steel-blue);
+    border-color: var(--steel-blue);
+}
+
+
+.box-filtro 
+input[type="checkbox"]:checked::before{
+    content: "✓";
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Textos do filtro  */
+.box-filtro span{
+    color: var(--light-slate);
+    font-size: 17px;
+    transition: 0.3s;
+}
+
+.box-filtro label:hover span{
+    color: white;
+}
+
+.sidebar-filtros button{
+    height: 40px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.233);
+    background: transparent;
+    color: var(--text-primary);
+    font-size: 17px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.sidebar-filtros button:hover{
+    background: #132a52;
+    border-color: var(--steel-blue);
+}

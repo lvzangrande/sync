@@ -4,69 +4,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/catalogo.css">
     <title>Catalago</title>
 </head>
 
 <body>
+    <main class="container">
+        <section class="topo">
 
-    <section>
-        <span>Rede de Especialistas</span>
-        <h1>Catalogo de Profissionais</h1>
-        <p>Sincronize sua operação com técnicos mecatrônicos certificados e disponíveis em tempo real.</p>
-        <select name="" id="">
-            <option value="">Ordernar: Melhor Avaliação</option>
-            <option value="">Ordernar: Maior Preço</option>
-            <option value="">Ordernar: Menor Preço</option>
-        </select>
-    </section>
+            <div class="textos">
+                <span>Rede de Especialistas</span>
 
+                <h1>Catálogo de Profissionais</h1>
 
-    <section>
+                <p>
+                    Sincronize sua operação com técnicos mecatrônicos
+                    certificados e disponíveis em tempo real.
+                </p>
+            </div>
 
-        <div class="card">
+            <select>
+                <option>Ordenar: Melhor Avaliação</option>
+                <option>Ordenar: Maior Preço</option>
+                <option>Ordenar: Menor Preço</option>
+            </select>
 
-            <div class="disponibilidade">Disponivel</div>
+        </section>
 
-            <div class="avaliacao">4.9</div>
+        <section class="catalogo">
+            <div class="sidebar-filtros">
 
-            <img src="https://static.vecteezy.com/ti/fotos-gratis/t2/57068323-solteiro-fresco-vermelho-morango-em-mesa-verde-fundo-comida-fruta-doce-macro-suculento-plantar-imagem-foto.jpg"
-                alt="">
+                <div class="box-filtro">
 
-            <p>Nome Profissional</p>
+                    <p>Especialidade</p>
 
-            <p>Especialidade Profissional</p>
+                    <label>
+                        <input type="checkbox">
+                        <span>Automação Industrial</span>
+                    </label>
 
-            <span>Tempo de empresa</span>
+                    <label>
+                        <input type="checkbox">
+                        <span>Manutenção Preventiva</span>
+                    </label>
 
-            <span>Quantidade de Trabalhos</span>
+                    <label>
+                        <input type="checkbox">
+                        <span>Engenharia de Precisão</span>
+                    </label>
 
-            <p>Preço do serviço</p>
-            <p>por dia</p>
+                    <label>
+                        <input type="checkbox">
+                        <span>Mecatrônica</span>
+                    </label>
 
-            <a href="./contratar profissional">Contatra Profissional</a>
-        </div>
+                </div>
 
-        <div class="box-filtro">
-            <p>Especialidade</p>
-            <input type="checkbox" name=""> <span>Automção Industrial</span>
-            <input type="checbox" name=""> <span>Manutenção Preventiva</span>
-            <input type="checbox" name=""> <span>Engenharia de Precisão</span>
-            <input type="checbox" name=""> <span>Mecatronica</span>
-        
-        
-        </div>
+                <div class="box-filtro">
 
-        <div class="box-filtro">
-            <p>Disponibilidade</p>
-            <input type="checkbox" name=""> <span>Disponivel</span>      
-            <input type="checkbox" name=""> <span>Em Serviço</span>
-            <input type="checkbox" name=""> <span>Indisponivel</span>
+                    <p>Disponibilidade</p>
 
-        </div>
-        
-        <button>Limpar Filtros</button>
+                    <label>
+                        <input type="checkbox">
+                        <span>Disponível</span>
+                    </label>
 
-    </section>
+                    <label>
+                        <input type="checkbox">
+                        <span>Em Serviço</span>
+                    </label>
+
+                    <label>
+                        <input type="checkbox">
+                        <span>Indisponível</span>
+                    </label>
+
+                </div>
+
+                <button>Limpar Filtros</button>
+
+            </div>
+
+             <div class="card">
+
+                    <div class="disponibilidade">Disponivel</div>
+
+                    <div class="avaliacao">4.9</div>
+
+                    <img src="https://static.vecteezy.com/ti/fotos-gratis/t2/57068323-solteiro-fresco-vermelho-morango-em-mesa-verde-fundo-comida-fruta-doce-macro-suculento-plantar-imagem-foto.jpg"
+                        alt="">
+
+                    <p class="nome-profi">Nome Profissional</p>
+
+                    <p class="especialidade">Especialidade Profissional</p>
+
+                    <span>Tempo de empresa</span>
+
+                    <span>Quantidade de Trabalhos</span>
+                    <div class="rodape">
+                        <p class="preco">R$ 200</p>
+                        <p class="p-d">/dia</p>
+
+                        <a href="./contratar">Contratar</a>
+                    </div>
+
+                </div>
+                <div class="card">
+
+                    <div class="disponibilidade">Disponivel</div>
+
+                    <div class="avaliacao">4.9</div>
+
+                    <img src="https://static.vecteezy.com/ti/fotos-gratis/t2/57068323-solteiro-fresco-vermelho-morango-em-mesa-verde-fundo-comida-fruta-doce-macro-suculento-plantar-imagem-foto.jpg"
+                        alt="">
+
+                    <p class="nome-profi">Nome Profissional</p>
+
+                    <p class="especialidade">Especialidade Profissional</p>
+
+                    <span>Tempo de empresa</span>
+
+                    <span>Quantidade de Trabalhos</span>
+                    <div class="rodape">
+                        <p class="preco">R$ 200</p>
+                        <p class="p-d">/dia</p>
+
+                        <a href="./contratar.php">Contratar</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+    </main>
+
 
 </body>
 
