@@ -47,7 +47,7 @@ body {
   grid-template-columns: 110px 1fr auto;
   align-items: center;
   gap: 24px;
-
+  width: 1500px;
   background: var(--navy-dark);
   border: 1px solid rgba(151, 157, 172, 0.15);
   border-radius: 20px;
@@ -161,4 +161,134 @@ body {
   margin-top: 6px;
   font-size: 1rem;
   color: var(--text-secondary);
+}
+
+
+
+
+.solicitacao-container {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 32px;
+  margin-top: 32px;
+  align-items: start;
+}
+
+/* Card Formulario */
+
+
+.formulario-card {
+  background: var(--navy-dark);
+  border: 1px solid rgba(151, 157, 172, 0.15);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(0, 18, 51, 0.25);
+}
+
+.formulario-card h2 {
+  margin: 0 0 8px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.descricao-formulario {
+  margin: 0 0 32px;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+
+/* CAMPOS */
+.campo {
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.campo label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Inputs, Selects e Textarea */
+.campo input,
+.campo select,
+.campo textarea {
+  width: 100%;
+  padding: 16px 18px;
+  border: 1px solid rgba(151, 157, 172, 0.15);
+  border-radius: 12px;
+  background: var(--deep-midnight);
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+/* Placeholder */
+.campo input::placeholder,
+.campo textarea::placeholder {
+  color: var(--cool-gray);
+}
+
+/* Focus */
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  border-color: var(--steel-blue);
+  box-shadow: 0 0 0 3px rgba(50, 107, 147, 0.15);
+}
+
+/* Textarea */
+.campo textarea {
+  min-height: 140px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+/* Contador de caracteres */
+.contador {
+  position: absolute;
+  right: 0;
+  bottom: -20px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* LINHA COM 2 CAMPOS */
+
+.linha-dupla {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+
+/* Botão */
+
+.btn-prosseguir {
+  width: 100%;
+  margin-top: 12px;
+  padding: 18px 24px;
+  border: none;
+  border-radius: 12px;
+  background: var(--royal-industrial);
+  color: var(--text-primary);
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-prosseguir:hover {
+  background: var(--steel-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(22, 69, 120, 0.35);
 }
