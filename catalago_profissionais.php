@@ -1,3 +1,7 @@
+<?php
+// require_once 'crud.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -85,7 +89,7 @@
 
             </div>
 
-            
+            <div class="cards">
                 <div class="card">
 
                     <div class="disponibilidade">Disponivel</div>
@@ -111,7 +115,6 @@
 
                 </div>
             </div>
-
         </section>
     </main>
 
