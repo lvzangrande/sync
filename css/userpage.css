@@ -1,0 +1,13 @@
+body{
+    background-color: #001233;
+    color: aliceblue;
+    font-family: sans-serif;
+}
+img{
+    border-radius: 10px;
+}
+.historico{
+    padding: 20px;
+    border-radius: 50px;
+    background-color: #164578;
+}

@@ -10,8 +10,8 @@
                 <li><a href="#">Profissionais</a></li>
                 <li><a href="#">Equipe</a></li>
                 <li><a href="#">Suporte</a></li>
-                <li><a href="#">Entrar</a></li>
-                <li><a href="#">Cadastro</a></li>
+                <li><a href="login.php">Entrar</a></li>
+                <li><a href="cadastro.php">Cadastro</a></li>
 
             </ul>
 </header>
