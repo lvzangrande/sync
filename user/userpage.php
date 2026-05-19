@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seu perfil</title>
+</head>
+<body>
+    <header>
+        <a></a>
+    </header>
+    <?php require '../php/saudacao.php'?>
+</body>
+</html>
