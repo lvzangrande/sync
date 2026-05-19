@@ -1,7 +1,158 @@
+:root{
+    
+    --deep-midnight: #001233;
+    --navy-dark: #092848;
+    --royal-industrial: #164578;
+    --steel-blue: #326B93;
+    --slate-gray: #33415C;
+    --cool-gray: #7D8597;
+    --light-slate: #979DAC;
+    --misty-blue: #8BC0D6;
+    --text-primary: #FFFFFF;
+    --text-secondary: #979DAC;
+}
+
+
 body{
     font-family: "Lexend", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
   background-color: #001233;
+}
+/* Botão para voltar */
+.btn-voltar {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 25px;
+    color: #b8c7e0;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.btn-voltar:hover {
+    color: #ffffff;
+}
+
+
+
+/* CARD PRINCIPAL */
+.card {
+    position: relative;
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    grid-template-rows: auto auto auto auto;
+    column-gap: 22px;
+    row-gap: 6px;
+
+    width: 100%;
+    max-width: 980px;
+    padding: 24px 28px;
+
+    background: #132a63;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+
+    align-items: center;
+}
+
+/* BADGE DISPONÍVEL */
+.disponibilidade {
+    position: absolute;
+    top: 28px;
+    left: 290px;
+
+    padding: 6px 12px;
+    border-radius: 8px;
+
+    background: rgba(78, 201, 176, 0.12);
+    border: 1px solid rgba(78, 201, 176, 0.25);
+
+    color: #7fe7d0;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+/* FOTO */
+.card img {
+    grid-column: 1;
+    grid-row: 1 / 5;
+
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+
+    border-radius: 14px;
+    border: 2px solid rgba(255, 255, 255, 0.06);
+}
+
+/* NOME */
+.card p:nth-of-type(1) {
+    grid-column: 2;
+    grid-row: 1;
+
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-right: 140px;
+}
+
+/* ESPECIALIDADE */
+.card p:nth-of-type(2) {
+    grid-column: 2;
+    grid-row: 2;
+
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #7ecbff;
+}
+
+/* AVALIAÇÃO */
+.card span:nth-of-type(1) {
+    grid-column: 2;
+    grid-row: 3;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #ffd166;
+}
+
+/* TEMPO DE EMPRESA */
+.card span:nth-of-type(2) {
+    grid-column: 2;
+    grid-row: 4;
+
+    font-size: 0.9rem;
+    color: #b8c7e0;
+}
+
+/* QUANTIDADE DE TRABALHOS */
+.card span:nth-of-type(3) {
+    grid-column: 2;
+    grid-row: 4;
+
+    margin-left: 160px;
+
+    font-size: 0.9rem;
+    color: #b8c7e0;
+}
+
+/* PREÇO */
+.card p:nth-of-type(3) {
+    grid-column: 3;
+    grid-row: 1 / 3;
+
+    align-self: start;
+    justify-self: end;
+
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #7ecbff;
+    text-align: right;
 }

@@ -12,7 +12,7 @@
     <!-- ----- Card Funcionario ----- -->
     <section>
 
-        <a href="./catalogo_profissionais">Voltar ao Catalogo</a>
+        <a class="btn-voltar" href="./catalogo_profissionais">Voltar ao Catalogo</a>
 
         <div class="card">
 
