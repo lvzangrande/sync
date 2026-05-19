@@ -1,3 +1,7 @@
+<?php
+require_once 'crud.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -85,56 +89,41 @@
 
             </div>
 
-             <div class="card">
+            <div class="cards">
 
-                    <div class="disponibilidade">Disponivel</div>
+                <?php
+                    $cards = readALL($pdo, 'usuarios');
+                    foreach ($cards as $card) {
+                        echo 
+                            '<div class="card">
 
-                    <div class="avaliacao">4.9</div>
+                                <div class="disponibilidade">'.$card['status'].'</div>
 
-                    <img src="https://static.vecteezy.com/ti/fotos-gratis/t2/57068323-solteiro-fresco-vermelho-morango-em-mesa-verde-fundo-comida-fruta-doce-macro-suculento-plantar-imagem-foto.jpg"
-                        alt="">
+                                <div class="avaliacao">'.$card['notas'].'</div>
 
-                    <p class="nome-profi">Nome Profissional</p>
+                                <img src="'.$card['img_user'].'"
+                                    alt="">
 
-                    <p class="especialidade">Especialidade Profissional</p>
+                                <p class="nome-profi">'.$card['nome'].'</p>
 
-                    <span>Tempo de empresa</span>
+                                <p class="especialidade">'.$card['especialidade'].'</p>
 
-                    <span>Quantidade de Trabalhos</span>
-                    <div class="rodape">
-                        <p class="preco">R$ 200</p>
-                        <p class="p-d">/dia</p>
+                                <span>15 meses</span>
 
-                        <a href="./contratar">Contratar</a>
-                    </div>
+                                <span>320</span>
+                                <div class="rodape">
+                                    <p class="preco">'.$card['valor_dia'].'</p>
+                                    <p class="p-d">/dia</p>
 
-                </div>
-                <div class="card">
+                                    <a href="./contratar.php">Contratar</a>
+                                </div>
 
-                    <div class="disponibilidade">Disponivel</div>
-
-                    <div class="avaliacao">4.9</div>
-
-                    <img src="https://static.vecteezy.com/ti/fotos-gratis/t2/57068323-solteiro-fresco-vermelho-morango-em-mesa-verde-fundo-comida-fruta-doce-macro-suculento-plantar-imagem-foto.jpg"
-                        alt="">
-
-                    <p class="nome-profi">Nome Profissional</p>
-
-                    <p class="especialidade">Especialidade Profissional</p>
-
-                    <span>Tempo de empresa</span>
-
-                    <span>Quantidade de Trabalhos</span>
-                    <div class="rodape">
-                        <p class="preco">R$ 200</p>
-                        <p class="p-d">/dia</p>
-
-                        <a href="./contratar.php">Contratar</a>
-                    </div>
-
-                </div>
+                            </div>'
+                        ;
+                    }
+                ?>
+                
             </div>
-
         </section>
     </main>
 
