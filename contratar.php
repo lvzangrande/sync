@@ -9,46 +9,64 @@
 </head>
 
 <body>
-    <!-- ----- Card Funcionario ----- -->
-    <section>
+    <main>
+        <!-- ----- Card Funcionario ----- -->
+        <section class="perfil-profissional">
 
-        <a class="btn-voltar" href="./catalogo_profissionais">Voltar ao Catalogo</a>
+            <a href="./catalogo_profissionais" class="voltar">
+                ← Voltar ao Catálogo
+            </a>
 
-        <div class="card">
+            <div class="card-profissional">
 
-            <div class="disponibilidade">Disponivel</div>
+                <!-- Foto -->
+                <div class="foto-profissional">
+                    <img src="https://static.vecteezy.com/ti/fotos-gratis/t2/57068323-solteiro-fresco-vermelho-morango-em-mesa-verde-fundo-comida-fruta-doce-macro-suculento-plantar-imagem-foto.jpg"
+                        alt="">
+                </div>
 
-            <img src="https://static.vecteezy.com/ti/fotos-gratis/t2/57068323-solteiro-fresco-vermelho-morango-em-mesa-verde-fundo-comida-fruta-doce-macro-suculento-plantar-imagem-foto.jpg"
-                alt="">
+                <!-- Informações -->
+                <div class="info-profissional">
 
-            <p>Nome Profissional</p>
+                    <div class="topo-info">
+                        <h1>Nome Profissional</h1>
+                        <span class="disponibilidade">DISPONÍVEL</span>
+                    </div>
 
-            <p>Especialidade Profissional</p>
+                    <h2>Especialidade Profissional</h2>
 
-            <span>Avaliação</span>
+                    <p class="subespecialidade">Automação Industrial</p>
 
-            <span>Tempo de empresa</span>
+                    <div class="meta-info">
+                        <span class="avaliacao">⭐ 4.9 </span>
+                        <span>(247 trabalhos)</span>
+                        <span>⏱ 12 anos</span>
+                    </div>
+                </div>
 
-            <span>Quantidade de Trabalhos</span>
+                <!-- Preço -->
+                <div class="preco-servico">
+                    <span class="valor">R$ 280</span>
+                    <span class="periodo">/hora</span>
+                </div>
 
-            <p>Preço do serviço</p>
-            <p>por dia</p>
+            </div>
 
-        </div>
-        
-    </section>
+        </section>
 
-    <!-- -----Formulario e div de descrição ------ -->
-    <section>
-        <form action="">
-            <select name="" id="">
-                <option value="">Automção Industrial</option>                
-                <option value="">Manutenção Preventiva</option>
-                <option value="">Engenharia de Precisão</option>
-                <option value="">Mecatronica</option>
-            </select>
-        </form>
-    </section>
+        <!-- -----Formulario e div de descrição ------ -->
+        <section>
+            <form action="">
+                <select name="" id="">
+                    <option value="">Automção Industrial</option>
+                    <option value="">Manutenção Preventiva</option>
+                    <option value="">Engenharia de Precisão</option>
+                    <option value="">Mecatronica</option>
+                </select>
+            </form>
+        </section>
+
+    </main>
 
 
 </body>
