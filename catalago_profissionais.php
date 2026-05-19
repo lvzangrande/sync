@@ -85,30 +85,7 @@
 
             </div>
 
-             <div class="card">
-
-                    <div class="disponibilidade">Disponivel</div>
-
-                    <div class="avaliacao">4.9</div>
-
-                    <img src="https://static.vecteezy.com/ti/fotos-gratis/t2/57068323-solteiro-fresco-vermelho-morango-em-mesa-verde-fundo-comida-fruta-doce-macro-suculento-plantar-imagem-foto.jpg"
-                        alt="">
-
-                    <p class="nome-profi">Nome Profissional</p>
-
-                    <p class="especialidade">Especialidade Profissional</p>
-
-                    <span>Tempo de empresa</span>
-
-                    <span>Quantidade de Trabalhos</span>
-                    <div class="rodape">
-                        <p class="preco">R$ 200</p>
-                        <p class="p-d">/dia</p>
-
-                        <a href="./contratar">Contratar</a>
-                    </div>
-
-                </div>
+            
                 <div class="card">
 
                     <div class="disponibilidade">Disponivel</div>
