@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -34,7 +35,7 @@
                 <a>joaolinux</a>
             </td>
         </tr>   
-    <table>
+</table>
 
 </body>
 </html>
