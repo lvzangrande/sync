@@ -4,38 +4,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./css/contratar.css">
+    <title>Pagina de Contrato</title>
 </head>
 
 <body>
+    <main>
+        <!-- ----- Card Funcionario ----- -->
+        <section class="perfil-profissional">
 
-    <section>
-        <a href="./catalogo_profissionais">Voltar ao Catalogo</a>
+            <a href="./catalogo_profissionais" class="voltar">
+                ← Voltar ao Catálogo
+            </a>
 
-        <div class="card">
+            <div class="card-profissional">
 
-            <div class="disponibilidade">Disponivel</div>
+                <!-- Foto -->
+                <div class="foto-profissional">
+                    <img src="https://static.vecteezy.com/ti/fotos-gratis/t2/57068323-solteiro-fresco-vermelho-morango-em-mesa-verde-fundo-comida-fruta-doce-macro-suculento-plantar-imagem-foto.jpg"
+                        alt="">
+                </div>
 
-            <img src="https://static.vecteezy.com/ti/fotos-gratis/t2/57068323-solteiro-fresco-vermelho-morango-em-mesa-verde-fundo-comida-fruta-doce-macro-suculento-plantar-imagem-foto.jpg"
-                alt="">
+                <!-- Informações -->
+                <div class="info-profissional">
 
-            <p>Nome Profissional</p>
+                    <div class="topo-info">
+                        <h1>Nome Profissional</h1>
+                        <span class="disponibilidade">DISPONÍVEL</span>
+                    </div>
 
-            <p>Especialidade Profissional</p>
+                    <h2>Especialidade Profissional</h2>
 
-            <span>Avaliação</span>
+                    <p class="subespecialidade">Automação Industrial</p>
 
-            <span>Tempo de empresa</span>
+                    <div class="meta-info">
+                        <span class="avaliacao"> 4.9 </span>
+                        <span>(247 trabalhos)</span>
+                        <span>12 anos</span>
+                    </div>
+                </div>
 
-            <span>Quantidade de Trabalhos</span>
+                <!-- Preço -->
+                <div class="preco-servico">
+                    <span class="valor">R$ 280</span>
+                    <span class="periodo">/hora</span>
+                </div>
 
-            <p>Preço do serviço</p>
-            <p>por dia</p>
+            </div>
 
-        </div>
-        
-        
-    </section>
+        </section>
+
+        <!-- -----Formulario e div de descrição ------ -->
+        <section class="solicitacao-container">
+
+            <!-- FORMULÁRIO -->
+            <div class="formulario-card">
+                <h2>Solicitação de Serviço</h2>
+                <p class="descricao-formulario">
+                    Preencha os dados do serviço para prosseguir.
+                </p>
+
+                <form action="./insert.php">
+
+                    <div class="campo">
+                        <label>Tipo de Serviço</label>
+                        <select>
+                            <option selected disabled>Selecione o tipo de serviço</option>
+                            <option>Automação Industrial</option>
+                            <option>Manutenção Preventiva</option>
+                            <option>Engenharia de Precisão</option>
+                            <option>Mecatrônica</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label>Descrição do Problema</label>
+                        <textarea maxlength="500"
+                            placeholder="Descreva detalhadamente o problema, equipamento, modelo, sintomas observados..."></textarea>
+                        <span class="contador">0/500</span>
+                    </div>
+
+                    <div class="linha-dupla">
+                        <div class="campo">
+                            <label>Data Desejada</label>
+                            <input type="date">
+                        </div>
+
+                        <div class="campo">
+                            <label>Horário Preferencial</label>
+                            <select>
+                                <option selected disabled>Selecione</option>
+                                <option>Manhã</option>
+                                <option>Tarde</option>
+                                <option>Noite</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="campo">
+                        <label>Local da Intervenção</label>
+                        <input type="text" placeholder="Endereço completo da unidade industrial">
+                    </div>
+
+                    <button type="submit" class="btn-prosseguir">
+                        Prosseguir
+                    </button>
+                </form>
+            </div>
+
+    </main>
+
+
 </body>
 
 </html>
