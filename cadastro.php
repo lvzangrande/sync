@@ -150,8 +150,11 @@ if (
             </div>
 
             <div class="form-group">
-                <label for="arquivo_imagem">Foto de perfil</label>
-                <input type="file" id= "foto" name="img_user" accept="image/*">
+                <label>Foto de Perfil</label>
+                <label for="foto" class="upload-container">
+                    <span id="nome-arquivo">Selecione uma imagem (Máx: 1MB)</span>
+                    <input type="file" id="foto" name="img_user" accept="image/*" class="input-file-hidden">
+                </label>
             </div>
 
             <button type="submit" class="btn-submit">Registrar Cliente</button>
