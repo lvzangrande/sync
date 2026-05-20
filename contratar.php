@@ -112,6 +112,41 @@
                 </form>
             </div>
 
+
+            <!-- CARD DE ORÇAMENTO -->
+            <aside class="orcamento-card">
+                <h3>Orçamento Estimado</h3>
+
+                <div class="linha-orcamento">
+                    <span>Valor/hora</span>
+                    <strong>R$ 280</strong>
+                </div>
+
+                <div class="linha-orcamento">
+                    <span>Horas estimadas</span>
+                    <strong>4h</strong>
+                </div>
+
+                <hr>
+
+                <div class="total-estimado">
+                    <span>Total estimado</span>
+                    <strong>R$ 1.120</strong>
+                </div>
+
+                <p class="texto-orcamento">
+                    Este é um valor estimado com base em 4 horas de trabalho.
+                    O valor final pode variar conforme a complexidade do serviço.
+                </p>
+
+                <div class="garantia-box">
+                    <h4>Garantia Sync</h4>
+                    <p>
+                        Todos os serviços incluem garantia de 90 dias e suporte técnico prioritário.
+                    </p>
+                </div>
+            </aside>
+        </section>
     </main>
 
 
