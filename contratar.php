@@ -77,13 +77,13 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
                     Preencha os dados do serviço para prosseguir.
                 </p>
 
-                <form action="./func/insert.php">
+                <form action="./func/insert.php" method="POST">
 
                     <div class="campo">
                         <label>Tipo de Serviço</label>
-                        <select>
+                        <select name="tipo_serv">
                             <option selected disabled>Selecione o tipo de serviço</option>
-                            <optio values="Auto_Indu">Automação Industrial</option>
+                            <option values="Auto_Indu">Automação Industrial</option>
                             <option values="Manu_Preven">Manutenção Preventiva</option>
                             <option values="Eng_Preci">Engenharia de Precisão</option>
                             <option value="Meca">Mecatrônica</option>
@@ -103,17 +103,17 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
                         </div>
 
                         <div class="campo">
-                            <label for="">Tempo de Contrato</label>
+                            <label for="">Tempo Estimado em Dias</label>
                            <input type="number" name="tempo" placeholder="ex: 20 dias">
                         </div>
                     </div>
 
                     <div class="campo">
                         <label>Local da Intervenção</label>
-                        <input type="text" placeholder="Endereço completo da unidade industrial">
+                        <input name="end_serv" type="text" placeholder="Endereço completo da unidade industrial">
                     </div>
 
-                    <button type="submit" class="btn-prosseguir">
+                    <button class="btn-prosseguir">
                         Prosseguir
                     </button>
                 </form>

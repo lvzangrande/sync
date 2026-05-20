@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="css/partials.css">
+<link rel="stylesheet" href="../css/partials.css">
 <header>
     <nav>
         <div class="menu-superior">
