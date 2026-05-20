@@ -3,46 +3,38 @@ session_start();
 require_once 'crud.php';
 
 $mensagem = "";
-$tipo_mensagem = ""; 
+$tipo_mensagem = "";
 
 if (
-    isset($_POST['nome']) && 
-    isset($_POST['email']) && 
-    isset($_POST['senha']) && 
-    isset($_POST['telefone']) && 
-    isset($_POST['cpf_cnpj']) && 
+    isset($_POST['nome']) &&
+    isset($_POST['email']) &&
+    isset($_POST['senha']) &&
+    isset($_POST['telefone']) &&
+    isset($_POST['cpf_cnpj']) &&
     isset($_POST['tipo'])
 ) {
-    
+
     $nome     = trim($_POST['nome']);
     $email    = trim($_POST['email']);
     $senha    = trim($_POST['senha']);
     $telefone = trim($_POST['telefone']);
     $cpf_cnpj = trim($_POST['cpf_cnpj']);
-    $tipo     = $_POST['tipo'];
-    
-    $categoria = 'cliente'; 
+    $tipo     = trim($_POST['tipo']);
+
+    $categoria = 'cliente';
 
     if (empty($nome) || empty($email) || empty($senha) || empty($telefone) || empty($cpf_cnpj) || empty($tipo)) {
         $mensagem = "Por favor, preencha todos os campos obrigatórios.";
         $tipo_mensagem = "erro";
     } else {
-        $nome_seguro      = $pdo->quote($nome);
-        $email_seguro     = $pdo->quote($email);
-        $senha_segura     = $pdo->quote($senha); 
-        $telefone_seguro  = $pdo->quote($telefone);
-        $cpf_cnpj_seguro  = $pdo->quote($cpf_cnpj);
-        $tipo_seguro      = $pdo->quote($tipo);
-        $categoria_segura = $pdo->quote($categoria);
-
         $dados = [
-            'nome'      => $nome_seguro,
-            'email'     => $email_seguro,
-            'senha'     => $senha_segura,
-            'telefone'  => $telefone_seguro,
-            'cpf_cnpj'  => $cpf_cnpj_seguro,
-            'tipo'      => $tipo_seguro,
-            'categoria' => $categoria_segura
+            'nome'      => $nome,
+            'email'     => $email,
+            'senha'     => $senha,
+            'telefone'  => $telefone,
+            'cpf_cnpj'  => $cpf_cnpj,
+            'tipo'      => $tipo,        
+            'categoria' => $categoria
         ];
 
         $sucesso = create($pdo, 'usuarios', $dados);
@@ -59,12 +51,14 @@ if (
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sync | Cadastro de Cliente</title>
     <link rel="stylesheet" href="css/cadastro.css">
 </head>
+
 <body>
 
     <div class="cadastro-container">
@@ -80,7 +74,7 @@ if (
         <?php endif; ?>
 
         <form action="cadastro.php" method="POST">
-            
+
             <div class="form-group">
                 <label for="nome">Nome / Razão Social</label>
                 <input type="text" id="nome" name="nome" class="input-control" placeholder="Nome completo ou Empresa" required>
@@ -126,4 +120,5 @@ if (
     </div>
 
 </body>
+
 </html>

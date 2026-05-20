@@ -19,9 +19,7 @@ if (isset($_POST['usuario']) && isset($_POST['senha'])) {
         $erro = "Preencha todos os campos!";
         
     } else {
-        
-        $email_seguro = $pdo->quote($usuario_digitado);
-        $condicao = "email = $email_seguro";
+        $condicao = "email = '$usuario_digitado'";
         $resultado = read($pdo, 'usuarios', $condicao);
 
         if ($resultado) {
