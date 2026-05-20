@@ -133,6 +133,7 @@ select.input-control {
     margin-top: 20px;
     text-align: center;
     font-size: 0.85rem;
+    color: var(--light-slate);
 }
 
 .cadastro-footer a {
