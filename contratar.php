@@ -57,7 +57,7 @@
         <!-- -----Formulario e div de descrição ------ -->
         <section class="solicitacao-container">
 
-            <!-- FORMULÁRIO -->
+            <!-- -----Formulario----- -->
             <div class="formulario-card">
                 <h2>Solicitação de Serviço</h2>
                 <p class="descricao-formulario">
@@ -113,8 +113,8 @@
             </div>
 
 
-            <!-- CARD DE ORÇAMENTO -->
-            <aside class="orcamento-card">
+            <!-- -------Card------- -->
+            <div class="orcamento-card">
                 <h3>Orçamento Estimado</h3>
 
                 <div class="linha-orcamento">
@@ -145,7 +145,7 @@
                         Todos os serviços incluem garantia de 90 dias e suporte técnico prioritário.
                     </p>
                 </div>
-            </aside>
+            </div>
         </section>
     </main>
 

@@ -34,7 +34,7 @@ main{
   padding: 20px;
 }
 
-/* LINK VOLTAR */
+/* Voltar */
 .voltar {
   display: inline-block;
   margin-bottom: 20px;
@@ -49,13 +49,13 @@ main{
   color: var(--text-primary);
 }
 
-/* CARD PRINCIPAL */
+/* Card */
 .card-profissional {
   display: grid;
   grid-template-columns: 110px 1fr auto;
   align-items: center;
   gap: 24px;
-  width: 1500px;
+  width: 1220px;
   background: var(--navy-dark);
   border: 1px solid rgba(151, 157, 172, 0.15);
   border-radius: 20px;
@@ -65,7 +65,7 @@ main{
   box-shadow: 0 10px 30px rgba(0, 18, 51, 0.25);
 }
 
-/* FOTO */
+/* Foto */
 .foto-profissional img {
   width: 100px;
   height: 100px;
@@ -76,14 +76,14 @@ main{
   border: 2px solid rgba(151, 157, 172, 0.08);
 }
 
-/* ÁREA DE INFORMAÇÕES */
+/* Informações */
 .info-profissional {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-/* TOPO (NOME + BADGE) */
+/* Tag de disponibilidade*/
 .topo-info {
   display: flex;
   align-items: center;
@@ -91,16 +91,6 @@ main{
   flex-wrap: wrap;
 }
 
-/* NOME */
-.topo-info h1 {
-  margin: 0;
-  font-size: 3rem;
-  font-weight: 700;
-  line-height: 1.1;
-  color: var(--text-primary);
-}
-
-/* BADGE DISPONÍVEL */
 .disponibilidade {
   padding: 6px 12px;
   border-radius: 8px;
@@ -115,7 +105,16 @@ main{
   text-transform: uppercase;
 }
 
-/* ESPECIALIDADE PRINCIPAL */
+/* Nome */
+.topo-info h1 {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+/* Especialidade */
 .info-profissional h2 {
   margin: 0;
   font-size: 1.4rem;
@@ -123,14 +122,13 @@ main{
   color: var(--misty-blue);
 }
 
-/* SUBESPECIALIDADE */
 .subespecialidade {
   margin: 0;
   font-size: 1.05rem;
   color: var(--text-secondary);
 }
 
-/* META INFORMAÇÕES */
+/* Informações */
 .meta-info {
   display: flex;
   align-items: center;
@@ -142,18 +140,10 @@ main{
   color: var(--text-secondary);
 }
 
-/* AVALIAÇÃO */
+/* Avaliação */
 .avaliacao {
   color: #FFD166;
   font-weight: 600;
-}
-
-/* PREÇO */
-.preco-servico {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  text-align: right;
 }
 
 /* VALOR */
@@ -171,9 +161,7 @@ main{
   color: var(--text-secondary);
 }
 
-
-
-
+/* Section formulario */
 .solicitacao-container {
   display: grid;
   grid-template-columns: 1fr 320px;
@@ -183,8 +171,6 @@ main{
 }
 
 /* Card Formulario */
-
-
 .formulario-card {
   background: var(--navy-dark);
   border: 1px solid rgba(151, 157, 172, 0.15);
@@ -207,8 +193,7 @@ main{
   line-height: 1.5;
 }
 
-
-/* CAMPOS */
+/* Campo*/
 .campo {
   margin-bottom: 24px;
   position: relative;
@@ -228,7 +213,7 @@ main{
 .campo input,
 .campo select,
 .campo textarea {
-  width: 100%;
+  width: 90%;
   padding: 16px 18px;
   border: 1px solid rgba(151, 157, 172, 0.15);
   border-radius: 12px;
@@ -271,16 +256,13 @@ main{
 }
 
 /* LINHA COM 2 CAMPOS */
-
 .linha-dupla {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
 
-
 /* Botão */
-
 .btn-prosseguir {
   width: 100%;
   margin-top: 12px;
@@ -301,14 +283,7 @@ main{
   box-shadow: 0 8px 20px rgba(22, 69, 120, 0.35);
 }
 
-
-
-
-
-/* ========================================
-   CARD DE ORÇAMENTO
-======================================== */
-
+ /* Card Informações/Orcamento */
 .orcamento-card {
     background: var(--navy-dark);
     border: 1px solid rgba(151, 157, 172, 0.15);
