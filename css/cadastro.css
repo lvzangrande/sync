@@ -144,3 +144,33 @@ select.input-control {
 .cadastro-footer a:hover {
     text-decoration: underline;
 }
+
+.upload-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    background-color: var(--navy-dark); 
+    border: 1px dashed var(--cool-gray); 
+    border-radius: 4px;
+    padding: 12px 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-container:hover {
+    border-color: var(--misty-blue);
+    background-color: rgba(139, 192, 214, 0.03); 
+}
+
+.upload-container span {
+    color: var(--light-slate);
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.input-file-hidden {
+    display: none;
+}
