@@ -1,10 +1,12 @@
 <?php
 require_once 'crud.php';
 
-$idcard = $_GET['id_user'];
+// if (!isset($_GET['id_user'])) {
+//     die("Usuário não encontrado");
+// }
 
-$profissional = read($pdo, 'usuarios', $idcard);
-
+$idcard = intval($_GET['id']);
+$profissional = read($pdo, "usuarios", "id_user=$idcard");
 ?>
 
 <!DOCTYPE html>
