@@ -44,6 +44,7 @@ CREATE TABLE IF NOT EXISTS maquinas (
 		tempo_planejado INT NOT NULL,
 		
 	    descricao_problema TEXT NOT NULL,
+        tipo_servico ENUM('Manutenção Preventiva', 'Automação industrial', 'Engenharia de precisão', 'Mecatrônica') NOT NULL,
 	    endereco_servico VARCHAR(255) NOT NULL,
 	    
 	    status_os ENUM('Pendente', 'Agendada', 'Em Andamento', 'Concluída', 'Cancelada') DEFAULT 'Pendente',
