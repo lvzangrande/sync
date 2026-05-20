@@ -55,7 +55,7 @@ main{
   grid-template-columns: 110px 1fr auto;
   align-items: center;
   gap: 24px;
-  width: 1500px;
+  width: 1220px;
   background: var(--navy-dark);
   border: 1px solid rgba(151, 157, 172, 0.15);
   border-radius: 20px;
@@ -114,8 +114,6 @@ main{
   color: var(--text-primary);
 }
 
-
-
 /* Especialidade */
 .info-profissional h2 {
   margin: 0;
@@ -163,7 +161,6 @@ main{
   color: var(--text-secondary);
 }
 
-
 /* Section formulario */
 .solicitacao-container {
   display: grid;
@@ -174,8 +171,6 @@ main{
 }
 
 /* Card Formulario */
-
-
 .formulario-card {
   background: var(--navy-dark);
   border: 1px solid rgba(151, 157, 172, 0.15);
@@ -197,7 +192,6 @@ main{
   color: var(--text-secondary);
   line-height: 1.5;
 }
-
 
 /* Campo*/
 .campo {
