@@ -77,39 +77,34 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
                     Preencha os dados do serviço para prosseguir.
                 </p>
 
-                <form action="./insert.php">
+                <form action="./func/insert.php">
 
                     <div class="campo">
                         <label>Tipo de Serviço</label>
                         <select>
                             <option selected disabled>Selecione o tipo de serviço</option>
-                            <option>Automação Industrial</option>
-                            <option>Manutenção Preventiva</option>
-                            <option>Engenharia de Precisão</option>
-                            <option>Mecatrônica</option>
+                            <optio values="Auto_Indu">Automação Industrial</option>
+                            <option values="Manu_Preven">Manutenção Preventiva</option>
+                            <option values="Eng_Preci">Engenharia de Precisão</option>
+                            <option value="Meca">Mecatrônica</option>
                         </select>
                     </div>
 
                     <div class="campo">
                         <label>Descrição do Problema</label>
-                        <textarea maxlength="500"
+                        <textarea name="desc" maxlength="500"
                             placeholder="Descreva detalhadamente o problema, equipamento, modelo......"></textarea>
                     </div>
 
                     <div class="linha-dupla">
                         <div class="campo">
                             <label>Data Desejada</label>
-                            <input type="date">
+                            <input type="date" name="data">
                         </div>
 
                         <div class="campo">
-                            <label>Horário Preferencial</label>
-                            <select>
-                                <option selected disabled>Selecione</option>
-                                <option>Manhã</option>
-                                <option>Tarde</option>
-                                <option>Noite</option>
-                            </select>
+                            <label for="">Tempo de Contrato</label>
+                           <input type="number" name="tempo" placeholder="ex: 20 dias">
                         </div>
                     </div>
 
