@@ -1,13 +1,16 @@
 <footer>
     <div class="footer-container">
-        
-        <ul class="links">
-            <li><a href="#">facebook</a></li>
-            <li><a href="#">twitter</a></li>
-            <li><a href="#">linkedin</a></li>
-            <li><a href="#">instagram</a></li>
-        </ul>
-        <p>&copy; 2024 Sync Mecatronics. Todos os direitos reservados.</p>
-    </div>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sync Mecatronics</h3>
+                <p>Plataforma premium de manutenção mecatrônica industrial.
+                    Sincronizando operações com excelência técnica desde 2024.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Empresa</h3>
+                <ul>
+                    <li><a href="#">Sobre</a></li>
+            </div>
+        </div>
 
 </footer>
