@@ -1,3 +1,12 @@
+<?php
+require_once 'crud.php';
+
+$idcard = $_GET['id_user'];
+
+$profissional = read($pdo, 'usuarios', $idcard);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,44 +22,47 @@
         <!-- ----- Card Funcionario ----- -->
         <section class="perfil-profissional">
 
-            <a href="./catalogo_profissionais" class="voltar">
+            <a href="./catalogo_profissionais.php" class="voltar">
                 ← Voltar ao Catálogo
             </a>
+            <?php
+            echo '
+                <div class="card-profissional">
 
-            <div class="card-profissional">
-
-                <!-- Foto -->
-                <div class="foto-profissional">
-                    <img src="https://static.vecteezy.com/ti/fotos-gratis/t2/57068323-solteiro-fresco-vermelho-morango-em-mesa-verde-fundo-comida-fruta-doce-macro-suculento-plantar-imagem-foto.jpg"
-                        alt="">
-                </div>
-
-                <!-- Informações -->
-                <div class="info-profissional">
-
-                    <div class="topo-info">
-                        <h1>Nome Profissional</h1>
-                        <span class="disponibilidade">DISPONÍVEL</span>
+                    <!-- Foto -->
+                    <div class="foto-profissional">
+                        <img src="'.$profissional['img_user'].'"
+                            alt="">
                     </div>
 
-                    <h2>Especialidade Profissional</h2>
+                    <!-- Informações -->
+                    <div class="info-profissional">
 
-                    <p class="subespecialidade">Automação Industrial</p>
+                        <div class="topo-info">
+                            <h1>'.$profissional['nome'].'</h1>
+                            <span class="disponibilidade">'.$profissional['status'].'</span>
+                        </div>
 
-                    <div class="meta-info">
-                        <span class="avaliacao"> 4.9 </span>
-                        <span>(247 trabalhos)</span>
-                        <span>12 anos</span>
+                        <h2>'.$profissional['especialidade'].'</h2>
+
+                        <div class="meta-info">
+                            <span class="avaliacao">'.$profissional['notas'].'</span>
+                            <span>(247 trabalhos)</span>
+                            <span>12 anos</span>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Preço -->
-                <div class="preco-servico">
-                    <span class="valor">R$ 280</span>
-                    <span class="periodo">/hora</span>
-                </div>
+                    <!-- Preço -->
+                    <div class="preco-servico">
+                        <span class="valor">'.$profissional['valor_dia'].'</span>
+                        <span class="periodo">/dia</span>
+                    </div>
 
-            </div>
+                </div> 
+                ';
+
+            ?>
+
 
         </section>
 
