@@ -1,3 +1,8 @@
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -12,10 +17,7 @@
     <main class="main-container">
         <aside class="sidebar-info">
             <div class="status-card">
-                <h3>Status do Atendimento</h3>
-                <div class="status-indicator">
-                    <p>Técnicos Online</p>
-                </div>
+                <h3>Atendimento rápido</h3>
                 <small>Tempo Médio de Resposta: 45 minutos</small>
             </div>
 
@@ -32,9 +34,9 @@
             </div>
         </aside>
 
-        <section class="ticket-container">
-            <header class="ticket-header">
-                <h2>Abertura de Ticket de Assistência Técnica Industrial</h2>
+        <section class="form-container">
+            <header class="form-header">
+                <h2>Área de Suporte SYNC </h2>
             </header>
 
             <form action="#" method="POST" class="support-form">
@@ -72,7 +74,7 @@
 
                 <div class="upload-area">
                     <i class="fa-solid fa-paperclip"></i>
-                    <label for="file-upload">Anexar Foto ou Vídeo do Erro</label>
+                    <label for="file-upload">Anexar uma imagem do erro</label>
                     <input type="file" id="file-upload" hidden>
                 </div>
 
