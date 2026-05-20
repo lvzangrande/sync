@@ -27,7 +27,7 @@
                 </div>
                 <div class="contact-item">
                     <i class="fa-regular fa-envelope"></i>
-                    <span>suporte@mecatronica.com</span>
+                    <span>sync@gmail.com</span>
                 </div>
             </div>
         </aside>
@@ -61,7 +61,7 @@
                     <label>Modelo da Máquina/Sistema</label>
                     <div class="input-wrapper">
                         <i class="fa-solid fa-gear icon"></i>
-                        <input type="text" name="machine_model" placeholder="Ex: CNC, CLP, Braço Robótico" required>
+                        <input type="text" name="modelo_maquina" placeholder="Ex: CNC, CLP, Braço Robótico" required>
                     </div>
                 </div>
 
