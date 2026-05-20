@@ -1,12 +1,12 @@
         :root {
-            --deep-midnight: #001233;   /* Background principal */
-            --navy-dark: #092848;       /* Inputs e foco */
-            --royal-industrial: #164578;/* Botão principal (CTA) */
-            --steel-blue: #326B93;      /* Hover do botão */
-            --slate-gray: #33415C;      /* Card de login */
-            --cool-gray: #7D8597;       /* Bordas e divisores */
-            --misty-blue: #8BC0D6;      /* Títulos e destaques */
-            --light-slate: #979DAC;     /* Textos de apoio e placeholders */
+                --deep-midnight: #000B1E;
+                --slate-gray: #0B1528;
+                --navy-dark: #07101E;
+                --royal-industrial: #1A437E;
+                --steel-blue: #255FA3;
+                --cool-gray: #1E2D4A;
+                --misty-blue: #8BC0D6;
+                --light-slate: #6F819A;
         }
 
         * {
