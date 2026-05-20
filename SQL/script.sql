@@ -1,5 +1,5 @@
 SELECT current_user();
-SHOW DATABASES;
+-- SHOW DATABASES;
 USE sync_db;
 
 
@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
     notas INT NULL CHECK (notas BETWEEN 0 AND 5)
 );
 
-DESC usuarios;
+-- DESC usuarios;
 
 CREATE TABLE IF NOT EXISTS maquinas (
     id_maq INT AUTO_INCREMENT PRIMARY KEY,
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS maquinas (
     tempo_estimado_minutos INT NOT NULL 
 );
 
-DESC maquinas;
+-- DESC maquinas;
 
 
 	CREATE TABLE IF NOT EXISTS agenda (
@@ -58,7 +58,7 @@ DESC maquinas;
 	    FOREIGN KEY (id_maquina) REFERENCES maquinas(id_maq)
 	);
 
-DESC agenda;
+-- DESC agenda;
 
 CREATE TABLE IF NOT EXISTS suporte (
     id_sup INT AUTO_INCREMENT PRIMARY KEY,
@@ -73,5 +73,24 @@ CREATE TABLE IF NOT EXISTS suporte (
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id_user)
 );
 
-DESC suporte;
+-- DESC suporte;
+
+INSERT INTO usuarios (
+    img_user, nome, email, senha, telefone, cpf_cnpj, tipo, categoria, 
+    especialidade, status, valor_dia, descricao_func, notas
+) VALUES
+('techsolutions_cliente.png', 'TechSolutions Indústria LTDA', 'contato@techsolutions.com', 'hash_senha_123', '(11) 98765-4321', '55.666.777/0001-88', 'PJ', 'cliente', NULL, NULL, NULL, NULL, 5),
+('maria_admin.png', 'Maria Oliveira (Admin)', 'admin@empresa.com.br', 'hash_senha_admin', '(11) 90000-0000', '00.111.222/0001-33', 'PJ', 'admin', NULL, NULL, NULL, NULL, NULL),
+('carlos_profissional.png', 'Carlos Almeida Motores', 'carlos.motores@email.com', 'hash_senha_456', '(11) 91111-1111', '444.555.666-77', 'PF', 'profissional', 'Manutenção de Motores', 'Disponível', 250.00, 'Especialista em reparo, retífica e manutenção preventiva de motores elétricos e a combustão.', 5),
+('ana_profissional.png', 'Ana Costa Pneumática', 'ana.pneumatica@email.com', 'hash_senha_789', '(11) 92222-2222', '777.888.999-00', 'PF', 'profissional', 'Sistemas Pneumáticos', 'Em Atendimento', 300.00, 'Manutenção e calibração de compressores de ar, válvulas e redes pneumáticas industriais.', 4),
+('marcos_profissional.png', 'Marcos Ribeiro Hidráulica', 'marcos.hidraulica@email.com', 'hash_senha_101', '(11) 93333-3333', '222.333.444-55', 'PF', 'profissional', 'Sistemas Hidráulicos', 'Disponível', 400.00, 'Especialista no reparo de bombas, cilindros e unidades hidráulicas de alta pressão.', 5),
+('ricardo_profissional.png', 'Ricardo Souza Equipamentos', 'ricardo.equipamentos@email.com', 'hash_senha_202', '(11) 94444-4444', '555.666.777-88', 'PF', 'profissional', 'Equipamentos Industriais', 'Inativo', 450.00, 'Manutenção corretiva e preventiva em esteiras, tornos CNC e maquinário pesado em geral.', 3);
+
+INSERT INTO maquinas (
+    img_maq, nome_maq, tipo_maq, tipo2_maq, desc_maq, tempo_estimado_minutos
+) VALUES
+('motor_indutivo.png', 'Motor de Indução Trifásico AC', 'Motores', 'Elétrico', 'Motor elétrico de alta eficiência utilizado para acionamento de esteiras transportadoras e exaustores industriais.', 120),
+('compressor_parafuso.png', 'Compressor de Parafuso Rotativo', 'Pneumática', 'Geração de Ar', 'Equipamento responsável pelo fornecimento contínuo de ar comprimido para ferramentas e atuadores pneumáticos da fábrica.', 90),
+('bomba_pistao.png', 'Bomba Hidráulica de Pistão Axial', 'Hidráulica', 'Alta Pressão', 'Unidade geradora de fluxo hidráulico para sistemas de alta pressão, como prensas e braços mecânicos.', 180),
+('torno_cnc.png', 'Torno CNC Industrial X-1000', 'Equipamentos Industriais', 'Usinagem', 'Maquinário automatizado para usinagem de precisão de peças metálicas e plásticas de alta complexidade.', 240);
 
