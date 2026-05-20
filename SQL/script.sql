@@ -51,11 +51,9 @@ CREATE TABLE IF NOT EXISTS maquinas (
 	    
 	    id_cliente INT NOT NULL,
 	    id_profissional INT NOT NULL,
-	    id_maquina INT NOT NULL,
 	    
 	    FOREIGN KEY (id_cliente) REFERENCES usuarios(id_user),
-	    FOREIGN KEY (id_profissional) REFERENCES usuarios(id_user),
-	    FOREIGN KEY (id_maquina) REFERENCES maquinas(id_maq)
+	    FOREIGN KEY (id_profissional) REFERENCES usuarios(id_user)
 	);
 
 -- DESC agenda;
