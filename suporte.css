@@ -1,85 +1,147 @@
-/* Definição das Variáveis de Cores */
+/* ==========================================================================
+   VARIÁVEIS DE COR E RESET
+   ========================================================================== */
 :root {
-    --color-sky-light: #8bc0d6;
-    --color-ocean-blue: #326b93;
-    --color-deep-blue: #164578;
-    --color-navy-dark: #092848;
     --color-night-blue: #001233;
+    --color-navy-dark: #092848;
     --color-slate-blue: #33415c;
-    --color-cool-gray: #7d8597;
-    --color-light-gray: #979dac;
     --white: #ffffff;
+    --color-cool-gray: #7d8597;
+    --color-deep-blue: #164578;
+    --color-sky-light: #8bc0d6;
 }
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 body {
     background-color: var(--color-night-blue);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--white);
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 20px;
+    padding: 40px 20px;
 }
 
+/* ==========================================================================
+   LAYOUT PRINCIPAL (GRID)
+   ========================================================================== */
 .main-container {
+    display: grid;
+    grid-template-columns: 300px 1fr; /* Sidebar fixa e Formulário expansível */
+    gap: 30px;
     width: 100%;
-    display: flex;
-    justify-content: center;
-
+    max-width: 1100px;
 }
 
-.form-card {
-    background-color: var(--white);
-    width: 100%;
-    max-width: 550px;
-    padding: 40px;
-    border-radius: 16px;
-    border: 1px solid var(--color-slate-blue);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    background-color: var(--color-navy-dark);
-}
-
-.form-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.form-header h2 {
-    color: white;
-    font-size: 1.8rem;
-    margin-bottom: 8px;
-}
-
-.form-header p {
-    color: #979dac;
-    font-size: 0.95rem;
-}
-
-.support-form {
+/* ==========================================================================
+   COLUNA 1: SIDEBAR (INFO)
+   ========================================================================== */
+.sidebar-info {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    color: white;
 }
 
-.input-group {
+.status-card, .contact-card {
+    background-color: var(--color-navy-dark);
+    border: 1px solid var(--color-slate-blue);
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.status-card h3, .contact-card h3 {
+    font-size: 0.85rem;
+    color: var(--color-sky-light);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+}
+
+/* Indicador de Status Online */
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.status-indicator::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: #2ecc71; /* Verde de segurança */
+    border-radius: 50%;
+    box-shadow: 0 0 10px #2ecc71;
+}
+
+.status-card small {
+    color: var(--color-cool-gray);
+    font-size: 0.8rem;
+}
+
+/* Itens de Contato */
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.contact-item i {
+    color: var(--color-sky-light);
+    font-size: 1.1rem;
+    width: 20px;
+}
+
+/* ==========================================================================
+   COLUNA 2: TICKET CONTAINER
+   ========================================================================== */
+.ticket-container {
+    background-color: var(--color-navy-dark);
+    border: 1px solid var(--color-slate-blue);
+    border-radius: 8px;
+    padding: 40px;
+}
+
+.ticket-header {
+    margin-bottom: 35px;
+    border-bottom: 1px solid var(--color-slate-blue);
+    padding-bottom: 20px;
+}
+
+.ticket-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Formulário e Grupos */
+.support-form {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 25px;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
 }
 
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: var(--white);
+}
 
 .input-wrapper {
     position: relative;
@@ -87,66 +149,95 @@ input::-webkit-inner-spin-button {
     align-items: center;
 }
 
-
-.input-wrapper .icon {
+.input-wrapper i.icon {
     position: absolute;
     left: 15px;
-    color: var(--color-light-gray); 
-    font-size: 1.1rem;
-    pointer-events: none;
-}
-
-.input-wrapper input {
-    width: 100%;
-    padding-left: 45px !important; 
-    background-color: var(--color-night-blue);
-    color: white;
-}
-
-.input-wrapper input:focus + .icon {
     color: var(--color-sky-light);
-    transition: 0.3s;
-}
-
-label {
-    color: white;
-    font-weight: 600;
-    font-size: 0.9rem;
-}
-
-input, select, textarea {
-    padding: 12px 16px;
-    border: 1.5px solid var(--color-light-gray);
-    border-radius: 8px;
     font-size: 1rem;
-    background-color: var(--color-night-blue); 
-    color: var(--white);                      
-    caret-color: var(--white);                
-    
-    transition: all 0.3s ease;
-    outline: none;
 }
 
+/* Inputs, Selects e Textareas */
+.input-wrapper input, 
+.support-form textarea {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--color-slate-blue);
+    border-radius: 4px;
+    padding: 14px 15px 14px 45px; /* Padding extra na esquerda para o ícone */
+    color: var(--white);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.support-form textarea {
+    padding-left: 15px; /* Textarea não tem ícone interno */
+    resize: none;
+}
+
+.input-wrapper input:focus, 
+.support-form textarea:focus {
+    outline: none;
+    border-color: var(--color-sky-light);
+    background-color: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 5px rgba(139, 192, 212, 0.2);
+}
+
+/* Área de Upload */
+.upload-area {
+    border: 2px dashed var(--color-slate-blue);
+    padding: 20px;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-area:hover {
+    background-color: rgba(51, 65, 92, 0.3);
+    border-color: var(--color-sky-light);
+}
+
+.upload-area i {
+    margin-right: 10px;
+    color: var(--color-sky-light);
+}
+
+.upload-area label {
+    cursor: pointer;
+    color: var(--color-light-gray);
+}
+
+/* Botão de Envio */
 .btn-submit {
     background-color: var(--color-deep-blue);
     color: var(--white);
-    padding: 16px;
     border: none;
-    border-radius: 8px;
-    font-size: 1rem;
+    padding: 18px;
     font-weight: bold;
-    letter-spacing: 0.5px;
+    font-size: 1rem;
+    border-radius: 4px;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .btn-submit:hover {
-    background-color: var(--color-ocean-blue);
+    background-color: #1e5ba1; /* Um pouco mais claro que o deep-blue */
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(22, 69, 120, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .btn-submit:active {
     transform: translateY(0);
+}
+
+/* Responsividade Básica */
+@media (max-width: 850px) {
+    .main-container {
+        grid-template-columns: 1fr;
+    }
+    .form-row {
+        grid-template-columns: 1fr;
+    }
 }

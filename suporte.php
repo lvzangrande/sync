@@ -10,60 +10,73 @@
 <body>
 
     <main class="main-container">
-        <section class="form-card">
-            <header class="form-header">
-                <h2>Solicitar Suporte</h2>
-                <p>Preencha os dados abaixo para entrar em contato com o suporte.</p>
+        <aside class="sidebar-info">
+            <div class="status-card">
+                <h3>Status do Atendimento</h3>
+                <div class="status-indicator">
+                    <p>Técnicos Online</p>
+                </div>
+                <small>Tempo Médio de Resposta: 45 minutos</small>
+            </div>
+
+            <div class="contact-card">
+                <h3>Canais de Emergência</h3>
+                <div class="contact-item">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>+55 (11) 98765-4321</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-regular fa-envelope"></i>
+                    <span>sync@gmail.com</span>
+                </div>
+            </div>
+        </aside>
+
+        <section class="ticket-container">
+            <header class="ticket-header">
+                <h2>Abertura de Ticket de Assistência Técnica Industrial</h2>
             </header>
 
             <form action="#" method="POST" class="support-form">
                 
-                <div class="input-group">
-                    <label>Nome Completo</label>
-                    <div class="input-wrapper">
-                        <i class="fa-regular fa-user icon"></i> 
-                        <input type="text" id="name" name="name" placeholder="Digite seu nome completo" required>
-                     </div>
-                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nome Completo</label>
+                        <div class="input-wrapper">
+                            <i class="fa-regular fa-user icon"></i> 
+                            <input type="text" name="name" placeholder="Nome do Operador/Engenheiro" required>
+                        </div>
+                    </div>
 
-                <div class="input-group">
-                    <label for="email">E-mail Corporativo</label>
-                    <div class="input-wrapper">
-                        <i class="fa-regular fa-envelope icon"></i>
-                        <input type="email" id="email" name="email" placeholder="nome@empresa.com" required>
+                    <div class="form-group">
+                        <label>E-mail Corporativo</label>
+                        <div class="input-wrapper">
+                            <i class="fa-regular fa-envelope icon"></i>
+                            <input type="email" name="email" placeholder="nome@empresa.com" required>
+                        </div>
                     </div>
                 </div>
 
-                <div class="input-group">
-                    <label for="number">Telefone</label>
+                <div class="form-group full-width">
+                    <label>Modelo da Máquina/Sistema</label>
                     <div class="input-wrapper">
-                        <i class="fa-solid fa-mobile-screen-button icon"></i>
-                        <input type="number" id="telefone" name="telefone" placeholder="(DDD) 9999-9999" required>
+                        <i class="fa-solid fa-gear icon"></i>
+                        <input type="text" name="modelo_maquina" placeholder="Ex: CNC, CLP, Braço Robótico" required>
                     </div>
                 </div>
 
-                <div class="input-group">
-                    <label>Urgência do Suporte</label>
-                    <div class="priority-selector">
-                    <input type="radio" name="urgencia" id="rotina" value="rotina" checked>
-                    <label for="rotina" class="priority-btn">
-                        <i class="fa-solid fa-calendar-check"></i> Rotina
-                    </label>
-
-                    <input type="radio" name="urgencia" id="critico" value="critico">
-                    <label for="critico" class="priority-btn">
-                        <i class="fa-solid fa-triangle-exclamation"></i> Crítico
-                    </label>
-        
-                    </div>
+                <div class="form-group full-width">
+                    <label>Descrição Detalhada do Problema Técnico</label>
+                    <textarea name="message" rows="5" placeholder="Descreva os códigos de erro e comportamento do sistema..." required></textarea>
                 </div>
 
-                <div class="input-group">
-                    <label for="message">Descrição do Problema/Dúvida</label>
-                    <textarea id="message" name="message" rows="5" placeholder="Descreva o defeito ou sua dúvida técnica aqui..." required></textarea>
+                <div class="upload-area">
+                    <i class="fa-solid fa-paperclip"></i>
+                    <label for="file-upload">Anexar Foto ou Vídeo do Erro</label>
+                    <input type="file" id="file-upload" hidden>
                 </div>
 
-                <button type="submit" class="btn-submit">SOLICITAR ASSISTÊNCIA TÉCNICA</button>
+                <button type="submit" class="btn-submit">ENVIAR SOLICITAÇÃO TÉCNICA</button>
 
             </form>
         </section>
