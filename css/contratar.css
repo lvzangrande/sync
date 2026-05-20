@@ -283,8 +283,8 @@ main{
   box-shadow: 0 8px 20px rgba(22, 69, 120, 0.35);
 }
 
- /* Card Informações/Orcamento */
-.orcamento-card {
+ /* Card Informações*/
+.desc-card {
     background: var(--navy-dark);
     border: 1px solid rgba(151, 157, 172, 0.15);
     border-radius: 20px;
@@ -294,14 +294,14 @@ main{
     top: 24px;
 }
 
-.orcamento-card h3 {
+.desc-card h3 {
     margin: 0 0 24px;
     font-size: 1.35rem;
     font-weight: 700;
     color: var(--text-primary);
 }
 
-.linha-orcamento {
+.linha-desc {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -310,41 +310,21 @@ main{
     color: var(--text-secondary);
 }
 
-.linha-orcamento strong {
+.linha-desc strong {
     color: var(--text-primary);
     font-size: 1.05rem;
 }
 
-.orcamento-card hr {
+.desc-card hr {
     border: none;
     height: 1px;
     background: rgba(151, 157, 172, 0.12);
     margin: 24px 0;
 }
 
-/* Total */
-.total-estimado {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 6px;
-    margin-bottom: 20px;
-}
-
-.total-estimado span {
-    font-size: 1rem;
-    color: var(--text-secondary);
-}
-
-.total-estimado strong {
-    font-size: 2.3rem;
-    font-weight: 700;
-    color: var(--misty-blue);
-    line-height: 1;
-}
 
 /* Texto explicativo */
-.texto-orcamento {
+.texto-desc {
     margin: 0 0 24px;
     font-size: 0.95rem;
     line-height: 1.7;

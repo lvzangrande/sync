@@ -33,7 +33,7 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
 
                     <!-- Foto -->
                     <div class="foto-profissional">
-                        <img src="'.$profissional['img_user'].'"
+                        <img src="' . $profissional['img_user'] . '"
                             alt="">
                     </div>
 
@@ -41,14 +41,14 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
                     <div class="info-profissional">
 
                         <div class="topo-info">
-                            <h1>'.$profissional['nome'].'</h1>
-                            <span class="disponibilidade">'.$profissional['status'].'</span>
+                            <h1>' . $profissional['nome'] . '</h1>
+                            <span class="disponibilidade">' . $profissional['status'] . '</span>
                         </div>
 
-                        <h2>'.$profissional['especialidade'].'</h2>
+                        <h2>' . $profissional['especialidade'] . '</h2>
 
                         <div class="meta-info">
-                            <span class="avaliacao">'.$profissional['notas'].'</span>
+                            <span class="avaliacao">' . $profissional['notas'] . '</span>
                             <span>(247 trabalhos)</span>
                             <span>12 anos</span>
                         </div>
@@ -56,13 +56,12 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
 
                     <!-- Preço -->
                     <div class="preco-servico">
-                        <span class="valor">'.$profissional['valor_dia'].'</span>
+                        <span class="valor">R$' . $profissional['valor_dia'] . '</span>
                         <span class="periodo">/dia</span>
                     </div>
 
                 </div> 
                 ';
-
             ?>
 
 
@@ -94,8 +93,7 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
                     <div class="campo">
                         <label>Descrição do Problema</label>
                         <textarea maxlength="500"
-                            placeholder="Descreva detalhadamente o problema, equipamento, modelo, sintomas observados..."></textarea>
-                        <span class="contador">0/500</span>
+                            placeholder="Descreva detalhadamente o problema, equipamento, modelo......"></textarea>
                     </div>
 
                     <div class="linha-dupla">
@@ -128,38 +126,33 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
 
 
             <!-- -------Card------- -->
-            <div class="orcamento-card">
-                <h3>Orçamento Estimado</h3>
+            <?php
+            echo '
+                <div class="desc-card">
+                    <h3>Descrição</h3>
 
-                <div class="linha-orcamento">
-                    <span>Valor/hora</span>
-                    <strong>R$ 280</strong>
-                </div>
+                    <div class="linha-desc">
+                        <span>Valor/dia</span>
+                        <strong>R$ '.$profissional['valor_dia'].'</strong>
+                    </div>
 
-                <div class="linha-orcamento">
-                    <span>Horas estimadas</span>
-                    <strong>4h</strong>
-                </div>
+                    <hr>
 
-                <hr>
 
-                <div class="total-estimado">
-                    <span>Total estimado</span>
-                    <strong>R$ 1.120</strong>
-                </div>
-
-                <p class="texto-orcamento">
-                    Este é um valor estimado com base em 4 horas de trabalho.
-                    O valor final pode variar conforme a complexidade do serviço.
-                </p>
-
-                <div class="garantia-box">
-                    <h4>Garantia Sync</h4>
-                    <p>
-                        Todos os serviços incluem garantia de 90 dias e suporte técnico prioritário.
+                    <p class="texto-desc">
+                       '.$profissional['descricao_func'].'
                     </p>
+
+                    <div class="garantia-box">
+                        <h4>Garantia Sync</h4>
+                        <p>
+                            Todos os serviços incluem garantia de 90 dias e suporte técnico prioritário.
+                        </p>
+                    </div>
                 </div>
-            </div>
+                ';
+            ?>
+
         </section>
     </main>
 
