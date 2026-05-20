@@ -21,12 +21,20 @@ body {
   background-color: #001233;
 }
 
-/* SEÇÃO */
+main{
+    max-width: 1280px;
+
+    margin: 0 auto;
+
+    padding: 40px 24px 70px;
+}
+
+/* Primeira Section */
 .card-profi {
   padding: 20px;
 }
 
-/* LINK VOLTAR */
+/* Voltar */
 .voltar {
   display: inline-block;
   margin-bottom: 20px;
@@ -41,13 +49,13 @@ body {
   color: var(--text-primary);
 }
 
-/* CARD PRINCIPAL */
+/* Card */
 .card-profissional {
   display: grid;
   grid-template-columns: 110px 1fr auto;
   align-items: center;
   gap: 24px;
-  width: 1500px;
+  width: 1220px;
   background: var(--navy-dark);
   border: 1px solid rgba(151, 157, 172, 0.15);
   border-radius: 20px;
@@ -57,7 +65,7 @@ body {
   box-shadow: 0 10px 30px rgba(0, 18, 51, 0.25);
 }
 
-/* FOTO */
+/* Foto */
 .foto-profissional img {
   width: 100px;
   height: 100px;
@@ -68,14 +76,14 @@ body {
   border: 2px solid rgba(151, 157, 172, 0.08);
 }
 
-/* ÁREA DE INFORMAÇÕES */
+/* Informações */
 .info-profissional {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-/* TOPO (NOME + BADGE) */
+/* Tag de disponibilidade*/
 .topo-info {
   display: flex;
   align-items: center;
@@ -83,16 +91,6 @@ body {
   flex-wrap: wrap;
 }
 
-/* NOME */
-.topo-info h1 {
-  margin: 0;
-  font-size: 3rem;
-  font-weight: 700;
-  line-height: 1.1;
-  color: var(--text-primary);
-}
-
-/* BADGE DISPONÍVEL */
 .disponibilidade {
   padding: 6px 12px;
   border-radius: 8px;
@@ -107,7 +105,16 @@ body {
   text-transform: uppercase;
 }
 
-/* ESPECIALIDADE PRINCIPAL */
+/* Nome */
+.topo-info h1 {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+/* Especialidade */
 .info-profissional h2 {
   margin: 0;
   font-size: 1.4rem;
@@ -115,14 +122,13 @@ body {
   color: var(--misty-blue);
 }
 
-/* SUBESPECIALIDADE */
 .subespecialidade {
   margin: 0;
   font-size: 1.05rem;
   color: var(--text-secondary);
 }
 
-/* META INFORMAÇÕES */
+/* Informações */
 .meta-info {
   display: flex;
   align-items: center;
@@ -134,18 +140,10 @@ body {
   color: var(--text-secondary);
 }
 
-/* AVALIAÇÃO */
+/* Avaliação */
 .avaliacao {
   color: #FFD166;
   font-weight: 600;
-}
-
-/* PREÇO */
-.preco-servico {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  text-align: right;
 }
 
 /* VALOR */
@@ -163,9 +161,7 @@ body {
   color: var(--text-secondary);
 }
 
-
-
-
+/* Section formulario */
 .solicitacao-container {
   display: grid;
   grid-template-columns: 1fr 320px;
@@ -175,8 +171,6 @@ body {
 }
 
 /* Card Formulario */
-
-
 .formulario-card {
   background: var(--navy-dark);
   border: 1px solid rgba(151, 157, 172, 0.15);
@@ -199,8 +193,7 @@ body {
   line-height: 1.5;
 }
 
-
-/* CAMPOS */
+/* Campo*/
 .campo {
   margin-bottom: 24px;
   position: relative;
@@ -220,7 +213,7 @@ body {
 .campo input,
 .campo select,
 .campo textarea {
-  width: 100%;
+  width: 90%;
   padding: 16px 18px;
   border: 1px solid rgba(151, 157, 172, 0.15);
   border-radius: 12px;
@@ -263,16 +256,13 @@ body {
 }
 
 /* LINHA COM 2 CAMPOS */
-
 .linha-dupla {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
 
-
 /* Botão */
-
 .btn-prosseguir {
   width: 100%;
   margin-top: 12px;
@@ -291,4 +281,94 @@ body {
   background: var(--steel-blue);
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(22, 69, 120, 0.35);
+}
+
+ /* Card Informações/Orcamento */
+.orcamento-card {
+    background: var(--navy-dark);
+    border: 1px solid rgba(151, 157, 172, 0.15);
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 10px 30px rgba(0, 18, 51, 0.25);
+    position: sticky;
+    top: 24px;
+}
+
+.orcamento-card h3 {
+    margin: 0 0 24px;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.linha-orcamento {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+.linha-orcamento strong {
+    color: var(--text-primary);
+    font-size: 1.05rem;
+}
+
+.orcamento-card hr {
+    border: none;
+    height: 1px;
+    background: rgba(151, 157, 172, 0.12);
+    margin: 24px 0;
+}
+
+/* Total */
+.total-estimado {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    margin-bottom: 20px;
+}
+
+.total-estimado span {
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+.total-estimado strong {
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: var(--misty-blue);
+    line-height: 1;
+}
+
+/* Texto explicativo */
+.texto-orcamento {
+    margin: 0 0 24px;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+/* Garantia */
+.garantia-box {
+    background: var(--deep-midnight);
+    border: 1px solid rgba(151, 157, 172, 0.10);
+    border-radius: 14px;
+    padding: 18px;
+}
+
+.garantia-box h4 {
+    margin: 0 0 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.garantia-box p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
 }

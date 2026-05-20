@@ -74,7 +74,7 @@ function redirecionarPorPerfil($tipo)
     <div class="login-container">
         <div class="login-header">
             <h1>SYNC</h1>
-            <p>Manutenção Mecatrônica Industrial</p>
+            <p>Acesse sua conta industrial com segurança.</p>
         </div>
 
         <?php if (!empty($erro)): ?>
