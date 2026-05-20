@@ -1,6 +1,6 @@
 SELECT current_user();
 -- SHOW DATABASES;
-USE sync_db;
+USE db_sync;
 
 
 CREATE TABLE IF NOT EXISTS usuarios (

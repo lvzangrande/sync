@@ -54,13 +54,13 @@ function redirecionarPorPerfil($tipo)
 {
     switch ($tipo) {
         case 'admin':
-            header("Location: area_admin.php");
+            header("Location: ./admin/adminpage.php");
             break;
         case 'profissional':
-            header("Location: area_profissional.php");
+            header("Location: ./profissional/area_profissional.php");
             break;
         case 'cliente':
-            header("Location: inicio.php");
+            header("Location: ./user/userpage.php");
             break;
         default:
             header("Location: dashboard.php");
