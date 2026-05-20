@@ -109,6 +109,11 @@ if (
                 <input type="text" id="cpf_cnpj" name="cpf_cnpj" class="input-control" placeholder="Apenas números" required>
             </div>
 
+            <div class="form-group">
+                <label for="arquivo_imagem">Foto de usuário</label>
+                <input type="file">
+            </div>
+
             <button type="submit" class="btn-submit">Registrar Cliente</button>
         </form>
 

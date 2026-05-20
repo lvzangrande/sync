@@ -41,9 +41,8 @@ CREATE TABLE IF NOT EXISTS maquinas (
 	    id_os INT AUTO_INCREMENT PRIMARY KEY,
 	    data DATE NOT NULL,
 	    
-		tempo_planejado_minutos INT NOT NULL,
+		tempo_planejado INT NOT NULL,
 		
-		valor_total DECIMAL(10, 2) NOT NULL,
 	    descricao_problema TEXT NOT NULL,
 	    endereco_servico VARCHAR(255) NOT NULL,
 	    
@@ -51,11 +50,9 @@ CREATE TABLE IF NOT EXISTS maquinas (
 	    
 	    id_cliente INT NOT NULL,
 	    id_profissional INT NOT NULL,
-	    id_maquina INT NOT NULL,
 	    
 	    FOREIGN KEY (id_cliente) REFERENCES usuarios(id_user),
-	    FOREIGN KEY (id_profissional) REFERENCES usuarios(id_user),
-	    FOREIGN KEY (id_maquina) REFERENCES maquinas(id_maq)
+	    FOREIGN KEY (id_profissional) REFERENCES usuarios(id_user)
 	);
 
 -- DESC agenda;
