@@ -21,9 +21,7 @@
         <?php include 'partials/header.php'; ?>
     </header>
 
-   <footer>
-        <?php include 'partials/footer.php'; ?>
-    </footer>
-    
+    <?php include 'partials/footer.php'; ?>
+
 </body>
 </html>
