@@ -41,9 +41,8 @@ CREATE TABLE IF NOT EXISTS maquinas (
 	    id_os INT AUTO_INCREMENT PRIMARY KEY,
 	    data DATE NOT NULL,
 	    
-		tempo_planejado_minutos INT NOT NULL,
+		tempo_planejado INT NOT NULL,
 		
-		valor_total DECIMAL(10, 2) NOT NULL,
 	    descricao_problema TEXT NOT NULL,
 	    endereco_servico VARCHAR(255) NOT NULL,
 	    
