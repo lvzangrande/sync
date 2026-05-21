@@ -57,7 +57,7 @@ function redirecionarPorPerfil($tipo)
             header("Location: ./admin/adminpage.php");
             break;
         case 'profissional':
-            header("Location: ./profissional/area_profissional.php");
+            header("Location: ./profissional/profipage.php");
             break;
         case 'cliente':
             header("Location: ./user/userpage.php");
