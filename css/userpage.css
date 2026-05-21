@@ -25,6 +25,9 @@ header{
     height: 50px;
 }
 
+.botaoEditarDados img{
+    background-color: #326b93;
+}
 /*HISTÓRICO DE CONTRAÇÕES*/
 
 .botaovoltar{
@@ -55,12 +58,33 @@ td{
 /*EDITAR DADOS PESSOAIS*/
 
 form{
+    background-color: #164578;
     display: flex;
     flex-direction: column;
+    padding: 50px;
+    border-radius: 25px;
+    align-items: center;
 }
 input{
+    margin: 20px;
     padding: 20px;
+    width: 80%;
+    background-color: #326b93;
+    border: #001233 1px solid;
+    border-radius: 25px;
+    
 }
+input::placeholder{ 
+    color: aliceblue;
+}
+
+button{
+    color: #fff ;
+    background-color: #326b93;
+    padding: 5px;
+    width: 30%;
+}
+
 .editarsenha{
     font-size: 14px;
     color: #326b93;

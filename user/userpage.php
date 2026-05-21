@@ -44,7 +44,6 @@ $categoria = $_SESSION['tipo'];
     <?php
     if (isset($_SESSION['foto'])){
     $foto = $_SESSION['foto'];
-    echo $foto; 
     }
     if (isset($_SESSION['nome'])) {
         $nomeCompleto = trim($_SESSION['nome']);

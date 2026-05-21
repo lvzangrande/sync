@@ -1,3 +1,12 @@
+<?php 
+if (session_status() === PHP_SESSION_NONE){
+    session_start();
+}
+if (!isset($_SESSION['autenticado'])) {
+    header("Location: ../login.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -7,9 +16,9 @@
     <title>Editar dados pessoas</title>
 </head>
 <body>
-    <header>
-    <a class="botaovoltar" href="userpage.php"><img href="botaovoltar.png" width='200'></a>
-</header>
+<?php require_once '../partials/header.php';?>
+
+
     <h2>Editar Dados Pessoais</h2>
     <div class='formulario'>
         <form action="#" method="POST" class="form-editar-usuario">
