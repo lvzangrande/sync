@@ -1,5 +1,9 @@
 <?php require_once '../crud.php';
-session_start();
+
+
+if (session_status() === PHP_SESSION_NONE){
+    session_start();
+}
 
 if (!isset($_SESSION['autenticado'])) {
     header("Location: ../login.php");
@@ -21,6 +25,11 @@ function nomeUsuario() {
         echo "Usuário";
     }
 }
+
+if (isset($_SESSION['foto'])){
+    $foto = $_SESSION['foto'];
+}
+$categoria = $_SESSION['tipo'];
 ?>
 
 <!DOCTYPE html>
@@ -28,20 +37,37 @@ function nomeUsuario() {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Olá <?=nomeUsuario($pdo);?></title>
+    <title>Olá <?=nomeUsuario();?></title>
     <link rel="stylesheet" href="../css/userpage.css">
 </head>
 <body>
     <?php
+    if (isset($_SESSION['foto'])){
+    $foto = $_SESSION['foto'];
+    echo $foto; 
+    }
+    if (isset($_SESSION['nome'])) {
+        $nomeCompleto = trim($_SESSION['nome']);
+    }
+
     require_once '../partials/header.php';
     require_once '../php/saudacao.php';
+
+    
     ?>
-    <div class='imgperfil'>
-        <img src=../img/joia.jfif>
+    
+    <div class="imgperfil">
+        <img src="../img/uploads/usuarios/clientes/<?= $foto ?>" width="500" alt="Foto de Perfil">
         <br>
-        <a href='editardados.php'><img src=../img/lapiseditar.png width='50'></a>
+        <div class="botaoEditarDados">
+            <a href="editardados.php">
+                <img src="../img/lapiseditar.png" width="50" alt="Editar Dados">
+            </a>
+        </div>
     </div>
-    <h1>Zé</h1>
+    
+    <h1><?= $nomeCompleto ?></h1>
+
     <a class="historico" href="historicodecontratacoes.php">Ver histórico de contratações</a>
     <footer>
         <p>Cadastrado desde de 2026</p>
