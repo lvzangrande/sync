@@ -3,12 +3,12 @@
 require_once '../crud.php';
 session_start();
 
-$_SESSION['tipo_servico'] = $_POST['tipo_serv'];
-$_SESSION['descricao_problema'] = $_POST['desc'];
-$_SESSION['data'] = $_POST['data'];
-$_SESSION['tempo_planejado'] = $_POST['tempo'];
-$_SESSION['endereco_servico'] = $_POST['end_serv'];
-$idcard = $_POST['id_profissional'];
+$tipo = $_SESSION['tipo_servico'] = $_POST['tipo_serv'];
+$desc = $_SESSION['descricao_problema'] = $_POST['desc'];
+$data = $_SESSION['data'] = $_POST['data'];
+$tempo = $_SESSION['tempo_planejado'] = $_POST['tempo'];
+$endereco = $_SESSION['endereco_servico'] = $_POST['end_serv'];
+$idcard = $_SESSION['id_profissional'] = $_POST['id_profissional'];
 
 
 $profissional = read($pdo, "usuarios", "id_user=$idcard");
@@ -30,11 +30,12 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
         <!-- ----- Card Funcionario ----- -->
         <section class="perfil-profissional">
 
-            <a href="../contratar.php" class="voltar">
-                ← Voltar
-            </a>
+
             <?php
             echo '
+                <a href="../contratar.php?id=' . $idcard . '" class="voltar">
+                    ← Voltar
+                </a>
                 <div class="card-profissional">
 
                     <!-- Foto -->
@@ -74,7 +75,49 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
         </section>
 
         <section class="solicitacao-container">
-            
+            <div class="resumo-servico">
+
+                <div class="topo-resumo">
+
+                    <h2>Resumo do Serviço</h2>
+
+                </div>
+
+                <div class="infos-resumo">
+
+                    <div class="info-item">
+                        <span>TIPO</span>
+                        <p>Automação Industrial</p>
+                    </div>
+
+                    <div class="info-item">
+                        <span>DATA</span>
+                        <p>1212-12-01</p>
+                    </div>
+
+                    <div class="info-item">
+                        <span>HORÁRIO</span>
+                        <p>07:00 - 09:00</p>
+                    </div>
+
+                    <div class="info-item">
+                        <span>LOCAL</span>
+                        <p>aaaaaaaa</p>
+                    </div>
+
+                </div>
+
+                <div class="descricao-resumo">
+
+                    <span>DESCRIÇÃO</span>
+
+                    <p>
+                        aaaaaaaaaaaaaaaaaaaaaaaa
+                    </p>
+
+                </div>
+
+            </div>
 
             <!-- -------Card------- -->
             <?php
@@ -88,7 +131,10 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
                     </div>
 
                     <hr>
-
+                     <div class="linha-desc">
+                        <span>Valor Total</span>
+                        <strong>R$ ' . $profissional['valor_dia'] * $tempo . '</strong>
+                    </div>
 
                     <p class="texto-desc">
                        ' . $profissional['descricao_func'] . '

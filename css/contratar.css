@@ -352,3 +352,98 @@ main{
     line-height: 1.6;
     color: var(--text-secondary);
 }
+
+
+/* CSS da pagina segundo_contrato */
+
+.resumo-servico{
+    background: var(--navy-dark);
+
+    border: 1px solid rgba(151, 157, 172, 0.12);
+
+    border-radius: 20px;
+
+    padding: 28px;
+
+    color: var(--text-primary);
+}
+
+/* Topo */
+.topo-resumo{
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 28px;
+}
+
+/* Titulo */
+.topo-resumo h2{
+    font-size: 2rem;
+
+    font-weight: 700;
+}
+
+
+/* Grid pra informaçções */
+.infos-resumo{
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 24px;
+
+    margin-bottom: 28px;
+}
+
+/* Nomes */
+.info-item span{
+    display: block;
+
+    color: var(--cool-gray);
+
+    font-size: 0.8rem;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 8px;
+}
+
+.info-item p{
+    font-size: 1.1rem;
+
+    font-weight: 600;
+
+    color: var(--text-primary);
+}
+
+/* Descrição*/
+.descricao-resumo{
+    border-top: 1px solid rgba(151, 157, 172, 0.10);
+
+    padding-top: 24px;
+}
+
+.descricao-resumo span{
+    display: block;
+
+    color: var(--cool-gray);
+
+    font-size: 0.8rem;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 10px;
+}
+
+.descricao-resumo p{
+    color: var(--text-primary);
+
+    line-height: 1.7;
+}
