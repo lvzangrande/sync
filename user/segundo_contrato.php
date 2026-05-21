@@ -72,6 +72,39 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
 
 
         </section>
+
+        <section class="solicitacao-container">
+            
+
+            <!-- -------Card------- -->
+            <?php
+            echo '
+                <div class="desc-card">
+                    <h3>Descrição</h3>
+
+                    <div class="linha-desc">
+                        <span>Valor/dia</span>
+                        <strong>R$ ' . $profissional['valor_dia'] . '</strong>
+                    </div>
+
+                    <hr>
+
+
+                    <p class="texto-desc">
+                       ' . $profissional['descricao_func'] . '
+                    </p>
+
+                    <div class="garantia-box">
+                        <h4>Garantia Sync</h4>
+                        <p>
+                            Todos os serviços incluem garantia de 90 dias e suporte técnico prioritário.
+                        </p>
+                    </div>
+                </div>
+                ';
+            ?>
+        </section>
+
     </main>
 </body>
 
