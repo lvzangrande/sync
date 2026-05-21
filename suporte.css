@@ -185,7 +185,7 @@ body {
 
 .upload-area label {
     cursor: pointer;
-    color: var(--color-light-gray);
+    color: var(--color-sky-light);
 }
 
 .btn-submit {
