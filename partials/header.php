@@ -15,9 +15,7 @@
 
             <div class="buttons">
                 <a class="btn-entrar" href="./login.php">Entrar</a>
-                <a class="btn-cadastro" href="./cadastro.php">Começar <span class="material-symbols-outlined">
-                        arrow_outward
-                    </span></a>
+                <a class="btn-cadastro" href="./cadastro.php">Começar <span class="material-symbols-outlined">arrow_outward</span></a>
             </div>
         </div>
     </nav>
