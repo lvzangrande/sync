@@ -7,9 +7,15 @@ header {
     height: 90px;
     z-index: 1000;
     position: fixed;
+    display: flex;
+    align-items: center;
     text-transform: uppercase;
     border: 2px solid #152d522a;
-    
+}
+
+nav {
+    width: 100%;
+    height: 100%;
 }
 
 .menu-superior {
@@ -19,11 +25,16 @@ header {
     justify-content: space-between;
     padding: 0 24px;
     gap: 20px;
-    margin-top: 10px;
+    width: 100%;
+    max-width: 1300px;
+    height: 100%;
 }
 
 .nav-links {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
     gap: 18px;
     list-style: none;
     margin: 0;
@@ -36,7 +47,7 @@ header {
 .nav-links a {
     color: white;
     text-decoration: none;
-    font-weight: 550;
+    font-weight: 700;
     display: flex;
     gap: 8px;
     padding: 10px 16px;
@@ -93,22 +104,23 @@ a.btn-cadastro:hover {
 .buttons {
     display: flex;
     gap: 12px;
-    margin-left: auto;
-    padding-right: 50px;
     align-items: center;
-    font-weight: 590;
+    font-weight: 700;
     font-size: 15px;
 }
-
 
 .logo {
     height: 50px;
     width: auto;
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 30px;
+    margin: 0;
+}
 
-
+.logo img {
+    display: block;
+    height: 50px;
+    width: auto;
+    margin-top: -5px;
+    
 }
 
 
