@@ -97,6 +97,15 @@ body {
     transition: border-color 0.3s ease;
 }
 
+.form-separacao{
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+.form-separacao .form-group{
+    flex: 1;
+}
+
 .input-control:focus {
     border-color: var(--misty-blue);
 }
