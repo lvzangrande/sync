@@ -6,6 +6,12 @@ if (!isset($_SESSION['autenticado'])) {
     header("Location: ../login.php");
     exit();
 }
+
+$_SESSION['id_user'] = $usuario_banco['id_user'];
+$_SESSION['nome']    = $usuario_banco['nome'];
+$_SESSION['tipo']    = $usuario_banco['categoria'];
+$_SESSION['foto']    = $usuario_banco['img_user'];
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

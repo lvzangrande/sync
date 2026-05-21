@@ -38,6 +38,8 @@ if (isset($_POST['usuario']) && isset($_POST['senha'])) {
                 $_SESSION['nome']        = $usuario_banco['nome'];
                 $_SESSION['tipo']        = $usuario_banco['categoria'];
                 $_SESSION['foto']        = $usuario_banco['img_user'];
+                $_SESSION['cpfCnpj']     = $usuario_banco['cpf_cnpj'];
+                $_SESSION['tel']        = $usuario_banco['telefone'];
 
                 redirecionarPorPerfil($_SESSION['tipo']);
                 exit();
@@ -45,6 +47,7 @@ if (isset($_POST['usuario']) && isset($_POST['senha'])) {
             } else {
                 $erro = "Acesso negado! Dados incorretos.";
             }
+            //if $_SESSION['tipo'] = profissional -> pegar os dados específicos do profissional
             
         } else {
             $erro = "Acesso negado! Dados incorretos.";
