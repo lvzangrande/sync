@@ -45,9 +45,11 @@ if (isset($_POST['senha_atual']) && isset($_POST['nova_senha']) && isset($_POST[
 
 <body>
     <div class="login-container">
-        <div class="editar-header">
+
+        <div class="login-header">
             <h1>Alterar Senha</h1>
-            <p>Mantenha a segurança da sua conta Sync atualizada.</p>
+            <p>Logado como: <strong style="color: var(--misty-blue);"><?php echo $usuario_banco['email']; ?></strong></p>
+            <p style="margin-top: 5px; font-size: 0.85rem;">Mantenha a segurança da sua conta Sync atualizada.</p>
         </div>
 
         <?php if (!empty($erro)): ?>
@@ -79,10 +81,10 @@ if (isset($_POST['senha_atual']) && isset($_POST['nova_senha']) && isset($_POST[
                 <input type="password" id="confirma_senha" name="confirma_senha" class="input-control" placeholder="Repita a nova senha" required>
             </div>
 
-
             <button type="submit" class="btn-submit">Atualizar Senha</button>
 
         </form>
+
     </div>
 </body>
 
