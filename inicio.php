@@ -20,3 +20,8 @@
     <header>
         <?php include 'partials/header.php'; ?>
     </header>
+
+    <?php include 'partials/footer.php'; ?>
+
+</body>
+</html>

@@ -1,10 +1,10 @@
 body{
-  margin: 0;
-  min-height: 100vh;
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  background: linear-gradient(to top, #001233, #0d2747,#164578,);
+  background: linear-gradient(to top, #1c4376,  #0d2747, #001233); 
   background-attachment: fixed;
+  margin: 0;
+  min-height: 100vh;
 }

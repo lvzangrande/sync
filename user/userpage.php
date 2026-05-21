@@ -1,17 +1,24 @@
 <?php require_once '../crud.php';
+session_start();
 
-$tableUsuarios = readAll($pdo,'usuarios');
-function nomeUsuario($pdo) {
-    if (isset($_GET['id'])) {
-        $id = intval($_GET['id']);
+if (!isset($_SESSION['autenticado'])) {
+    header("Location: ../login.php");
+    exit();
+}
+
+function nomeUsuario() {
+    if (isset($_SESSION['nome'])) {
+        $nomeCompleto = trim($_SESSION['nome']);
         
-        // Busca o usuário no banco usando o $pdo
-        $user = read($pdo, 'usuarios', "id = $id");
+        $palavras = explode(" ", $nomeCompleto);
         
-        if ($user && isset($user['nome'])) {
-            $nomeUser = $user['nome']; // Agora o $user['nome'] funciona!
-            echo $nomeUser;
-        }
+        $duasPalavras = array_slice($palavras, 0, 2);
+        
+        $nomeEncurtado = implode(" ", $duasPalavras);
+
+        echo htmlspecialchars($nomeEncurtado);
+    } else {
+        echo "Usuário";
     }
 }
 ?>
@@ -21,7 +28,7 @@ function nomeUsuario($pdo) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Olá<?=nomeUsuario($pdo);?></title>
+    <title>Olá <?=nomeUsuario($pdo);?></title>
     <link rel="stylesheet" href="../css/userpage.css">
 </head>
 <body>
