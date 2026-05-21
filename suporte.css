@@ -1,6 +1,4 @@
-/* ==========================================================================
-   VARIÁVEIS DE COR E RESET
-   ========================================================================== */
+
 :root {
     --color-night-blue: #001233;
     --color-navy-dark: #092848;
@@ -28,20 +26,16 @@ body {
     padding: 40px 20px;
 }
 
-/* ==========================================================================
-   LAYOUT PRINCIPAL (GRID)
-   ========================================================================== */
+
 .main-container {
     display: grid;
-    grid-template-columns: 300px 1fr; /* Sidebar fixa e Formulário expansível */
+    grid-template-columns: 300px 1fr; 
     gap: 30px;
     width: 100%;
     max-width: 1100px;
 }
 
-/* ==========================================================================
-   COLUNA 1: SIDEBAR (INFO)
-   ========================================================================== */
+
 .sidebar-info {
     display: flex;
     flex-direction: column;
@@ -63,7 +57,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* Indicador de Status Online */
 .status-indicator {
     display: flex;
     align-items: center;
@@ -72,21 +65,13 @@ body {
     font-weight: 600;
 }
 
-.status-indicator::before {
-    content: "";
-    width: 10px;
-    height: 10px;
-    background-color: #2ecc71; /* Verde de segurança */
-    border-radius: 50%;
-    box-shadow: 0 0 10px #2ecc71;
-}
+
 
 .status-card small {
     color: var(--color-cool-gray);
     font-size: 0.8rem;
 }
 
-/* Itens de Contato */
 .contact-item {
     display: flex;
     align-items: center;
@@ -101,29 +86,26 @@ body {
     width: 20px;
 }
 
-/* ==========================================================================
-   COLUNA 2: TICKET CONTAINER
-   ========================================================================== */
-.ticket-container {
+
+.form-container {
     background-color: var(--color-navy-dark);
     border: 1px solid var(--color-slate-blue);
     border-radius: 8px;
     padding: 40px;
 }
 
-.ticket-header {
+.form-header {
     margin-bottom: 35px;
     border-bottom: 1px solid var(--color-slate-blue);
     padding-bottom: 20px;
 }
 
-.ticket-header h2 {
+.form-header h2 {
     font-size: 1.5rem;
     font-weight: 600;
     letter-spacing: 0.5px;
 }
 
-/* Formulário e Grupos */
 .support-form {
     display: flex;
     flex-direction: column;
@@ -156,21 +138,20 @@ body {
     font-size: 1rem;
 }
 
-/* Inputs, Selects e Textareas */
 .input-wrapper input, 
 .support-form textarea {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.2);
     border: 1px solid var(--color-slate-blue);
     border-radius: 4px;
-    padding: 14px 15px 14px 45px; /* Padding extra na esquerda para o ícone */
+    padding: 14px 15px 14px 45px; 
     color: var(--white);
     font-size: 0.95rem;
     transition: all 0.3s ease;
 }
 
 .support-form textarea {
-    padding-left: 15px; /* Textarea não tem ícone interno */
+    padding-left: 15px; 
     resize: none;
 }
 
@@ -182,7 +163,7 @@ body {
     box-shadow: 0 0 5px rgba(139, 192, 212, 0.2);
 }
 
-/* Área de Upload */
+
 .upload-area {
     border: 2px dashed var(--color-slate-blue);
     padding: 20px;
@@ -204,40 +185,30 @@ body {
 
 .upload-area label {
     cursor: pointer;
-    color: var(--color-light-gray);
+    color: var(--color-sky-light);
 }
 
-/* Botão de Envio */
 .btn-submit {
     background-color: var(--color-deep-blue);
     color: var(--white);
+    padding: 16px;
     border: none;
-    padding: 18px;
-    font-weight: bold;
+    border-radius: 8px;
     font-size: 1rem;
-    border-radius: 4px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
     cursor: pointer;
     transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    margin-top: 10px;
 }
 
 .btn-submit:hover {
-    background-color: #1e5ba1; /* Um pouco mais claro que o deep-blue */
+    background-color: var(--color-ocean-blue);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 15px rgba(22, 69, 120, 0.3);
 }
 
 .btn-submit:active {
     transform: translateY(0);
 }
 
-/* Responsividade Básica */
-@media (max-width: 850px) {
-    .main-container {
-        grid-template-columns: 1fr;
-    }
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-}

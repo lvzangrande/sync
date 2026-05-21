@@ -97,7 +97,7 @@ if (
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro | Sync Mecatronics</title>
-    <link rel="stylesheet" href="css/cadastro.css">
+    <link rel="stylesheet" href="css/formularios.css">
 </head>
 
 <body>
@@ -120,19 +120,23 @@ if (
                 <input type="text" id="nome" name="nome" class="input-control" placeholder="Nome completo ou Empresa" required>
             </div>
 
+            <div class="form-separacao">
+
             <div class="form-group">
                 <label for="email">E-mail de Contato</label>
                 <input type="email" id="email" name="email" class="input-control" placeholder="cliente@provedor.com" required>
             </div>
 
             <div class="form-group">
-                <label for="senha">Senha de Acesso</label>
-                <input type="password" id="senha" name="senha" class="input-control" placeholder="Crie uma senha segura" required>
-            </div>
-
-            <div class="form-group">
                 <label for="telefone">Telefone / WhatsApp</label>
                 <input type="text" id="telefone" name="telefone" class="input-control" placeholder="(11) 99999-9999" required>
+            </div>
+
+             </div>
+
+            <div class="form-group">
+                <label for="senha">Senha de Acesso</label>
+                <input type="password" id="senha" name="senha" class="input-control" placeholder="Crie uma senha segura" required>
             </div>
 
             <div class="form-group">

@@ -11,3 +11,5 @@ $novo_contrato = [
 ];
 
 $idnova_os = create($pdo, 'agenda', $novo_contrato);
+
+header('Location: ../user/contrato_info.php?id_user');
