@@ -1,10 +1,23 @@
 <?php
 session_start();
-
 require_once 'crud.php';
 
+if (!isset($_SESSION['id_user'])) {
+    header("Location: login.php");
+    exit();
+}
+
+$id_usuario = $_SESSION['id_user'];
+$resultado = read($pdo, 'usuarios', "id_user = $id_usuario");
+
+$usuario_banco = isset($resultado[0]) ? $resultado[0] : $resultado;
+if (!$usuario_banco) {
+    $usuario_banco = ['email' => 'Usuário Sync'];
+}
+
+
+
 $erro = "";
-$sucesso = "";
 
 if (isset($_POST['senha_atual']) && isset($_POST['nova_senha']) && isset($_POST['confirma_senha'])) {
 
@@ -24,7 +37,9 @@ if (isset($_POST['senha_atual']) && isset($_POST['nova_senha']) && isset($_POST[
         if ($senha_atual === $usuario_banco['senha']) {
             $dados_atualizados = ['senha' => $nova_senha];
             update($pdo, 'usuarios', $dados_atualizados, "id_user = $id_usuario");
-            $sucesso = "Senha alterada com sucesso!";
+            session_destroy();
+            header("Location: login.php?sucesso=1");
+            exit();
         } else {
             $erro = "Sua senha atual está errada.";
         }
