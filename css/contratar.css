@@ -21,12 +21,12 @@ body {
   background-color: #001233;
 }
 
-main{
-    max-width: 1280px;
+main {
+  max-width: 1280px;
 
-    margin: 0 auto;
+  margin: 0 auto;
 
-    padding: 40px 24px 70px;
+  padding: 40px 24px 70px;
 }
 
 /* Primeira Section */
@@ -283,167 +283,171 @@ main{
   box-shadow: 0 8px 20px rgba(22, 69, 120, 0.35);
 }
 
- /* Card Informações*/
+/* Card Informações*/
 .desc-card {
-    background: var(--navy-dark);
-    border: 1px solid rgba(151, 157, 172, 0.15);
-    border-radius: 20px;
-    padding: 28px;
-    box-shadow: 0 10px 30px rgba(0, 18, 51, 0.25);
-    position: sticky;
-    top: 24px;
+  background: var(--navy-dark);
+  border: 1px solid rgba(151, 157, 172, 0.15);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0, 18, 51, 0.25);
+  position: sticky;
+  top: 24px;
 }
 
 .desc-card h3 {
-    margin: 0 0 24px;
-    font-size: 1.35rem;
-    font-weight: 700;
-    color: var(--text-primary);
+  margin: 0 0 24px;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
 }
 
 .linha-desc {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 18px;
-    font-size: 1rem;
-    color: var(--text-secondary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  font-size: 1rem;
+  color: var(--text-secondary);
 }
 
 .linha-desc strong {
-    color: var(--text-primary);
-    font-size: 1.05rem;
+  color: var(--text-primary);
+  font-size: 1.05rem;
 }
 
 .desc-card hr {
-    border: none;
-    height: 1px;
-    background: rgba(151, 157, 172, 0.12);
-    margin: 24px 0;
+  border: none;
+  height: 1px;
+  background: rgba(151, 157, 172, 0.12);
+  margin: 24px 0;
 }
 
 
 /* Texto explicativo */
 .texto-desc {
-    margin: 0 0 24px;
-    font-size: 0.95rem;
-    line-height: 1.7;
-    color: var(--text-secondary);
+  margin: 0 0 24px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
 }
 
 /* Garantia */
 .garantia-box {
-    background: var(--deep-midnight);
-    border: 1px solid rgba(151, 157, 172, 0.10);
-    border-radius: 14px;
-    padding: 18px;
+  background: var(--deep-midnight);
+  border: 1px solid rgba(151, 157, 172, 0.10);
+  border-radius: 14px;
+  padding: 18px;
 }
 
 .garantia-box h4 {
-    margin: 0 0 8px;
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text-primary);
+  margin: 0 0 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
 .garantia-box p {
-    margin: 0;
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: var(--text-secondary);
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
 }
 
 
 /* CSS da pagina segundo_contrato */
 
-.resumo-servico{
-    background: var(--navy-dark);
+.resumo-servico {
+  background: var(--navy-dark);
+  border: 1px solid rgba(151, 157, 172, 0.12);
+  border-radius: 20px;
+  padding: 28px;
+  color: var(--text-primary);
+}
 
-    border: 1px solid rgba(151, 157, 172, 0.12);
-
-    border-radius: 20px;
-
-    padding: 28px;
-
-    color: var(--text-primary);
+.linha-titulo {
+  flex: 1;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.384);
+  margin-left: 20px;
+  border-radius: 20px;
 }
 
 /* Topo */
-.topo-resumo{
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    margin-bottom: 28px;
+.topo-resumo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
 }
 
 /* Titulo */
-.topo-resumo h2{
-    font-size: 2rem;
-
-    font-weight: 700;
+.topo-resumo h2 {
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 
 /* Grid pra informaçções */
-.infos-resumo{
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 24px;
-
-    margin-bottom: 28px;
+.infos-resumo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 28px;
 }
 
 /* Nomes */
-.info-item span{
-    display: block;
-
-    color: var(--cool-gray);
-
-    font-size: 0.8rem;
-
-    font-weight: 600;
-
-    letter-spacing: 1px;
-
-    margin-bottom: 8px;
+.info-item span {
+  display: block;
+  color: var(--cool-gray);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
 }
 
-.info-item p{
-    font-size: 1.1rem;
-
-    font-weight: 600;
-
-    color: var(--text-primary);
+.info-item p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
 /* Descrição*/
-.descricao-resumo{
-    border-top: 1px solid rgba(151, 157, 172, 0.10);
-
-    padding-top: 24px;
+.descricao-resumo {
+  border-top: 1px solid rgba(151, 157, 172, 0.10);
+  padding-top: 24px;
 }
 
-.descricao-resumo span{
-    display: block;
-
-    color: var(--cool-gray);
-
-    font-size: 0.8rem;
-
-    font-weight: 600;
-
-    letter-spacing: 1px;
-
-    margin-bottom: 10px;
+.descricao-resumo span {
+  display: block;
+  color: var(--cool-gray);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
 }
 
-.descricao-resumo p{
-    color: var(--text-primary);
+.descricao-resumo p {
+  color: var(--text-primary);
+  line-height: 1.7;
+}
 
-    line-height: 1.7;
+.btn-continuar {
+  display: block;
+  width: 100%;
+  margin-top: 30px;
+  background-color: var(--royal-industrial);
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding: 18px;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-continuar:hover {
+  background-color: var(--steel-blue);
+
+  transform: translateY(-2px);
 }

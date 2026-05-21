@@ -75,52 +75,60 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
         </section>
 
         <section class="solicitacao-container">
-            <div class="resumo-servico">
 
-                <div class="topo-resumo">
 
-                    <h2>Resumo do Serviço</h2>
 
-                </div>
-
-                <div class="infos-resumo">
-
-                    <div class="info-item">
-                        <span>TIPO</span>
-                        <p>Automação Industrial</p>
-                    </div>
-
-                    <div class="info-item">
-                        <span>DATA</span>
-                        <p>1212-12-01</p>
-                    </div>
-
-                    <div class="info-item">
-                        <span>HORÁRIO</span>
-                        <p>07:00 - 09:00</p>
-                    </div>
-
-                    <div class="info-item">
-                        <span>LOCAL</span>
-                        <p>aaaaaaaa</p>
-                    </div>
-
-                </div>
-
-                <div class="descricao-resumo">
-
-                    <span>DESCRIÇÃO</span>
-
-                    <p>
-                        aaaaaaaaaaaaaaaaaaaaaaaa
-                    </p>
-
-                </div>
-
-            </div>
-
-            <!-- -------Card------- -->
+            <!-- -------Cards------- -->
             <?php
+            echo '
+                <div class="resumo-servico">
+
+                    <div class="topo-resumo">
+
+                        <h2>Resumo do Serviço</h2> 
+                        <div class="linha-titulo"></div>
+
+                    </div>
+
+                    <div class="infos-resumo">
+
+                        <div class="info-item">
+                            <span>TIPO</span>
+                            <p>' . $tipo . '</p>
+                        </div>
+
+                        <div class="info-item">
+                            <span>DATA</span>
+                            <p>' . $data . '</p>
+                        </div>
+
+                        <div class="info-item">
+                            <span>Dias</span>
+                            <p>' . $tempo . '</p>
+                        </div>
+
+                        <div class="info-item">
+                            <span>LOCAL</span>
+                            <p>' . $endereco . '</p>
+                        </div>
+
+                    </div>
+
+                    <div class="descricao-resumo">
+
+                        <span>DESCRIÇÃO</span>
+
+                        <p>
+                           ' . $desc . '
+                        </p>
+
+                        <butto href="./pagamento.php" class="btn-continuar">
+                            Confirmar pagamento
+                        </a>
+                    </div>
+
+                </div>
+                ';
             echo '
                 <div class="desc-card">
                     <h3>Descrição</h3>
