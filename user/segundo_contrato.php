@@ -80,81 +80,89 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
 
             <!-- -------Cards------- -->
             <?php
-            echo '
-                <div class="resumo-servico">
+                echo '
+                    <div class="resumo-servico">
 
-                    <div class="topo-resumo">
+                        <div class="topo-resumo">
 
-                        <h2>Resumo do Serviço</h2> 
-                        <div class="linha-titulo"></div>
+                            <h2>Resumo do Serviço</h2> 
+                            <div class="linha-titulo"></div>
 
+                        </div>
+
+                        <div class="infos-resumo">
+
+                            <div class="info-item">
+                                <span>TIPO</span>
+                                <p>' . $tipo . '</p>
+                            </div>
+
+                            <div class="info-item">
+                                <span>DATA</span>
+                                <p>' . $data . '</p>
+                            </div>
+
+                            <div class="info-item">
+                                <span>Dias</span>
+                                <p>' . $tempo . '</p>
+                            </div>
+
+                            <div class="info-item">
+                                <span>LOCAL</span>
+                                <p>' . $endereco . '</p>
+                            </div>
+
+                        </div>
+
+                        <div class="descricao-resumo">
+
+                            <span>DESCRIÇÃO</span>
+
+                            <p>
+                            ' . $desc . '
+                            </p>
+                            <form action="../func/insert.php" method="POST">
+                                <input type="hidden" name="idcard" value="'.$idcard .'">
+
+                                <input type="hidden" name="servico" value="'.$tipo .'">
+
+                                <input type="hidden" name="descricao" value="'.$desc .'">
+
+                                <input type="hidden" name="data_inicio" value="'.$data .'">
+                                 <input type="hidden" name="data_inicio" value="'.$data .'">
+                                <button href="./pagamento.php" class="btn-continuar">
+                                    Confirmar pagamento
+                                </button>
+                            </form>
+                        </div>
                     </div>
-
-                    <div class="infos-resumo">
-
-                        <div class="info-item">
-                            <span>TIPO</span>
-                            <p>' . $tipo . '</p>
-                        </div>
-
-                        <div class="info-item">
-                            <span>DATA</span>
-                            <p>' . $data . '</p>
-                        </div>
-
-                        <div class="info-item">
-                            <span>Dias</span>
-                            <p>' . $tempo . '</p>
-                        </div>
-
-                        <div class="info-item">
-                            <span>LOCAL</span>
-                            <p>' . $endereco . '</p>
-                        </div>
-
-                    </div>
-
-                    <div class="descricao-resumo">
-
-                        <span>DESCRIÇÃO</span>
-
-                        <p>
-                           ' . $desc . '
-                        </p>
-
-                        <butto href="./pagamento.php" class="btn-continuar">
-                            Confirmar pagamento
-                        </a>
-                    </div>
-
-                </div>
                 ';
-            echo '
-                <div class="desc-card">
-                    <h3>Descrição</h3>
+                echo '
+                    <div class="desc-card">
+                        <h3>Descrição</h3>
 
-                    <div class="linha-desc">
-                        <span>Valor/dia</span>
-                        <strong>R$ ' . $profissional['valor_dia'] . '</strong>
-                    </div>
+                        <div class="linha-desc">
+                            <span>Valor/dia</span>
+                            <strong>R$ ' . $profissional['valor_dia'] . '</strong>
+                        </div>
 
-                    <hr>
-                     <div class="linha-desc">
-                        <span>Valor Total</span>
-                        <strong>R$ ' . $profissional['valor_dia'] * $tempo . '</strong>
-                    </div>
+                        <hr>
+                        <div class="linha-desc">
+                            <span>Valor Total</span>
+                            <strong>R$ ' . $profissional['valor_dia'] * $tempo . '</strong>
+                        </div>
 
-                    <p class="texto-desc">
-                       ' . $profissional['descricao_func'] . '
-                    </p>
-
-                    <div class="garantia-box">
-                        <h4>Garantia Sync</h4>
-                        <p>
-                            Todos os serviços incluem garantia de 90 dias e suporte técnico prioritário.
+                        <p class="texto-desc">
+                        ' . $profissional['descricao_func'] . '
                         </p>
+
+                        <div class="garantia-box">
+                            <h4>Garantia Sync</h4>
+                            <p>
+                                Todos os serviços incluem garantia de 90 dias e suporte técnico prioritário.
+                            </p>
+                        </div>
                     </div>
-                </div>
                 ';
             ?>
         </section>
