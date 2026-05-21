@@ -1,0 +1,237 @@
+/* ==========================================================================
+   1. VARIÁVEIS E CONFIGURAÇÕES GERAIS
+   ========================================================================== */
+:root {
+    --deep-midnight: #000B1E;
+    --slate-gray: #0B1528;
+    --navy-dark: #07101E;
+    --royal-industrial: #1A437E;
+    --steel-blue: #255FA3;
+    --cool-gray: #1E2D4A;
+    --misty-blue: #8BC0D6;
+    --light-slate: #6F819A;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--deep-midnight);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* ==========================================================================
+   2. ESTRUTURA DOS CONTAINERS E HEADERS (LOGIN, CADASTRO E SENHA)
+   ========================================================================== */
+.login-container, .cadastro-container {
+    background-color: var(--slate-gray);
+    border: 1px solid var(--cool-gray);
+    border-radius: 8px;
+    width: 100%;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.login-container {
+    max-width: 420px;
+    padding: 40px 30px;
+}
+
+.cadastro-container {
+    max-width: 480px;
+    padding: 35px 30px;
+}
+
+.login-header, .cadastro-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.login-header h1, .cadastro-header h1, .editar-header h1 {
+    color: var(--misty-blue);
+    font-size: 1.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.login-header p, .cadastro-header p, .editar-header p {
+    color: var(--light-slate);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* ==========================================================================
+   3. ELEMENTOS DE FORMULÁRIO (COMPARTILHADOS)
+   ========================================================================== */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    color: #ffffff;
+    margin-bottom: 7px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.input-control {
+    width: 100%;
+    background-color: var(--navy-dark);
+    border: 1px solid var(--cool-gray);
+    color: #ffffff;
+    padding: 13px 15px;
+    font-size: 1rem;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input-control:focus {
+    border-color: var(--misty-blue);
+}
+
+.input-control::placeholder {
+    color: var(--light-slate);
+}
+
+/* Estilização do Select do Cadastro */
+select.input-control {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+/* Alinhamento de dois inputs na mesma linha */
+.form-separacao {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.form-separacao .form-group {
+    flex: 1;
+}
+
+.btn-submit {
+    width: 100%;
+    background-color: var(--royal-industrial);
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background-color: var(--steel-blue);
+}
+
+/* ==========================================================================
+   4. UPLOAD DE IMAGEM (EXCLUSIVO DO CADASTRO)
+   ========================================================================== */
+.upload-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    background-color: var(--navy-dark); 
+    border: 1px dashed var(--cool-gray); 
+    border-radius: 4px;
+    padding: 12px 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-container:hover {
+    border-color: var(--misty-blue);
+    background-color: rgba(139, 192, 214, 0.03); 
+}
+
+.upload-container span {
+    color: var(--light-slate);
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.upload-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background-color: rgba(111, 129, 154, 0.1);
+    border-radius: 4px;
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
+.upload-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.input-file-hidden {
+    display: none;
+}
+
+/* ==========================================================================
+   5. ALERTAS E RODAPÉS
+   ========================================================================== */
+.alert, .alert-error {
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.alert-erro, .alert-error {
+    background-color: #5c1e29;
+    color: #f8d7da;
+    border: 1px solid #721c24;
+}
+
+.alert-sucesso {
+    background-color: #1e4620;
+    color: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+
+.login-footer, .cadastro-footer {
+    margin-top: 22px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--light-slate);
+}
+
+.login-footer a, .cadastro-footer a {
+    color: var(--misty-blue);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.login-footer a:hover, .cadastro-footer a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
