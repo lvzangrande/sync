@@ -8,7 +8,11 @@ $_SESSION['descricao_problema'] = $_POST['desc'];
 $_SESSION['data'] = $_POST['data'];
 $_SESSION['tempo_planejado'] = $_POST['tempo'];
 $_SESSION['endereco_servico'] = $_POST['end_serv'];
-$_SESSION['idcard'] = $_POST['id_profissional'];
+$idcard = $_POST['id_profissional'];
+
+
+$profissional = read($pdo, "usuarios", "id_user=$idcard");
+
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +21,7 @@ $_SESSION['idcard'] = $_POST['id_profissional'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/contratar.css">
+    <link rel="stylesheet" href="../css/contratar.css">
     <title>Contratar</title>
 </head>
 
@@ -26,8 +30,8 @@ $_SESSION['idcard'] = $_POST['id_profissional'];
         <!-- ----- Card Funcionario ----- -->
         <section class="perfil-profissional">
 
-            <a href="./catalogo_profissionais.php" class="voltar">
-                ← Voltar ao Catálogo
+            <a href="../contratar.php" class="voltar">
+                ← Voltar
             </a>
             <?php
             echo '

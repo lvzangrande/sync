@@ -77,8 +77,10 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
                     Preencha os dados do serviço para prosseguir.
                 </p>
 
-                <form action="./func/session.php" method="POST">
-                    <input type="hidden" name="id_profissional" value="<?php $idcard ?>">
+                <form action="./user/segundo_contrato.php" method="POST">
+                    
+                    <input type="hidden" name="id_profissional" value="<?= $idcard ?>">
+
                     <div class="campo">
                         <label>Tipo de Serviço</label>
                         <select name="tipo_serv">
