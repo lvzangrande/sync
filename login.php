@@ -8,6 +8,7 @@ if (isset($_SESSION['autenticado'])) {
 }
 
 $erro = "";
+$sucesso = "";
 
 if (isset($_POST['usuario']) && isset($_POST['senha'])) {
 
