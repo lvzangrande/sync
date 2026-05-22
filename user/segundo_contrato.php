@@ -129,7 +129,11 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
                                 <input type="hidden" name="descricao" value="'.$desc .'">
 
                                 <input type="hidden" name="data_inicio" value="'.$data .'">
-                                 <input type="hidden" name="data_inicio" value="'.$data .'">
+                                
+                                <input type="hidden" name="tempo" value="'.$tempo .'">                                 
+                                
+                                <input type="hidden" name="endereco" value="'.$endereco .'">
+                               
                                 <button href="./pagamento.php" class="btn-continuar">
                                     Confirmar pagamento
                                 </button>
