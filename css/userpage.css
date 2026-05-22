@@ -28,6 +28,7 @@ header{
 .botaoEditarDados img{
     background-color: #326b93;
 }
+
 /*HISTÓRICO DE CONTRAÇÕES*/
 
 .botaovoltar{
@@ -46,10 +47,16 @@ table{
     padding: 20px;
     border-radius: 50px;
     background-color: #164578;
+    width: 50%;
+    height: 700px;
 }
 td{
     background-color:#326b93;
     margin: 20px;
+    text-align: center;
+}
+td a{
+    margin: 10px;
 }
 td{
     margin: 100px;

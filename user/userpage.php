@@ -45,10 +45,12 @@ $categoria = $_SESSION['tipo'];
     if (isset($_SESSION['foto'])){
     $foto = $_SESSION['foto'];
     }
+    //else{} receber foto default
     if (isset($_SESSION['nome'])) {
         $nomeCompleto = trim($_SESSION['nome']);
     }
-
+    //else{} receber foto default
+    
     require_once '../partials/header.php';
     require_once '../php/saudacao.php';
 
