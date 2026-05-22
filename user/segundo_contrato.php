@@ -1,15 +1,22 @@
 <?php
 
 require_once '../crud.php';
-session_start();
+if (session_status() === PHP_SESSION_NONE){
+    session_start();
+}
 
+if (!isset($_SESSION['autenticado'])) {
+    header("Location: ../login.php");
+    exit();
+}
+print_r($_SESSION);
 $tipo = $_SESSION['tipo_servico'] = $_POST['tipo_serv'];
 $desc = $_SESSION['descricao_problema'] = $_POST['desc'];
 $data = $_SESSION['data'] = $_POST['data'];
 $tempo = $_SESSION['tempo_planejado'] = $_POST['tempo'];
 $endereco = $_SESSION['endereco_servico'] = $_POST['end_serv'];
 $idcard = $_SESSION['id_profissional'] = $_POST['id_profissional'];
-
+$idcliente = $_SESSION['id_user'] = $_POST['id_cliente'];
 $profissional = read($pdo, "usuarios", "id_user=$idcard");
 
 ?>

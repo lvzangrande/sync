@@ -9,6 +9,7 @@ $novo_contrato = [
     'tempo_planejado'=> $_POST['tempo'],
     'endereco_servico'=> $_POST['end_serv'],
     'id_profissional' => $_POST['id_profissional'],
+    'id_cliente' => $_POST['id_cliente']
 ];
 
 
