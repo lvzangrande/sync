@@ -12,4 +12,4 @@ $novo_contrato = [
 
 $idnova_os = create($pdo, 'agenda', $novo_contrato);
 
-header('Location: ../user/confirmacacao_pagamento.php');
+header('Location: ../user/confirmacao_pagamento.php');

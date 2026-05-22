@@ -69,7 +69,7 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
                 echo '
                     <div class="metodo-box">
 
-                        <form>
+                        <form action="../func/insert.php" method="POST">
 
                             <div class="campo">
                                 <label>Nome no Cartão</label>
@@ -80,10 +80,21 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
                                 <label>Número do Cartão</label>
                                 <input type="text">
                             </div>
+                            <input type="hidden" name="id_profissional" value="'.$idcard .'">
 
-                            <a href="./confirmacao_pagamento.php" class="btn-pagar">
+                            <input type="hidden" name="tipo_serv" value="'.$tipo .'">
+
+                            <input type="hidden" name="desc" value="'.$desc .'">
+
+                            <input type="hidden" name="data" value="'.$data .'">
+                            
+                            <input type="hidden" name="tempo" value="'.$tempo .'">                                 
+                            
+                            <input type="hidden" name="end_serv" value="'.$endereco .'">
+                            
+                            <button class="btn-pagar">
                                 Confirmar Pagamento
-                            </a>
+                            </button>
 
                         </form>
 
