@@ -1,5 +1,17 @@
 <?php
+require_once '../crud.php';
 $metodo = $_GET['metodo'] ?? 'cartao';
+
+session_start();
+
+$tipo = $_SESSION['tipo_servico'] = $_POST['tipo_serv'];
+$desc = $_SESSION['descricao_problema'] = $_POST['desc'];
+$data = $_SESSION['data'] = $_POST['data'];
+$tempo = $_SESSION['tempo_planejado'] = $_POST['tempo'];
+$endereco = $_SESSION['endereco_servico'] = $_POST['end_serv'];
+$idcard = $_SESSION['id_profissional'] = $_POST['id_profissional'];
+
+$profissional = read($pdo, "usuarios", "id_user=$idcard");
 ?>
 
 <!DOCTYPE html>
@@ -20,10 +32,11 @@ $metodo = $_GET['metodo'] ?? 'cartao';
         <!-- ESQUERDA -->
         <section class="pagamento-formulario">
 
-            <a href="./resumo.php" class="voltar">
+            <?php
+            echo '<a href="./segundo_contrato?id=' . $idcard . '.php" class="voltar">
                 ← Voltar
-            </a>
-
+            </a>';
+            ?>
             <h1>Finalizar Pagamento</h1>
 
             <p class="descricao">
@@ -120,7 +133,9 @@ $metodo = $_GET['metodo'] ?? 'cartao';
         </section>
 
         <!-- DIREITA -->
-        <aside class="resumo-pedido">
+        <?php
+        echo '
+        <div class="resumo-pedido">
 
             <h2>Resumo do Pedido</h2>
 
@@ -161,8 +176,9 @@ $metodo = $_GET['metodo'] ?? 'cartao';
                 <strong>R$ 1.160</strong>
             </div>
 
-        </aside>
-
+        </div>
+        ';
+        ?>
     </main>
 
 </body>

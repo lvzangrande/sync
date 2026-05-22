@@ -10,7 +10,6 @@ $tempo = $_SESSION['tempo_planejado'] = $_POST['tempo'];
 $endereco = $_SESSION['endereco_servico'] = $_POST['end_serv'];
 $idcard = $_SESSION['id_profissional'] = $_POST['id_profissional'];
 
-
 $profissional = read($pdo, "usuarios", "id_user=$idcard");
 
 ?>
@@ -121,20 +120,20 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
                             <p>
                             ' . $desc . '
                             </p>
-                            <form action="../func/insert.php" method="POST">
-                                <input type="hidden" name="idcard" value="'.$idcard .'">
+                            <form action="./pagamento.php" method="POST">
+                                <input type="hidden" name="id_profissional" value="'.$idcard .'">
 
-                                <input type="hidden" name="servico" value="'.$tipo .'">
+                                <input type="hidden" name="tipo_serv" value="'.$tipo .'">
 
-                                <input type="hidden" name="descricao" value="'.$desc .'">
+                                <input type="hidden" name="desc" value="'.$desc .'">
 
-                                <input type="hidden" name="data_inicio" value="'.$data .'">
+                                <input type="hidden" name="data" value="'.$data .'">
                                 
                                 <input type="hidden" name="tempo" value="'.$tempo .'">                                 
                                 
-                                <input type="hidden" name="endereco" value="'.$endereco .'">
+                                <input type="hidden" name="end_serv" value="'.$endereco .'">
                                
-                                <button href="./pagamento.php" class="btn-continuar">
+                                <button class="btn-continuar">
                                     Confirmar pagamento
                                 </button>
                             </form>
