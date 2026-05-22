@@ -75,7 +75,8 @@ input{
     
 }
 input::placeholder{ 
-    color: aliceblue;
+    text-align: center;
+    color: #164578;
 }
 
 button{
