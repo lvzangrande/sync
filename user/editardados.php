@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $linhasAfetadas = update($pdo, 'usuarios', $dadosAtualizados, "id_user = $idUser");
 
     if ($linhasAfetadas > 0) {
-        echo '<script>alert("Usuário atualizado com sucesso!!!"); window.location.href="index.php";</script>';
+        echo '<script>alert("Usuário atualizado com sucesso!!!"); window.location.href="userpage.php";</script>';
         exit();
     } else {
         echo '<script>alert("Nenhuma alteração foi feita ou erro ao atualizar!");</script>';
