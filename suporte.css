@@ -163,6 +163,11 @@ body {
     box-shadow: 0 0 5px rgba(139, 192, 212, 0.2);
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 .upload-area {
     border: 2px dashed var(--color-slate-blue);

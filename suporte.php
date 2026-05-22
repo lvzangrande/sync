@@ -1,18 +1,36 @@
 <?php
-if ($_SERVER["REQUESTED_METHOD"] == "POST") {
+require_once "crud.php";
+session_start(); 
+
+$mensagem_sucesso = "";
+
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
 
-$nome = ($_POST['name']);
-$email = ($_POST['email']);
-$modeloMaquina = ($_POST['modelo-maquina']);
-$mensagemCliente = ($_POST['mensagem']);
+    $nome     = $_POST['nome'];
+    $email    = $_POST['email'];
+    $telefone = $_POST['telefone'];
+    $mensagem = $_POST['mensagem'];
+    
+
+    $id_usuario = $_SESSION['id_user'] ?? 1;
+
+    $dados = [
+        'nome_cliente' => $nome,
+        'email_sup'    => $email,
+        'tel_sup'      => $telefone,
+        'desc_sup'     => $mensagem,
+        'id_usuario'   => $id_usuario,
+        'status_suporte' => 'Pendente'
+    ];
 
 
-
+    if (create($pdo, 'suporte', $dados)) {
+        $mensagem_sucesso = "Solicitação enviada com sucesso!";
+    }
 }
 ?>
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -35,7 +53,7 @@ $mensagemCliente = ($_POST['mensagem']);
                 <h3>Canais de Emergência</h3>
                 <div class="contact-item">
                     <i class="fa-brands fa-whatsapp"></i>
-                    <span>+55 (11) 98765-4321</span>
+                    <span>+55 (11) 93056-9806</span>
                 </div>
                 <div class="contact-item">
                     <i class="fa-regular fa-envelope"></i>
@@ -70,10 +88,10 @@ $mensagemCliente = ($_POST['mensagem']);
                 </div>
 
                 <div class="form-group full-width">
-                    <label>Modelo da Máquina/Sistema</label>
+                    <label>Telefone</label>
                     <div class="input-wrapper">
-                        <i class="fa-solid fa-gear icon"></i>
-                        <input type="text" name="modelo-maquina" placeholder="Ex: CNC, CLP, Braço Robótico" required>
+                        <i class="fa-solid fa-phone icon"></i>
+                        <input type="number" name="telefone" placeholder="+55 (11) 93056-9806" required>
                     </div>
                 </div>
 
