@@ -8,10 +8,10 @@ $mensagem_sucesso = "";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
 
-    $nome     = $_POST['nome'];
-    $email    = $_POST['email'];
-    $telefone = $_POST['telefone'];
-    $mensagem = $_POST['mensagem'];
+    $nome     = htmlspecialchars($_POST['nome']);
+    $email    = htmlspecialchars($_POST['email']);
+    $telefone = htmlspecialchars($_POST['telefone']);
+    $mensagem = htmlspecialchars($_POST['mensagem']);
     
 
     $id_usuario = $_SESSION['id_user'] ?? 1;
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Suporte Técnico Especializado - SYNC</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="suporte.css">
+    <link rel="stylesheet" href="css/suporte.css">
 </head>
 <body>
 
