@@ -1,5 +1,5 @@
 <?php
-if (session_status() === PHP_SESSION_NONE){
+if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 require_once 'crud.php';
@@ -83,6 +83,7 @@ if (
             if ($sucesso) {
                 $mensagem = "Cadastro de cliente realizado com sucesso! Vá para o login.";
                 $tipo_mensagem = "sucesso";
+                header("refresh:1;url=login.php");
             } else {
                 $mensagem = "Erro ao cadastrar. Verifique se o E-mail ou CPF/CNPJ já existem.";
                 $tipo_mensagem = "erro";
@@ -124,17 +125,17 @@ if (
 
             <div class="form-separacao">
 
-            <div class="form-group">
-                <label for="email">E-mail de Contato</label>
-                <input type="email" id="email" name="email" class="input-control" placeholder="cliente@provedor.com" required>
-            </div>
+                <div class="form-group">
+                    <label for="email">E-mail de Contato</label>
+                    <input type="email" id="email" name="email" class="input-control" placeholder="cliente@provedor.com" required>
+                </div>
 
-            <div class="form-group">
-                <label for="telefone">Telefone / WhatsApp</label>
-                <input type="text" id="telefone" name="telefone" class="input-control" placeholder="(11) 99999-9999" required>
-            </div>
+                <div class="form-group">
+                    <label for="telefone">Telefone / WhatsApp</label>
+                    <input type="text" id="telefone" name="telefone" class="input-control" placeholder="(11) 99999-9999" required>
+                </div>
 
-             </div>
+            </div>
 
             <div class="form-group">
                 <label for="senha">Senha de Acesso</label>
