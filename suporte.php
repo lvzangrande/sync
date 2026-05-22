@@ -1,12 +1,12 @@
 <?php
 require_once "crud.php";
-session_start(); 
+session_start();
 
 $mensagem_sucesso = "";
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    
+
 
     $nome     = htmlspecialchars($_POST['nome']);
     $email    = htmlspecialchars($_POST['email']);
@@ -28,15 +28,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (create($pdo, 'suporte', $dados)) {
         $mensagem_sucesso = "Solicitação enviada com sucesso!";
+        header("Location: user/sucesso_suporte.php");
+        exit();
     }
-
-    header("Location: user/sucesso_suporte.php");
-    exit();
-    session_destroy();
 }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,6 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="css/suporte.css">
 </head>
+
 <body>
 
     <main class="main-container">
@@ -72,12 +72,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </header>
 
             <form action="#" method="POST" class="support-form" enctype="multipart/form-data">
-                
+
                 <div class="form-row">
                     <div class="form-group">
                         <label>Nome Completo</label>
                         <div class="input-wrapper">
-                            <i class="fa-regular fa-user icon"></i> 
+                            <i class="fa-regular fa-user icon"></i>
                             <input type="text" name="nome" placeholder="Nome do Operador/Engenheiro" required>
                         </div>
                     </div>
@@ -119,4 +119,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </main>
 
 </body>
+
 </html>

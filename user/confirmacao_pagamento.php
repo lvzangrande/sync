@@ -57,7 +57,7 @@
             <!-- Botões -->
             <div class="acoes">
 
-                <a href="./catalogo_profissionais.php" class="btn-secundario">
+                <a href="../catalogo_profissionais.php" class="btn-secundario">
                     Voltar ao Catálogo
                 </a>
 
