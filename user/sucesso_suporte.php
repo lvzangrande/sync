@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Enviado com Sucesso - SYNC</title>
     <style>
-                :root {
+            :root {
             --color-night-blue: #001233;
             --color-navy-dark: #092848;
             --color-slate-blue: #33415c;

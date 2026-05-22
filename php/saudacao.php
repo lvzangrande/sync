@@ -6,21 +6,21 @@ $hora = (int) date('H');
 if ($hora >=5 && $hora <=12){
     echo'
         <h1>
-        Bom dia!
+        Bom dia
         </h1>
         '
 ;}
 elseif ($hora >= 13 && $hora <=18){
     echo'
         <h1>
-        Boa tarde!
+        Boa tarde
         </h1>
         '    
 ;}
 else{
     echo'
         <h1>
-        Boa noite!
+        Boa noite
         </h1>
         '        
 ;}

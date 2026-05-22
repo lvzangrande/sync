@@ -11,6 +11,7 @@ $novo_contrato = [
     'id_profissional' => $_POST['id_profissional'],
 ];
 
+
 $idnova_os = create($pdo, 'agenda', $novo_contrato);
 
 header('Location: ../user/confirmacao_pagamento.php');

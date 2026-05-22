@@ -1,6 +1,3 @@
-// adicionar alert ao enviar solicitação
-
-
 <?php
 require_once "crud.php";
 session_start(); 
@@ -33,8 +30,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $mensagem_sucesso = "Solicitação enviada com sucesso!";
     }
 
-    header("Location: sucesso_suporte.php");
+    header("Location: user/sucesso_suporte.php");
     exit();
+    session_destroy();
 }
 ?>
 <!DOCTYPE html>
