@@ -1,8 +1,8 @@
 <?php
 require_once '../crud.php';
-$metodo = $_GET['metodo'] ?? 'cartao';
 
 session_start();
+
 
 $tipo = $_SESSION['tipo_servico'] = $_POST['tipo_serv'];
 $desc = $_SESSION['descricao_problema'] = $_POST['desc'];
@@ -12,6 +12,8 @@ $endereco = $_SESSION['endereco_servico'] = $_POST['end_serv'];
 $idcard = $_SESSION['id_profissional'] = $_POST['id_profissional'];
 
 $profissional = read($pdo, "usuarios", "id_user=$idcard");
+
+
 ?>
 
 <!DOCTYPE html>
@@ -46,15 +48,15 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
             <!-- MÉTODOS -->
             <div class="metodos-pagamento">
 
-                <a href="?metodo=cartao" class="metodo <?= $metodo == 'cartao' ? 'ativo' : '' ?>">
+                <a  class="metodo <?= $metodo == 'cartao' ? 'ativo' : '' ?>">
                     Cartão
                 </a>
 
-                <a href="?metodo=pix" class="metodo <?= $metodo == 'pix' ? 'ativo' : '' ?>">
+                <a class="metodo <?= $metodo == 'pix' ? 'ativo' : '' ?>">
                     PIX
                 </a>
 
-                <a href="?metodo=boleto" class="metodo <?= $metodo == 'boleto' ? 'ativo' : '' ?>">
+                <a  class="metodo <?= $metodo == 'boleto' ? 'ativo' : '' ?>">
                     Boleto
                 </a>
 
@@ -62,7 +64,7 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
 
 
             <?php
-            if ($metodo == 'cartao') {
+            // if ($metodo == 'cartao') {
 
                 echo '
                     <div class="metodo-box">
@@ -87,47 +89,49 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
 
                     </div>
                 ';
-            } elseif ($metodo == 'pix') {
-                echo '
-                    <div class="metodo-box">
+            // } elseif ($metodo == 'pix') {
+            
+                // echo '
+                //     <div class="metodo-box">
 
-                        <div class="pix-box">
+                //         <div class="pix-box">
 
-                            <h3>Pagamento via PIX</h3>
+                //             <h3>Pagamento via PIX</h3>
 
-                            <p>Escaneie o QR Code abaixo.</p>
+                //             <p>Escaneie o QR Code abaixo.</p>
 
-                            <div class="qr-code">
-                                QR CODE
-                            </div>
+                //             <div class="qr-code">
+                //                 QR CODE
+                //             </div>
 
-                            <a href="./confirmacao_pagamento.php" class="btn-pagar">
-                                Já Paguei
-                            </a>
+                //             <a href="./confirmacao_pagamento.php" class="btn-pagar">
+                //                 Já Paguei
+                //             </a>
 
-                        </div>
+                //         </div>
 
-                    </div>
-                ';
-            } elseif ($metodo == 'boleto') {
-                echo '
-                <div class="metodo-box">
+                //     </div>
+                // ';
+            // } elseif ($metodo == 'boleto') {
+               
+                // echo '
+                // <div class="metodo-box">
 
-                    <div class="boleto-box">
+                //     <div class="boleto-box">
 
-                        <h3>Pagamento via Boleto</h3>
+                //         <h3>Pagamento via Boleto</h3>
 
-                        <p>Gere o boleto abaixo.</p>
+                //         <p>Gere o boleto abaixo.</p>
 
-                        <a href="#" class="btn-pagar">
-                            Gerar Boleto
-                        </a>
+                //         <a href="#" class="btn-pagar">
+                //             Gerar Boleto
+                //         </a>
 
-                    </div>
+                //     </div>
 
-                </div>
-                ';
-            }
+                // </div>
+                // ';
+            // }
             ?>
 
         </section>
@@ -141,7 +145,7 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
 
             <div class="profissional-box">
 
-                <img src="https://static.vecteezy.com/ti/fotos-gratis/t2/57068323-solteiro-fresco-vermelho-morango-em-mesa-verde-fundo-comida-fruta-doce-macro-suculento-plantar-imagem-foto.jpg"
+                <img src="'.$profissional['img_user'].'"
                     alt="">
 
                 <div>
