@@ -1,12 +1,14 @@
-
 <footer>
     <div class="footer-container">
 
         <div class="footer-section">
+            <div class="logo2">
+                <img src="imagens/logosemfundo.png" class="logo">
+            </div>
             <h3>Sync Mecatronics</h3>
             <p>Plataforma premium de manutenção<br> mecatrônica industrial.
                 Sincronizando<br> operações com excelência técnica<br> desde 2024.</p><br>
-                <img src="imagens/logosemfundo.png" class="logo">
+
         </div>
         <div class="footer-section">
             <h3 class="heading">Empresa</h3>
@@ -21,30 +23,30 @@
 
         <div class="footer-section">
             <h3>Conecte-se</h3>
-            <ul>
-                <li><a href="#">Linkedin</a></li>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">YouTube</a></li>
+            <ul class="icons">
+                <li><a href="#"><img src="img/iconlinkedin.png" class="icon">Linkedin</a></li>
+                <li><a href="#"><img src="img/iconinsta.png" class="icon">Instagram</a></li>
+                <li><a href="#"><img src="img/iconfacebook.png" class="icon">Facebook</a></li>
+                <li><a href="#"><i class="fa-brands fa-youtube meu-icone"></i>YouTube</a></li>
             </ul>
         </div>
 
-       
+
         <div class="footer-section">
             <h3>Newsletter</h3>
             <p>Receba insights técnicos.<br>
                 Newsletter mensal industrial.
             </p>
-             <form>
-            <div class="newsletter-form">
-                <input type="email" placeholder="seu@email.com" />
-                <button type="submit"><span class="material-symbols-outlined">
-                        arrow_forward
-                    </span></button>
-            </div>
-             </form>
+            <form>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="seu@email.com" />
+                    <button type="submit"><span class="material-symbols-outlined">
+                            arrow_forward
+                        </span></button>
+                </div>
+            </form>
         </div>
-       
+
 
     </div>
 
