@@ -66,7 +66,7 @@ $metodo = $_GET['metodo'] ?? 'cartao';
                                 <input type="text">
                             </div>
 
-                            <a href="./confirmacao.php" class="btn-pagar">
+                            <a href="./confirmacao_pagamento.php" class="btn-pagar">
                                 Confirmar Pagamento
                             </a>
 
@@ -88,7 +88,7 @@ $metodo = $_GET['metodo'] ?? 'cartao';
                                 QR CODE
                             </div>
 
-                            <a href="./confirmacao.php" class="btn-pagar">
+                            <a href="./confirmacao_pagamento.php" class="btn-pagar">
                                 Já Paguei
                             </a>
 

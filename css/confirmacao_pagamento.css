@@ -1,0 +1,189 @@
+:root {
+
+    --deep-midnight: #001233;
+    --navy-dark: #092848;
+    --royal-industrial: #164578;
+    --steel-blue: #326B93;
+    --slate-gray: #33415C;
+    --cool-gray: #7D8597;
+    --light-slate: #979DAC;
+    --misty-blue: #8BC0D6;
+    --text-primary: #FFFFFF;
+    --text-secondary: #979DAC;
+}
+
+/* RESET */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body{
+    background-color: var(--deep-midnight);
+
+    font-family: "Lexend", sans-serif;
+
+    color: var(--text-primary);
+}
+
+/* CONTAINER */
+.confirmacao-container{
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+}
+
+/* CARD */
+.card-confirmacao{
+    width: 100%;
+    max-width: 650px;
+
+    background-color: var(--navy-dark);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 24px;
+
+    padding: 45px;
+
+    text-align: center;
+
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+
+/* ÍCONE */
+.icone-confirmado{
+    width: 100px;
+    height: 100px;
+
+    margin: 0 auto 30px;
+
+    border-radius: 50%;
+
+    background-color: rgba(139,192,214,0.12);
+
+    border: 2px solid rgba(139,192,214,0.25);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    font-size: 3rem;
+
+    color: var(--misty-blue);
+
+    font-weight: bold;
+}
+
+/* TITULO */
+.card-confirmacao h1{
+    font-size: 3rem;
+
+    margin-bottom: 18px;
+}
+
+/* DESCRIÇÃO */
+.descricao{
+    color: var(--text-secondary);
+
+    line-height: 1.7;
+
+    font-size: 1.05rem;
+
+    margin-bottom: 35px;
+}
+
+/* BOX INFO */
+.info-pagamento{
+    background-color: rgba(0,0,0,0.12);
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    margin-bottom: 35px;
+}
+
+/* LINHAS */
+.linha-info{
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.linha-info:last-child{
+    border-bottom: none;
+}
+
+.linha-info span{
+    color: var(--text-secondary);
+}
+
+.linha-info strong{
+    color: white;
+}
+
+/* VALOR */
+.valor{
+    color: var(--misty-blue) !important;
+
+    font-size: 1.3rem;
+}
+
+/* BOTÕES */
+.acoes{
+    display: flex;
+
+    gap: 18px;
+}
+
+/* BOTÕES GERAIS */
+.acoes a{
+    flex: 1;
+
+    text-decoration: none;
+
+    padding: 18px;
+
+    border-radius: 14px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+/* BOTÃO PRINCIPAL */
+.btn-principal{
+    background-color: var(--royal-industrial);
+
+    color: white;
+}
+
+.btn-principal:hover{
+    background-color: var(--steel-blue);
+}
+
+/* BOTÃO SECUNDÁRIO */
+.btn-secundario{
+    border: 1px solid rgba(255,255,255,0.08);
+
+    color: white;
+}
+
+.btn-secundario:hover{
+    background-color: rgba(255,255,255,0.05);
+}
