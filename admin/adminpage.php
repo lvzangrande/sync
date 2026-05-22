@@ -52,6 +52,7 @@ $profissionaisPendentes = readAll($pdo, 'usuarios', "categoria = 'profissional' 
 $chamadosSuporte = readAll($pdo, 'suporte');
 $profissionaisAtivos = readAll($pdo, 'usuarios', "categoria = 'profissional' AND status != 'Inativo'");
 $listaMaquinas = readAll($pdo, 'maquinas');
+$osAtivas = readAll($pdo, 'agenda', "status_os = 'Em Andamento' OR status_os = 'Agendada' OR status_os = 'Pendente'");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -82,32 +83,35 @@ $listaMaquinas = readAll($pdo, 'maquinas');
             <div class="linha-saudacao">
                 <?php require_once '../php/saudacao.php'; ?><span class="nome-user">, <?php nomeUsuario(); ?>!</span>
             </div>
-            <p>Painel de Controle Estratégico</p>
-
+            <p>Bem-vindo ao núcleo da gestão de nossos valores. Sincronize os dados, sincronize com a <strong>SYNC</strong>!</p>
         </div>
 
         <section class="dashboard-cards">
+
             <div class="card">
                 <div>
                     <h3>Técnicos Pendentes</h3>
-                    <div class="number">3</div>
+                    <div class="number"><?= count($profissionaisPendentes); ?></div>
                 </div>
                 <span class="material-symbols-outlined icon">person_add</span>
             </div>
+
             <div class="card">
                 <div>
                     <h3>OS Ativas</h3>
-                    <div class="number">12</div>
+                    <div class="number"><?= count($osAtivas); ?></div>
                 </div>
                 <span class="material-symbols-outlined icon">build</span>
             </div>
+
             <div class="card">
                 <div>
                     <h3>Suporte em Aberto</h3>
-                    <div class="number">2</div>
+                    <div class="number"><?= count($chamadosSuporte); ?></div>
                 </div>
                 <span class="material-symbols-outlined icon">mail</span>
             </div>
+
         </section>
 
         <section class="section-box">
@@ -173,7 +177,7 @@ $listaMaquinas = readAll($pdo, 'maquinas');
                                 <td>"<?= htmlspecialchars($chamado['desc_sup'] ?? $chamado['mensagem']); ?>"</td>
 
                                 <td>
-                                    <a href="adminpage.php?acao=resolver&id_sup=<?= $chamado['id_suporte']; ?>"
+                                    <a href="adminpage.php?acao=resolver&id_sup=<?= $chamado['id_sup']; ?>"
                                         class="btn-action"
                                         onclick="return confirm('Deseja marcar este chamado como respondido/resolvido? Ele será arquivado.');">
                                         <span class="material-symbols-outlined" style="font-size: 16px; margin-right: 2px;">check_circle</span> Resolver
