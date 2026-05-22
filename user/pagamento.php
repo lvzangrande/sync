@@ -146,34 +146,29 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
 
                 <div>
 
-                    <h3>Carlos Mendes</h3>
+                    <h3>'.$profissional['nome'].'</h3>
 
-                    <p>Automação Industrial</p>
+                    <p>'.$tipo.'</p>
 
                 </div>
 
             </div>
 
             <div class="linha-resumo">
-                <span>Valor/hora</span>
-                <strong>R$ 280</strong>
+                <span>Valor/dia</span>
+                <strong>R$ '.$profissional['valor_dia'].'</strong>
             </div>
 
             <div class="linha-resumo">
-                <span>Horas estimadas</span>
-                <strong>4h</strong>
-            </div>
-
-            <div class="linha-resumo">
-                <span>Taxa de plataforma</span>
-                <strong>R$ 40</strong>
+                <span>Tempo de contrato</span>
+                <strong>'.$tempo.'</strong>
             </div>
 
             <hr>
 
             <div class="total">
                 <span>Total</span>
-                <strong>R$ 1.160</strong>
+                <strong>'.$profissional['valor_dia'] * $tempo.'</strong>
             </div>
 
         </div>
