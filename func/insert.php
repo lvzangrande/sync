@@ -10,6 +10,7 @@ $novo_contrato = [
     'endereco_servico'=> $_POST['end_serv'],
 ];
 
+
 $idnova_os = create($pdo, 'agenda', $novo_contrato);
 
-header('Location: ../user/contrato_info.php?id_user');
+header('Location: ../user/confirmacao_pagamento.php');

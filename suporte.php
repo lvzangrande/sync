@@ -1,6 +1,3 @@
-// adicionar alert ao enviar solicitação
-
-
 <?php
 require_once "crud.php";
 session_start(); 
@@ -32,6 +29,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (create($pdo, 'suporte', $dados)) {
         $mensagem_sucesso = "Solicitação enviada com sucesso!";
     }
+
+    header("Location: user/sucesso_suporte.php");
+    exit();
+    session_destroy();
 }
 ?>
 <!DOCTYPE html>
@@ -104,9 +105,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
 
                 <div class="upload-area">
-                    <i class="fa-solid fa-paperclip"></i>
-                    <label for="inserir-arquivo">Anexar uma imagem do erro</label>
-                    <input type="file" id="inserir-arquivo" hidden>
+                    <label for="inserir-arquivo" class="upload-label">
+                        <i class="fa-solid fa-paperclip"></i>
+                        Anexar uma imagem do erro
+                    </label>
+                    <input type="file" id="inserir-arquivo" name="arquivo_erro" accept="image/*" hidden>
                 </div>
 
                 <button type="submit" class="btn-submit">ENVIAR SOLICITAÇÃO TÉCNICA</button>
