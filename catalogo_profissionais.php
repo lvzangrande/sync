@@ -123,12 +123,9 @@ if (!isset($_SESSION['autenticado'])) {
                         </label>
 
                     </div>
-
-                    <button type="submit">
-
-                        Filtrar
-
-                    </button>
+                    <a href="catalogo_profissionais.php" class="btn-limpar">
+                        <i class="bi bi-arrow-clockwise"></i>  Limpar filtros
+                    </a>
 
                 </form>
             </div>
@@ -137,7 +134,8 @@ if (!isset($_SESSION['autenticado'])) {
 
                 <?php
                 $where = "categoria = 'profissional'";
-                
+                $where = filtroEspecialidade($where);
+                $where = filtroStatus($where);
                 $cards = readALL($pdo, 'usuarios', $where);
                 foreach ($cards as $card) {
                     echo
