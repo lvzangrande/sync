@@ -9,7 +9,6 @@ if (!isset($_SESSION['autenticado'])) {
     header("Location: ../login.php");
     exit();
 }
-print_r($_SESSION);
 
 
 
