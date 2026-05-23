@@ -448,6 +448,5 @@ main {
 
 .btn-continuar:hover {
   background-color: var(--steel-blue);
-
   transform: translateY(-2px);
 }
