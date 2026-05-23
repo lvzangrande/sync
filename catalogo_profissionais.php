@@ -121,13 +121,18 @@ if (!isset($_SESSION['autenticado'])) {
                                 <span>320</span>
                                 <div class="rodape">
                                     <p class="preco">'.$card['valor_dia'].'</p>
-                                    <p class="p-d">/dia</p>
-                                    
-                                    <a href="./contratar.php?id='.$card['id_user'].'">Contratar</a>
+                                    <p class="p-d">/dia</p>';
+                                    if($card['status'] === 'Disponível') {
+                                        echo '
+                                    <a href="./contratar.php?id='.$card['id_user'].'">Contratar</a>';
+                                    } else {
+                                        echo '<a>Indisponível</a>';
+                                    }
+                        echo '            
                                 </div>
 
-                            </div>'
-                        ;
+                            </div>
+                        ';
                     }
                 ?>
                 

@@ -12,7 +12,7 @@ if (!isset($_SESSION['autenticado'])) {
     header("Location: ../login.php");
     exit();
 }
-print_r($_SESSION);
+
 $idcard = intval($_GET['id']);
 
 $profissional = read($pdo,'usuarios',"id_user=$idcard");
