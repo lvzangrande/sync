@@ -14,24 +14,12 @@ print_r($_SESSION);
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $_SESSION['pedido'] = [
-
-        'id_profissional' =>
-            $_POST['id_profissional'],
-
-        'tipo_serv' =>
-            $_POST['tipo_serv'],
-
-        'desc' =>
-            $_POST['desc'],
-
-        'data' =>
-            $_POST['data'],
-
-        'tempo' =>
-            $_POST['tempo'],
-
-        'end_serv' =>
-            $_POST['end_serv']
+        'id_profissional' => $_POST['id_profissional'],
+        'tipo_serv' => $_POST['tipo_serv'],
+        'desc' => $_POST['desc'],
+        'data' => $_POST['data'],
+        'tempo' => $_POST['tempo'],
+        'end_serv' => $_POST['end_serv']
     ];
 }
 $pedido = $_SESSION['pedido'];

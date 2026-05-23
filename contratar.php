@@ -15,11 +15,7 @@ if (!isset($_SESSION['autenticado'])) {
 print_r($_SESSION);
 $idcard = intval($_GET['id']);
 
-$profissional = read(
-    $pdo,
-    'usuarios',
-    "id_user=$idcard"
-);
+$profissional = read($pdo,'usuarios',"id_user=$idcard");
 ?>
 <!DOCTYPE html>
 <html lang="en">

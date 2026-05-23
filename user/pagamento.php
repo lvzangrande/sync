@@ -21,15 +21,10 @@ if (!isset($_SESSION['pedido'])) {
 
 $pedido = $_SESSION['pedido'];
 $idcard = $pedido['id_profissional'];
-
 $tipo = $pedido['tipo_serv'];
-
 $desc = $pedido['desc'];
-
 $data = $pedido['data'];
-
 $tempo = $pedido['tempo'];
-
 $endereco = $pedido['end_serv'];
 $profissional = read($pdo, "usuarios", "id_user=$idcard");
 ?>
