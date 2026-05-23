@@ -35,13 +35,22 @@ if (!isset($_SESSION['autenticado'])) {
                     certificados e disponíveis em tempo real.
                 </p>
             </div>
-
-            <select>
-                <option>Ordenar: Melhor Avaliação</option>
-                <option>Ordenar: Maior Preço</option>
-                <option>Ordenar: Menor Preço</option>
-            </select>
-
+            <form method="GET">
+                <select name="ordenar" onchange="this.form.submit()">
+                    <option value="">
+                        Ordenar
+                    </option>
+                    <option value="melhor_avaliacao" <?= ($_GET['ordenar'] ?? '') == 'melhor_avaliacao' ? 'selected' : '' ?>>
+                        Melhor Avaliação
+                    </option>
+                    <option value="maior_preco" <?= ($_GET['ordenar'] ?? '') == 'maior_preco' ? 'selected' : '' ?>>
+                        Maior Preço
+                    </option>
+                    <option value="menor_preco" <?= ($_GET['ordenar'] ?? '') == 'menor_preco' ? 'selected' : '' ?>>
+                        Menor Preço
+                    </option>
+                </select>
+            </form>
         </section>
 
         <section class="catalogo">
@@ -124,7 +133,7 @@ if (!isset($_SESSION['autenticado'])) {
 
                     </div>
                     <a href="catalogo_profissionais.php" class="btn-limpar">
-                        <i class="bi bi-arrow-clockwise"></i>  Limpar filtros
+                        <i class="bi bi-arrow-clockwise"></i> Limpar filtros
                     </a>
 
                 </form>
@@ -136,7 +145,22 @@ if (!isset($_SESSION['autenticado'])) {
                 $where = "categoria = 'profissional'";
                 $where = filtroEspecialidade($where);
                 $where = filtroStatus($where);
-                $cards = readALL($pdo, 'usuarios', $where);
+                $order = "";
+
+                if (!empty($_GET['ordenar'])) {
+
+                    if ($_GET['ordenar'] == 'melhor_avaliacao') {
+
+                        $order = " ORDER BY notas DESC";
+                    } elseif ($_GET['ordenar'] == 'maior_preco') {
+
+                        $order = " ORDER BY valor_dia DESC";
+                    } elseif ($_GET['ordenar'] == 'menor_preco') {
+
+                        $order = " ORDER BY valor_dia ASC";
+                    }
+                }
+                $cards = readALL($pdo, 'usuarios', $where . $order);
                 foreach ($cards as $card) {
                     echo
                         '<div class="card">
