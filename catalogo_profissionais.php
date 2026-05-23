@@ -137,42 +137,7 @@ if (!isset($_SESSION['autenticado'])) {
 
                 <?php
                 $where = "categoria = 'profissional'";
-                if (!empty($_GET['especialidade'])) {
-
-                    if (!empty($_GET['especialidade'])) {
-
-                        $especialidades = [];
-
-                        foreach ($_GET['especialidade'] as $esp) {
-
-                            $especialidades[] =
-                                "especialidade = '$esp'";
-                        }
-
-                        $where .= "
-                            AND (
-                                " . implode(' OR ', $especialidades) . "
-                            )
-                        ";
-                    }
-                }
-                if (!empty($_GET['status'])) {
-
-                    $status_array = [];
-
-                    foreach ($_GET['status'] as $st) {
-
-                        $status_array[] =
-                            "status = '$st'";
-                    }
-
-                    $where .= "
-                        AND (
-                            " . implode(' OR ', $status_array) . "
-                        )
-                    ";
-                }
-
+                
                 $cards = readALL($pdo, 'usuarios', $where);
                 foreach ($cards as $card) {
                     echo
