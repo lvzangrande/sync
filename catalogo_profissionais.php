@@ -1,6 +1,6 @@
 <?php
 require_once 'crud.php';
-if (session_status() === PHP_SESSION_NONE){
+if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
@@ -47,98 +47,170 @@ if (!isset($_SESSION['autenticado'])) {
         <section class="catalogo">
             <div class="sidebar-filtros">
 
-                <div class="box-filtro">
+                <form method="GET">
 
-                    <p>Especialidade</p>
+                    <div class="box-filtro">
 
-                    <label>
-                        <input type="checkbox">
-                        <span>Automação Industrial</span>
-                    </label>
+                        <p>Especialidade</p>
+                        <label>
 
-                    <label>
-                        <input type="checkbox">
-                        <span>Manutenção Preventiva</span>
-                    </label>
+                            <input type="checkbox" name="especialidade[]" value="Manutenção de Motores"
+                                onchange="this.form.submit()" <?= isset($_GET['especialidade']) && in_array('Manutenção de Motores', $_GET['especialidade']) ? 'checked' : '' ?>>
 
-                    <label>
-                        <input type="checkbox">
-                        <span>Engenharia de Precisão</span>
-                    </label>
+                            <span>
+                                Manutenção de Motores
+                            </span>
 
-                    <label>
-                        <input type="checkbox">
-                        <span>Mecatrônica</span>
-                    </label>
+                        </label>
 
-                </div>
+                        <label>
 
-                <div class="box-filtro">
+                            <input type="checkbox" name="especialidade[]" value="Sistemas Pneumáticos"
+                                onchange="this.form.submit()" <?= isset($_GET['especialidade']) && in_array('Sistemas Pneumáticos', $_GET['especialidade']) ? 'checked' : '' ?>>
 
-                    <p>Disponibilidade</p>
+                            <span>
+                                Sistemas Pneumáticos
+                            </span>
 
-                    <label>
-                        <input type="checkbox">
-                        <span>Disponível</span>
-                    </label>
+                        </label>
 
-                    <label>
-                        <input type="checkbox">
-                        <span>Em Serviço</span>
-                    </label>
+                        <label>
 
-                    <label>
-                        <input type="checkbox">
-                        <span>Indisponível</span>
-                    </label>
+                            <input type="checkbox" name="especialidade[]" value="Sistemas Hidráulicos"
+                                onchange="this.form.submit()" <?= isset($_GET['especialidade']) && in_array('Sistemas Hidráulicos', $_GET['especialidade']) ? 'checked' : '' ?>>
 
-                </div>
+                            <span>
+                                Sistemas Hidráulicos
+                            </span>
 
-                <button>Limpar Filtros</button>
+                        </label>
 
+                        <label>
+
+                            <input type="checkbox" name="especialidade[]" value="Equipamentos Industriais"
+                                onchange="this.form.submit()" <?= isset($_GET['especialidade']) && in_array('Equipamentos Industriais', $_GET['especialidade']) ? 'checked' : '' ?>>
+
+                            <span>
+                                Equipamentos Industriais
+                            </span>
+
+                        </label>
+                    </div>
+
+                    <div class="box-filtro">
+
+                        <p>Status</p>
+
+                        <label>
+                            <input type="checkbox" name="status[]" value="Disponível" onchange="this.form.submit()"
+                                <?= isset($_GET['status']) && in_array('Disponível', $_GET['status']) ? 'checked' : '' ?>>
+
+                            <span>Disponível</span>
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="status[]" value="Em Atendimento" onchange="this.form.submit()"
+                                <?= isset($_GET['status']) && in_array('Em Atendimento', $_GET['status']) ? 'checked' : '' ?>>
+
+                            <span>Em Atendimento</span>
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="status[]" value="Inativo" onchange="this.form.submit()"
+                                <?= isset($_GET['status']) && in_array('Inativo', $_GET['status']) ? 'checked' : '' ?>>
+
+                            <span>Inativo</span>
+                        </label>
+
+                    </div>
+
+                    <button type="submit">
+
+                        Filtrar
+
+                    </button>
+
+                </form>
             </div>
 
             <div class="cards">
 
                 <?php
-                    $cards = readALL($pdo, 'usuarios', 'categoria = "profissional"');
-                    foreach ($cards as $card) {
-                        echo 
-                            '<div class="card">
+                $where = "categoria = 'profissional'";
+                if (!empty($_GET['especialidade'])) {
 
-                                <div class="disponibilidade">'.$card['status'].'</div>
+                    if (!empty($_GET['especialidade'])) {
 
-                                <div class="avaliacao"><i class="bi bi-star-fill"></i> '.$card['notas'].'</div>
+                        $especialidades = [];
 
-                                <img src="'.$card['img_user'].'"
+                        foreach ($_GET['especialidade'] as $esp) {
+
+                            $especialidades[] =
+                                "especialidade = '$esp'";
+                        }
+
+                        $where .= "
+                            AND (
+                                " . implode(' OR ', $especialidades) . "
+                            )
+                        ";
+                    }
+                }
+                if (!empty($_GET['status'])) {
+
+                    $status_array = [];
+
+                    foreach ($_GET['status'] as $st) {
+
+                        $status_array[] =
+                            "status = '$st'";
+                    }
+
+                    $where .= "
+                        AND (
+                            " . implode(' OR ', $status_array) . "
+                        )
+                    ";
+                }
+
+                $cards = readALL($pdo, 'usuarios', $where);
+                foreach ($cards as $card) {
+                    echo
+                        '<div class="card">
+
+                                <div class="disponibilidade">' . $card['status'] . '</div>
+
+                                <div class="avaliacao"><i class="bi bi-star-fill"></i> ' . $card['notas'] . '</div>
+
+                                <img src="' . $card['img_user'] . '"
                                     alt="">
 
-                                <p class="nome-profi">'.$card['nome'].'</p>
+                                <p class="nome-profi">' . $card['nome'] . '</p>
 
-                                <p class="especialidade">'.$card['especialidade'].'</p>
+                                <p class="especialidade">' . $card['especialidade'] . '</p>
 
                                 <span>15 meses</span>
 
                                 <span>320</span>
                                 <div class="rodape">
-                                    <p class="preco">'.$card['valor_dia'].'</p>
+                                    <p class="preco">' . $card['valor_dia'] . '</p>
                                     <p class="p-d">/dia</p>';
-                                    if($card['status'] === 'Disponível') {
-                                        echo '
-                                    <a href="./contratar.php?id='.$card['id_user'].'">Contratar</a>';
-                                    } elseif ($card['status'] === 'Inativo') {
-                                        echo '<a>Indisponível</a>';
-                                    } else {
-                                        echo '<a>Indisponível</a>';
-                                    }
-                        echo '            
+                    if ($card['status'] === 'Disponível') {
+                        echo '
+                                    <a href="./contratar.php?id=' . $card['id_user'] . '">Contratar</a>';
+                    } elseif ($card['status'] === 'Inativo') {
+                        echo '<a>Indisponível</a>';
+                    } else {
+                        echo '<a>Indisponível</a>';
+                    }
+                    echo '            
                                 </div>
 
                             </div>
                         ';
-                    }
+                }
                 ?>
-                
+
             </div>
         </section>
     </main>
