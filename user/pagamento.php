@@ -197,7 +197,7 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
 
             <div class="total">
                 <span>Total</span>
-                <strong>'.$profissional['valor_dia'] * $tempo.'</strong>
+                <strong>R$'.$profissional['valor_dia'] * $tempo.'</strong>
             </div>
 
         </div>

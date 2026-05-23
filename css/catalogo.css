@@ -20,7 +20,9 @@ body{
   background-color: var(--deep-midnight);
 }
 
-
+i {
+    color: yellow;
+}
 .container {
     max-width: 1550px;
     margin: 0 auto;

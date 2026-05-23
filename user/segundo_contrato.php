@@ -38,6 +38,7 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/contratar.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <title>Contratar</title>
 </head>
 
@@ -71,7 +72,7 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
                         <h2>' . $profissional['especialidade'] . '</h2>
 
                         <div class="meta-info">
-                            <span class="avaliacao">' . $profissional['notas'] . '</span>
+                            <span class="avaliacao"><i class="bi bi-star-fill"></i> ' . $profissional['notas'] . '</span>
                             <span>(247 trabalhos)</span>
                             <span>12 anos</span>
                         </div>

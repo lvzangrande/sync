@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <title>Pagamento Confirmado</title>
 
     <link rel="stylesheet" href="../css/confirmacao_pagamento.css">
@@ -17,7 +18,7 @@
 
             <!-- Ícone -->
             <div class="icone-confirmado">
-                ✓
+                <i class="bi bi-check-circle"></i>
             </div>
 
             <!-- Título -->

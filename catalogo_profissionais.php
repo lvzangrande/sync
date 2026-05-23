@@ -17,6 +17,7 @@ if (!isset($_SESSION['autenticado'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/catalogo.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <title>Catalago</title>
 </head>
 
@@ -107,7 +108,7 @@ if (!isset($_SESSION['autenticado'])) {
 
                                 <div class="disponibilidade">'.$card['status'].'</div>
 
-                                <div class="avaliacao">'.$card['notas'].'</div>
+                                <div class="avaliacao"><i class="bi bi-star-fill"></i> '.$card['notas'].'</div>
 
                                 <img src="'.$card['img_user'].'"
                                     alt="">
