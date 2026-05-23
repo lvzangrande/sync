@@ -23,8 +23,8 @@ $novo_contrato = [
     'id_cliente' => $_SESSION['id_user']
 ];
 
-$udate_status = [
-    'status' => 'Em Serviço'
+$update_status = [
+    'status' => 'Em Atendimento'
 ];
 
 $idnova_os = create(
@@ -33,7 +33,7 @@ $idnova_os = create(
     $novo_contrato
 );
 
-update($pdo, 'usuarios', $udate_status, "id_user = " . $pedido['id_profissional']);
+update($pdo, 'usuarios', $update_status, "id_user = " . $pedido['id_profissional']);
 
 unset($_SESSION['pedido']);
 

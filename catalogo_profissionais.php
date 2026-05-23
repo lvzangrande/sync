@@ -122,7 +122,7 @@ if (!isset($_SESSION['autenticado'])) {
                                 <div class="rodape">
                                     <p class="preco">'.$card['valor_dia'].'</p>
                                     <p class="p-d">/dia</p>
-
+                                    
                                     <a href="./contratar.php?id='.$card['id_user'].'">Contratar</a>
                                 </div>
 
