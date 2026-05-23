@@ -100,7 +100,7 @@ if (!isset($_SESSION['autenticado'])) {
             <div class="cards">
 
                 <?php
-                    $cards = readALL($pdo, 'usuarios');
+                    $cards = readALL($pdo, 'usuarios', 'categoria = "profissional"');
                     foreach ($cards as $card) {
                         echo 
                             '<div class="card">
