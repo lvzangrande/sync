@@ -126,6 +126,8 @@ if (!isset($_SESSION['autenticado'])) {
                                     if($card['status'] === 'Disponível') {
                                         echo '
                                     <a href="./contratar.php?id='.$card['id_user'].'">Contratar</a>';
+                                    } elseif ($card['status'] === 'Inativo') {
+                                        echo '<a>Indisponível</a>';
                                     } else {
                                         echo '<a>Indisponível</a>';
                                     }
