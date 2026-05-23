@@ -13,11 +13,14 @@ if (!isset($_SESSION['autenticado'])) {
     exit();
 }
 print_r($_SESSION);
-$idcliente = $_SESSION['id_user'];
 $idcard = intval($_GET['id']);
-$profissional = read($pdo, "usuarios", "id_user=$idcard");
-?>
 
+$profissional = read(
+    $pdo,
+    'usuarios',
+    "id_user=$idcard"
+);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -95,7 +98,7 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
                         <label>Tipo de Serviço</label>
                         <select name="tipo_serv">
                             <option selected disabled>Selecione o tipo de serviço</option>
-                            <option values="Auto_Indu">Automação Industrial</option>
+                            <option value="Auto_Indu">Automação Industrial</option>
                             <option values="Manu_Preven">Manutenção Preventiva</option>
                             <option values="Eng_Preci">Engenharia de Precisão</option>
                             <option value="Meca">Mecatrônica</option>
