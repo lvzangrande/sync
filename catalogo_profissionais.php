@@ -23,6 +23,7 @@ if (!isset($_SESSION['autenticado'])) {
 </head>
 
 <body>
+    <?php require_once 'partials/header.php'; ?>
     <main class="container">
         <section class="topo">
 
@@ -203,7 +204,7 @@ if (!isset($_SESSION['autenticado'])) {
         </section>
     </main>
 
-
+    <?php require_once 'partials/footer.php'; ?>
 </body>
 
 </html>
