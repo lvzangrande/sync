@@ -1,16 +1,22 @@
 <?php
 
 require_once '../crud.php';
-session_start();
+if (session_status() === PHP_SESSION_NONE){
+    session_start();
+}
 
+if (!isset($_SESSION['autenticado'])) {
+    header("Location: ../login.php");
+    exit();
+}
+print_r($_SESSION);
 $tipo = $_SESSION['tipo_servico'] = $_POST['tipo_serv'];
 $desc = $_SESSION['descricao_problema'] = $_POST['desc'];
 $data = $_SESSION['data'] = $_POST['data'];
 $tempo = $_SESSION['tempo_planejado'] = $_POST['tempo'];
 $endereco = $_SESSION['endereco_servico'] = $_POST['end_serv'];
 $idcard = $_SESSION['id_profissional'] = $_POST['id_profissional'];
-
-
+$idcliente = $_SESSION['id_user'] = $_POST['id_cliente'];
 $profissional = read($pdo, "usuarios", "id_user=$idcard");
 
 ?>
@@ -80,81 +86,93 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
 
             <!-- -------Cards------- -->
             <?php
-            echo '
-                <div class="resumo-servico">
+                echo '
+                    <div class="resumo-servico">
 
-                    <div class="topo-resumo">
+                        <div class="topo-resumo">
 
-                        <h2>Resumo do Serviço</h2> 
-                        <div class="linha-titulo"></div>
+                            <h2>Resumo do Serviço</h2> 
+                            <div class="linha-titulo"></div>
 
+                        </div>
+
+                        <div class="infos-resumo">
+
+                            <div class="info-item">
+                                <span>TIPO</span>
+                                <p>' . $tipo . '</p>
+                            </div>
+
+                            <div class="info-item">
+                                <span>DATA</span>
+                                <p>' . $data . '</p>
+                            </div>
+
+                            <div class="info-item">
+                                <span>Dias</span>
+                                <p>' . $tempo . '</p>
+                            </div>
+
+                            <div class="info-item">
+                                <span>LOCAL</span>
+                                <p>' . $endereco . '</p>
+                            </div>
+
+                        </div>
+
+                        <div class="descricao-resumo">
+
+                            <span>DESCRIÇÃO</span>
+
+                            <p>
+                            ' . $desc . '
+                            </p>
+                            <form action="./pagamento.php" method="POST">
+                                <input type="hidden" name="id_profissional" value="'.$idcard .'">
+
+                                <input type="hidden" name="tipo_serv" value="'.$tipo .'">
+
+                                <input type="hidden" name="desc" value="'.$desc .'">
+
+                                <input type="hidden" name="data" value="'.$data .'">
+                                
+                                <input type="hidden" name="tempo" value="'.$tempo .'">                                 
+                                
+                                <input type="hidden" name="end_serv" value="'.$endereco .'">
+                               
+                                <button class="btn-continuar">
+                                    Confirmar pagamento
+                                </button>
+                            </form>
+                        </div>
                     </div>
-
-                    <div class="infos-resumo">
-
-                        <div class="info-item">
-                            <span>TIPO</span>
-                            <p>' . $tipo . '</p>
-                        </div>
-
-                        <div class="info-item">
-                            <span>DATA</span>
-                            <p>' . $data . '</p>
-                        </div>
-
-                        <div class="info-item">
-                            <span>Dias</span>
-                            <p>' . $tempo . '</p>
-                        </div>
-
-                        <div class="info-item">
-                            <span>LOCAL</span>
-                            <p>' . $endereco . '</p>
-                        </div>
-
-                    </div>
-
-                    <div class="descricao-resumo">
-
-                        <span>DESCRIÇÃO</span>
-
-                        <p>
-                           ' . $desc . '
-                        </p>
-
-                        <butto href="./pagamento.php" class="btn-continuar">
-                            Confirmar pagamento
-                        </a>
-                    </div>
-
-                </div>
                 ';
-            echo '
-                <div class="desc-card">
-                    <h3>Descrição</h3>
+                echo '
+                    <div class="desc-card">
+                        <h3>Descrição</h3>
 
-                    <div class="linha-desc">
-                        <span>Valor/dia</span>
-                        <strong>R$ ' . $profissional['valor_dia'] . '</strong>
-                    </div>
+                        <div class="linha-desc">
+                            <span>Valor/dia</span>
+                            <strong>R$ ' . $profissional['valor_dia'] . '</strong>
+                        </div>
 
-                    <hr>
-                     <div class="linha-desc">
-                        <span>Valor Total</span>
-                        <strong>R$ ' . $profissional['valor_dia'] * $tempo . '</strong>
-                    </div>
+                        <hr>
+                        <div class="linha-desc">
+                            <span>Valor Total</span>
+                            <strong>R$ ' . $profissional['valor_dia'] * $tempo . '</strong>
+                        </div>
 
-                    <p class="texto-desc">
-                       ' . $profissional['descricao_func'] . '
-                    </p>
-
-                    <div class="garantia-box">
-                        <h4>Garantia Sync</h4>
-                        <p>
-                            Todos os serviços incluem garantia de 90 dias e suporte técnico prioritário.
+                        <p class="texto-desc">
+                        ' . $profissional['descricao_func'] . '
                         </p>
+
+                        <div class="garantia-box">
+                            <h4>Garantia Sync</h4>
+                            <p>
+                                Todos os serviços incluem garantia de 90 dias e suporte técnico prioritário.
+                            </p>
+                        </div>
                     </div>
-                </div>
                 ';
             ?>
         </section>

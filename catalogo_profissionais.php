@@ -1,5 +1,14 @@
 <?php
 require_once 'crud.php';
+if (session_status() === PHP_SESSION_NONE){
+    session_start();
+}
+
+if (!isset($_SESSION['autenticado'])) {
+    header("Location: ../login.php");
+    exit();
+}
+print_r($_SESSION);
 ?>
 
 <!DOCTYPE html>

@@ -51,7 +51,7 @@
     </div>
 
     <div class="footer-bottom">
-        <p>© 2024 Sync Mecatronics. Todos os direitos reservados.</p>
+        <p>© 2026 Sync Mecatronics. Todos os direitos reservados.</p>
         <ul>
             <li><a href="#">Privacidade</a></li>
             <li><a href="#">Termos de Uso</a></li>

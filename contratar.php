@@ -4,7 +4,16 @@ require_once 'crud.php';
 // if (!isset($_GET['id_user'])) {
 //     die("Usuário não encontrado");
 // }
+if (session_status() === PHP_SESSION_NONE){
+    session_start();
+}
 
+if (!isset($_SESSION['autenticado'])) {
+    header("Location: ../login.php");
+    exit();
+}
+print_r($_SESSION);
+$idcliente = $_SESSION['id_user'];
 $idcard = intval($_GET['id']);
 $profissional = read($pdo, "usuarios", "id_user=$idcard");
 ?>
@@ -80,6 +89,7 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
                 <form action="./user/segundo_contrato.php" method="POST">
                     
                     <input type="hidden" name="id_profissional" value="<?= $idcard ?>">
+                    <input type="hidden" name="id_cliente" value="<?= $idcliente ?>">
 
                     <div class="campo">
                         <label>Tipo de Serviço</label>

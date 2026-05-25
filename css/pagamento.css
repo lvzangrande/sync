@@ -1,0 +1,312 @@
+:root {
+
+    --deep-midnight: #001233;
+    --navy-dark: #092848;
+    --royal-industrial: #164578;
+    --steel-blue: #326B93;
+    --slate-gray: #33415C;
+    --cool-gray: #7D8597;
+    --light-slate: #979DAC;
+    --misty-blue: #8BC0D6;
+    --text-primary: #FFFFFF;
+    --text-secondary: #979DAC;
+}
+
+/* RESET */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body{
+    background-color: var(--deep-midnight);
+
+    font-family: "Lexend", sans-serif;
+
+    color: white;
+}
+
+/* CONTAINER */
+.pagamento-container{
+    max-width: 1300px;
+
+    margin: 0 auto;
+
+    padding: 50px 30px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 350px;
+
+    gap: 30px;
+}
+
+/* FORMULÁRIO */
+.pagamento-formulario{
+    background-color: var(--navy-dark);
+
+    border-radius: 24px;
+
+    padding: 40px;
+
+    border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* VOLTAR */
+.voltar{
+    display: inline-block;
+
+    margin-bottom: 30px;
+
+    color: var(--text-secondary);
+
+    text-decoration: none;
+}
+
+/* TITULO */
+.pagamento-formulario h1{
+    font-size: 3rem;
+
+    margin-bottom: 15px;
+}
+
+/* DESCRIÇÃO */
+.descricao{
+    color: var(--text-secondary);
+
+    line-height: 1.7;
+
+    margin-bottom: 35px;
+}
+
+/* MÉTODOS */
+.metodos-pagamento{
+    display: flex;
+
+    gap: 15px;
+
+    margin-bottom: 35px;
+}
+
+/* BOTÕES */
+.metodo{
+    flex: 1;
+
+    height: 55px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background-color: #11254a;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.metodo:hover{
+    background-color: var(--steel-blue);
+}
+
+.ativo{
+    background-color: var(--royal-industrial);
+}
+
+/* CAMPOS */
+.campo{
+    margin-bottom: 24px;
+}
+
+/* LABEL */
+.campo label{
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--text-secondary);
+
+    font-size: 0.9rem;
+}
+
+/* INPUTS */
+.campo input{
+    width: 100%;
+
+    height: 58px;
+
+    background-color: #071a3d;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 14px;
+
+    padding: 0 18px;
+
+    color: white;
+
+    outline: none;
+
+    transition: 0.3s;
+}
+
+/* FOCUS */
+.campo input:focus{
+    border-color: var(--steel-blue);
+}
+
+/* LINHA DUPLA */
+.linha-dupla{
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+}
+
+/* BOTÃO PAGAR */
+.btn-pagar{
+    display: block;
+
+    width: 100%;
+
+    margin-top: 15px;
+
+    background-color: var(--royal-industrial);
+
+    color: white;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    padding: 18px;
+
+    border-radius: 14px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.btn-pagar:hover{
+    background-color: var(--steel-blue);
+
+    transform: translateY(-2px);
+}
+
+/* RESUMO */
+.resumo-pedido{
+    background-color: var(--navy-dark);
+
+    border-radius: 24px;
+
+    padding: 30px;
+
+    border: 1px solid rgba(255,255,255,0.06);
+
+    height: fit-content;
+}
+
+/* TITULO */
+.resumo-pedido h2{
+    margin-bottom: 30px;
+}
+
+/* PROFISSIONAL */
+.profissional-box{
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 30px;
+}
+
+.profissional-box img{
+    width: 70px;
+    height: 70px;
+
+    object-fit: cover;
+
+    border-radius: 14px;
+}
+
+.profissional-box h3{
+    margin-bottom: 5px;
+}
+
+.profissional-box p{
+    color: var(--text-secondary);
+}
+
+/* LINHAS */
+.linha-resumo{
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 18px;
+
+    color: var(--text-secondary);
+}
+
+.linha-resumo strong{
+    color: white;
+}
+
+/* LINHA */
+.resumo-pedido hr{
+    border: none;
+
+    height: 1px;
+
+    background-color: rgba(255,255,255,0.08);
+
+    margin: 25px 0;
+}
+
+/* TOTAL */
+.total{
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.total span{
+    color: var(--text-secondary);
+}
+
+.total strong{
+    font-size: 2rem;
+
+    color: var(--misty-blue);
+}
+
+.metodo{
+    flex: 1;
+
+    height: 55px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    text-decoration: none;
+
+    border-radius: 14px;
+
+    background-color: #11254a;
+
+    color: white;
+
+    transition: 0.3s;
+}
