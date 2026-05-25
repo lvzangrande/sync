@@ -1,5 +1,6 @@
 <?php
 require_once 'crud.php';
+require_once 'func/filtro.php';
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -165,23 +166,23 @@ if (!isset($_SESSION['autenticado'])) {
                     echo
                         '<div class="card">
 
-                                <div class="disponibilidade">' . $card['status'] . '</div>
+                            <div class="disponibilidade">' . $card['status'] . '</div>
 
-                                <div class="avaliacao"><i class="bi bi-star-fill"></i> ' . $card['notas'] . '</div>
+                            <div class="avaliacao"><i class="bi bi-star-fill"></i> ' . $card['notas'] . '</div>
 
-                                <img src="' . $card['img_user'] . '"
-                                    alt="">
+                            <img src="' . $card['img_user'] . '"
+                                alt="">
 
-                                <p class="nome-profi">' . $card['nome'] . '</p>
+                            <p class="nome-profi">' . $card['nome'] . '</p>
 
-                                <p class="especialidade">' . $card['especialidade'] . '</p>
+                            <p class="especialidade">' . $card['especialidade'] . '</p>
 
-                                <span>15 meses</span>
+                            <span>15 meses</span>
 
-                                <span>320</span>
-                                <div class="rodape">
-                                    <p class="preco">' . $card['valor_dia'] . '</p>
-                                    <p class="p-d">/dia</p>';
+                            <span>320</span>
+                            <div class="rodape">
+                                <p class="preco">' . $card['valor_dia'] . '</p>
+                                <p class="p-d">/dia</p>';
                     if ($card['status'] === 'Disponível') {
                         echo '
                                     <a href="./contratar.php?id=' . $card['id_user'] . '">Contratar</a>';
@@ -191,9 +192,9 @@ if (!isset($_SESSION['autenticado'])) {
                         echo '<a>Indisponível</a>';
                     }
                     echo '            
-                                </div>
-
                             </div>
+
+                        </div>
                         ';
                 }
                 ?>
