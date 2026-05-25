@@ -42,6 +42,17 @@ try {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    //pegar nome via id
+function read_nome_via_ID($pdo, $table, $id) {
+    $sql = "SELECT nome FROM $table WHERE id = :id";
+    $stmt = $pdo->query($sql);
+    $stmt->execute(['id' => $id]);
+    
+    $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    return $resultado ? $resultado['nome'] : "Desconhecido";
+}
+
     // Função para atualizar um registro
     function update($pdo, $table, array $data, $where) {
         $set = [];
