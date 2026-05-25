@@ -7,6 +7,11 @@ if (!isset($_SESSION['autenticado'])) {
     exit();
 }
 
+if ($_SESSION['categoria']  !== 'admin'){
+    header("Location: ../login.php");
+    exit();
+}
+
 function nomeUsuario()
 {
     if (isset($_SESSION['nome'])) {
@@ -60,7 +65,7 @@ $osAtivas = readAll($pdo, 'agenda', "status_os = 'Em Andamento' OR status_os = '
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel de Administração - Sync</title>
+    <title>Painel de Administração | Sync</title>
 
     <link rel="stylesheet" href="../css/admin.css">
     <link rel="stylesheet" href="../css/home.css">
