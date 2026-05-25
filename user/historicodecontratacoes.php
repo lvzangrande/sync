@@ -2,8 +2,6 @@
 if (session_status() === PHP_SESSION_NONE){
     session_start();
 }
-require_once '../crud.php';
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -19,18 +17,23 @@ require_once '../partials/header.php';
 <body>
     <table>
         <tr>
-            <th colspan="99">Histórico de contratações<th>
+            <!--<th colspan="99">Histórico de contratações<th>-->
+            <th>Data</th>
+            <th>Tempo estimado</th>
+            <th>Valor</th>
+            <th>Descrição</th>
+            <th>Endereço</th>
+            <th>Status</th>
         </tr>
         <tr>
             <td>
-                <a>joaolinux</a>
+                <a></a>
                 <a>11/09</a>
                 <a class='verdetalhes' href=''>Ver detalhes</a>
             </td>
         </tr>
 <?php
-
-$tableAgenda = readAll($pdo,'agenda');
+require_once '../crud.php';
 
     /*
     if (isset($_SESSION['nome'])) {
@@ -42,18 +45,26 @@ $tableAgenda = readAll($pdo,'agenda');
     if (isset($_SESSION['nome'])) {
         $tempoAgendamento = trim($_SESSION['minutos']);
     }*/
+    //pegar o nome do cliente e do profissional atrávez do id
 
-$agendamentos = [
-;]
-        foreach($tableAgenda as $agendamentos){
+$tableAgenda = readAll($pdo,'agenda');
+        foreach($tableAgenda as $agendamento){
 
+    $nomeProfi = read_nome_via_ID($pdo,'usuarios',$agendamento['id_cliente']);
+    $nomeCliente = read_nome_via_ID($pdo,'usuarios',$agendamento['id_cliente']);
+$palavras = explode(' ', trim($agendamento['descricao'])); 
+    
+    // 2. Se tiver mais de 4 palavras, corta e junta com '...', senão mantém o texto original
+    $descricaoResumida = (count($palavras) > 4) 
+        ? implode(' ', array_slice($palavras, 0, 4)) . '...' 
+        : $agendamento['descricao'];
     echo "<tr>
-            <td>ID: ".$carta['id']."</td>
-            <td>Título: ".$carta['nome']."</td>
-            <td>".$carta['tipo_carta']."</td>
-            <td><img src='".$carta['img']."' width='150'></td>
-            <td>".$carta['descricao']."</td>
-            <td>".$carta['atributo']."</td>";
+            <td>ID: ".$agendamento['data']."</td>
+            <td>Título: ".$agendamento['tempo_planejado_minutos']."</td>
+            <td>".$agendamento['valor']."</td>
+            <td><img src='".$agendamento['img']."' width='150'></td>
+            <td>".$agendamento['descricao']."</td>
+            <td>".$agendamento['atributo']."</td>";
     }
     echo "</tr>";
 ?>
