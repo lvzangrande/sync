@@ -1,6 +1,6 @@
 <?php
 require_once 'crud.php';
-if (session_status() === PHP_SESSION_NONE){
+if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
@@ -8,7 +8,6 @@ if (!isset($_SESSION['autenticado'])) {
     header("Location: ../login.php");
     exit();
 }
-print_r($_SESSION);
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +17,7 @@ print_r($_SESSION);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/catalogo.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <title>Catalago</title>
 </head>
 
@@ -35,103 +35,169 @@ print_r($_SESSION);
                     certificados e disponíveis em tempo real.
                 </p>
             </div>
-
-            <select>
-                <option>Ordenar: Melhor Avaliação</option>
-                <option>Ordenar: Maior Preço</option>
-                <option>Ordenar: Menor Preço</option>
-            </select>
-
+            <form method="GET">
+                <select name="ordenar" onchange="this.form.submit()">
+                    <option value="">
+                        Ordenar
+                    </option>
+                    <option value="melhor_avaliacao" <?= ($_GET['ordenar'] ?? '') == 'melhor_avaliacao' ? 'selected' : '' ?>>
+                        Melhor Avaliação
+                    </option>
+                    <option value="maior_preco" <?= ($_GET['ordenar'] ?? '') == 'maior_preco' ? 'selected' : '' ?>>
+                        Maior Preço
+                    </option>
+                    <option value="menor_preco" <?= ($_GET['ordenar'] ?? '') == 'menor_preco' ? 'selected' : '' ?>>
+                        Menor Preço
+                    </option>
+                </select>
+            </form>
         </section>
 
         <section class="catalogo">
             <div class="sidebar-filtros">
 
-                <div class="box-filtro">
+                <form method="GET">
 
-                    <p>Especialidade</p>
+                    <div class="box-filtro">
 
-                    <label>
-                        <input type="checkbox">
-                        <span>Automação Industrial</span>
-                    </label>
+                        <p>Especialidade</p>
+                        <label>
 
-                    <label>
-                        <input type="checkbox">
-                        <span>Manutenção Preventiva</span>
-                    </label>
+                            <input type="checkbox" name="especialidade[]" value="Manutenção de Motores"
+                                onchange="this.form.submit()" <?= isset($_GET['especialidade']) && in_array('Manutenção de Motores', $_GET['especialidade']) ? 'checked' : '' ?>>
 
-                    <label>
-                        <input type="checkbox">
-                        <span>Engenharia de Precisão</span>
-                    </label>
+                            <span>
+                                Manutenção de Motores
+                            </span>
 
-                    <label>
-                        <input type="checkbox">
-                        <span>Mecatrônica</span>
-                    </label>
+                        </label>
 
-                </div>
+                        <label>
 
-                <div class="box-filtro">
+                            <input type="checkbox" name="especialidade[]" value="Sistemas Pneumáticos"
+                                onchange="this.form.submit()" <?= isset($_GET['especialidade']) && in_array('Sistemas Pneumáticos', $_GET['especialidade']) ? 'checked' : '' ?>>
 
-                    <p>Disponibilidade</p>
+                            <span>
+                                Sistemas Pneumáticos
+                            </span>
 
-                    <label>
-                        <input type="checkbox">
-                        <span>Disponível</span>
-                    </label>
+                        </label>
 
-                    <label>
-                        <input type="checkbox">
-                        <span>Em Serviço</span>
-                    </label>
+                        <label>
 
-                    <label>
-                        <input type="checkbox">
-                        <span>Indisponível</span>
-                    </label>
+                            <input type="checkbox" name="especialidade[]" value="Sistemas Hidráulicos"
+                                onchange="this.form.submit()" <?= isset($_GET['especialidade']) && in_array('Sistemas Hidráulicos', $_GET['especialidade']) ? 'checked' : '' ?>>
 
-                </div>
+                            <span>
+                                Sistemas Hidráulicos
+                            </span>
 
-                <button>Limpar Filtros</button>
+                        </label>
 
+                        <label>
+
+                            <input type="checkbox" name="especialidade[]" value="Equipamentos Industriais"
+                                onchange="this.form.submit()" <?= isset($_GET['especialidade']) && in_array('Equipamentos Industriais', $_GET['especialidade']) ? 'checked' : '' ?>>
+
+                            <span>
+                                Equipamentos Industriais
+                            </span>
+
+                        </label>
+                    </div>
+
+                    <div class="box-filtro">
+
+                        <p>Status</p>
+
+                        <label>
+                            <input type="checkbox" name="status[]" value="Disponível" onchange="this.form.submit()"
+                                <?= isset($_GET['status']) && in_array('Disponível', $_GET['status']) ? 'checked' : '' ?>>
+
+                            <span>Disponível</span>
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="status[]" value="Em Atendimento" onchange="this.form.submit()"
+                                <?= isset($_GET['status']) && in_array('Em Atendimento', $_GET['status']) ? 'checked' : '' ?>>
+
+                            <span>Em Atendimento</span>
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="status[]" value="Inativo" onchange="this.form.submit()"
+                                <?= isset($_GET['status']) && in_array('Inativo', $_GET['status']) ? 'checked' : '' ?>>
+
+                            <span>Inativo</span>
+                        </label>
+
+                    </div>
+                    <a href="catalogo_profissionais.php" class="btn-limpar">
+                        <i class="bi bi-arrow-clockwise"></i> Limpar filtros
+                    </a>
+
+                </form>
             </div>
 
             <div class="cards">
 
                 <?php
-                    $cards = readALL($pdo, 'usuarios');
-                    foreach ($cards as $card) {
-                        echo 
-                            '<div class="card">
+                $where = "categoria = 'profissional'";
+                $where = filtroEspecialidade($where);
+                $where = filtroStatus($where);
+                $order = "";
 
-                                <div class="disponibilidade">'.$card['status'].'</div>
+                if (!empty($_GET['ordenar'])) {
 
-                                <div class="avaliacao">'.$card['notas'].'</div>
+                    if ($_GET['ordenar'] == 'melhor_avaliacao') {
 
-                                <img src="'.$card['img_user'].'"
+                        $order = " ORDER BY notas DESC";
+                    } elseif ($_GET['ordenar'] == 'maior_preco') {
+
+                        $order = " ORDER BY valor_dia DESC";
+                    } elseif ($_GET['ordenar'] == 'menor_preco') {
+
+                        $order = " ORDER BY valor_dia ASC";
+                    }
+                }
+                $cards = readALL($pdo, 'usuarios', $where . $order);
+                foreach ($cards as $card) {
+                    echo
+                        '<div class="card">
+
+                                <div class="disponibilidade">' . $card['status'] . '</div>
+
+                                <div class="avaliacao"><i class="bi bi-star-fill"></i> ' . $card['notas'] . '</div>
+
+                                <img src="' . $card['img_user'] . '"
                                     alt="">
 
-                                <p class="nome-profi">'.$card['nome'].'</p>
+                                <p class="nome-profi">' . $card['nome'] . '</p>
 
-                                <p class="especialidade">'.$card['especialidade'].'</p>
+                                <p class="especialidade">' . $card['especialidade'] . '</p>
 
                                 <span>15 meses</span>
 
                                 <span>320</span>
                                 <div class="rodape">
-                                    <p class="preco">'.$card['valor_dia'].'</p>
-                                    <p class="p-d">/dia</p>
-
-                                    <a href="./contratar.php?id='.$card['id_user'].'">Contratar</a>
+                                    <p class="preco">' . $card['valor_dia'] . '</p>
+                                    <p class="p-d">/dia</p>';
+                    if ($card['status'] === 'Disponível') {
+                        echo '
+                                    <a href="./contratar.php?id=' . $card['id_user'] . '">Contratar</a>';
+                    } elseif ($card['status'] === 'Inativo') {
+                        echo '<a>Indisponível</a>';
+                    } else {
+                        echo '<a>Indisponível</a>';
+                    }
+                    echo '            
                                 </div>
 
-                            </div>'
-                        ;
-                    }
+                            </div>
+                        ';
+                }
                 ?>
-                
+
             </div>
         </section>
     </main>

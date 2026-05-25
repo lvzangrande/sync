@@ -9,14 +9,24 @@ if (!isset($_SESSION['autenticado'])) {
     header("Location: ../login.php");
     exit();
 }
-print_r($_SESSION);
-$tipo = $_SESSION['tipo_servico'] = $_POST['tipo_serv'];
-$desc = $_SESSION['descricao_problema'] = $_POST['desc'];
-$data = $_SESSION['data'] = $_POST['data'];
-$tempo = $_SESSION['tempo_planejado'] = $_POST['tempo'];
-$endereco = $_SESSION['endereco_servico'] = $_POST['end_serv'];
-$idcard = $_SESSION['id_profissional'] = $_POST['id_profissional'];
-$idcliente = $_SESSION['id_user'] = $_POST['id_cliente'];
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    $_SESSION['pedido'] = [
+        'id_profissional' => $_POST['id_profissional'],
+        'tipo_serv' => $_POST['tipo_serv'],
+        'desc' => $_POST['desc'],
+        'data' => $_POST['data'],
+        'tempo' => $_POST['tempo'],
+        'end_serv' => $_POST['end_serv']
+    ];
+}
+$pedido = $_SESSION['pedido'];
+
+$idcard = $pedido['id_profissional'];
+
+$tempo = $pedido['tempo'];
+
 $profissional = read($pdo, "usuarios", "id_user=$idcard");
 
 ?>
@@ -28,6 +38,7 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/contratar.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <title>Contratar</title>
 </head>
 
@@ -61,7 +72,7 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
                         <h2>' . $profissional['especialidade'] . '</h2>
 
                         <div class="meta-info">
-                            <span class="avaliacao">' . $profissional['notas'] . '</span>
+                            <span class="avaliacao"><i class="bi bi-star-fill"></i> ' . $profissional['notas'] . '</span>
                             <span>(247 trabalhos)</span>
                             <span>12 anos</span>
                         </div>
@@ -100,22 +111,22 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
 
                             <div class="info-item">
                                 <span>TIPO</span>
-                                <p>' . $tipo . '</p>
+                                <p>' . $pedido['tipo_serv'] . '</p>
                             </div>
 
                             <div class="info-item">
                                 <span>DATA</span>
-                                <p>' . $data . '</p>
+                                <p>' . $pedido['data'] . '</p>
                             </div>
 
                             <div class="info-item">
                                 <span>Dias</span>
-                                <p>' . $tempo . '</p>
+                                <p>' . $pedido['tempo'] . '</p>
                             </div>
 
                             <div class="info-item">
                                 <span>LOCAL</span>
-                                <p>' . $endereco . '</p>
+                                <p>' . $pedido['end_serv'] . '</p>
                             </div>
 
                         </div>
@@ -125,21 +136,9 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
                             <span>DESCRIÇÃO</span>
 
                             <p>
-                            ' . $desc . '
+                            ' . $pedido['desc'] . '
                             </p>
                             <form action="./pagamento.php" method="POST">
-                                <input type="hidden" name="id_profissional" value="'.$idcard .'">
-
-                                <input type="hidden" name="tipo_serv" value="'.$tipo .'">
-
-                                <input type="hidden" name="desc" value="'.$desc .'">
-
-                                <input type="hidden" name="data" value="'.$data .'">
-                                
-                                <input type="hidden" name="tempo" value="'.$tempo .'">                                 
-                                
-                                <input type="hidden" name="end_serv" value="'.$endereco .'">
-                               
                                 <button class="btn-continuar">
                                     Confirmar pagamento
                                 </button>

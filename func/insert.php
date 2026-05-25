@@ -2,17 +2,40 @@
 
 require_once '../crud.php';
 
+
+if (session_status() === PHP_SESSION_NONE){
+    session_start();
+}
+
+if (!isset($_SESSION['autenticado'])) {
+    header("Location: ../login.php");
+    exit();
+}
+$pedido = $_SESSION['pedido'];
+
 $novo_contrato = [
-    'tipo_servico' => $_POST['tipo_serv'],
-    'descricao_problema' => $_POST['desc'],
-    'data' => $_POST['data'],
-    'tempo_planejado'=> $_POST['tempo'],
-    'endereco_servico'=> $_POST['end_serv'],
-    'id_profissional' => $_POST['id_profissional'],
-    'id_cliente' => $_POST['id_cliente']
+    'tipo_servico' => $pedido['tipo_serv'],
+    'descricao_problema' => $pedido['desc'],
+    'data' => $pedido['data'],
+    'tempo_planejado' => $pedido['tempo'],
+    'endereco_servico' => $pedido['end_serv'],
+    'id_profissional' => $pedido['id_profissional'],
+    'id_cliente' => $_SESSION['id_user']
 ];
 
+$update_status = [
+    'status' => 'Em Atendimento'
+];
 
-$idnova_os = create($pdo, 'agenda', $novo_contrato);
+$idnova_os = create(
+    $pdo,
+    'agenda',
+    $novo_contrato
+);
+
+update($pdo, 'usuarios', $update_status, "id_user = " . $pedido['id_profissional']);
+
+unset($_SESSION['pedido']);
+
 
 header('Location: ../user/confirmacao_pagamento.php');

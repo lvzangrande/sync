@@ -12,12 +12,11 @@ if (!isset($_SESSION['autenticado'])) {
     header("Location: ../login.php");
     exit();
 }
-print_r($_SESSION);
-$idcliente = $_SESSION['id_user'];
-$idcard = intval($_GET['id']);
-$profissional = read($pdo, "usuarios", "id_user=$idcard");
-?>
 
+$idcard = intval($_GET['id']);
+
+$profissional = read($pdo,'usuarios',"id_user=$idcard");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,6 +24,7 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/contratar.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <title>Pagina de Contrato</title>
 </head>
 
@@ -57,7 +57,7 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
                         <h2>' . $profissional['especialidade'] . '</h2>
 
                         <div class="meta-info">
-                            <span class="avaliacao">' . $profissional['notas'] . '</span>
+                            <span class="avaliacao"><i class="bi bi-star-fill"></i>' . $profissional['notas'] . '</span>
                             <span>(247 trabalhos)</span>
                             <span>12 anos</span>
                         </div>
@@ -95,10 +95,10 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
                         <label>Tipo de Serviço</label>
                         <select name="tipo_serv">
                             <option selected disabled>Selecione o tipo de serviço</option>
-                            <option values="Auto_Indu">Automação Industrial</option>
-                            <option values="Manu_Preven">Manutenção Preventiva</option>
-                            <option values="Eng_Preci">Engenharia de Precisão</option>
-                            <option value="Meca">Mecatrônica</option>
+                            <option value="Automação Industrial">Automação Industrial</option>
+                            <option values="Manutenção Preventiva">Manutenção Preventiva</option>
+                            <option values="Engenharia de Precisão">Engenharia de Precisão</option>
+                            <option value="Mecatrônica">Mecatrônica</option>
                         </select>
                     </div>
 

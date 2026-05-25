@@ -20,7 +20,9 @@ body{
   background-color: var(--deep-midnight);
 }
 
-
+.cards i {
+    color: yellow;
+}
 .container {
     max-width: 1550px;
     margin: 0 auto;
@@ -30,17 +32,12 @@ body{
 /* Section da parte de cima sem o Header */
 .topo{
     width: 100%;
-
     background-color: var(--bg-primary);
-
     padding: 70px 80px;
-
     display: flex;
     justify-content: space-between;
     align-items: end;
-
     gap: 40px;
-
     flex-wrap: wrap;
 }
 
@@ -51,34 +48,25 @@ body{
 
 .topo .textos span{
     display: block;
-
     color: var(--misty-blue);
-
     font-size: 13px;
     font-weight: 700;
-
     text-transform: uppercase;
     letter-spacing: 2px;
-
     margin-bottom: 18px;
 }
 
 .topo .textos h1{
     color: var(--text-primary);
-
     font-size: 58px;
     font-weight: 700;
-
     line-height: 1.1;
-
     margin-bottom: 18px;
 }
 
 .topo .textos p{
     color: var(--light-slate);
-
     font-size: 22px;
-
     line-height: 1.6;
 }
 
@@ -88,16 +76,11 @@ body{
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 14px;
     padding: 18px 20px;
-
     font-size: 16px;
     font-weight: 500;
-
     outline: none;
-
     cursor: pointer;
-
     transition: 0.3s;
-
 }
 
 .topo select:hover{
@@ -121,9 +104,7 @@ body{
 /* Filtro */
 .sidebar-filtros{
     width: 280px;
-
     position: sticky;
-
     top: 20px;
 }
 
@@ -131,9 +112,7 @@ body{
 .cards{
     flex: 1;
     display: grid;
-
     grid-template-columns: repeat(3, 1fr);
-
     gap: 25px;
 }
 
@@ -302,6 +281,7 @@ body{
     padding: 22px;
     flex-direction: column;
     gap: 18px;
+    margin-bottom: 20px;
 }
 
 /* Titulos*/
@@ -366,19 +346,23 @@ input[type="checkbox"]:checked::before{
     color: white;
 }
 
-.sidebar-filtros button{
-    height: 40px;
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.233);
-    background: transparent;
-    color: var(--text-primary);
-    font-size: 17px;
+.btn-limpar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 55px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 14px;
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
     font-weight: 500;
-    cursor: pointer;
     transition: 0.3s;
+    margin-top: 10px;
 }
 
-.sidebar-filtros button:hover{
-    background: #132a52;
-    border-color: var(--steel-blue);
+.btn-limpar:hover{
+    background-color: #11254a;
 }

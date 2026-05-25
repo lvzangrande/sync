@@ -9,18 +9,23 @@ if (!isset($_SESSION['autenticado'])) {
     header("Location: ../login.php");
     exit();
 }
-print_r($_SESSION);
 
-$tipo = $_SESSION['tipo_servico'] = $_POST['tipo_serv'];
-$desc = $_SESSION['descricao_problema'] = $_POST['desc'];
-$data = $_SESSION['data'] = $_POST['data'];
-$tempo = $_SESSION['tempo_planejado'] = $_POST['tempo'];
-$endereco = $_SESSION['endereco_servico'] = $_POST['end_serv'];
-$idcard = $_SESSION['id_profissional'] = $_POST['id_profissional'];
-$idcliente = $_SESSION['id_user'] = $_POST['id_cliente'];
+
+
+if (!isset($_SESSION['pedido'])) {
+
+    header("Location: catalogo.php");
+    exit();
+}
+
+$pedido = $_SESSION['pedido'];
+$idcard = $pedido['id_profissional'];
+$tipo = $pedido['tipo_serv'];
+$desc = $pedido['desc'];
+$data = $pedido['data'];
+$tempo = $pedido['tempo'];
+$endereco = $pedido['end_serv'];
 $profissional = read($pdo, "usuarios", "id_user=$idcard");
-
-
 ?>
 
 <!DOCTYPE html>
@@ -99,7 +104,7 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
                             
                             <input type="hidden" name="end_serv" value="'.$endereco .'">
                             
-                            <input type="hidden" name="id_cliente" value="'.$idcliente .'">
+                            <input type="hidden" name="id_cliente" value="'.$_SESSION['id_user'] .'">
 
                             <button class="btn-pagar">
                                 Confirmar Pagamento
@@ -192,7 +197,7 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
 
             <div class="total">
                 <span>Total</span>
-                <strong>'.$profissional['valor_dia'] * $tempo.'</strong>
+                <strong>R$'.$profissional['valor_dia'] * $tempo.'</strong>
             </div>
 
         </div>
