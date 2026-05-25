@@ -8,10 +8,6 @@ if (!isset($_SESSION['autenticado'])) {
     exit();
 }
 
-if ($_SESSION['categoria']  !== 'admin'){
-    header("Location: ../login.php");
-    exit();
-}
 
 $id   = $_GET['id'] ?? null;
 $tipo = $_GET['tipo'] ?? null;
