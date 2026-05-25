@@ -1,5 +1,6 @@
 <?php
 require_once 'crud.php';
+require_once 'func/filtro.php';
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
