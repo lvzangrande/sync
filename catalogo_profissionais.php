@@ -1,5 +1,6 @@
 <?php
 require_once 'crud.php';
+require_once 'func/filtro.php';
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -22,6 +23,7 @@ if (!isset($_SESSION['autenticado'])) {
 </head>
 
 <body>
+    <?php require_once 'partials/header.php'; ?>
     <main class="container">
         <section class="topo">
 
@@ -161,40 +163,41 @@ if (!isset($_SESSION['autenticado'])) {
                     }
                 }
                 $cards = readALL($pdo, 'usuarios', $where . $order);
+                $data = readALL($pdo, 'agenda');
                 foreach ($cards as $card) {
                     echo
                         '<div class="card">
 
-                                <div class="disponibilidade">' . $card['status'] . '</div>
+                            <div class="disponibilidade">' . $card['status'] . '</div>
 
-                                <div class="avaliacao"><i class="bi bi-star-fill"></i> ' . $card['notas'] . '</div>
+                            <div class="avaliacao"><i class="bi bi-star-fill"></i> ' . $card['notas'] . '</div>
 
-                                <img src="' . $card['img_user'] . '"
-                                    alt="">
+                            <img src="' . $card['img_user'] . '"
+                                alt="">
 
-                                <p class="nome-profi">' . $card['nome'] . '</p>
+                            <p class="nome-profi">' . $card['nome'] . '</p>
 
-                                <p class="especialidade">' . $card['especialidade'] . '</p>
+                            <p class="especialidade">' . $card['especialidade'] . '</p>
 
-                                <span>15 meses</span>
+                            <span>15 meses</span>
 
-                                <span>320</span>
-                                <div class="rodape">
-                                    <p class="preco">' . $card['valor_dia'] . '</p>
-                                    <p class="p-d">/dia</p>';
-                    if ($card['status'] === 'Disponível') {
-                        echo '
-                                    <a href="./contratar.php?id=' . $card['id_user'] . '">Contratar</a>';
-                    } elseif ($card['status'] === 'Inativo') {
-                        echo '<a>Indisponível</a>';
-                    } else {
-                        echo '<a>Indisponível</a>';
+                            <span>320</span>
+                            <div class="rodape">
+                                <p class="preco">' . $card['valor_dia'] . '</p>
+                                <p class="p-d">/dia</p>';
+                    foreach ($data as $d) {
+                        if ($d['data'] === date('Y-m-d') && $d['id_profissional'] === $card['id_user']) {
+                            echo '<a>Indisponível</a>';
+                        } else {
+                            echo '<a href="./contratar.php?id=' . $card['id_user'] . '">Contratar</a>';
+                        }
                     }
                     echo '            
-                                </div>
-
                             </div>
+
+                        </div>
                         ';
+
                 }
                 ?>
 
@@ -202,7 +205,7 @@ if (!isset($_SESSION['autenticado'])) {
         </section>
     </main>
 
-
+    <?php require_once 'partials/footer.php'; ?>
 </body>
 
 </html>

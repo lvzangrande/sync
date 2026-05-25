@@ -43,6 +43,7 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
 </head>
 
 <body>
+    <?php require_once '../partials/header.php'; ?>
     <main>
         <!-- ----- Card Funcionario ----- -->
         <section class="perfil-profissional">
@@ -177,6 +178,7 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
         </section>
 
     </main>
+    <?php require_once '../partials/footer.php'; ?>
 </body>
 
 </html>
