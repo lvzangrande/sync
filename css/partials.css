@@ -7,10 +7,8 @@ header {
     height: 90px;
     z-index: 1000;
     position: fixed;
-    display: flex;
-    align-items: center;
     text-transform: uppercase;
-    border: 2px solid #152d522a;
+    border-bottom: 2px solid #152d5280; 
 }
 
 nav {
@@ -19,22 +17,19 @@ nav {
 }
 
 .menu-superior {
-    margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 24px;
-    gap: 20px;
+    justify-content: space-between; 
+    padding: 0 40px; 
     width: 100%;
-    max-width: 1300px;
     height: 100%;
+    box-sizing: border-box; 
 }
 
 .nav-links {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex: 1;
     gap: 18px;
     list-style: none;
     margin: 0;
@@ -90,9 +85,8 @@ a.btn-cadastro:hover {
     transform: scale(1.05);
 }
 
-/* Alterado de .btn-cadastro img para span para alinhar com o HTML */
 .btn-cadastro .material-symbols-outlined {
-    font-size: 18px; /* Ajuste o tamanho da seta por aqui se precisar */
+    font-size: 18px; 
     transition: 0.3s;
 }
 
@@ -102,22 +96,19 @@ a.btn-cadastro:hover {
     align-items: center;
     font-weight: 700;
     font-size: 15px;
+    
 }
+
 
 .logo {
-    height: 70px;
-    width: 70px;
-    margin: 0 70px 0 0;
-    overflow: visible;
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
-.logo img,
-img.logo {
+.logo-img {
     display: block;
-    height: 90px;
     width: auto;
-    margin-top: -10px;
-    margin-right: 50px;
 }
 
 .material-symbols-outlined {
@@ -158,10 +149,7 @@ footer {
     padding: 60px 50px;
     width: calc(100% - 40px);
     max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-    margin-bottom: 30px;
+    margin: auto auto 30px auto; 
     text-align: left;
     border-radius: 25px;
     border: 2px solid #152d5248;
@@ -174,15 +162,6 @@ footer h3 {
     font-weight: 600;
 }
 
-footer li a {
-    color: white;
-    text-decoration: none;
-    font-size: 12px;
-    list-style: none;
-    display: inline-block;
-    padding: 4px 0;
-}
-
 footer ul {
     list-style-type: none;
     padding: 0;
@@ -193,6 +172,14 @@ footer ul li {
     margin-bottom: 10px;
 }
 
+footer li a {
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    display: inline-block;
+    padding: 4px 0;
+}
+
 footer li a:hover {
     color: #85b5cb;
     transition: 0.3s;
@@ -200,7 +187,6 @@ footer li a:hover {
 
 .footer-container {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: flex-start;
     flex-wrap: wrap;
@@ -209,7 +195,6 @@ footer li a:hover {
 
 .footer-section {
     min-width: 250px;
-    gap: 40px;
 }
 
 .footer-bottom {
@@ -232,26 +217,12 @@ footer li a:hover {
 .footer-bottom ul {
     display: flex;
     gap: 24px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.footer-bottom ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-.footer-bottom ul li a:hover {
-    color: #85b5cb;
-    transition: 0.3s;
 }
 
 .newsletter-form {
     display: flex;
     gap: 8px;
     margin-top: 10px;
-    outline: none;
 }
 
 .newsletter-form input[type="email"] {
@@ -260,9 +231,7 @@ footer li a:hover {
     border: 2px solid #717f9467;
     font-size: 12px;
     font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
     font-weight: 400;
-    font-style: normal;
     background-color: #525a758c;
     outline: none;
     transition: border-color 0.3s;
@@ -278,11 +247,39 @@ footer li a:hover {
     border: none;
     border-radius: 100%;
     cursor: pointer;
-    align-items: center;
     padding: 10px;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
 }
 
 .newsletter-form button:hover {
     transition: 0.3s;
     transform: scale(1.09);
+}
+
+.logo2 {
+    height: 70px;
+    margin-bottom: 20px; 
+}
+
+.logo2 img,
+img.logo2 {
+    display: block;
+    height: 90px;
+    width: auto;
+}
+
+.icon{
+    display: inline-block; 
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    vertical-align: middle; 
+}
+
+.meu-icone {
+  color: #85b5cb; 
+  width: 100%;
+  transition: 0.3s; 
 }
