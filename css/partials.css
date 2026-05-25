@@ -270,16 +270,29 @@ img.logo2 {
     width: auto;
 }
 
-.icon{
-    display: inline-block; 
-    width: 20px;
-    height: 20px;
-    margin-right: 8px;
-    vertical-align: middle; 
+.icons li {
+    display: flex;
+    gap: 8px;
 }
 
 .meu-icone {
   color: #85b5cb; 
   width: 100%;
+  transition: 0.3s; 
+}
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+.meu-icone2 {
+  color: #85b5cb; 
+  width: 100%;
+  margin-bottom: 3px;
   transition: 0.3s; 
 }

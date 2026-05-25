@@ -1,10 +1,49 @@
-body{
+body {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  background: linear-gradient(to bottom, #1c4376,   #001233); 
+  background: linear-gradient(to bottom, #1c4376, #001233);
   background-attachment: fixed;
   margin: 0;
   min-height: 100vh;
+}
+
+.banner {
+  background-image: url('../img/fundomeca.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+  background-blend-mode: multiply;
+  margin-top: 100px;
+  background-color: rgba(20, 46, 94, 0.712);
+  padding: 200px 5%;
+  
+
+}
+
+.btn-comecar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  text-decoration: none;
+  background-color: #214174;
+  padding: 20px 30px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 16px;
+   box-shadow: 0 0 5px #85b5cb;
+
+}
+
+.meu-icone3{
+  color:white;
+  margin-left: 8px;
+  transition: 0.3s;
+ 
+
+  
 }
