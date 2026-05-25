@@ -163,6 +163,7 @@ if (!isset($_SESSION['autenticado'])) {
                     }
                 }
                 $cards = readALL($pdo, 'usuarios', $where . $order);
+                $data = readALL($pdo, 'agenda');
                 foreach ($cards as $card) {
                     echo
                         '<div class="card">
@@ -184,19 +185,19 @@ if (!isset($_SESSION['autenticado'])) {
                             <div class="rodape">
                                 <p class="preco">' . $card['valor_dia'] . '</p>
                                 <p class="p-d">/dia</p>';
-                    if ($card['status'] === 'Disponível') {
-                        echo '
-                                    <a href="./contratar.php?id=' . $card['id_user'] . '">Contratar</a>';
-                    } elseif ($card['status'] === 'Inativo') {
-                        echo '<a>Indisponível</a>';
-                    } else {
-                        echo '<a>Indisponível</a>';
+                    foreach ($data as $d) {
+                        if ($d['data'] === date('Y-m-d') && $d['id_profissional'] === $card['id_user']) {
+                            echo '<a>Indisponível</a>';
+                        } else {
+                            echo '<a href="./contratar.php?id=' . $card['id_user'] . '">Contratar</a>';
+                        }
                     }
                     echo '            
                             </div>
 
                         </div>
                         ';
+
                 }
                 ?>
 
