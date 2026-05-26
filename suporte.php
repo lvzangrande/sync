@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body>
-
+    <?php require_once 'partials/header.php'; ?>
     <main class="main-container">
         <aside class="sidebar-info">
             <div class="status-card">
@@ -67,9 +67,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </aside>
 
         <section class="form-container">
-            <header class="form-header">
-                <h2>Área de Suporte SYNC </h2>
-            </header>
 
             <form action="#" method="POST" class="support-form" enctype="multipart/form-data">
 
@@ -117,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </form>
         </section>
     </main>
-
+    <?php require_once 'partials/footer.php'; ?>
 </body>
 
 </html>
