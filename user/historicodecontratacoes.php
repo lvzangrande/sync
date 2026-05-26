@@ -50,7 +50,7 @@ require_once '../crud.php';
 $tableAgenda = readAll($pdo,'agenda');
         foreach($tableAgenda as $agendamento){
 
-    $nomeProfi = read_nome_via_ID($pdo,'usuarios',$agendamento['id_cliente']);
+    $nomeProfi = read_nome_via_ID($pdo,'usuarios',$agendamento['id_profissional']);
     $nomeCliente = read_nome_via_ID($pdo,'usuarios',$agendamento['id_cliente']);
 $palavras = explode(' ', trim($agendamento['descricao'])); 
     

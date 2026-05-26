@@ -45,7 +45,7 @@ try {
     //pegar nome via id
 function read_nome_via_ID($pdo, $table, $id) {
     $sql = "SELECT nome FROM $table WHERE id = :id";
-    $stmt = $pdo->query($sql);
+    $stmt = $pdo->prepare($sql);
     $stmt->execute(['id' => $id]);
     
     $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
