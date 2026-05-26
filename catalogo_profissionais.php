@@ -4,11 +4,6 @@ require_once 'func/filtro.php';
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-
-if (!isset($_SESSION['autenticado'])) {
-    header("Location: ../login.php");
-    exit();
-}
 ?>
 
 <!DOCTYPE html>
