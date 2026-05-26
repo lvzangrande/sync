@@ -16,7 +16,7 @@ body {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  background: var(--deep-midnight);
+  background: linear-gradient(to bottom, #1c4376, #001233);
   background-attachment: fixed;
   margin: 0;
   min-height: 100vh;
