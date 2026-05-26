@@ -29,6 +29,8 @@ if (isset($_POST['senha_atual']) && isset($_POST['nova_senha']) && isset($_POST[
         $erro = "Preencha todos os campos.";
     } else if ($nova_senha !== $confirma_senha) {
         $erro = "As senhas não coincidem."; 
+    } else if ($senha_atual === $nova_senha){
+        $erro = "A nova senha não pode ser igual a anterior.";
     } else {
         
         if ($senha_atual === $usuario_banco['senha']) {
