@@ -46,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body>
+    
     <?php require_once 'partials/header.php'; ?>
     <main class="main-container">
         <aside class="sidebar-info">
@@ -68,7 +69,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </aside>
 
         <section class="form-container">
-
             <form action="#" method="POST" class="support-form" enctype="multipart/form-data">
 
                 <div class="form-row">
