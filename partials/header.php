@@ -25,6 +25,7 @@ $base = BASE_URL;
 
                 <?php if ($tipo_usuario === 'admin'): ?>
                     <li><a href="<?= $base?>admin/adminpage.php" style="color: #8BC0D6; font-weight: bold;">Painel Admin</a></li>
+                    <li><a href="<?= $base?>admin/cadastro_profissional.php" style= "color: #8BC0D6; font-weight: bold;">Cadastro de profissonal</a></li>
                 <?php endif; ?>
 
                 <?php if ($tipo_usuario === 'profissional'): ?>
