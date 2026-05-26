@@ -16,6 +16,7 @@ if (!isset($_SESSION['autenticado'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/userpage.css">
+    <link rel="stylesheet" href="../css/partials.css">
     <title>Editar dados pessoais</title>
 </head>
 <body>
