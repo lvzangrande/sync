@@ -1,3 +1,26 @@
+:root {
+    --deep-midnight: #001233;
+    --navy-dark: #092848;
+    --royal-industrial: #164578;
+    --steel-blue: #326B93;
+    --slate-gray: #33415C;
+    --cool-gray: #7D8597;
+    --light-slate: #979DAC;
+    --misty-blue: #8BC0D6;
+    --text-primary: #FFFFFF;
+    --text-secondary: #979DAC;
+}
+body {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    background: var(--deep-midnight);
+    background-attachment: fixed;
+    margin: 0;
+    min-height: 100vh;
+}
+
 .admin-header-saudacao {
     margin-bottom: 30px;
 }
@@ -10,7 +33,7 @@
 }
 
 .linha-saudacao h1 {
-    color: #8BC0D6;
+    color: var(--misty-blue);
     font-size: 28px;
     font-weight: 700;
     margin: 0;
@@ -25,7 +48,7 @@
 }
 
 .admin-header-saudacao p {
-    color: #979DAC;
+    color: var(--light-slate);
     font-size: 16px;
     margin-top: 5px;
 }
@@ -53,7 +76,7 @@
 
 .card {
     background-color: #33415C;
-    border: 1px solid #7D8597;
+    border: 1px solid var(--cool-gray);
     padding: 20px;
     border-radius: 8px;
     display: flex;
@@ -63,7 +86,7 @@
 
 .card h3 {
     font-size: 14px;
-    color: #979DAC;
+    color: var(--light-slate);
     margin-bottom: 5px;
 }
 
@@ -80,7 +103,7 @@
 
 .section-box {
     background-color: #33415C;
-    border: 1px solid #7D8597;
+    border: 1px solid var(--cool-gray);
     border-radius: 8px;
     padding: 25px;
     margin-bottom: 35px;
@@ -90,7 +113,7 @@
     color: #fff;
     font-size: 20px;
     margin-bottom: 20px;
-    border-bottom: 2px solid #7D8597;
+    border-bottom: 2px solid var(--cool-gray);
     padding-bottom: 10px;
 }
 
@@ -103,11 +126,11 @@
 .custom-table th,
 .custom-table td {
     padding: 14px 15px;
-    border-bottom: 1px solid #7D8597;
+    border-bottom: 1px solid var(--cool-gray);
 }
 
 .custom-table th {
-    color: #8BC0D6;
+    color: var(--misty-blue);
     font-weight: 600;
     text-transform: uppercase;
     font-size: 13px;
@@ -133,7 +156,7 @@
 }
 
 .btn-action {
-    background-color: #164578;
+    background-color: var(--royal-industrial);
     color: white;
     border: none;
     padding: 8px 14px;
@@ -149,7 +172,7 @@
 }
 
 .btn-action:hover {
-    background-color: #326B93;
+    background-color: var(--steel-blue);
 }
 
 .btn-delete {
@@ -162,19 +185,19 @@
 }
 
 .status-badge.disponivel {
-    background-color: #8BC0D6;
+    background-color: var(--misty-blue);
     color: #001233;
 }
 
 .status-badge.alocado {
-    background-color: #326B93;
+    background-color: var(--steel-blue);
     color: #fff;
 }
 
 .btn-edit {
-    background-color: #326B93;
+    background-color: var(--steel-blue);
 }
 
 .btn-edit:hover {
-    background-color: #164578;
+    background-color: var(--royal-industrial);
 }
