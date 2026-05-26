@@ -3,10 +3,10 @@ if(session_status() === PHP_SESSION_NONE){
     session_start();
 }
 
+if (!defined('BASE_URL')) {
+    define('BASE_URL', 'http://localhost/sync/');
+}
 
-$tipo_usuario = $_SESSION['tipo'] ?? 'visitante';
-
-define('BASE_URL', 'http://localhost/sync/');
 $base = BASE_URL;
 ?>
 
