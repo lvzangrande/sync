@@ -190,7 +190,7 @@ if (!isset($_SESSION['autenticado'])) {
                         } elseif ($card['status'] == 'Em Atendimento') {
                             echo '<a>Indisponível</a>';
                         } else {
-                            echo '<a href="agendamento.php?id=' . $card['id'] . '">Agendar</a>';
+                            echo '<a href="agendamento.php?id=' . $card['id_user'] . '">Contratar</a>';
                         }
                     echo '            
                             </div>
