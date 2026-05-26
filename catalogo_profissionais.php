@@ -4,11 +4,6 @@ require_once 'func/filtro.php';
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-
-if (!isset($_SESSION['autenticado'])) {
-    header("Location: ../login.php");
-    exit();
-}
 ?>
 
 <!DOCTYPE html>
@@ -163,7 +158,6 @@ if (!isset($_SESSION['autenticado'])) {
                     }
                 }
                 $cards = readALL($pdo, 'usuarios', $where . $order);
-                $data = readALL($pdo, 'agenda');
                 foreach ($cards as $card) {
                     echo
                         '<div class="card">
@@ -185,13 +179,14 @@ if (!isset($_SESSION['autenticado'])) {
                             <div class="rodape">
                                 <p class="preco">' . $card['valor_dia'] . '</p>
                                 <p class="p-d">/dia</p>';
-                    foreach ($data as $d) {
-                        if ($d['data'] === date('Y-m-d') && $d['id_profissional'] === $card['id_user']) {
+                    
+                        if ($card['status'] == 'Indisponível') {
+                            echo '<a>Indisponível</a>';
+                        } elseif ($card['status'] == 'Em Atendimento') {
                             echo '<a>Indisponível</a>';
                         } else {
-                            echo '<a href="./contratar.php?id=' . $card['id_user'] . '">Contratar</a>';
+                            echo '<a href="contratar.php?id=' . $card['id_user'] . '">Contratar</a>';
                         }
-                    }
                     echo '            
                             </div>
 

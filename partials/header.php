@@ -7,7 +7,7 @@
             </div>
             <ul class="nav-links">
                 <li><a href="./inicio.php">Início</a></li>
-                <li><a href="./inicio.php#Tecnologia">Nossa Tecnologia</a></li>
+                <li><a href="./inicio.php#Tecnologia">Tecnologia</a></li>
                 <li><a href="catalogo_profissionais.php">Profissionais</a></li>
                 <li><a href="./equipe.php">Equipe</a></li>
                 <li><a href="./suporte.php">Suporte</a></li>

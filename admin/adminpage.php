@@ -7,10 +7,10 @@ if (!isset($_SESSION['autenticado'])) {
     exit();
 }
 
-//if ($_SESSION['categoria']  !== 'admin'){
-//    header("Location: ../login.php");
-//    exit();
-//}
+if ($_SESSION['tipo']  !== 'admin'){
+    header("Location: ../login.php");
+   exit();
+}
 
 function nomeUsuario()
 {
@@ -86,7 +86,7 @@ $osAtivas = readAll($pdo, 'agenda', "status_os = 'Em Andamento' OR status_os = '
 
         <div class="admin-header-saudacao">
             <div class="linha-saudacao">
-                <?php require_once '../php/saudacao.php'; ?><span class="nome-user">, <?php nomeUsuario(); ?>!</span>
+                <h1><?php require_once '../php/saudacao.php'; ?><span class="nome-user">, <?php nomeUsuario(); ?>!</span></h1>
             </div>
             <p>Bem-vindo ao núcleo da gestão de nossos valores. Sincronize os dados, sincronize com a <strong>SYNC</strong>!</p>
         </div>
