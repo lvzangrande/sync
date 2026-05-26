@@ -8,6 +8,11 @@ if (!isset($_SESSION['autenticado'])) {
     exit();
 }
 
+if ($_SESSION['tipo'] !== 'admin') {
+    header("Location: ../login.php");
+    exit();
+}
+
 
 $id   = $_GET['id'] ?? null;
 $tipo = $_GET['tipo'] ?? null;
@@ -37,12 +42,23 @@ if (isset($_POST['btn_salvar'])) {
     exit();
 }
 
+$item = null;
+
 if ($tipo === 'profissional') {
     $busca = readAll($pdo, 'usuarios', "id_user = $id");
-    $item = $busca[0];
-} else {
+    if (!empty($busca)) {
+        $item = $busca[0];
+    }
+} elseif ($tipo === 'servico') { 
     $busca = readAll($pdo, 'maquinas', "id_maq = $id");
-    $item = $busca[0];
+    if (!empty($busca)) {
+        $item = $busca[0];
+    }
+}
+
+if (!$item) {
+    header("Location: adminpage.php");
+    exit();
 }
 ?>
 

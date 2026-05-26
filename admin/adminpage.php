@@ -7,10 +7,10 @@ if (!isset($_SESSION['autenticado'])) {
     exit();
 }
 
-//if ($_SESSION['categoria']  !== 'admin'){
-//    header("Location: ../login.php");
-//    exit();
-//}
+if ($_SESSION['tipo']  !== 'admin'){
+    header("Location: ../login.php");
+   exit();
+}
 
 function nomeUsuario()
 {
