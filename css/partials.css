@@ -167,9 +167,10 @@ footer {
 }
 
 footer h3 {
-    font-size: 14px;
+    font-size: 13px;
     text-transform: uppercase;
     font-weight: 600;
+    letter-spacing: 1.5px;
 }
 
 footer ul {
@@ -273,36 +274,25 @@ footer li a:hover {
     margin-bottom: 20px; 
 }
 
-.logo2 img,
-img.logo2 {
+.logo2 img {
     display: block;
     height: 90px;
     width: auto;
 }
 
-.icons li {
-    display: flex;
-    gap: 8px;
-}
-
 .meu-icone {
   color: #85b5cb; 
-  width: 100%;
   transition: 0.3s; 
 }
 
-
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
+.icons a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .meu-icone2 {
   color: #85b5cb; 
-  width: 100%;
   margin-bottom: 3px;
   transition: 0.3s; 
 }

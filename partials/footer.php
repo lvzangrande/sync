@@ -27,7 +27,7 @@
                 <li><a href="#"><i class="fa-brands fa-linkedin meu-icone"></i>Linkedin</a></li>
                 <li><a href="#"><i class="fa-brands fa-instagram meu-icone"></i>Instagram</a></li>
                 <li><a href="#"><i class="fa-brands fa-square-facebook meu-icone"></i>Facebook</a></li>
-                <li><a href="#"><i class="fa-brands fa-youtube meu-icone meu-icone"></i>YouTube</a></li>
+                <li><a href="#"><i class="fa-brands fa-youtube meu-icone"></i>YouTube</a></li>
             </ul>
         </div>
 
