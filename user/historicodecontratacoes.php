@@ -50,7 +50,6 @@ $tableAgenda = readAll($pdo,'agenda');
     $nomeCliente = read_nome_via_ID($pdo,'usuarios',$agendamento['id_cliente']);
 $palavras = explode(' ', trim($agendamento['descricao_problema'])); 
     
-    // 2. Se tiver mais de 4 palavras, corta e junta com '...', senão mantém o texto original
     $descricaoResumida = (count($palavras) > 4) 
         ? implode(' ', array_slice($palavras, 0, 4)) . '...' 
         : $agendamento['descricao'];
@@ -63,7 +62,7 @@ $palavras = explode(' ', trim($agendamento['descricao_problema']));
             <td>".$nomeCliente."</td>
             <td>".$nomeProfi."</td>
             <td>".$agendamento['status_os']."</td>
-            <td class='td_verDetalhes'><a class='verDetalhes' href='#'>Ver detalhes</a></td>";
+            <td class='td_verDetalhes'><a class='verDetalhes' href='detalhesContratacao.php?id=".$agendamento['id_os']."'>Ver detalhes</a></td>";
     }
     echo "</tr>";
 ?>
