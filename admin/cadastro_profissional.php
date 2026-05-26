@@ -22,7 +22,7 @@
 <body>
     <?php require_once '../partials/header.php' ?>
     <main>
-        <div class="cadastro-container" style="max-width: 800px;">
+        <div class="cadastro-container" style="max-width: 800px; margin: 40px auto; padding: 40px 30px;">
 
             <div class="cadastro-header">
                 <h1>Novo Profissional</h1>
