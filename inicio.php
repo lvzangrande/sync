@@ -28,12 +28,12 @@
         <div class="banner">
             <div class="banner2">
 
-            <div class="simbolo">● Plataforma Sync Mecatronics</div>   
+                <div class="simbolo">● Plataforma Sync Mecatronics</div>
 
                 <h1>Sync<br>Mecatronics</h1>
 
                 <p class="sub">Sincronize sua operação industrial com a plataforma premium de<br> manutenção mecatrônica. Técnicos especializados, métricas em<br>
-                 tempo real e excelência técnica comprovada.</p>
+                    tempo real e excelência técnica comprovada.</p>
 
                 <div class="btns">
                     <a href="./cadastro.php" class="btn-comecar">
@@ -60,6 +60,43 @@
             </div>
         </div>
     </main>
+
+    <section id="dados" class="dados">
+        <div class="dados-badge">Dados em tempo real</div>
+        <h1>Performance<br>
+            <div class="sincro">Sincronizada</div>
+            Global</h1>
+        <p>Métricas que comprovam a excelência mecatrônica da nossa<br> rede de especialistas</p>
+        <div class="container-boxes">
+            <div class="caixa">
+                <h1>99.8% <i class="fa-solid fa-chart-simple meu-icon"></i> </h1>
+                <h2>Taxa de Sucesso Operacional</h2>
+                <p>Das manutenções realizadas pela nossa rede de técnicos<br> especializados
+                    são concluídas com precisão técnica<br>
+                    dentro dos prazos estabelecidos pelas indústrias<br> parceiras.</p>
+            </div>
+
+            <div class="caixa2">
+                <h1>4x <i class="fa-solid fa-piggy-bank meu-icon"></i> </h1>
+                <h2>Retorno sobre Investimento </h2>
+                <p>Empresas que utilizam a plataforma Sync Mecatronics para <br>
+                gestão de manutenção mecatrônica reportam quatro vezes<br>
+                 mais eficiência operacional e redução drástica de paradas<br>
+                  não planejadas em seus processos produtivos.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="Tecnologia" class="tecnologia">
+        <div class="titulos">
+            <p>Serviços & Tecnologias</p> <p>Especialidades técnicas sincronizadas para atender às demandas mais complexas da indústria moderna</p>
+
+
+        </div>
+
+    </section>
+
 
 
 
