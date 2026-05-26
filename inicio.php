@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -27,14 +26,38 @@
 
     <main>
         <div class="banner">
-            <h1>Sync<br>Mecatronics</h1><br>
-            <p>Sincronize sua operação industrial com a plataforma premium<br> de manutenção mecatrônica. Técnicos especializados, métricas em<br>
-             tempo real e excelência técnica comprovada.</p>
-             
-             <div class="btns">
-             <a href="./cadastro.php" class="btn-comecar">Sincronizar operação<i class="fa-solid fa-arrow-right meu-icone3"></i></a>
-            <a href="./catalogo_profissionais.php" class="btn-prof">Explorar profissionais</a>
-             </div>
+            <div class="banner2">
+
+            <div class="simbolo">● Plataforma Sync Mecatronics</div>   
+
+                <h1>Sync<br>Mecatronics</h1>
+
+                <p class="sub">Sincronize sua operação industrial com a plataforma premium de<br> manutenção mecatrônica. Técnicos especializados, métricas em<br>
+                 tempo real e excelência técnica comprovada.</p>
+
+                <div class="btns">
+                    <a href="./cadastro.php" class="btn-comecar">
+                        Sincronizar operação <span class="material-symbols-outlined">arrow_outward</span>
+                    </a>
+                    <a href="#saibamais" class="btn-profs">Explorar profissionais</a>
+                </div>
+
+                <div class="estatisticas-container">
+                    <div class="box">
+                        <h2>2.400+</h2>
+                        <p>Serviços Sincronizados</p>
+                    </div>
+                    <div class="box">
+                        <h2>350+</h2>
+                        <p>Técnicos Certificados</p>
+                    </div>
+                    <div class="box">
+                        <h2>99.8%</h2>
+                        <p>Taxa de Sucesso</p>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </main>
 

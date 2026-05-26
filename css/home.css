@@ -10,40 +10,140 @@ body {
 }
 
 .banner {
+  position: relative;
+  text-align: left;
+  padding: 110px 5% 100px 5%;
+  color: white;
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
   background-image: url('../img/fundomeca.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  text-align: center;
   background-blend-mode: multiply;
-  margin-top: 100px;
-  background-color: rgba(20, 46, 94, 0.712);
-  padding: 200px 5%;
-  
+  background-color: rgba(10, 25, 55, 0.85);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%);
+}
 
+
+.banner2 {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+ 
+}
+
+
+.banner h1 {
+  font-size: 88px;
+  font-weight: 400;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.btns {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-top: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: 16px;
 }
 
 .btn-comecar {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: white;
-  text-decoration: none;
-  background-color: #214174;
-  padding: 20px 30px;
-  border-radius: 6px;
-  text-transform: uppercase;
-  font-weight: 600;
-  font-size: 16px;
-   box-shadow: 0 0 5px #85b5cb;
-
+    display: inline-flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    background-color: #214174;
+    padding: 20px 30px;
+    border-radius: 6px;
+    gap: 8px;
+    transition: all 0.3s ease;
 }
 
-.meu-icone3{
-  color:white;
+.btn-comecar:hover {
+  background-color: #39678f;
+    color: white;
+    transition: 0.3s;
+    transform: scale(1.05);
+}
+
+.btn-profs {
+    display: inline-flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 20px 30px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.btn-profs:hover {
+    border-color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+.estatisticas-container {
+    display: flex;
+    gap: 60px;
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    justify-content: flex-start;
+    text-align: left;
+    width: 100%;
+}
+
+.box h2 {
+    color: #85b5cb;
+    font-size: 36px;
+    font-weight: 500;
+    margin: 0 0 8px 0;
+}
+
+.box p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.meu-icone3 {
+  color: white;
   margin-left: 8px;
   transition: 0.3s;
- 
+}
 
-  
+.simbolo {
+    display: inline-block;
+    border: 1px solid #85b5cb;
+    background-color: rgba(255, 255, 255, 0.03); 
+    color: #85b5cb; 
+    padding: 8px 16px;
+    border-radius: 50px; 
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px; 
+    margin-bottom: 20px; 
 }
