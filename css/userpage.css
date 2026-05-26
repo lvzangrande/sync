@@ -47,9 +47,18 @@ table{
     padding: 20px;
     border-radius: 50px;
     background-color: #164578;
-    width: 50%;
+    width: 1500px;
     height: 700px;
 }
+.td_verDetalhes{
+ background-color: #006eff;
+ }
+ .verDetalhes{
+    background-color: #164578;
+    padding: 10px;
+    border-radius: 20px;
+ }
+
 td{
     background-color:#326b93;
     margin: 20px;

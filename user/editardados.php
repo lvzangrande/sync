@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-$usuario_banco = read($pdo, 'usuarios', "id = $idUser");
+$usuario_banco = read($pdo, 'usuarios', "id_user = $idUser");
 
 if ($usuario_banco) {
     $_SESSION['nome']    = $usuario_banco['nome'];
