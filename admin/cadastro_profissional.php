@@ -1,3 +1,42 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+require_once '../crud.php';
+
+if ($_SESSION['tipo'] !== 'admin') {
+    header("Location: ../login.php");
+    exit();
+}
+
+$erro = "";
+
+if (isset($_POST['btn_salvar'])) {
+
+    if ($_POST['senha'] !== $_POST['confirma_senha']) {
+        $erro = "As senhas não coincidem!";
+    } else {
+        $dados = [
+            'nome'           => $_POST['nome'],
+            'email'          => $_POST['email'],
+            'senha'          => $_POST['senha'],
+            'telefone'       => $_POST['telefone'],
+            'cpf_cnpj'       => $_POST['cpf_cnpj'],
+            'tipo'           => 'PF',
+            'categoria'      => 'profissional',
+            'especialidade'  => $_POST['especialidade'],
+            'valor_dia'      => $_POST['valor_dia'],
+            'descricao_func' => $_POST['descricao_func'],
+            'status'         => 'Inativo'
+        ];
+
+        create($pdo, 'usuarios', $dados);
+
+        header("Location: adminpage.php");
+        exit();
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -29,7 +68,12 @@
                 <p>Preencha os dados técnicos para criar o perfil</p>
             </div>
 
-            <form action="" method="post">
+            <?php if (!empty($erro)): ?>
+                <div class="alert-error" style="margin-bottom: 20px; text-align: center; padding: 12px; background-color: #5c1e29; color: #f8d7da; border: 1px solid #721c24; border-radius: 4px;">
+                    <?= $erro; ?>
+                </div>
+            <?php endif; ?>
+            <form action="" method="POST">
 
                 <div class="form-group">
                     <label for="nome">Nome do profissional</label>
