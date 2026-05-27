@@ -2,6 +2,17 @@
 if (session_status() === PHP_SESSION_NONE){
     session_start();
 }
+if (isset($_SESSION['mensagem'])) {
+
+    echo "
+    <script>
+        alert('".{$_SESSION['mensagem']}."');
+    </script>
+    ";
+
+    unset($_SESSION['mensagem']);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
