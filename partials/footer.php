@@ -15,7 +15,7 @@ $base = BASE_URL;
 
         <div class="footer-section">
             <div class="logo2">
-                <img src="<?= $base ?>imagens/logosemfundo.png" class="logo">
+                <img src="img/logosemfundo.png" class="logo">
             </div>
             <h3>Sync Mecatronics</h3>
             <p>Plataforma premium de manutenção<br> mecatrônica industrial.

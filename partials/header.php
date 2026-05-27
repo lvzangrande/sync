@@ -5,7 +5,7 @@ if(session_status() === PHP_SESSION_NONE){
 
 $tipo_usuario = $_SESSION['tipo'] ?? 'visitante';
 
-define('BASE_URL', 'http://localhost/sync/');
+define('BASE_URL', 'http://localhost/2TD/sync/');
 $base = BASE_URL;
 ?>
 
@@ -13,7 +13,7 @@ $base = BASE_URL;
     <nav>
         <div class="menu-superior">
             <div class="logo">
-                <img src="<?= $base?>imagens/logosemfundo.png" class="logo">
+                <img src="<?= $base?>img/logosemfundo.png" class="logo">
             </div>
             
             <ul class="nav-links">

@@ -89,11 +89,28 @@
     </section>
 
     <section id="Tecnologia" class="tecnologia">
-        <div class="titulos">
-            <p>Serviços & Tecnologias</p> <p>Especialidades técnicas sincronizadas para atender às demandas mais complexas da indústria moderna</p>
+        <div class="tecnologia-badge">Tecnologia de ponta</div>
+        <h1>Como Funciona</h1>
+        <p>Quatro passos para sincronizar sua operação industrial com excelência mecatrônica</p>
+        <div class="container-cards">
+            <div class="card">
+                <h1>01</h1>
+                <h2>Cadastre sua Demanda</h2>
+                <p>Descreva o serviço mecatrônico necessário com especificações técnicas, localização e urgência. Nossa IA analisa e categoriza automaticamente.</p>
+            </div>
 
-
+            <div class="card">
+                <h1>02</h1>
+                <h2>Sincronização Inteligente</h2>
+                <p>Nosso algoritmo identifica os técnicos mais qualificados e disponíveis para sua demanda, considerando especialidade, localização e avaliações.</p>
         </div>
+
+        <
+        
+            
+
+
+        
 
     </section>
 
