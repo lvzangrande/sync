@@ -65,7 +65,8 @@
         <div class="dados-badge">Dados em tempo real</div>
         <h1>Performance<br>
             <div class="sincro">Sincronizada</div>
-            Global</h1>
+            Global
+        </h1>
         <p>Métricas que comprovam a excelência mecatrônica da nossa<br> rede de especialistas</p>
         <div class="container-boxes">
             <div class="caixa">
@@ -80,38 +81,60 @@
                 <h1>4x <i class="fa-solid fa-piggy-bank meu-icon"></i> </h1>
                 <h2>Retorno sobre Investimento </h2>
                 <p>Empresas que utilizam a plataforma Sync Mecatronics para <br>
-                gestão de manutenção mecatrônica reportam quatro vezes<br>
-                 mais eficiência operacional e redução drástica de paradas<br>
-                  não planejadas em seus processos produtivos.</p>
+                    gestão de manutenção mecatrônica reportam quatro vezes<br>
+                    mais eficiência operacional e redução drástica de paradas<br>
+                    não planejadas em seus processos produtivos.</p>
             </div>
         </div>
 
     </section>
 
-    <section id="Tecnologia" class="tecnologia">
-        <div class="tecnologia-badge">Tecnologia de ponta</div>
+    <section id="passos" class="passos">
+        <div class="passos-badge">Tecnologia de ponta</div>
         <h1>Como Funciona</h1>
-        <p>Quatro passos para sincronizar sua operação industrial com excelência mecatrônica</p>
+        <p>Quatro passos para sincronizar sua operação industrial com <br>excelência mecatrônica</p>
         <div class="container-cards">
+
             <div class="card">
                 <h1>01</h1>
-                <h2>Cadastre sua Demanda</h2>
-                <p>Descreva o serviço mecatrônico necessário com especificações técnicas, localização e urgência. Nossa IA analisa e categoriza automaticamente.</p>
+                <h2>Cadastre sua<br>Demanda</h2>
+                <p>Descreva o serviço<br>
+                    mecatrônico necessário com<br>
+                    especificações técnicas,<br>
+                    localização e urgência. Nossa<br>
+                    IA analisa e categoriza automaticamente.</p>
             </div>
 
             <div class="card">
                 <h1>02</h1>
-                <h2>Sincronização Inteligente</h2>
-                <p>Nosso algoritmo identifica os técnicos mais qualificados e disponíveis para sua demanda, considerando especialidade, localização e avaliações.</p>
-        </div>
+                <h2>Sincronização<br> Inteligente</h2>
+                <p>Nosso algoritmo identifica os<br>
+                    técnicos mais qualificados e<br>disponíveis para sua<br>
+                    demanda, considerando<br>
+                    especialidade, localização<br>
+                    e avaliações.</p>
+            </div>
 
-        <
-        
-            
+            <div class="card">
+                <h1>03</h1>
+                <h2>Execução com <br> Precisão</h2>
+                <p>O técnico especializado<br>
+                    executa o serviço com<br>
+                    acompanhamento em tempo<br>
+                    real via dashboard.
+                    Métricas,<br> fotos e relatórios técnicos em <br>
+                    um só lugar.</p>
+            </div>
 
-
-        
-
+            <div class="card">
+                <h1>04</h1>
+                <h2>Avaliação & <br>Histórico</h2>
+                <p>Avalie o profissional, receba o<br>
+                    relatório técnico finalizado e <br>
+                    mantenha todo o histórico de<br> 
+                    manutenção da sua planta<br> 
+                    organizado digitalmente.</p>
+            </div>
     </section>
 
 
