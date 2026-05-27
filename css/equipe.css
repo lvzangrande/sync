@@ -185,61 +185,50 @@ body {
     font-size: 24pt;
     font-weight: 600;
     margin-bottom: 40px;
-    text-align: left;
+    text-align: center;
 }
 
 .grid-equipe {
     display: flex;
     justify-content: space-between;
-    gap: 16px;
-    align-items: stretch; 
+    gap: 20px;
+    align-items: stretch; /* Faz todos os cards terem exatamente a mesma altura */
 }
 
 .card-equipe {
-    background-color: #33415C;
-    border: 1px solid #7D8597;
-    border-radius: 6px;
-    padding: 24px 16px;
+    background-color: var(--color-slate-blue);
+    border: 1px solid var(--color-cool-gray);
+    border-radius: 8px;
+    padding: 30px 20px;
     text-align: center;
     position: relative;
     flex: 1; 
-    min-width: 220px; 
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    min-width: 240px;
+    
+    /* Configuração para a animação de expansão suave */
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                border-color 0.3s ease, 
+                box-shadow 0.3s ease;
 }
 
+/* ANIMAÇÃO DE EXPANSÃO (HOVER) */
 .card-equipe:hover {
-    border-color: #8BC0D6;
-    box-shadow: 0 4px 20px rgba(139, 192, 214, 0.15);
-}
-
-.status-badge {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    font-size: 8.5pt;
-    color: #8BC0D6;
-    font-weight: 500;
-}
-
-.status-dot {
-    display: inline-block;
-    width: 7px;
-    height: 7px;
-    background-color: #8BC0D6;
-    border-radius: 50%;
-    margin-right: 5px;
-    vertical-align: middle;
+    transform: scale(1.03); 
+    border-color: var(--color-sky-light);
+    box-shadow: 0 12px 24px rgba(139, 192, 214, 0.2); 
+    z-index: 10; 
 }
 
 
+/* Container da Foto de Perfil */
 .avatar-container {
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
     margin: 15px auto 20px auto;
     border-radius: 50%;
-    border: 2px solid #326B93;
-    background-color: #092848; 
-    overflow: hidden; 
+    border: 3px solid var(--color-deep-blue);
+    background-color: var(--color-navy-dark);
+    overflow: hidden;
 }
 
 .avatar-img {
@@ -250,28 +239,29 @@ body {
 }
 
 .dev-name {
-    color: #ffffff;
-    font-size: 13pt;
+    color: var(--white);
+    font-size: 14pt;
     font-weight: 600;
     margin-bottom: 4px;
 }
 
 .dev-funcao {
-    color: #979DAC; /* Light Slate */
-    font-size: 9.5pt;
+    color: var(--color-sky-light);
+    font-size: 10pt;
     font-weight: 400;
     margin-bottom: 15px;
 }
 
+/* Linha divisória interna */
 .card-divider {
     border: 0;
     height: 1px;
-    background-color: #7D8597; /* Cool Gray */
-    margin: 15px 0;
+    background-color: var(--color-cool-gray);
+    margin: 18px 0;
 }
 
-.section-heading {
-    color: #ffffff;
+.especialidade {
+    color: var(--white);
     font-size: 8.5pt;
     font-weight: 700;
     letter-spacing: 0.8px;
@@ -280,20 +270,22 @@ body {
     margin-bottom: 8px;
 }
 
+/* Bloco de Especializações */
 .dev-text {
     text-align: left;
     font-size: 9.5pt;
-    color: #979DAC;
+    color: var(--white);
     line-height: 1.5;
     margin-bottom: 20px;
+    min-height: 45px; 
 }
 
-/* Lista de Atividades */
+/* Lista de Contribuições */
 .contribuicao {
     text-align: left;
     padding-left: 15px;
     font-size: 9.5pt;
-    color: #979DAC;
+    color: var(--white);
     list-style-type: disc;
 }
 
