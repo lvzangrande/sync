@@ -9,7 +9,7 @@ if (!isset($_SESSION['autenticado'])) {
 
 if ($_SESSION['tipo']  !== 'admin'){
     header("Location: ../login.php");
-   exit();
+    exit();
 }
 
 function nomeUsuario()
@@ -68,7 +68,7 @@ $osAtivas = readAll($pdo, 'agenda', "status_os = 'Em Andamento' OR status_os = '
     <title>Painel de Administração | Sync</title>
 
     <link rel="stylesheet" href="../css/admin.css">
-    <!-- <link rel="stylesheet" href="../css/home.css"> -->
+    <link rel="stylesheet" href="../css/home.css">
     <link rel="stylesheet" href="../css/partials.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -227,7 +227,7 @@ $osAtivas = readAll($pdo, 'agenda', "status_os = 'Em Andamento' OR status_os = '
 
                                 <td>
                                     <?php
-                                    $statusAgenda = $profAtivo['status_os'] ?? 'Disponível';
+                                    $statusAgenda = $profAtivo['status'] ?? 'Disponível';
                                     $classeBadge = ($statusAgenda === 'Disponível') ? 'disponivel' : 'alocado';
                                     ?>
                                     <span class="status-badge <?= $classeBadge; ?>">

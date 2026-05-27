@@ -23,7 +23,8 @@ if (isset($_POST['btn_salvar'])) {
         $dados = [
             'nome'          => $_POST['nome'],
             'especialidade' => $_POST['especialidade'],
-            'valor_dia'     => $_POST['valor_dia']
+            'valor_dia'     => $_POST['valor_dia'],
+            'status'         => $_POST['status']
         ];
         update($pdo, 'usuarios', $dados, "id_user = $id");
     }
@@ -116,6 +117,23 @@ if (!$item) {
             display: flex;
             gap: 10px;
         }
+
+        .form-edit-group select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #7D8597;
+            background-color: #1d273b;
+            color: #fff;
+            font-family: 'Lexend', sans-serif;
+            font-size: 15px;
+            box-sizing: border-box;
+        }
+
+        .form-edit-group select:focus {
+            outline: none;
+            border-color: #8BC0D6;
+        }
     </style>
 </head>
 
@@ -136,8 +154,7 @@ if (!$item) {
         </div>
 
         <section class="section-box">
-            <h2>Modificar Registro (<?= ucfirst($tipo); ?>)</h2>
-
+            <h2>Modificar Registro (<span style="text-transform: capitalize;"><?= $tipo; ?></span>)</h2>
             <form action="" method="POST">
 
                 <?php if ($tipo === 'profissional'): ?>
@@ -154,6 +171,15 @@ if (!$item) {
                     <div class="form-edit-group">
                         <label>Valor da Diária (R$)</label>
                         <input type="number" step="0.01" name="valor_dia" value="<?= htmlspecialchars($item['valor_dia'] ?? 0); ?>" required>
+                    </div>
+
+                    <div class="form-edit-group">
+                        <label for="status">Status</label>
+                        <select id="status" name="status" class="input-control">
+                            <option value="Disponível" <?= (isset($item['status']) && $item['status'] === 'Disponível') ? 'selected' : ''; ?>>Disponível</option>
+                            <option value="Em Atendimento" <?= (isset($item['status']) && $item['status'] === 'Em Atendimento') ? 'selected' : ''; ?>>Em atendimento</option>
+                            <option value="Inativo" <?= (isset($item['status']) && $item['status'] === 'Inativo') ? 'selected' : ''; ?>>Inativo</option>
+                        </select>
                     </div>
                 <?php endif; ?>
 
