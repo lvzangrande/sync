@@ -4,7 +4,7 @@ require_once 'crud.php';
 // if (!isset($_GET['id_user'])) {
 //     die("Usuário não encontrado");
 // }
-if (session_status() === PHP_SESSION_NONE){
+if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
@@ -15,7 +15,7 @@ if (!isset($_SESSION['autenticado'])) {
 
 $idcard = intval($_GET['id']);
 
-$profissional = read($pdo,'usuarios',"id_user=$idcard");
+$profissional = read($pdo, 'usuarios', "id_user=$idcard");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,8 +44,8 @@ $profissional = read($pdo,'usuarios',"id_user=$idcard");
 
                     <!-- Foto -->
                     <div class="foto-profissional">
-                        <img src="' . $profissional['img_user'] . '"
-                            alt="">
+                    <img src="uploads/usuarios/' . $profissional['img_user'] . '"
+                    alt="Foto de ' . $profissional['nome'] . '">
                     </div>
 
                     <!-- Informações -->
@@ -89,7 +89,7 @@ $profissional = read($pdo,'usuarios',"id_user=$idcard");
                 </p>
 
                 <form action="./user/segundo_contrato.php" method="POST">
-                    
+
                     <input type="hidden" name="id_profissional" value="<?= $idcard ?>">
                     <input type="hidden" name="id_cliente" value="<?= $idcliente ?>">
 
@@ -118,7 +118,7 @@ $profissional = read($pdo,'usuarios',"id_user=$idcard");
 
                         <div class="campo">
                             <label for="">Tempo Estimado em Dias</label>
-                           <input type="number" name="tempo" placeholder="ex: 20 dias">
+                            <input type="number" name="tempo" placeholder="ex: 20 dias">
                         </div>
                     </div>
 
@@ -142,14 +142,14 @@ $profissional = read($pdo,'usuarios',"id_user=$idcard");
 
                     <div class="linha-desc">
                         <span>Valor/dia</span>
-                        <strong>R$ '.$profissional['valor_dia'].'</strong>
+                        <strong>R$ ' . $profissional['valor_dia'] . '</strong>
                     </div>
 
                     <hr>
 
 
                     <p class="texto-desc">
-                       '.$profissional['descricao_func'].'
+                       ' . $profissional['descricao_func'] . '
                     </p>
 
                     <div class="garantia-box">
