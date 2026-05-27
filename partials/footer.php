@@ -1,11 +1,14 @@
 <?php
-if(session_status() === PHP_SESSION_NONE){
+if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+$tipo_usuario = $_SESSION['tipo'] ?? 'visitante';
+
 if (!defined('BASE_URL')) {
-    define('BASE_URL', 'http://localhost/sync/');
+    define('BASE_URL', 'http://localhost/2TD/sync/');
 }
+
 
 $base = BASE_URL;
 ?>
@@ -15,7 +18,7 @@ $base = BASE_URL;
 
         <div class="footer-section">
             <div class="logo2">
-                <img src="img/logosemfundo.png" class="logo">
+                <img src="<?= $base ?>img/logosemfundo.png" class="logo">
             </div>
             <h3>Sync Mecatronics</h3>
             <p>Plataforma premium de manutenção<br> mecatrônica industrial.
@@ -23,10 +26,11 @@ $base = BASE_URL;
         </div>
 
         <div class="footer-section">
-            <h3 class="heading">Empresa</h3> <ul>
+            <h3 class="heading">Empresa</h3>
+            <ul>
                 <li><a href="<?= $base ?>inicio.php">Sobre</a></li>
                 <li><a href="<?= $base ?>inicio.php#Tecnologia">Tecnologias</a></li>
-                
+
                 <?php if ($tipo_usuario === 'admin'): ?>
                     <li><a href="<?= $base ?>admin/adminpage.php">Painel Admin</a></li>
                 <?php elseif ($tipo_usuario === 'profissional'): ?>
@@ -36,14 +40,15 @@ $base = BASE_URL;
                 <?php else: ?>
                     <li><a href="<?= $base ?>login.php">Área do Cliente</a></li>
                 <?php endif; ?>
-                
+
                 <li><a href="<?= $base ?>suporte.php">Contato</a></li>
             </ul>
         </div>
 
         <div class="footer-section">
             <h3>Conecte-se</h3>
-            <ul class="icons"> <li><a href="#"><i class="fa-brands fa-linkedin meu-icone"></i>Linkedin</a></li>
+            <ul class="icons">
+                <li><a href="#"><i class="fa-brands fa-linkedin meu-icone"></i>Linkedin</a></li>
                 <li><a href="#"><i class="fa-brands fa-instagram meu-icone"></i>Instagram</a></li>
                 <li><a href="#"><i class="fa-brands fa-square-facebook meu-icone"></i>Facebook</a></li>
                 <li><a href="#"><i class="fa-brands fa-youtube meu-icone"></i>YouTube</a></li>

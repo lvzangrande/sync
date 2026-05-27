@@ -30,8 +30,42 @@ if (isset($_POST['btn_salvar'])) {
             'status'         => 'Inativo'
         ];
 
-        create($pdo, 'usuarios', $dados);
+        if (isset($_FILES['img_user']) && $_FILES['img_user']['error'] === UPLOAD_ERR_OK) {
 
+            $tipos_permitidos = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+            if (!in_array($_FILES['img_user']['type'], $tipos_permitidos)) {
+                $mensagem = "Tipo de arquivo não permitido. Por favor, envie uma imagem JPEG, PNG ou WEBP.";
+                $tipo_mensagem = "erro";
+                return;
+            }
+
+            $tamanho_max = 1 * 1024 * 1024; // 1MB
+            if ($_FILES['img_user']['size'] > $tamanho_max) {
+                $mensagem = "O arquivo é muito grande. O tamanho máximo permitido é 1MB.";
+                $tipo_mensagem = "erro";
+                return;
+            }
+
+            $extensao = pathinfo($_FILES['img_user']['name'], PATHINFO_EXTENSION);
+            $novonome = "profissional_" . uniqid() . "." . $extensao;
+
+            $dir = "../uploads/usuarios/";
+            $file = $dir . $novonome;
+
+            if (!is_dir($dir)) {
+                mkdir($dir, 0777, true);
+            }
+
+            if (move_uploaded_file($_FILES['img_user']['tmp_name'], $file)) {
+                $dados['img_user'] = $novonome;
+            } else {
+                $mensagem = "Erro ao mover o arquivo de imagem para o servidor.";
+                $tipo_mensagem = "erro";
+                return;
+            }
+        }
+
+        create($pdo, 'usuarios', $dados);
         header("Location: adminpage.php");
         exit();
     }
@@ -73,8 +107,7 @@ if (isset($_POST['btn_salvar'])) {
                     <?= $erro; ?>
                 </div>
             <?php endif; ?>
-            <form action="" method="POST">
-
+            <form action="" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="nome">Nome do profissional</label>
                     <input type="text" id="nome" name="nome" class="input-control" value="<?= htmlspecialchars($item['nome'] ?? ''); ?>" placeholder="Ex: James Rodríguez" required>
@@ -97,14 +130,17 @@ if (isset($_POST['btn_salvar'])) {
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="telefone">Telefone</label>
-                    <input type="text" id="telefone" name="telefone" class="input-control" value="<?= htmlspecialchars($item['telefone'] ?? ''); ?>" placeholder="(00) 00000-0000" required>
-                </div>
+                <div class="form-separacao">
 
-                <div class="form-group">
-                    <label for="cpf_cnpj">CPF</label>
-                    <input type="text" id="cpf_cnpj" name="cpf_cnpj" class="input-control" value="<?= htmlspecialchars($item['cpf_cnpj'] ?? ''); ?>" placeholder="000.000.000-00" required>
+                    <div class="form-group">
+                        <label for="telefone">Telefone</label>
+                        <input type="text" id="telefone" name="telefone" class="input-control" value="<?= htmlspecialchars($item['telefone'] ?? ''); ?>" placeholder="(00) 00000-0000" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cpf_cnpj">CPF</label>
+                        <input type="text" id="cpf_cnpj" name="cpf_cnpj" class="input-control" value="<?= htmlspecialchars($item['cpf_cnpj'] ?? ''); ?>" placeholder="000.000.000-00" required>
+                    </div>
                 </div>
 
                 <div class="form-separacao">
@@ -122,6 +158,14 @@ if (isset($_POST['btn_salvar'])) {
                 <div class="form-group">
                     <label for="descricao_func">Descrição das Habilidades / Experiência</label>
                     <textarea id="descricao_func" name="descricao_func" class="input-control" rows="5" placeholder="Conte um pouco sobre suas qualificações técnicas..."><?= htmlspecialchars($item['descricao_func'] ?? ''); ?></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Foto de Perfil</label>
+                    <label for="foto" class="upload-container">
+                        <span id="nome-arquivo">Selecione uma imagem (Máx: 1MB)</span>
+                        <input type="file" id="foto" name="img_user" accept="image/*" class="input-file-hidden">
+                    </label>
                 </div>
 
                 <button type="submit" name="btn_salvar" class="btn-submit">Salvar Cadastro</button>
