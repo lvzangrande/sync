@@ -23,14 +23,10 @@ require_once '../partials/header.php';
             <th>Valor</th>
             <th>Descrição</th>
             <th>Endereço</th>
+            <th>Contratante</th>
+            <th>Profissional</th>
             <th>Status</th>
-        </tr>
-        <tr>
-            <td>
-                <a></a>
-                <a>11/09</a>
-                <a class='verdetalhes' href=''>Ver detalhes</a>
-            </td>
+            <th class='td_verDetalhes'></th>
         </tr>
 <?php
 require_once '../crud.php';
@@ -52,19 +48,21 @@ $tableAgenda = readAll($pdo,'agenda');
 
     $nomeProfi = read_nome_via_ID($pdo,'usuarios',$agendamento['id_profissional']);
     $nomeCliente = read_nome_via_ID($pdo,'usuarios',$agendamento['id_cliente']);
-$palavras = explode(' ', trim($agendamento['descricao'])); 
+$palavras = explode(' ', trim($agendamento['descricao_problema'])); 
     
-    // 2. Se tiver mais de 4 palavras, corta e junta com '...', senão mantém o texto original
     $descricaoResumida = (count($palavras) > 4) 
         ? implode(' ', array_slice($palavras, 0, 4)) . '...' 
         : $agendamento['descricao'];
     echo "<tr>
-            <td>ID: ".$agendamento['data']."</td>
-            <td>Título: ".$agendamento['tempo_planejado_minutos']."</td>
-            <td>".$agendamento['valor']."</td>
-            <td><img src='".$agendamento['img']."' width='150'></td>
-            <td>".$agendamento['descricao']."</td>
-            <td>".$agendamento['atributo']."</td>";
+            <td>".$agendamento['data']."</td>
+            <td>".$agendamento['tempo_planejado_minutos']."</td>
+            <td>".$agendamento['valor_total']."</td>
+            <td>".$descricaoResumida."</td>
+            <td>".$agendamento['endereco_servico']."</td>
+            <td>".$nomeCliente."</td>
+            <td>".$nomeProfi."</td>
+            <td>".$agendamento['status_os']."</td>
+            <td class='td_verDetalhes'><a class='verDetalhes' href='detalhesContratacao.php?id=".$agendamento['id_os']."'>Ver detalhes</a></td>";
     }
     echo "</tr>";
 ?>
