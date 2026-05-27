@@ -1,5 +1,5 @@
 <?php
-if(session_status() === PHP_SESSION_NONE){
+if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
@@ -13,37 +13,38 @@ $base = BASE_URL;
     <nav>
         <div class="menu-superior">
             <div class="logo">
-                <img src="<?= $base?>imagens/logosemfundo.png" class="logo">
+                <img src="<?= $base ?>imagens/logosemfundo.png" class="logo">
             </div>
-            
+
             <ul class="nav-links">
-                <li><a href="<?= $base?>inicio.php">Início</a></li>
-                <li><a href="<?= $base?>inicio.php#Tecnologia">Tecnologia</a></li>
-                <li><a href="<?= $base?>catalogo_profissionais.php">Profissionais</a></li>
-                <li><a href="<?= $base?>equipe.php">Equipe</a></li>
-                <li><a href="<?= $base?>suporte.php">Suporte</a></li>
+                <li><a href="<?= $base ?>inicio.php">Início</a></li>
+                <li><a href="<?= $base ?>inicio.php#Tecnologia">Tecnologia</a></li>
+                <li><a href="<?= $base ?>catalogo_profissionais.php">Profissionais</a></li>
+                <li><a href="<?= $base ?>equipe.php">Equipe</a></li>
+                <li><a href="<?= $base ?>suporte.php">Suporte</a></li>
 
                 <?php if ($tipo_usuario === 'admin'): ?>
-                    <li><a href="<?= $base?>admin/adminpage.php" style="color: #8BC0D6; font-weight: bold;">Painel Admin</a></li>
-                    <li><a href="<?= $base?>admin/cadastro_profissional.php" style= "color: #8BC0D6; font-weight: bold;">Cadastro de profissonal</a></li>
+                    <li><a href="<?= $base ?>admin/adminpage.php" style="color: #8BC0D6; font-weight: bold;">Painel Admin</a></li>
+                    <li><a href="<?= $base ?>admin/cadastro_profissional.php" style="color: #8BC0D6; font-weight: bold;">Cadastro de profissonal</a></li>
                 <?php endif; ?>
 
                 <?php if ($tipo_usuario === 'profissional'): ?>
-                    <li><a href="<?= $base?>profissional/profipage.php" style="color: #8BC0D6; font-weight: bold;">Meu Painel</a></li>
+                    <li><a href="<?= $base ?>profissional/profipage.php" style="color: #8BC0D6; font-weight: bold;">Meu Painel</a></li>
                 <?php endif; ?>
 
                 <?php if ($tipo_usuario === 'cliente'): ?>
-                    <li><a href="<?= $base?>user/userpage.php" style="color: #8BC0D6; font-weight: bold;">Minha Conta</a></li>
+                    <li><a href="<?= $base ?>user/userpage.php" style="color: #8BC0D6; font-weight: bold;">Minha Conta</a></li>
                 <?php endif; ?>
             </ul>
 
             <div class="buttons">
                 <?php if ($tipo_usuario === 'visitante'): ?>
-                    <a class="btn-entrar" href="<?= $base?>login.php">Entrar</a>
-                    <a class="btn-cadastro" href="<?= $base?>cadastro.php">Começar <span class="material-symbols-outlined">arrow_outward</span></a>
+                    <a class="btn-entrar" href="<?= $base ?>login.php">Entrar</a>
+                    <a class="btn-cadastro" href="<?= $base ?>cadastro.php">Começar <span class="material-symbols-outlined">arrow_outward</span></a>
                 <?php else: ?>
-                    <a class="btn-entrar" href="<?= $base?>logout.php" style="background-color: #e63946; color: white; border: none;">Sair</a>
-                <?php endif; ?>
+                    <a class="btn-entrar" href="<?= $base ?>logout.php" style="background-color: #e63946; color: white; border: none; display: inline-flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-power-off"></i> Sair
+                    </a> <?php endif; ?>
             </div>
         </div>
     </nav>
