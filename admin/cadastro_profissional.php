@@ -73,8 +73,7 @@ if (isset($_POST['btn_salvar'])) {
                     <?= $erro; ?>
                 </div>
             <?php endif; ?>
-            <form action="" method="POST">
-
+            <form action="" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="nome">Nome do profissional</label>
                     <input type="text" id="nome" name="nome" class="input-control" value="<?= htmlspecialchars($item['nome'] ?? ''); ?>" placeholder="Ex: James Rodríguez" required>
@@ -97,14 +96,17 @@ if (isset($_POST['btn_salvar'])) {
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="telefone">Telefone</label>
-                    <input type="text" id="telefone" name="telefone" class="input-control" value="<?= htmlspecialchars($item['telefone'] ?? ''); ?>" placeholder="(00) 00000-0000" required>
-                </div>
+                <div class="form-separacao">
 
-                <div class="form-group">
-                    <label for="cpf_cnpj">CPF</label>
-                    <input type="text" id="cpf_cnpj" name="cpf_cnpj" class="input-control" value="<?= htmlspecialchars($item['cpf_cnpj'] ?? ''); ?>" placeholder="000.000.000-00" required>
+                    <div class="form-group">
+                        <label for="telefone">Telefone</label>
+                        <input type="text" id="telefone" name="telefone" class="input-control" value="<?= htmlspecialchars($item['telefone'] ?? ''); ?>" placeholder="(00) 00000-0000" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cpf_cnpj">CPF</label>
+                        <input type="text" id="cpf_cnpj" name="cpf_cnpj" class="input-control" value="<?= htmlspecialchars($item['cpf_cnpj'] ?? ''); ?>" placeholder="000.000.000-00" required>
+                    </div>
                 </div>
 
                 <div class="form-separacao">
@@ -122,6 +124,14 @@ if (isset($_POST['btn_salvar'])) {
                 <div class="form-group">
                     <label for="descricao_func">Descrição das Habilidades / Experiência</label>
                     <textarea id="descricao_func" name="descricao_func" class="input-control" rows="5" placeholder="Conte um pouco sobre suas qualificações técnicas..."><?= htmlspecialchars($item['descricao_func'] ?? ''); ?></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Foto de Perfil</label>
+                    <label for="foto" class="upload-container">
+                        <span id="nome-arquivo">Selecione uma imagem (Máx: 1MB)</span>
+                        <input type="file" id="foto" name="img_user" accept="image/*" class="input-file-hidden">
+                    </label>
                 </div>
 
                 <button type="submit" name="btn_salvar" class="btn-submit">Salvar Cadastro</button>

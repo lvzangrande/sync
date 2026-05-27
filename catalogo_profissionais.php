@@ -15,6 +15,14 @@ if (session_status() === PHP_SESSION_NONE) {
     <link rel="stylesheet" href="css/partials.css">
     <link rel="stylesheet" href="css/catalogo.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Lexend+Deca:wght@100..900&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=home" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="imagens/logosemfundo.png">
     <title>Catalago</title>
 </head>
 
@@ -161,14 +169,14 @@ if (session_status() === PHP_SESSION_NONE) {
                 $cards = readALL($pdo, 'usuarios', $where . $order);
                 foreach ($cards as $card) {
                     echo
-                        '<div class="card">
+                    '<div class="card">
 
                             <div class="disponibilidade">' . $card['status'] . '</div>
 
                             <div class="avaliacao"><i class="bi bi-star-fill"></i> ' . $card['notas'] . '</div>
 
-                            <img src="' . $card['img_user'] . '"
-                                alt="">
+                            <img src="uploads/usuarios/' . $card['img_user'] . '"
+                            alt="Foto de ' . $card['nome'] . '">
 
                             <p class="nome-profi">' . $card['nome'] . '</p>
 
@@ -180,20 +188,19 @@ if (session_status() === PHP_SESSION_NONE) {
                             <div class="rodape">
                                 <p class="preco">' . $card['valor_dia'] . '</p>
                                 <p class="p-d">/dia</p>';
-                    
-                        if ($card['status'] == 'Indisponível') {
-                            echo '<a>Indisponível</a>';
-                        } elseif ($card['status'] == 'Em Atendimento') {
-                            echo '<a>Indisponível</a>';
-                        } else {
-                            echo '<a href="contratar.php?id=' . $card['id_user'] . '">Contratar</a>';
-                        }
+
+                    if ($card['status'] == 'Indisponível') {
+                        echo '<a>Indisponível</a>';
+                    } elseif ($card['status'] == 'Em Atendimento') {
+                        echo '<a>Indisponível</a>';
+                    } else {
+                        echo '<a href="contratar.php?id=' . $card['id_user'] . '">Contratar</a>';
+                    }
                     echo '            
                             </div>
 
                         </div>
                         ';
-
                 }
                 ?>
 

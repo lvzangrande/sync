@@ -24,9 +24,52 @@ if (isset($_POST['btn_salvar'])) {
             'nome'          => $_POST['nome'],
             'especialidade' => $_POST['especialidade'],
             'valor_dia'     => $_POST['valor_dia'],
-            'status'         => $_POST['status']
+            'status'        => $_POST['status']
         ];
+
+        if (isset($_FILES['img_user']) && $_FILES['img_user']['error'] === UPLOAD_ERR_OK) {
+
+            $tipos_permitidos = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+            if (!in_array($_FILES['img_user']['type'], $tipos_permitidos)) {
+                $mensagem = "Tipo de arquivo não permitido. Por favor, envie uma imagem JPEG, PNG ou WEBP.";
+                $tipo_mensagem = "erro";
+                return;
+            }
+
+            $tamanho_max = 1 * 1024 * 1024; // 1MB
+            if ($_FILES['img_user']['size'] > $tamanho_max) {
+                $mensagem = "O arquivo é muito grande. O tamanho máximo permitido é 1MB.";
+                $tipo_mensagem = "erro";
+                return; 
+            }
+
+            // 3. Prepara o arquivo
+            $extensao = pathinfo($_FILES['img_user']['name'], PATHINFO_EXTENSION);
+            $novonome = "profissional_" . uniqid() . "." . $extensao;
+
+            $dir = "../uploads/usuarios/";
+            $file = $dir . $novonome;
+
+            if (!is_dir($dir)) {
+                mkdir($dir, 0777, true);
+            }
+
+            // 4. Move o arquivo
+            if (move_uploaded_file($_FILES['img_user']['tmp_name'], $file)) {
+                $dados['img_user'] = $novonome;
+            } else {
+                $mensagem = "Erro ao mover o arquivo de imagem para o servidor.";
+                $tipo_mensagem = "erro";
+                return;
+            }
+        }
+
+        // Se passou por todos os filtros sem dar 'return', salva no banco!
         update($pdo, 'usuarios', $dados, "id_user = $id");
+
+        // Redireciona o usuário após o sucesso para não reenviar o formulário ao dar F5
+        header("Location: adminpage.php");
+        exit();
     }
 
     if ($tipo === 'servico') {
@@ -134,6 +177,36 @@ if (!$item) {
             outline: none;
             border-color: #8BC0D6;
         }
+
+        .input-file-hidden {
+            display: none !important;
+        }
+
+        .upload-container-style {
+            display: inline-flex !important;
+            align-items: center;
+            width: 96%;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #7D8597;
+            background-color: #1d273b;
+            color: #fff !important;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: none;
+            font-weight: 500;
+            margin-top: 5px;
+        }
+
+        .upload-container-style .upload-text {
+            font-family: 'Lexend', sans-serif;
+            font-size: 14px;
+        }
+
+        .upload-container-style:hover {
+            border-color: #8BC0D6;
+            background-color: #24314a;
+        }
     </style>
 </head>
 
@@ -155,8 +228,7 @@ if (!$item) {
 
         <section class="section-box">
             <h2>Modificar Registro (<span style="text-transform: capitalize;"><?= $tipo; ?></span>)</h2>
-            <form action="" method="POST">
-
+            <form action="" method="POST" enctype="multipart/form-data">
                 <?php if ($tipo === 'profissional'): ?>
                     <div class="form-edit-group">
                         <label>Nome do Profissional</label>
@@ -180,6 +252,15 @@ if (!$item) {
                             <option value="Em Atendimento" <?= (isset($item['status']) && $item['status'] === 'Em Atendimento') ? 'selected' : ''; ?>>Em atendimento</option>
                             <option value="Inativo" <?= (isset($item['status']) && $item['status'] === 'Inativo') ? 'selected' : ''; ?>>Inativo</option>
                         </select>
+                    </div>
+
+                    <div class="form-edit-group">
+                        <label>Foto de Perfil (Tamanho máx 1MB)</label>
+                        <label for="foto" class="upload-container upload-container-style">
+                            <span class="material-symbols-outlined" style="font-size: 18px; vertical-align: middle; margin-right: 8px;">cloud_upload</span>
+                            <span class="upload-text">Selecionar Imagem</span>
+                            <input type="file" id="foto" name="img_user" accept="image/*" class="input-file-hidden">
+                        </label>
                     </div>
                 <?php endif; ?>
 
