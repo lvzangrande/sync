@@ -17,6 +17,8 @@ if ($_SESSION['tipo'] !== 'admin') {
 $id   = $_GET['id'] ?? null;
 $tipo = $_GET['tipo'] ?? null;
 
+$erro = "";
+
 if (isset($_POST['btn_salvar'])) {
 
     if ($tipo === 'profissional') {
@@ -30,46 +32,35 @@ if (isset($_POST['btn_salvar'])) {
         if (isset($_FILES['img_user']) && $_FILES['img_user']['error'] === UPLOAD_ERR_OK) {
 
             $tipos_permitidos = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
-            if (!in_array($_FILES['img_user']['type'], $tipos_permitidos)) {
-                $mensagem = "Tipo de arquivo não permitido. Por favor, envie uma imagem JPEG, PNG ou WEBP.";
-                $tipo_mensagem = "erro";
-                return;
-            }
-
             $tamanho_max = 1 * 1024 * 1024; // 1MB
-            if ($_FILES['img_user']['size'] > $tamanho_max) {
-                $mensagem = "O arquivo é muito grande. O tamanho máximo permitido é 1MB.";
-                $tipo_mensagem = "erro";
-                return; 
-            }
 
-            // 3. Prepara o arquivo
-            $extensao = pathinfo($_FILES['img_user']['name'], PATHINFO_EXTENSION);
-            $novonome = "profissional_" . uniqid() . "." . $extensao;
-
-            $dir = "../uploads/usuarios/";
-            $file = $dir . $novonome;
-
-            if (!is_dir($dir)) {
-                mkdir($dir, 0777, true);
-            }
-
-            // 4. Move o arquivo
-            if (move_uploaded_file($_FILES['img_user']['tmp_name'], $file)) {
-                $dados['img_user'] = $novonome;
+            if (!in_array($_FILES['img_user']['type'], $tipos_permitidos)) {
+                $erro = "Tipo de arquivo não permitido.";
+            } elseif ($_FILES['img_user']['size'] > $tamanho_max) {
+                $erro = "O arquivo é muito grande. O tamanho máximo permitido é 1MB.";
             } else {
-                $mensagem = "Erro ao mover o arquivo de imagem para o servidor.";
-                $tipo_mensagem = "erro";
-                return;
+                $extensao = pathinfo($_FILES['img_user']['name'], PATHINFO_EXTENSION);
+                $novonome = "profissional_" . uniqid() . "." . $extensao;
+
+                $dir = "../uploads/usuarios/";
+                $file = $dir . $novonome;
+
+                if (!is_dir($dir)) {
+                    mkdir($dir, 0777, true);
+                }
+
+                if (move_uploaded_file($_FILES['img_user']['tmp_name'], $file)) {
+                    $dados['img_user'] = $novonome;
+                } else {
+                    $erro = "Erro ao mover o arquivo de imagem para o servidor.";
+                }
             }
         }
-
-        // Se passou por todos os filtros sem dar 'return', salva no banco!
-        update($pdo, 'usuarios', $dados, "id_user = $id");
-
-        // Redireciona o usuário após o sucesso para não reenviar o formulário ao dar F5
-        header("Location: adminpage.php");
-        exit();
+        if (empty($erro)) {
+            update($pdo, 'usuarios', $dados, "id_user = $id");
+            header("Location: adminpage.php");
+            exit();
+        }
     }
 
     if ($tipo === 'servico') {
@@ -114,7 +105,6 @@ if (!$item) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar item | Sync</title>
     <link rel="stylesheet" href="../css/admin.css">
-    <link rel="stylesheet" href="../css/home.css">
     <link rel="stylesheet" href="../css/partials.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

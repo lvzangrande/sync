@@ -32,39 +32,35 @@ if (
         $tipo_mensagem = "erro";
     } else {
 
-        if (isset($_FILES['img_user']) && $_FILES['img_user']['error'] === UPLOAD_ERR_OK) {
+       if (isset($_FILES['img_user']) && $_FILES['img_user']['error'] === UPLOAD_ERR_OK) {
 
             $tipos_permitidos = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+            $tamanho_max = 1 * 1024 * 1024; // 1MB
+
             if (!in_array($_FILES['img_user']['type'], $tipos_permitidos)) {
-                $mensagem = "Tipo de arquivo não permitido. Por favor, envie uma imagem JPEG, PNG ou WEBP.";
-                $tipo_mensagem = "erro";
-            } else {
+                $erro = "Tipo de arquivo não permitido.";
+            } 
+            elseif ($_FILES['img_user']['size'] > $tamanho_max) {
+                $erro = "O arquivo é muito grande. O tamanho máximo permitido é 1MB.";
+            } 
+            else {
+                $extensao = pathinfo($_FILES['img_user']['name'], PATHINFO_EXTENSION);
+                $novonome = "user_" . uniqid() . "." . $extensao;
 
-                $tamanho_max = 1 * 1024 * 1024; // 1MB
-                if ($_FILES['img_user']['size'] > $tamanho_max) {
-                    $mensagem = "O arquivo é muito grande. O tamanho máximo permitido é 1MB.";
-                    $tipo_mensagem = "erro";
+                $dir = "../uploads/usuarios/";
+                $file = $dir . $novonome;
+
+                if (!is_dir($dir)) {
+                    mkdir($dir, 0777, true);
+                }
+
+                if (move_uploaded_file($_FILES['img_user']['tmp_name'], $file)) {
+                    $dados['img_user'] = $novonome;
                 } else {
-
-                    $extensao = pathinfo($_FILES['img_user']['name'], PATHINFO_EXTENSION);
-                    $novonome = "user_" . uniqid() . "." . $extensao;
-                    $dir = "uploads/usuarios/";
-                    $file = $dir . $novonome;
-
-                    if (!is_dir($dir)) {
-                        mkdir($dir, 0777, true);
-                    }
-
-                    if (move_uploaded_file($_FILES['img_user']['tmp_name'], $file)) {
-                        $img_user = $file;
-                    } else {
-                        $mensagem = "Erro ao mover o arquivo de imagem para o servidor.";
-                        $tipo_mensagem = "erro";
-                    }
+                    $erro = "Erro ao mover o arquivo de imagem para o servidor.";
                 }
             }
         }
-
         if ($tipo_mensagem !== "erro") {
 
             $dados = [

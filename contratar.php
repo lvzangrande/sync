@@ -8,10 +8,6 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-if (!isset($_SESSION['autenticado'])) {
-    header("Location: ../login.php");
-    exit();
-}
 
 $idcard = intval($_GET['id']);
 

@@ -8,7 +8,7 @@ $tipo_usuario = $_SESSION['tipo'] ?? 'visitante';
 define('BASE_URL', 'http://localhost/2TD/sync/');
 $base = BASE_URL;
 ?>
-
+<link rel="stylesheet" href="../css/partials.css">
 <header>
     <nav>
         <div class="menu-superior">

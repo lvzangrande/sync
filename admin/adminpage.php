@@ -25,9 +25,9 @@ function nomeUsuario()
     }
 }
 
-if (isset($_GET['acao']) && isset($_GET['id_prof']) && ($_GET['acao'] === 'ativar' || $_GET['acao'] === 'recusar')) {
-    $id_prof = (int)$_GET['id_prof'];
-    $acao = $_GET['acao'];
+if (isset($_POST['acao']) && isset($_POST['id_prof']) && ($_POST['acao'] === 'ativar' || $_POST['acao'] === 'recusar')) {
+    $id_prof = (int)$_POST['id_prof'];
+    $acao = $_POST['acao'];
 
     if ($acao === 'ativar') {
         $dadosAtualizados = ['status' => 'Disponível'];
@@ -39,15 +39,15 @@ if (isset($_GET['acao']) && isset($_GET['id_prof']) && ($_GET['acao'] === 'ativa
     exit();
 }
 
-if (isset($_GET['acao']) && $_GET['acao'] === 'resolver' && isset($_GET['id_sup'])) {
-    $id_sup = (int)$_GET['id_sup'];
+if (isset($_POST['acao']) && $_POST['acao'] === 'resolver' && isset($_POST['id_sup'])) {
+    $id_sup = (int)$_POST['id_sup'];
     delete($pdo, 'suporte', "id_sup = $id_sup");
     header("Location: adminpage.php");
     exit();
 }
 
-if (isset($_GET['acao']) && $_GET['acao'] === 'excluir_ativo' && isset($_GET['id_prof'])) {
-    $id_prof = (int)$_GET['id_prof'];
+if (isset($_POST['acao']) && $_POST['acao'] === 'excluir_ativo' && isset($_POST['id_prof'])) {
+    $id_prof = (int)$_POST['id_prof'];
     delete($pdo, 'usuarios', "id_user = $id_prof");
     header("Location: adminpage.php");
     exit();
@@ -68,7 +68,6 @@ $osAtivas = readAll($pdo, 'agenda', "status_os = 'Em Andamento' OR status_os = '
     <title>Painel de Administração | Sync</title>
 
     <link rel="stylesheet" href="../css/admin.css">
-    <link rel="stylesheet" href="../css/home.css">
     <link rel="stylesheet" href="../css/partials.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -146,13 +145,20 @@ $osAtivas = readAll($pdo, 'agenda', "status_os = 'Em Andamento' OR status_os = '
                                     </span>
                                 </td>
                                 <td>
-                                    <a href="adminpage.php?acao=ativar&id_prof=<?= $prof['id_user']; ?>" class="btn-action">
-                                        Ativar
-                                    </a>
-                                    <a href="adminpage.php?acao=recusar&id_prof=<?= $prof['id_user']; ?>" class="btn-action btn-delete"
-                                        onclick="return confirm('Tem certeza que deseja recusar e excluir o cadastro de <?= htmlspecialchars($prof['nome']); ?>?');">
-                                        Recusar
-                                    </a>
+                                    <form action="adminpage.php" method="POST" style="display: inline;">
+                                        <input type="hidden" name="acao" value="ativar">
+                                        <input type="hidden" name="id_prof" value="<?= $prof['id_user']; ?>">
+                                        <button type="submit" class="btn-action">
+                                            Ativar
+                                        </button>
+                                    </form>
+                                    <form action="adminpage.php" method="POST" style="display: inline;">
+                                        <input type="hidden" name="acao" value="recusar">
+                                        <input type="hidden" name="id_prof" value="<?= $prof['id_user']; ?>">
+                                        <button type="submit" class="btn-action btn-delete">
+                                            Recusar
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -187,11 +193,13 @@ $osAtivas = readAll($pdo, 'agenda', "status_os = 'Em Andamento' OR status_os = '
                                     <?= htmlspecialchars($chamado['desc_sup'] ?? $chamado['mensagem']); ?>
                                 </td>
                                 <td>
-                                    <a href="adminpage.php?acao=resolver&id_sup=<?= $chamado['id_sup']; ?>"
-                                        class="btn-action"
-                                        onclick="return confirm('Deseja marcar este chamado como respondido/resolvido? Ele será arquivado.');">
-                                        <span class="material-symbols-outlined" style="font-size: 16px; margin-right: 2px;">check_circle</span> Resolver
-                                    </a>
+                                    <form action="adminpage.php" method="POST" style="display: inline;">
+                                        <input type="hidden" name="acao" value="resolver">
+                                        <input type="hidden" name="id_sup" value="<?= $chamado['id_sup']; ?>">
+                                        <button type="submit" class="btn-action">
+                                            <span class="material-symbols-outlined" style="font-size: 16px;">check_circle</span> Resolver
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -240,11 +248,13 @@ $osAtivas = readAll($pdo, 'agenda', "status_os = 'Em Andamento' OR status_os = '
                                         <span class="material-symbols-outlined" style="font-size: 16px;">edit</span> Editar
                                     </a>
 
-                                    <a href="adminpage.php?acao=excluir_ativo&id_prof=<?= $profAtivo['id_user']; ?>"
-                                        class="btn-action btn-delete"
-                                        onclick="return confirm('ATENÇÃO: Deseja realmente excluir permanentemente o cadastro de <?= htmlspecialchars($profAtivo['nome']); ?>?');">
-                                        <span class="material-symbols-outlined" style="font-size: 16px;">delete</span> Excluir
-                                    </a>
+                                    <form action="adminpage.php" method="POST" style="display: inline;">
+                                        <input type="hidden" name="acao" value="excluir_ativo">
+                                        <input type="hidden" name="id_prof" value="<?= $profAtivo['id_user']; ?>">
+                                        <button type="submit" class="btn-action btn-delete">
+                                            <span class="material-symbols-outlined" style="font-size: 16px;">delete</span> Excluir
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -281,7 +291,7 @@ $osAtivas = readAll($pdo, 'agenda', "status_os = 'Em Andamento' OR status_os = '
 
                                 <td>
                                     <?php
-                                    $horas = $maq['tempo_estimado_minutos'] / 60;
+                                    $horas = ($maq['tempo_estimado_minutos'] ?? 0) / 60;
                                     echo number_format($horas, 1, ',', '') . ' Horas';
                                     ?>
                                 </td>
