@@ -62,7 +62,7 @@
                     Voltar ao Catálogo
                 </a>
 
-                <a href="./meus_servicos.php" class="btn-principal">
+                <a href="./detalhesContratacao.php" class="btn-principal">
                     Ver Solicitação
                 </a>
 
