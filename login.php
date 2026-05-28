@@ -114,7 +114,7 @@ function redirecionarPorPerfil($tipo)
             </div>
 
             <div class="form-group">
-                <label for="senha">Senha técnica</label>
+                <label for="senha">Senha</label>
                 <input
                     type="password"
                     id="senha"
