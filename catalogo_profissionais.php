@@ -202,7 +202,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                 <p class="preco">' . $card['valor_dia'] . '</p>
                                 <p class="p-d">/dia</p>';
 
-                    if ($card['status'] == 'Indisponível') {
+                    if ($card['status'] == 'Inativo') {
                         echo '<a>Indisponível</a>';
                     } elseif ($card['status'] == 'Em Atendimento') {
                         echo '<a>Indisponível</a>';
