@@ -42,7 +42,7 @@ if (!isset($_SESSION['autenticado'])) {
             <input type="email" name="email" value="<?=$user['email']?>" placeholder="Email" required>
 
             <label>Telefone</label>
-            <input type="tel" name="telefone" value="<?=$user['telefone']?>" placeholder="Telefone" required>
+            <input type="tel" name="tel" value="<?=$user['telefone']?>" placeholder="Telefone" required>
 
             <label>CPF/CNPJ</label>
             <input type="text" name="cpf_cnpj" value="<?=$user['cpf_cnpj']?>" placeholder="CPF/CPNJ" required>
