@@ -49,7 +49,7 @@ $base = BASE_URL;
         <section class="pagamento-formulario">
 
             <?php
-            echo '<a href="./segundo_contrato?id=' . $idcard . '.php" class="voltar">
+            echo '<a href="./segundo_contrato.php?id=' . $idcard . '.php" class="voltar">
                 ← Voltar
             </a>';
             ?>
