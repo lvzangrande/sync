@@ -185,11 +185,12 @@ body {
 }
 
 .team-title {
-    font-size: 2.5rem;
+    font-size: 2.0rem;
     font-weight: 700;
     letter-spacing: 2px;
     margin-bottom: 50px;
     color: #ffffff;
+    margin-top: 80px;
 }
 
 .team-title span {
