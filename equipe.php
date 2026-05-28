@@ -12,118 +12,118 @@
         <?php include 'partials/header.php'; ?>
     </header>
     
-    <main class="container-equipe">
-        <h1 class="titulo">Nossa equipe</h1>
+    <section class="team-section">
+        <h2 class="team-title">NOSSA <span>EQUIPE</span></h2>
         
-        <div class="grid-equipe">
+        <div class="team-grid">
             
-            <div class="card-equipe">
-                <div class="foto-container">
-                     <img src="foto-silas" alt="Silas Porssales" class="foto-img">
+            <div class="team-card">
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400" alt="Ana Pereira" class="card-img">
                 </div>
-                <h3 class="dev-name">Silas Porssales</h3>
-                <h4 class="dev-funcao">Desenvolvedor Back-End</h4>
-                
-                <hr class="card-divider">
-                
-                <div class="especialidades"></div>
-                <p class="dev-text">Responsável pela área de pagamento, sistema de contratação e fluxo de pagamentos.</p>
-                
-                <div class="especialidades"></div>
-                <ul class="contribuicao">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
+                <div class="card-info-basic">
+                    <span class="badge badge-front">DEV FRONT-END</span>
+                    <h3 class="member-name">Ana Pereira</h3>
+                </div>
+                <div class="card-hover-panel">
+                    <span class="badge badge-front">DEV FRONT-END</span>
+                    <h3 class="member-name-hover">Ana Pereira</h3>
+                    <p class="member-contribution">
+                        Responsável pela criação da interface responsiva, componentização do design system e aplicação das transições e efeitos em CSS.
+                    </p>
+                    <div class="social-links">
+                        <i class="fab fa-linkedin"></i>
+                        <i class="fab fa-github"></i>
+                    </div>
+                </div>
             </div>
 
-            <div class="card-equipe">
-                <div class="foto-container">
-                    <img src="foto-lucas.jpg" alt="Lucas Zangrande" class="foto-img">
+            <div class="team-card">
+                <div class="card-image-wrapper">
+                    <img src="" alt="" class="card-img">
                 </div>
-                <h3 class="dev-name">Lucas Zangrande</h3>
-                <h4 class="dev-funcao">Gerente de Projeto & Desenvolvedor Fullstack</h4>
-                
-                <hr class="card-divider">
-                
-                <div class="especialidades"></div>
-                <p class="dev-text">Liderança do projeto e desenvolvimento dos módulos centrais 
-                    (Painel do Usuário, Profissional e Admin).</p>
-                
-                <div class="especialidades"></div>
-                <ul class="contribuicao">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
+                <div class="card-info-basic">
+                    <span class="badge badge-back">DEV BACK-END</span>
+                    <h3 class="member-name"></h3>
+                </div>
+                <div class="card-hover-panel">
+                    <span class="badge badge-back">DEV BACK-END</span>
+                    <h3 class="member-name-hover"></h3>
+                    <p class="member-contribution">
+                        Contribuiu de forma crucial na modelagem do banco de dados (MySQL), desenvolvendo as rotas da API em PHP e integrando o sistema de autenticação segura.
+                    </p>
+                    <div class="social-links">
+                        <i class="fab fa-linkedin"></i>
+                        <i class="fab fa-github"></i>
+                    </div>
+                </div>
             </div>
 
-            <div class="card-equipe">
-                <div class="foto-container">
-                    <img src="foto-eloah.jpg" alt="Eloah Barbosa" class="foto-img">
+            <div class="team-card">
+                <div class="card-image-wrapper">
+                    <img src="" alt="Julia Costa" class="card-img">
                 </div>
-                <h3 class="dev-name">Eloah Barbosa</h3>
-                <h4 class="dev-funcao">Desenvolvedor Front-End & UI Designer</h4>
-                
-                <hr class="card-divider">
-                
-                <div class="especialidades"></div>
-                <p class="dev-text">Responsável pela arquitetura visual da Home, identidade visual do 
-                    projeto e design de interface.</p>
-                
-                <div class="especialidades"></div>
-                <ul class="contribuicao">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
-            </div>
-            
-            <div class="card-equipe">
-                <div class="foto-container">
-                    <img src="foto-guilherme.jpg" alt="Guilherme de Paula" class="foto-img">
+                <div class="card-info-basic">
+                    <span class="badge badge-design">DESIGNER UI/UX</span>
+                    <h3 class="member-name">Julia Costa</h3>
                 </div>
-                <h3 class="dev-name">Guilherme de Paula</h3>
-                <h4 class="dev-funcao">Desenvolvedor Backend</h4>
-                
-                <hr class="card-divider">
-                
-                <div class="especialidades"></div>
-                <p class="dev-text">Responsável pelo banco de dados e 
-                    sistemas de autenticação (Login, Cadastro e Acessos).</p>
-                
-                <div class="especialidades"></div>
-                <ul class="contribuicao">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
+                <div class="card-hover-panel">
+                    <span class="badge badge-design">DESIGNER UI/UX</span>
+                    <h3 class="member-name-hover">Julia Costa</h3>
+                    <p class="member-contribution">
+                        Desenhou o protótipo de alta fidelidade no Figma, definiu a paleta de cores, tipografia e mapeou a jornada de experiência do usuário.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-behance"></i></a>
+                    </div>
+                </div>
             </div>
 
-            <div class="card-equipe">
-                <div class="foto-container">
-                    <img src="foto-samuel.jpg" alt="Samuel de Sousa" class="foto-img">
+            <div class="team-card">
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400" alt="Luca Silva" class="card-img">
                 </div>
-                <h3 class="dev-name">Samuel de Sousa</h3>
-                <h4 class="dev-funcao">Desenvolvedor Front-End & UI Designer</h4>
-                
-                <hr class="card-divider">
-                
-                <div class="especialidades"></div>
-                <p class="dev-text">Responsável pelas áreas institucionais (Equipe e Suporte) e 
-                    também pela identidade visual da interface e do projeto.</p>
-                
-                <div class="especialidades"></div>
-                <ul class="contribuicao">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                
-                </ul>
+                <div class="card-info-basic">
+                    <span class="badge badge-back">DEV BACK-END</span>
+                    <h3 class="member-name">Luca Silva</h3>
+                </div>
+                <div class="card-hover-panel">
+                    <span class="badge badge-back">DEV BACK-END</span>
+                    <h3 class="member-name-hover">Luca Silva</h3>
+                    <p class="member-contribution">
+                        Estruturou as regras de negócio em PHP, configurou os servidores de hospedagem e garantiu o desempenho das consultas do site.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400" alt="Mariana Souza" class="card-img">
+                </div>
+                <div class="card-info-basic">
+                    <span class="badge badge-pm">PROJECT MANAGER</span>
+                    <h3 class="member-name">Mariana Souza</h3>
+                </div>
+                <div class="card-hover-panel">
+                    <span class="badge badge-pm">PROJECT MANAGER</span>
+                    <h3 class="member-name-hover">Mariana Souza</h3>
+                    <p class="member-contribution">
+                        Coordenou os prazos das sprints, organizou as entregas do grupo e validou os requisitos do sistema junto às regras do projeto.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
             </div>
 
         </div>
-    </main>
+    </section>
 
     <?php include 'partials/footer.php'; ?>
 </body>
