@@ -63,11 +63,11 @@ $categoria = $_SESSION['tipo'];
     ?>
 
     <div class="imgperfil">
-        <img src="../img/uploads/usuarios/clientes/<?= $foto ?>" width="500" alt="Foto de Perfil">
+        <img src="../img/uploads/usuarios/clientes/<?= $foto ?>" width="900" alt="Foto de Perfil">
         <br>
         <div class="botaoEditarDados">
             <a href="editardados.php">
-                <img src="../img/lapiseditar.png" width="50" alt="Editar Dados">
+                <img src="../img/lapiseditar.png" width="80" alt="Editar Dados">
             </a>
         </div>
     </div>

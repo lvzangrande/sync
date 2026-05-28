@@ -42,6 +42,7 @@ if (isset($_POST['usuario']) && isset($_POST['senha'])) {
                 $_SESSION['foto']        = $usuario_banco['img_user'];
                 $_SESSION['cpfCnpj']     = $usuario_banco['cpf_cnpj'];
                 $_SESSION['tel']         = $usuario_banco['telefone'];
+                $_SESSION['email']       = $usuario_banco['email'];
 
                 redirecionarPorPerfil($_SESSION['tipo']);
                 exit();
