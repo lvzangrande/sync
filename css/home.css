@@ -570,7 +570,32 @@ body {
   font-weight: 700;
 
 }
+
 .btn-comecar2:hover {
   transition: 0.3s;
   transform: scale(1.5);
+}
+
+.carrossel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 50px;
+}
+
+.carrossel-dots .dot {
+  width: 8px;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#slide1:checked~.carrossel-dots label[for="slide1"],
+#slide2:checked~.carrossel-dots label[for="slide2"],
+#slide3:checked~.carrossel-dots label[for="slide3"] {
+  width: 24px;
+  background-color: #85b5cb;
+  border-radius: 10px;
 }

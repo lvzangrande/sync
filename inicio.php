@@ -9,14 +9,19 @@
     <link rel="stylesheet" href="css/home.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Lexend+Deca:wght@100..900&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Lexend+Deca:wght@100..900&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=home" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=home" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <link rel="icon" type="image/png" href="imagens/logosemfundo.png">
 </head>
 
@@ -35,7 +40,8 @@
 
                 <h1>Sync<br>Mecatronics</h1>
 
-                <p class="sub">Sincronize sua operação industrial com a plataforma premium de<br> manutenção mecatrônica. Técnicos especializados, métricas em<br>
+                <p class="sub">Sincronize sua operação industrial com a plataforma premium de<br> manutenção
+                    mecatrônica. Técnicos especializados, métricas em<br>
                     tempo real e excelência técnica comprovada.</p>
 
                 <div class="btns">
@@ -152,7 +158,10 @@
 
                 <div class="carrossel-slide">
                     <div class="rating"><i class="fa-solid fa-star"></i> 5</div>
-                    <p class="texto-depoimento">A Sync Industrial revolucionou nossa gestão de manutenção. Reduzimos paradas não planejadas em 73% no primeiro semestre e a qualidade técnica dos profissionais da plataforma é simplesmente excepcional. É como ter um departamento de engenharia de precisão sob demanda.</p>
+                    <p class="texto-depoimento">A Sync Industrial revolucionou nossa gestão de manutenção. Reduzimos
+                        paradas não planejadas em 73% no primeiro semestre e a qualidade técnica dos profissionais da
+                        plataforma é simplesmente excepcional. É como ter um departamento de engenharia de precisão sob
+                        demanda.</p>
 
                     <div class="slide-footer">
                         <div class="autor">
@@ -164,14 +173,17 @@
                         </div>
                         <div class="carrossel-controles">
                             <label for="slide3" class="seta-btn"><i class="fa-solid fa-arrow-left"></i></label>
-                            <label for="slide2" class="seta-btn btn-azul"><i class="fa-solid fa-arrow-right"></i></label>
+                            <label for="slide2" class="seta-btn btn-azul"><i
+                                    class="fa-solid fa-arrow-right"></i></label>
                         </div>
                     </div>
                 </div>
 
                 <div class="carrossel-slide">
                     <div class="rating"><i class="fa-solid fa-star"></i> 4.8</div>
-                    <p class="texto-depoimento">Trabalhar como técnico na Sync me permite focar no que faço de melhor: resolver problemas mecatrônicos complexos. A plataforma cuida de toda a burocracia, pagamentos e logística. Já completei mais de 300 jobs com avaliação média de 5 estrelas.</p>
+                    <p class="texto-depoimento">Trabalhar como técnico na Sync me permite focar no que faço de melhor:
+                        resolver problemas mecatrônicos complexos. A plataforma cuida de toda a burocracia, pagamentos e
+                        logística. Já completei mais de 300 jobs com avaliação média de 5 estrelas.</p>
 
                     <div class="slide-footer">
                         <div class="autor">
@@ -183,14 +195,18 @@
                         </div>
                         <div class="carrossel-controles">
                             <label for="slide1" class="seta-btn"><i class="fa-solid fa-arrow-left"></i></label>
-                            <label for="slide3" class="seta-btn btn-azul"><i class="fa-solid fa-arrow-right"></i></label>
+                            <label for="slide3" class="seta-btn btn-azul"><i
+                                    class="fa-solid fa-arrow-right"></i></label>
                         </div>
                     </div>
                 </div>
 
                 <div class="carrossel-slide">
                     <div class="rating"><i class="fa-solid fa-star"></i> 4.9</div>
-                    <p class="texto-depoimento">Como gestora industrial, preciso de confiabilidade total. A plataforma Sync entrega exatamente isso: sincronização perfeita entre demanda técnica e execução. Os dashboards em tempo real nos dão visibilidade completa de todos os indicadores críticos de nossa planta.</p>
+                    <p class="texto-depoimento">Como gestora industrial, preciso de confiabilidade total. A plataforma
+                        Sync entrega exatamente isso: sincronização perfeita entre demanda técnica e execução. Os
+                        dashboards em tempo real nos dão visibilidade completa de todos os indicadores críticos de nossa
+                        planta.</p>
 
                     <div class="slide-footer">
                         <div class="autor">
@@ -202,21 +218,27 @@
                         </div>
                         <div class="carrossel-controles">
                             <label for="slide2" class="seta-btn"><i class="fa-solid fa-arrow-left"></i></label>
-                            <label for="slide1" class="seta-btn btn-azul"><i class="fa-solid fa-arrow-right"></i></label>
+                            <label for="slide1" class="seta-btn btn-azul"><i
+                                    class="fa-solid fa-arrow-right"></i></label>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="carrossel-dots">
+                <label for="slide1" class="dot"></label>
+                <label for="slide2" class="dot"></label>
+                <label for="slide3" class="dot"></label>
             </div>
         </div>
     </section>
 
     <section class="sincronize">
-            <h1>Sincronize Sua <div class="destaque-azul">Operação</div>
-            </h1>
-            <p>Reduza paradas não planejadas<br> e maximize a eficiência produtiva</p>
-            <a href="./cadastro.php" class="btn-comecar2">
-             <i class="fa-solid fa-gear gear-icone" ></i> COMEÇAR AGORA <i class="fa-solid fa-arrow-right seta-icone"></i>
-            </a>
+        <h1>Sincronize Sua <div class="destaque-azul">Operação</div>
+        </h1>
+        <p>Reduza paradas não planejadas<br> e maximize a eficiência produtiva</p>
+        <a href="./cadastro.php" class="btn-comecar2">
+            <i class="fa-solid fa-gear gear-icone"></i> COMEÇAR AGORA <i class="fa-solid fa-arrow-right seta-icone"></i>
+        </a>
 
     </section>
 
