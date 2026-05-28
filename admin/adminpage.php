@@ -7,7 +7,7 @@ if (!isset($_SESSION['autenticado'])) {
     exit();
 }
 
-if ($_SESSION['tipo']  !== 'admin'){
+if ($_SESSION['tipo']  !== 'admin') {
     header("Location: ../login.php");
     exit();
 }
@@ -68,7 +68,6 @@ $osAtivas = readAll($pdo, 'agenda', "status_os = 'Em Andamento' OR status_os = '
     <title>Painel de Administração | Sync</title>
 
     <link rel="stylesheet" href="../css/admin.css">
-    <link rel="stylesheet" href="../css/home.css">
     <link rel="stylesheet" href="../css/partials.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -183,8 +182,9 @@ $osAtivas = readAll($pdo, 'agenda', "status_os = 'Em Andamento' OR status_os = '
                             <tr>
                                 <td><?= htmlspecialchars($chamado['nome_cliente'] ?? $chamado['email'] ?? 'Usuário'); ?></td>
 
-                                <td>"<?= htmlspecialchars($chamado['desc_sup'] ?? $chamado['mensagem']); ?>"</td>
-
+                                <td style="max-width: 300px; white-space: normal; word-break: break-word;">
+                                    <?= htmlspecialchars($chamado['desc_sup'] ?? $chamado['mensagem']); ?>
+                                </td>
                                 <td>
                                     <a href="adminpage.php?acao=resolver&id_sup=<?= $chamado['id_sup']; ?>"
                                         class="btn-action"
@@ -236,7 +236,7 @@ $osAtivas = readAll($pdo, 'agenda', "status_os = 'Em Andamento' OR status_os = '
                                 </td>
                                 <td>
                                     <a href="editar_item.php?id=<?= $profAtivo['id_user']; ?>&tipo=profissional" class="btn-action btn-edit">
-                                        <span class="material-symbols-outlined" style="font-size: 16px;">edit</span> Editar Diária
+                                        <span class="material-symbols-outlined" style="font-size: 16px;">edit</span> Editar
                                     </a>
 
                                     <a href="adminpage.php?acao=excluir_ativo&id_prof=<?= $profAtivo['id_user']; ?>"

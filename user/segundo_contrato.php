@@ -29,6 +29,9 @@ $tempo = $pedido['tempo'];
 
 $profissional = read($pdo, "usuarios", "id_user=$idcard");
 
+define('BASE_URL', 'http://localhost/2TD/sync/');
+$base = BASE_URL;
+print_r($profissional['img_user']);
 ?>
 
 <!DOCTYPE html>
@@ -38,6 +41,7 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/contratar.css">
+    <link rel="stylesheet" href="../css/partials.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <title>Contratar</title>
 </head>
@@ -58,7 +62,7 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
 
                     <!-- Foto -->
                     <div class="foto-profissional">
-                        <img src="' . $profissional['img_user'] . '"
+                        <img src="' . $base .'uploads/usuarios/'. $profissional['img_user'] . '"
                             alt="">
                     </div>
 

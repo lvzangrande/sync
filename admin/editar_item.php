@@ -43,7 +43,6 @@ if (isset($_POST['btn_salvar'])) {
                 return; 
             }
 
-            // 3. Prepara o arquivo
             $extensao = pathinfo($_FILES['img_user']['name'], PATHINFO_EXTENSION);
             $novonome = "profissional_" . uniqid() . "." . $extensao;
 
@@ -54,7 +53,6 @@ if (isset($_POST['btn_salvar'])) {
                 mkdir($dir, 0777, true);
             }
 
-            // 4. Move o arquivo
             if (move_uploaded_file($_FILES['img_user']['tmp_name'], $file)) {
                 $dados['img_user'] = $novonome;
             } else {
@@ -64,10 +62,8 @@ if (isset($_POST['btn_salvar'])) {
             }
         }
 
-        // Se passou por todos os filtros sem dar 'return', salva no banco!
         update($pdo, 'usuarios', $dados, "id_user = $id");
 
-        // Redireciona o usuário após o sucesso para não reenviar o formulário ao dar F5
         header("Location: adminpage.php");
         exit();
     }
@@ -114,7 +110,6 @@ if (!$item) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar item | Sync</title>
     <link rel="stylesheet" href="../css/admin.css">
-    <link rel="stylesheet" href="../css/home.css">
     <link rel="stylesheet" href="../css/partials.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

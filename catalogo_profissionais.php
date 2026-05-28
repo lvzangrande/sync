@@ -23,7 +23,7 @@ if (session_status() === PHP_SESSION_NONE) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/png" href="imagens/logosemfundo.png">
-    <title>Catalago</title>
+    <title>Catálago de Profissionais | Sync</title>
 </head>
 
 <body>

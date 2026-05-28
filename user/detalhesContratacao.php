@@ -9,12 +9,6 @@ if (!isset($_SESSION['autenticado'])) {
     header("Location: ../login.php");
     exit();
 }
-if($idAgendamento === $agendamento['id_os']){
-    "";
-}
-else{
-    
-;}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -27,11 +21,11 @@ else{
 <body>
     <div class="container">
         <?php        
-            $idAgendamento = (int)$_GET['id'];
-
             $tableAgenda = readAll($pdo,'agenda');
+            $idAgendamento = (int)$_GET['id'];
+            
                     foreach($tableAgenda as $agendamento){
-                    if($idAgendamento === $agendamento['id_os'])
+                    if($idAgendamento)
                         echo "  <p>".$agendamento['data']."</p>
                                 <p>".$agendamento['tempo_planejado_minutos']."</p>
                                 <p> teste".$agendamento['valor_total']."</p>
@@ -43,6 +37,10 @@ else{
                     
                     "
                     ;}
+                    else{
+                        $_
+                    ;}
+
         ?>
     </div>
 </body>
