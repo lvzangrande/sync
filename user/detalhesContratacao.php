@@ -9,6 +9,11 @@ if (!isset($_SESSION['autenticado'])) {
     header("Location: ../login.php");
     exit();
 }
+
+$tableAgenda = readAll($pdo,'agenda');
+$idAgendamento = (int)$_GET['id'];
+$agendamento = read($pdo,'agenda',"id_os = $idAgendamento");
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -19,27 +24,29 @@ if (!isset($_SESSION['autenticado'])) {
     <title>Agendamento <?=$agendamento['data']?></title>
 </head>
 <body>
+    <header>
+    <?php require_once "../partials/header.php";?>
     <div class="container">
         <?php        
-            $tableAgenda = readAll($pdo,'agenda');
-            $idAgendamento = (int)$_GET['id'];
             
-                    foreach($tableAgenda as $agendamento){
-                    if($idAgendamento)
+            
+                    $nomeCliente = read_nome_via_ID($pdo, 'usuarios', $agendamento['id_cliente']);
+                    $nomeProfi   = read_nome_via_ID($pdo, 'usuarios', $agendamento['id_profissional']);
+                    
+                    
+                    if($idAgendamento){
                         echo "  <p>".$agendamento['data']."</p>
                                 <p>".$agendamento['tempo_planejado_minutos']."</p>
-                                <p> teste".$agendamento['valor_total']."</p>
-                                <p>".$descricaoResumida."</p>
+                                <p>".$agendamento['valor_total']."</p>
+                                <p>".$agendamento['descricao_problema']."</p>
                                 <p>".$agendamento['endereco_servico']."</p>
                                 <p>".$nomeCliente."</p>
                                 <p>".$nomeProfi."</p>
-                                <p>".$agendamento['status_os']."</p>
-                    
-                    "
-                    ;}
-                    else{
-                        $_
-                    ;}
+                                <p>".$agendamento['status_os']."</p>";
+                                }
+            if (!$agendamento) {
+                die("Agendamento não encontrado.");
+            }
 
         ?>
     </div>
