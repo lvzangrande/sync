@@ -26,6 +26,8 @@ $data = $pedido['data'];
 $tempo = $pedido['tempo'];
 $endereco = $pedido['end_serv'];
 $profissional = read($pdo, "usuarios", "id_user=$idcard");
+define('BASE_URL', 'http://localhost/2TD/sync/');
+$base = BASE_URL;
 ?>
 
 <!DOCTYPE html>
@@ -170,7 +172,7 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
 
             <div class="profissional-box">
 
-                <img src="'.$profissional['img_user'].'"
+                <img src="'.$base .'uploads/usuarios/'. $profissional['img_user'] . '"
                     alt="">
 
                 <div>

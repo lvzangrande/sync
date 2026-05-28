@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+
 :root {
     --color-night-blue: #001233;
     --color-navy-dark: #092848;
@@ -173,127 +176,166 @@ body {
 
 /* Resto da pagina aqui */
 
-.container-equipe {
+.team-section {
+    width: 100%;
     max-width: 1400px;
-    margin: 50px auto;
-    padding: 0 20px;
+    margin: 0 auto;
+    text-align: center;
 }
 
-/* Título Principal */
-.titulo {
+.team-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
     color: #ffffff;
-    font-size: 24pt;
-    font-weight: 600;
-    margin-bottom: 40px;
-    text-align: center;
 }
 
-.grid-equipe {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    align-items: stretch; /* Faz todos os cards terem exatamente a mesma altura */
+.team-title span {
+    color: var(--color-sky-light);
 }
 
-.card-equipe {
-    background-color: var(--color-slate-blue);
-    border: 1px solid var(--color-cool-gray);
-    border-radius: 8px;
-    padding: 30px 20px;
-    text-align: center;
-    position: relative;
-    flex: 1; 
-    min-width: 240px;
-    
-    /* Configuração para a animação de expansão suave */
-    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
-                border-color 0.3s ease, 
-                box-shadow 0.3s ease;
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 24px;
+    justify-content: center;
 }
 
-/* ANIMAÇÃO DE EXPANSÃO (HOVER) */
-.card-equipe:hover {
-    transform: scale(1.03); 
-    border-color: var(--color-sky-light);
-    box-shadow: 0 12px 24px rgba(139, 192, 214, 0.2); 
-    z-index: 10; 
-}
-
-
-/* Container da Foto de Perfil */
-.avatar-container {
-    width: 100px;
-    height: 100px;
-    margin: 15px auto 20px auto;
-    border-radius: 50%;
-    border: 3px solid var(--color-deep-blue);
+.team-card {
     background-color: var(--color-navy-dark);
-    overflow: hidden;
+    border: 1px solid rgba(141, 192, 214, 0.1);
+    border-radius: 16px;
+    padding: 30px 20px;
+    position: relative;
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    /* --- ADICIONE OU VILEGIADO ESSAS DUAS LINHAS --- */
+    width: 100%;          /* Garante que ele respeite o grid */
+    height: 400px;        /* Define uma altura fixa para o efeito de subida funcionar */
+    
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease;
 }
 
-.avatar-img {
+
+.team-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-sky-light);
+    box-shadow: 0 10px 30px rgba(139, 192, 214, 0.15);
+}
+
+.card-image-wrapper {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 25px;
+    border: 3px solid var(--color-slate-blue);
+}
+
+.card-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
 }
 
-.dev-name {
-    color: var(--white);
-    font-size: 14pt;
+.card-info-basic {
+    text-align: center;
+    width: 100%;
+}
+
+.member-name {
+    font-size: 1.2rem;
     font-weight: 600;
-    margin-bottom: 4px;
+    color: var(--color-light-gray);
+    margin-top: 15px;
 }
 
-.dev-funcao {
-    color: var(--color-sky-light);
-    font-size: 10pt;
-    font-weight: 400;
+.badge {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.badge-front { background-color: rgba(139, 192, 214, 0.2); color: var(--color-sky-light); }
+.badge-back { background-color: rgba(50, 107, 147, 0.3); color: #6db1e2; }
+.badge-design { background-color: rgba(125, 133, 151, 0.2); color: var(--color-cool-gray); }
+.badge-pm { background-color: rgba(22, 69, 120, 0.4); color: #9bc5f3; }
+
+.card-hover-panel {
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(22, 69, 120, 0.98), rgba(9, 40, 72, 1)); 
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 30px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    transition: top 0.4s cubic-bezier(0.25, 1, 0.5, 1); 
+    z-index: 2;
+}
+
+
+.team-card:hover .card-hover-panel {
+    top: 0; 
+}
+
+.member-name-hover {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-top: 15px;
     margin-bottom: 15px;
 }
 
-/* Linha divisória interna */
-.card-divider {
-    border: 0;
-    height: 1px;
-    background-color: var(--color-cool-gray);
-    margin: 18px 0;
-}
-
-.especialidade {
-    color: var(--white);
-    font-size: 8.5pt;
-    font-weight: 700;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    text-align: left;
-    margin-bottom: 8px;
-}
-
-/* Bloco de Especializações */
-.dev-text {
-    text-align: left;
-    font-size: 9.5pt;
-    color: var(--white);
+.member-contribution {
+    font-size: 0.85rem;
+    color: var(--color-light-gray);
     line-height: 1.5;
-    margin-bottom: 20px;
-    min-height: 45px; 
+    margin-bottom: auto; /* Empurra os links sociais para o final */
+    overflow-y: auto; /* Garante que se o texto for muito grande, role e não quebre */
+    padding: 0 5px;
 }
 
-/* Lista de Contribuições */
-.contribuicao {
-    text-align: left;
-    padding-left: 15px;
-    font-size: 9.5pt;
-    color: var(--white);
-    list-style-type: disc;
+/* Links de Redes Sociais */
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
 }
 
-.contribuicao li {
-    margin-bottom: 8px;
-    line-height: 1.4;
+.social-links a {
+    color: var(--color-light-gray);
+    font-size: 1.4rem;
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
+.social-links a:hover {
+    color: var(--color-sky-light);
+    transform: scale(1.1);
+}
+
+/* Customização da barra de rolagem interna se a contribuição for longa */
+.member-contribution::-webkit-scrollbar {
+    width: 4px;
+}
+.member-contribution::-webkit-scrollbar-thumb {
+    background: var(--color-slate-blue);
+    border-radius: 4px;
+}
 
 
 /* FOOTER */
