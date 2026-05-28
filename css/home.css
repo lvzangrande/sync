@@ -155,7 +155,7 @@ body {
   position: relative;
   padding: 110px 5%;
   max-width: 1300px;
-  margin: 0 auto 100px auto;
+  margin: 0 auto 200px auto;
 }
 
 
@@ -280,6 +280,8 @@ body {
 
 .destaque-azul {
   color: #85b5cb;
+  font-weight: 500;
+  letter-spacing: 1.0px;
 }
 
 .passos-badge {
@@ -306,7 +308,7 @@ body {
 
 .card {
   background-color: #092848;
-  border: 1px solid #0928488e;
+  border: 2px solid #09284821;
   border-radius: 16px;
   padding: 30px;
   width: 230px;
@@ -369,6 +371,7 @@ body {
 .depoimentos {
   padding: 120px 0;
   text-align: center;
+  margin-bottom: 200px;
 }
 
 .titulo-depoimentos {
@@ -478,7 +481,7 @@ body {
   width: 44px;
   height: 44px;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.575);
   background: transparent;
   color: #ffffff;
   cursor: pointer;
@@ -489,14 +492,14 @@ body {
 }
 
 .seta-btn:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.664);
 }
 
 
 .seta-btn.btn-azul {
   background-color: #214174;
-  border-color: #214174;
+  border-color: #2141742c;
 }
 
 .seta-btn.btn-azul:hover {
@@ -517,27 +520,57 @@ body {
   transform: translateX(-66.6666%);
 }
 
+.sincronize {
+  text-align: center;
+  color: rgba(250, 245, 239, 0.87);
 
-.carrossel-dots {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 50px;
+  margin-bottom: 230px;
 }
 
-.carrossel-dots .dot {
-  width: 8px;
-  height: 8px;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  cursor: pointer;
+.sincronize h1 {
+  font-size: 95px;
+  color: #f2f3f3;
+  font-weight: 600;
+  margin-bottom: 20px;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+.sincronize p {
+  font-size: 18px;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+.gear-icone {
+  background-color: #326b93;
+  padding: 23px 24px;
+  border-radius: 100%;
+  margin: 0;
+  margin-right: 10px;
+
+}
+
+.seta-icone {
+  color: #d8e2e7;
+  transition: 0.3s;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.btn-comecar2 {
+  text-decoration: none;
+  color: white;
+  background-color: #214174;
+  padding: 24px 10px;
+  border-radius: 50px;
   transition: all 0.3s ease;
-}
+  text-transform: uppercase;
+  font-weight: 700;
 
-#slide1:checked~.carrossel-dots label[for="slide1"],
-#slide2:checked~.carrossel-dots label[for="slide2"],
-#slide3:checked~.carrossel-dots label[for="slide3"] {
-  width: 24px;
-  background-color: #85b5cb;
-  border-radius: 10px;
+}
+.btn-comecar2:hover {
+  transition: 0.3s;
+  transform: scale(1.5);
 }
