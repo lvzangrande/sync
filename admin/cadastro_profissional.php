@@ -34,16 +34,12 @@ if (isset($_POST['btn_salvar'])) {
 
             $tipos_permitidos = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
             if (!in_array($_FILES['img_user']['type'], $tipos_permitidos)) {
-                $mensagem = "Tipo de arquivo não permitido. Por favor, envie uma imagem JPEG, PNG ou WEBP.";
-                $tipo_mensagem = "erro";
-                return;
+                    $erro = "Tipo de arquivo não permitido.";
             }
 
             $tamanho_max = 1 * 1024 * 1024; // 1MB
             if ($_FILES['img_user']['size'] > $tamanho_max) {
-                $mensagem = "O arquivo é muito grande. O tamanho máximo permitido é 1MB.";
-                $tipo_mensagem = "erro";
-                return;
+                $erro = "O arquivo é muito grande. O tamanho máximo permitido é 1MB.";
             }
 
             $extensao = pathinfo($_FILES['img_user']['name'], PATHINFO_EXTENSION);
@@ -59,9 +55,7 @@ if (isset($_POST['btn_salvar'])) {
             if (move_uploaded_file($_FILES['img_user']['tmp_name'], $file)) {
                 $dados['img_user'] = $novonome;
             } else {
-                $mensagem = "Erro ao mover o arquivo de imagem para o servidor.";
-                $tipo_mensagem = "erro";
-                return;
+                $erro = "Erro ao mover o arquivo de imagem para o servidor.";
             }
         }
 
