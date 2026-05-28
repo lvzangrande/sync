@@ -9,6 +9,7 @@ if (!isset($_SESSION['autenticado'])) {
     header("Location: ../login.php");
     exit();
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -21,7 +22,12 @@ if (!isset($_SESSION['autenticado'])) {
 </head>
 <body>
 
-<?php require_once '../partials/header.php'; ?>
+
+<?php require_once '../partials/header.php';
+    $tableUser = readAll($pdo,'agenda');
+    $idUser = (int)$_SESSION['id_user'];
+    $user = read($pdo,'usuarios',"id_user = $idUser");
+?>
 
     <h2>Editar Dados Pessoais</h2>
     <div class='formulario'>
@@ -30,19 +36,19 @@ if (!isset($_SESSION['autenticado'])) {
             <input type="hidden" name="id" value="<?=$idUser?>">
 
             <label>Nome/Razão social</label>
-            <input type="text" name="nome" value="<?=$_SESSION['nome']?>" placeholder="Nome/Razão social" required>
+            <input type="text" name="nome" value="<?=$user['nome']?>" placeholder="Nome/Razão social" required>
 
             <label>Email</label>
-            <input type="email" name="email" value="<?=$_SESSION['email']?>" placeholder="Email" required>
+            <input type="email" name="email" value="<?=$user['email']?>" placeholder="Email" required>
 
             <label>Telefone</label>
-            <input type="tel" name="telefone" value="<?=$_SESSION['tel']?>" placeholder="Telefone" required>
+            <input type="tel" name="telefone" value="<?=$user['telefone']?>" placeholder="Telefone" required>
 
             <label>CPF/CNPJ</label>
-            <input type="text" name="cpf_cnpj" value="<?=$_SESSION['cpfCnpj']?>" placeholder="CPF/CPNJ" required>
+            <input type="text" name="cpf_cnpj" value="<?=$user['cpf_cnpj']?>" placeholder="CPF/CPNJ" required>
 
             <label>Foto de Perfil</label>
-            <input type="file" name="img_user">
+            <input type="file" name="img_user"> 
 
             <button type="submit">
                 Salvar Alterações
@@ -61,7 +67,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'telefone' => $_POST['tel'], 
         'cpf_cnpj' => $_POST['cpf_cnpj']  
     ];
-
     if (isset($_FILES['img_user']) && $_FILES['img_user']['error'] === UPLOAD_ERR_OK) {
         $nome_foto = $_FILES['img_user']['name'];
         
@@ -82,13 +87,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $usuario_banco = read($pdo, 'usuarios', "id_user = $idUser");
 
-if ($usuario_banco) {
+/*if ($usuario_banco) {
     $_SESSION['nome']    = $usuario_banco['nome'];
     $_SESSION['email']   = $usuario_banco['email'];
     $_SESSION['foto']    = $usuario_banco['img_user'];
     $_SESSION['cpfCnpj'] = $usuario_banco['cpf_cnpj'];
     $_SESSION['tel']     = $usuario_banco['telefone'];
-}
+}*/
 ?>
 
 </body>

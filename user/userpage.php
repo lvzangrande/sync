@@ -9,11 +9,14 @@ if (!isset($_SESSION['autenticado'])) {
     header("Location: ../login.php");
     exit();
 }
+    $tableUser = readAll($pdo,'agenda');
+    $idUser = (int)$_SESSION['id_user'];
+    $user = read($pdo,'usuarios',"id_user = $idUser");
 
 function nomeUsuario()
 {
-    if (isset($_SESSION['nome'])) {
-        $nomeCompleto = trim($_SESSION['nome']);
+    if (isset($user['nome'])) {
+        $nomeCompleto = trim($user['nome']);
 
         $palavras = explode(" ", $nomeCompleto);
 
@@ -27,8 +30,12 @@ function nomeUsuario()
     }
 }
 
-if (isset($_SESSION['foto'])) {
-    $foto = $_SESSION['foto'];
+if (isset($user['img_user'])) {
+    $foto = $user['img_user'];
+}
+//else{} receber foto default
+if (isset($user['nome'])) {
+    $nomeCompleto = trim($user['nome']);
 }
 $categoria = $_SESSION['tipo'];
 ?>
@@ -47,14 +54,6 @@ $categoria = $_SESSION['tipo'];
 
 <body>
     <?php
-    if (isset($_SESSION['foto'])) {
-        $foto = $_SESSION['foto'];
-    }
-    //else{} receber foto default
-    if (isset($_SESSION['nome'])) {
-        $nomeCompleto = trim($_SESSION['nome']);
-    }
-    //else{} receber foto default
 
     require_once '../partials/header.php';
     require_once '../php/saudacao.php';
