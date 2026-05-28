@@ -35,7 +35,6 @@ $idnova_os = create(
 
 update($pdo, 'usuarios', $update_status, "id_user = " . $pedido['id_profissional']);
 
-unset($_SESSION['pedido']);
 
 
 header('Location: ../user/confirmacao_pagamento.php');

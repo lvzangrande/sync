@@ -1,3 +1,18 @@
+<?php
+require_once "../crud.php";
+
+if (session_status() === PHP_SESSION_NONE){
+    session_start();
+}
+
+if (!isset($_SESSION['autenticado'])) {
+    header("Location: ../login.php");
+    exit();
+}
+print_r($_SESSION);
+$pedido = $_SESSION['pedido'];
+$nome = read($pdo, 'usuarios', "id_user = " . $pedido['id_profissional']);
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -23,7 +38,6 @@
 
             <!-- Título -->
             <h1>Pagamento Confirmado</h1>
-
             <!-- Texto -->
             <p class="descricao">
                 Seu pagamento foi processado com sucesso.
@@ -35,22 +49,22 @@
 
                 <div class="linha-info">
                     <span>Profissional</span>
-                    <strong>Carlos Mendes</strong>
+                    <strong><?= $nome['nome'] ?></strong>
                 </div>
 
                 <div class="linha-info">
                     <span>Serviço</span>
-                    <strong>Automação Industrial</strong>
+                    <strong><?= $pedido['tipo_serv'] ?></strong>
                 </div>
 
                 <div class="linha-info">
                     <span>Data</span>
-                    <strong>12/03/2026</strong>
+                    <strong><?= $pedido['data'] ?></strong>
                 </div>
 
                 <div class="linha-info">
                     <span>Total Pago</span>
-                    <strong class="valor">R$ 1.120</strong>
+                    <strong class="valor">R$ <?= $pedido['tempo'] * $nome['valor_dia'] ?></strong>
                 </div>
 
             </div>
@@ -75,3 +89,5 @@
 </body>
 
 </html>
+
+
