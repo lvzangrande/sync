@@ -22,6 +22,10 @@ function nomeUsuario() {
     }
 }
 
+    $tableUser = readAll($pdo,'agenda');
+    $idUser = (int)$_SESSION['id_user'];
+    $user = read($pdo,'usuarios',"id_user = $idUser");
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -38,11 +42,11 @@ function nomeUsuario() {
     require_once '../php/saudacao.php';
     ?>
     <div class='imgperfil'>
-        <img src=../img/lenda.jfif>
+        <img src=../img/<?=$user?>>
         <br>
         <a href='editardados.php'><img src=../img/lapiseditar.png width='50'></a>
     </div>
-    <h1>João linux</h1>
+    <h1><?=nomeUsuario($pdo)?></h1>
     <a class="historico" href="historicodeservicos.php">Ver histórico de serviços</a>
     <footer>
         <p>Cadastrado desde de 2026</p>
