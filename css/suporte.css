@@ -185,10 +185,6 @@ input::-webkit-inner-spin-button {
     color: var(--color-sky-light);
 }
 
-/* .upload-area label {
-    cursor: pointer;
-    color: var(--color-sky-light);
-} */
 
 .btn-submit {
     background-color: var(--color-deep-blue);
