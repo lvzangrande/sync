@@ -1,6 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 
+body {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  background: linear-gradient(to bottom, #1c4376, #001233);
+  background-attachment: fixed;
+  margin: 0;
+  min-height: 100vh;
+}
+
 :root {
     --color-night-blue: #001233;
     --color-navy-dark: #092848;
@@ -10,6 +21,8 @@
     --color-deep-blue: #164578;
     --color-sky-light: #8bc0d6;
 }
+
+
 
 .team-section {
     width: 100%;
@@ -25,7 +38,7 @@
     letter-spacing: 2px;
     margin-bottom: 50px;
     color: #ffffff;
-    margin-top: 80px;
+    margin-top: 60px;
 }
 
 .team-title span {
@@ -45,18 +58,15 @@
     border-radius: 16px;
     padding: 25px 15px;
     position: relative;
-    overflow: hidden; 
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
     width: 100%;
     max-width: 240px;
     height: 340px;
-    
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease;
 }
-
 
 .team-card:hover {
     transform: translateY(-5px);
@@ -84,34 +94,42 @@
     width: 100%;
 }
 
-.member-name {
+
+.dev-name {
     font-size: 1.2rem;
     font-weight: 600;
-    color: var(--color-light-gray);
+    color: white;
     margin-top: 15px;
 }
 
-.badge {
-    display: inline-block;
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
+.dev-name-hover {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.dev-contribution {
+    font-size: 0.85rem;
+    color: aliceblue;
+    line-height: 1.5;
+    margin-bottom: auto;
+    overflow-y: auto;
+    padding: 0 5px;
 }
 
 .badge-funcao {
-    background-color: rgba(139, 192, 214, 0.2); color: var(--color-sky-light);
+    color: var(--color-sky-light);
 }
-
 
 .card-hover-panel {
     position: absolute;
-    top: 100%; 
+    top: 100%;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(22, 69, 120, 0.98), rgba(9, 40, 72, 1)); 
+    background: linear-gradient(135deg, rgba(22, 69, 120, 0.98), rgba(9, 40, 72, 1));
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     padding: 30px 20px;
@@ -121,56 +139,11 @@
     align-items: center;
     justify-content: flex-start;
     text-align: center;
-    transition: top 0.4s cubic-bezier(0.25, 1, 0.5, 1); 
+    transition: top 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     z-index: 2;
 }
 
-
 .team-card:hover .card-hover-panel {
-    top: 0; 
+    top: 0;
 }
-
-.member-name-hover {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #ffffff;
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-
-.member-contribution {
-    font-size: 0.85rem;
-    color: var(--color-light-gray);
-    line-height: 1.5;
-    margin-bottom: auto; 
-    overflow-y: auto;
-    padding: 0 5px;
-}
-
-/* Links de Redes Sociais */
-.social-links {
-    display: flex;
-    gap: 15px;
-    margin-top: 15px;
-}
-
-.social-links a {
-    color: var(--color-light-gray);
-    font-size: 1.4rem;
-    transition: color 0.2s ease, transform 0.2s ease;
-}
-
-.social-links a:hover {
-    color: var(--color-sky-light);
-    transform: scale(1.1);
-}
-
-.member-contribution::-webkit-scrollbar {
-    width: 4px;
-}
-.member-contribution::-webkit-scrollbar-thumb {
-    background: var(--color-slate-blue);
-    border-radius: 4px;
-}
-
 
