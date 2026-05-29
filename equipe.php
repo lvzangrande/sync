@@ -5,18 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nossa Equipe</title>
-    
+    <link rel="stylesheet" href="css/equipe.css">
+    <link rel="stylesheet" href="css/partials.css"> 
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
+
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100..900;1,100..900&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Lexend+Deca:wght@100..900&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <link rel="stylesheet" href="css/partials.css">
-    <link rel="stylesheet" href="./css/equipe.css">
+
     
+
     <link rel="icon" type="image/png" href="imagens/logosemfundo.png">
 </head>
 
@@ -35,11 +36,11 @@
                     <img src="" alt="Eloah Barbosa" class="card-img">
                 </div>
                 <div class="card-info-basic">
-                    <span class="badge-funcao">DEV FRONT-END</span>
+                    <span class="badge-funcao">Dev Front-End</span>
                     <h3 class="dev-name">Eloah Barbosa</h3>
                 </div>
                 <div class="card-hover-panel">
-                    <span class="badge-funcao">DEV FRONT-END</span>
+                    <span class="badge-funcao">Dev Front-End</span>
                     <h3 class="dev-name-hover">Eloah Barbosa</h3>
                     <p class="dev-contribution">
                         Responsável pela página Home, trabalhando na interface visual, organização dos
@@ -54,11 +55,11 @@
                     <img src="" alt="" class="card-img">
                 </div>
                 <div class="card-info-basic">
-                    <span class="badge-funcao">DEV BACK-END</span>
+                    <span class="badge-funcao">Dev Back-End</span>
                     <h3 class="dev-name">Silas Porssales</h3>
                 </div>
                 <div class="card-hover-panel">
-                    <span class="badge-funcao">DEV BACK-END</span>
+                    <span class="badge-funcao">Dev Back-End</span>
                     <h3 class="dev-name-hover">Silas Porssales</h3>
                     <p class="dev-contribution">
                         Responsável pela área de contratação de profissionais, desenvolvendo
@@ -74,11 +75,11 @@
                     <img src="" alt="Samuel de Sousa" class="card-img">
                 </div>
                 <div class="card-info-basic">
-                    <span class="badge-funcao">DEV FRONT-END</span>
+                    <span class="badge-funcao">Dev Front-End</span>
                     <h3 class="dev-name">Samuel de Sousa</h3>
                 </div>
                 <div class="card-hover-panel">
-                    <span class="badge-funcao">DEV FRONT-END</span>
+                    <span class="badge-funcao">Dev Front-End</span>
                     <h3 class="dev-name-hover">Samuel de Sousa</h3>
                     <p class="dev-contribution">
                         Responsável pelas páginas de equipe e suporte, auxiliando na construção da interface
@@ -101,7 +102,7 @@
                     <h3 class="dev-name">Lucas Zangrande</h3>
                 </div>
                 <div class="card-hover-panel">
-                    <span class="badge-funcao">DEV BACK-END</span>
+                    <span class="badge-funcao">Gerente de Projeto</span>
                     <h3 class="dev-name-hover">Lucas Zangrande</h3>
                     <p class="dev-contribution">
                         Responsável pela organização e gerenciamento do projeto, além do desenvolvimento das áreas
@@ -119,11 +120,11 @@
                     <img src="" alt="" class="card-img">
                 </div>
                 <div class="card-info-basic">
-                    <span class="badge-funcao">DEV BACK-END</span>
+                    <span class="badge-funcao">Dev Back-End</span>
                     <h3 class="dev-name">Guilherme de Paula</h3>
                 </div>
                 <div class="card-hover-panel">
-                    <span class="badge-funcao">DEV BACK-END</span>
+                    <span class="badge-funcao">Dev Back-End</span>
                     <h3 class="dev-name-hover">Guilherme de Paula</h3>
                     <p class="dev-contribution">
                         Responsável pelas paginas de acesso do sistema incluindo cadastro, login e edição de senha.
