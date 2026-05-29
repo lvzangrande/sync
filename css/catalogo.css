@@ -245,7 +245,7 @@ body{
 
 /* Contratar */
 .card a{
-    display: block;
+    text-align: center;
     width: 150px;
     text-align: center;
     background: var(--royal-industrial);
@@ -262,6 +262,31 @@ body{
     transform: scale(1.02);
 }
 
+.botoes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Botão Editar */
+.btn-editar {
+    text-align: center;
+    width: 150px;
+    text-align: center;
+    background: var(--royal-industrial);
+    color: white;
+    text-decoration: none;
+    padding: 16px;
+    border-radius: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+    
+}
+
+.btn-editar:hover {
+    background: var(--steel-blue);
+    transform: scale(1.02);
+}
 
 /* Pate latela filtros de pesquisa side bar */
 

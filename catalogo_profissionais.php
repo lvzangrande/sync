@@ -204,7 +204,7 @@ unset($_SESSION['pedido']);
                             <div class="rodape">
                                 <p class="preco">' . $card['valor_dia'] . '</p>
                                 <p class="p-d">/dia</p>
-                                ';
+                                <div class="botoes">';
                                 
                     if ($card['status'] == 'Inativo') {
                         echo '<a>Indisponível</a>';
@@ -214,7 +214,8 @@ unset($_SESSION['pedido']);
                         echo '<a href="contratar.php?id=' . $card['id_user'] . '">Contratar</a>';
                     }
                     echo '  
-                                <a class="btn_editar" href="'.$base.'admin/editar_item.php?id=' . $card['id_user'] . '&tipo=profissional">Editar</a>      
+                                    <a class="btn-editar" href="'.$base.'admin/editar_item.php?id=' . $card['id_user'] . '&tipo=profissional">Editar</a>  
+                                </div>    
                             </div>
 
                         </div>
