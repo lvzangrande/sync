@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email    = htmlspecialchars($_POST['email']);
     $telefone = htmlspecialchars($_POST['telefone']);
     $mensagem = htmlspecialchars($_POST['mensagem']);
-    
+
 
     $id_usuario = $_SESSION['id_user'] ?? 1;
 
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body>
-    
+
     <?php require_once 'partials/header.php'; ?>
     <main class="main-container">
         <aside class="sidebar-info">
@@ -118,13 +118,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <textarea name="mensagem" rows="5" placeholder="Descreva os códigos de erro e comportamento do sistema..." required></textarea>
                 </div>
 
-                <div class="upload-area">
-                    <label for="inserir-arquivo" class="upload-label">
-                        <i class="fa-solid fa-paperclip"></i>
-                        Anexar uma imagem do erro
-                    </label>
+                <label for="inserir-arquivo" class="upload-area">
+                    <i class="fa-solid fa-paperclip"></i>
+                    Anexar uma imagem do erro
                     <input type="file" id="inserir-arquivo" name="arquivo_erro" accept="image/*" hidden>
-                </div>
+                </label>
 
                 <button type="submit" class="btn-submit">ENVIAR SOLICITAÇÃO TÉCNICA</button>
 

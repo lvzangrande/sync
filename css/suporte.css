@@ -171,6 +171,8 @@ input::-webkit-inner-spin-button {
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.3s ease;
+    gap: 15px;
+    color: var(--color-sky-light); /* ← move a cor pra cá */
 }
 
 .upload-area:hover {
@@ -183,10 +185,10 @@ input::-webkit-inner-spin-button {
     color: var(--color-sky-light);
 }
 
-.upload-area label {
+/* .upload-area label {
     cursor: pointer;
     color: var(--color-sky-light);
-}
+} */
 
 .btn-submit {
     background-color: var(--color-deep-blue);
