@@ -70,6 +70,37 @@ CREATE TABLE IF NOT EXISTS suporte (
     
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id_user)
 );
+
+INSERT INTO suporte (
+    nome_cliente,
+    desc_sup,
+    tel_sup,
+    email_sup,
+    id_usuario,
+    resposta_admin,
+    status_suporte
+) VALUES
+(
+    'TechSolutions Indústria LTDA',
+    'Problema ao agendar manutenção para motor trifásico. O sistema apresenta erro ao confirmar a solicitação.',
+    '(11) 98765-4321',
+    'contato@techsolutions.com',
+    1,
+    NULL,
+    'Pendente'
+),
+(
+    'TechSolutions Indústria LTDA',
+    'Solicitação de suporte para atualização de status de ordem de serviço que permanece como pendente.',
+    '(11) 98765-4321',
+    'contato@techsolutions.com',
+    1,
+    'Verificamos o problema e o status foi atualizado corretamente no sistema.',
+    'Respondido'
+);
+
+
+
 INSERT INTO agenda (
     data,
     tempo_planejado,

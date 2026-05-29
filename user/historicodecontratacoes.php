@@ -69,7 +69,7 @@ $palavras = explode(' ', trim($agendamento['descricao_problema']));
         : $agendamento['descricao'];
     echo "<tr>
             <td>".$agendamento['data']."</td>
-            <td>".$agendamento['tempo_planejado_minutos']."</td>
+            <td>".$agendamento['tempo_planejado']."</td>
             <td>".$agendamento['valor_total']."</td>
             <td>".$descricaoResumida."</td>
             <td>".$agendamento['endereco_servico']."</td>
