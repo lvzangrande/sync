@@ -13,7 +13,7 @@
     $tableAgenda = readAll($pdo,'agenda');
     $idAgendamento = (int)$_GET['id'];
     $agendamento = read($pdo,'agenda',"id_os = $idAgendamento");
-
+    unset($_SESSION['pedido']);
     ?>
     <!DOCTYPE html>
     <html lang="pt-br">
