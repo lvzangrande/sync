@@ -9,7 +9,6 @@ if (!isset($_SESSION['autenticado'])) {
     header("Location: ../login.php");
     exit();
 }
-print_r($_SESSION);
 $pedido = $_SESSION['pedido'];
 $nome = read($pdo, 'usuarios', "id_user = " . $pedido['id_profissional']);
 ?>

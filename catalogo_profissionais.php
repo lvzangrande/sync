@@ -4,7 +4,7 @@ require_once 'func/filtro.php';
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-
+$tipo_usuario = $_SESSION['tipo'] ?? 'visitante';
 unset($_SESSION['pedido']);
 ?>
 
@@ -183,8 +183,44 @@ unset($_SESSION['pedido']);
                 }
                 $cards = readALL($pdo, 'usuarios', $where . $order);
                 foreach ($cards as $card) {
-                    echo
-                        '<div class="card">
+                    if ($tipo_usuario == 'admin') {
+                        echo
+                            '<div class="card">
+
+                            <div class="disponibilidade">' . $card['status'] . '</div>
+
+                            <div class="avaliacao"><i class="bi bi-star-fill"></i> ' . $card['notas'] . '</div>
+
+                            <img src="uploads/usuarios/' . $card['img_user'] . '"
+                            alt="Foto de ' . $card['nome'] . '">
+
+                            <p class="nome-profi">' . $card['nome'] . '</p>
+
+                            <p class="especialidade">' . $card['especialidade'] . '</p>
+
+                            <span>15 meses</span>
+
+                            <span>320</span>
+                            <div class="rodape">
+                                <p class="preco">' . $card['valor_dia'] . '</p>
+                                <p class="p-d">/dia</p>
+                                ';
+                                
+                    if ($card['status'] == 'Inativo') {
+                        echo '<a>Indisponível</a>';
+                    } elseif ($card['status'] == 'Em Atendimento') {
+                        echo '<a>Indisponível</a>';
+                    } else {
+                        echo '<a href="contratar.php?id=' . $card['id_user'] . '">Contratar</a>';
+                    }
+                    echo '  <a class="btn_editar" href="admin/editar_profissional.php?id=' . $card['id_user'] . '">Editar</a>      
+                            </div>
+
+                        </div>
+                        ';
+                } else {
+                     echo
+                            '<div class="card">
 
                             <div class="disponibilidade">' . $card['status'] . '</div>
 
@@ -216,6 +252,7 @@ unset($_SESSION['pedido']);
 
                         </div>
                         ';
+                }
                 }
                 ?>
 
