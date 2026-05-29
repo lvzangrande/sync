@@ -246,7 +246,7 @@ body{
 /* Contratar */
 .card a{
     text-align: center;
-    width: 150px;
+    width: 125px;
     text-align: center;
     background: var(--royal-industrial);
     color: white;
@@ -271,7 +271,7 @@ body{
 /* Botão Editar */
 .btn-editar {
     text-align: center;
-    width: 150px;
+    width: 125px;
     text-align: center;
     background: var(--royal-industrial);
     color: white;

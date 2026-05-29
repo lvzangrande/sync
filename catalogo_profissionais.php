@@ -202,7 +202,7 @@ unset($_SESSION['pedido']);
 
                             <span>320</span>
                             <div class="rodape">
-                                <p class="preco">' . $card['valor_dia'] . '</p>
+                                <p class="preco">R$' . $card['valor_dia'] . '</p>
                                 <p class="p-d">/dia</p>
                                 <div class="botoes">';
                                 
@@ -239,7 +239,7 @@ unset($_SESSION['pedido']);
 
                             <span>320</span>
                             <div class="rodape">
-                                <p class="preco">' . $card['valor_dia'] . '</p>
+                                <p class="preco">R$' . $card['valor_dia'] . '</p>
                                 <p class="p-d">/dia</p>';
 
                     if ($card['status'] == 'Inativo') {
