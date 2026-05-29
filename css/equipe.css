@@ -265,10 +265,10 @@ body {
     letter-spacing: 0.5px;
 }
 
-.badge-front { background-color: rgba(139, 192, 214, 0.2); color: var(--color-sky-light); }
-.badge-back { background-color: rgba(50, 107, 147, 0.3); color: #6db1e2; }
-.badge-design { background-color: rgba(125, 133, 151, 0.2); color: var(--color-cool-gray); }
-.badge-pm { background-color: rgba(22, 69, 120, 0.4); color: #9bc5f3; }
+.badge-funcao {
+    background-color: rgba(139, 192, 214, 0.2); color: var(--color-sky-light);
+}
+
 
 .card-hover-panel {
     position: absolute;

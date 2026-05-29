@@ -40,9 +40,7 @@
                         Responsável pela página Home, trabalhando na interface visual, organização dos 
                         elementos e experiência do usuário dentro do site.
                     </p>
-                    <div class="social-links">
-                        
-                    </div>
+                    
                 </div>
             </div>
 
@@ -62,9 +60,7 @@
                         funcionalidades relacionadas ao formulário de contratação, visualização de profissionais,
                         candidatura de profissionais e área de pagamento do sistema.
                     </p>
-                    <div class="social-links">
-                        
-                    </div>
+                    
                 </div>
             </div>
 
@@ -82,7 +78,7 @@
                     <p class="dev-contribution">
                         Responsável pelas páginas de equipe e suporte, auxiliando na construção da interface
                         do site, organização visual das paginas e forma de contato entre o cliente
-                        e o admin
+                        e o admin.
                     </p>
                     <div class="social-links">
                         
@@ -105,7 +101,7 @@
                     <p class="dev-contribution">
                         Responsável pela organização e gerenciamento do projeto, além do desenvolvimento das áreas
                         do usuário, profsissional, administração e serviços agendados incluindo funcionalidades como
-                        edição de informações, gerenciamneto de serviços e controle administrativo da plataforma
+                        edição de informações, gerenciamneto de serviços e controle administrativo da plataforma.
                     </p>
                     <div class="social-links">
 
@@ -127,11 +123,9 @@
                     <p class="dev-contribution">
                         Responsável pelas paginas de acesso do sistema incluindo cadastro, login e edição de senha.
                         Também realizou a criação e organização do banco de dados do site, garantindo o funcionamento e
-                        armazenamento das informações do sistema.
+                        armazenamento das informações do sistema. 
                     </p>
-                    <div class="social-links">
-                        
-                    </div>
+                    
                 </div>
             </div>
 
