@@ -35,27 +35,55 @@ CREATE TABLE IF NOT EXISTS maquinas (
 );
 
 -- DESC maquinas;
+CREATE TABLE IF NOT EXISTS agenda (
+    id_os INT AUTO_INCREMENT PRIMARY KEY,
+    data DATE NOT NULL,
+    tempo_planejado INT NOT NULL,
+    valor_total DECIMAL(10,2) NOT NULL,
+    descricao_problema TEXT NOT NULL,
+    tipo_servico ENUM('Manutenção Preventiva', 'Automação industrial', 'Engenharia de precisão', 'Mecatrônica') NOT NULL,
+    endereco_servico VARCHAR(255) NOT NULL,
+    status_os ENUM('Pendente', 'Agendada', 'Em Andamento', 'Concluída', 'Cancelada') DEFAULT 'Pendente',
+    id_cliente INT NOT NULL,
+    id_profissional INT NOT NULL,
+    
+    FOREIGN KEY (id_cliente) REFERENCES usuarios(id_user),
+    FOREIGN KEY (id_profissional) REFERENCES usuarios(id_user)
+);
 
-
-	CREATE TABLE IF NOT EXISTS agenda (
-	    id_os INT AUTO_INCREMENT PRIMARY KEY,
-	    data DATE NOT NULL,
-	    
-		tempo_planejado INT NOT NULL,
-		
-	    descricao_problema TEXT NOT NULL,
-        tipo_servico ENUM('Manutenção Preventiva', 'Automação industrial', 'Engenharia de precisão', 'Mecatrônica') NOT NULL,
-	    endereco_servico VARCHAR(255) NOT NULL,
-	    
-	    status_os ENUM('Pendente', 'Agendada', 'Em Andamento', 'Concluída', 'Cancelada') DEFAULT 'Pendente',
-	    
-	    id_cliente INT NOT NULL,
-	    id_profissional INT NOT NULL,
-	    
-	    FOREIGN KEY (id_cliente) REFERENCES usuarios(id_user),
-	    FOREIGN KEY (id_profissional) REFERENCES usuarios(id_user)
-	);
-
+INSERT INTO agenda (
+    data,
+    tempo_planejado,
+    valor_total,
+    descricao_problema,
+    tipo_servico,
+    endereco_servico,
+    status_os,
+    id_cliente,
+    id_profissional
+) VALUES
+(
+    '2026-06-05',
+    120,
+    250.00,
+    'Motor trifásico apresentando superaquecimento e perda de potência durante operação contínua.',
+    'Manutenção Preventiva',
+    'Rua das Indústrias, 1500 - São Paulo/SP',
+    'Agendada',
+    1,
+    3
+),
+(
+    '2026-06-08',
+    180,
+    400.00,
+    'Sistema hidráulico da prensa industrial com vazamento e baixa pressão.',
+    'Mecatrônica',
+    'Av. Industrial, 3200 - Guarulhos/SP',
+    'Pendente',
+    1,
+    5
+);
 -- DESC agenda;
 
 CREATE TABLE IF NOT EXISTS suporte (
