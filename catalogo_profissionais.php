@@ -213,7 +213,8 @@ unset($_SESSION['pedido']);
                     } else {
                         echo '<a href="contratar.php?id=' . $card['id_user'] . '">Contratar</a>';
                     }
-                    echo '  <a class="btn_editar" href="admin/editar_profissional.php?id=' . $card['id_user'] . '">Editar</a>      
+                    echo '  
+                                <a class="btn_editar" href="'.$base.'admin/editar_item.php?id=' . $card['id_user'] . '&tipo=profissional">Editar</a>      
                             </div>
 
                         </div>
