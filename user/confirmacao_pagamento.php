@@ -75,7 +75,7 @@ $nome = read($pdo, 'usuarios', "id_user = " . $pedido['id_profissional']);
                     Voltar ao Catálogo
                 </a>
 
-                <a href="./detalhesContratacao.php" class="btn-principal">
+                <a href="./historicodecontratacao.php" class="btn-principal">
                     Ver Solicitação
                 </a>
 
