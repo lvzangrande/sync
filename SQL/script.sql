@@ -38,12 +38,31 @@ CREATE TABLE IF NOT EXISTS maquinas (
 CREATE TABLE IF NOT EXISTS agenda (
     id_os INT AUTO_INCREMENT PRIMARY KEY,
     data DATE NOT NULL,
+    
     tempo_planejado INT NOT NULL,
     valor_total DECIMAL(10,2) NOT NULL,
+    
     descricao_problema TEXT NOT NULL,
-    tipo_servico ENUM('Manutenção Preventiva', 'Automação industrial', 'Engenharia de precisão', 'Mecatrônica') NOT NULL,
+    
+    tipo_servico ENUM(
+        'Manutenção Preventiva',
+        'Automação industrial',
+        'Engenharia de precisão',
+        'Mecatrônica'
+    ) NOT NULL,
+    
     endereco_servico VARCHAR(255) NOT NULL,
-    status_os ENUM('Pendente', 'Agendada', 'Em Andamento', 'Concluída', 'Cancelada') DEFAULT 'Pendente',
+    
+    metodo_pagamento ENUM('Pix', 'Débito') NOT NULL,
+    
+    status_os ENUM(
+        'Pendente',
+        'Agendada',
+        'Em Andamento',
+        'Concluída',
+        'Cancelada'
+    ) DEFAULT 'Pendente',
+    
     id_cliente INT NOT NULL,
     id_profissional INT NOT NULL,
     
@@ -58,6 +77,7 @@ INSERT INTO agenda (
     descricao_problema,
     tipo_servico,
     endereco_servico,
+    metodo_pagamento,
     status_os,
     id_cliente,
     id_profissional
@@ -69,6 +89,7 @@ INSERT INTO agenda (
     'Motor trifásico apresentando superaquecimento e perda de potência durante operação contínua.',
     'Manutenção Preventiva',
     'Rua das Indústrias, 1500 - São Paulo/SP',
+    'Pix',
     'Agendada',
     1,
     3
@@ -80,6 +101,7 @@ INSERT INTO agenda (
     'Sistema hidráulico da prensa industrial com vazamento e baixa pressão.',
     'Mecatrônica',
     'Av. Industrial, 3200 - Guarulhos/SP',
+    'Débito',
     'Pendente',
     1,
     5

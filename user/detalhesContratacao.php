@@ -41,7 +41,7 @@
                 <a>".$agendamento['data']."</a><br><hr>
 
                 <label>Tempo estimado:</label>
-                <a>".$agendamento['tempo_planejado_minutos']."</a><br><hr>
+                <a>".$agendamento['tempo_planejado']."</a><br><hr>
 
                 <label>Valor: </label>
                 <a>".$agendamento['valor_total']."</a><br><hr>
