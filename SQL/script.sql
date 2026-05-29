@@ -70,6 +70,36 @@ CREATE TABLE IF NOT EXISTS suporte (
     
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id_user)
 );
+INSERT INTO agenda (
+    data,
+    tempo_planejado,
+    descricao_problema,
+    tipo_servico,
+    endereco_servico,
+    status_os,
+    id_cliente,
+    id_profissional
+) VALUES
+(
+    '2026-06-05',
+    120,
+    'Motor trifásico apresentando superaquecimento e perda de potência durante operação contínua.',
+    'Manutenção Preventiva',
+    'Rua das Indústrias, 1500 - São Paulo/SP',
+    'Agendada',
+    1,
+    3
+),
+(
+    '2026-06-08',
+    180,
+    'Sistema hidráulico da prensa industrial com vazamento e baixa pressão.',
+    'Mecatrônica',
+    'Av. Industrial, 3200 - Guarulhos/SP',
+    'Pendente',
+    1,
+    5
+);
 
 -- DESC suporte;
 

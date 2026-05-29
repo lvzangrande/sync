@@ -27,6 +27,7 @@ if (isset($_SESSION['mensagem'])) {
 <?php
 require_once '../partials/header.php';
 ?>
+<a href="./userpage.php">Voltar</a>
 <body>
     <table>
         <tr>
