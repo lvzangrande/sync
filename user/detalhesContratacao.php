@@ -27,6 +27,7 @@
         <header>
         <?php require_once "../partials/header.php";?>
             </header>
+            <a href="./historicodecontratacoes.php">Voltar</a>
         <div class="container">
             <?php        
                 
