@@ -33,7 +33,7 @@
 
             <div class="team-card">
                 <div class="card-image-wrapper">
-                    <img src="" alt="Eloah Barbosa" class="card-img">
+                    <img src="img/foto-equipe/foto-eloah.jpeg" alt="Eloah Barbosa" class="card-img">
                 </div>
                 <div class="card-info-basic">
                     <span class="badge-funcao">Dev Front-End</span>
@@ -52,7 +52,7 @@
 
             <div class="team-card">
                 <div class="card-image-wrapper">
-                    <img src="" alt="" class="card-img">
+                    <img src="img/foto-equipe/foto-silas.jpeg" alt="" class="card-img">
                 </div>
                 <div class="card-info-basic">
                     <span class="badge-funcao">Dev Back-End</span>
@@ -72,7 +72,7 @@
 
             <div class="team-card">
                 <div class="card-image-wrapper">
-                    <img src="" alt="Samuel de Sousa" class="card-img">
+                    <img src="img/foto-equipe/foto-samuel.jpeg" alt="Samuel de Sousa" class="card-img">
                 </div>
                 <div class="card-info-basic">
                     <span class="badge-funcao">Dev Front-End</span>
@@ -117,7 +117,7 @@
 
             <div class="team-card">
                 <div class="card-image-wrapper">
-                    <img src="" alt="" class="card-img">
+                    <img src="img/foto-equipe/foto-gui.jpegj" alt="" class="card-img">
                 </div>
                 <div class="card-info-basic">
                     <span class="badge-funcao">Dev Back-End</span>
