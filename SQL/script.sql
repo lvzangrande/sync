@@ -1,27 +1,24 @@
-SELECT
-    current_user ();
-
--- SHOW DATABASES;
 USE db_sync;
 
-CREATE TABLE
-    IF NOT EXISTS usuarios (
-        id_user INT AUTO_INCREMENT PRIMARY KEY,
-        img_user VARCHAR(255),
-        nome VARCHAR(100) NOT NULL,
-        email VARCHAR(100) UNIQUE NOT NULL,
-        senha VARCHAR(255) NOT NULL,
-        telefone VARCHAR(20) NOT NULL,
-        cpf_cnpj VARCHAR(20) UNIQUE NOT NULL,
-        tipo ENUM ('PF', 'PJ') NOT NULL,
-        categoria ENUM ('cliente', 'profissional', 'admin') NOT NULL,
-        especialidade VARCHAR(100) NULL,
-        status ENUM ('Disponível', 'Em Atendimento', 'Inativo') NULL,
-        valor_dia DECIMAL(10, 2) NULL,
-        descricao_func TEXT NULL,
-        notas INT NULL CHECK (notas BETWEEN 0 AND 5)
-    );
+-- 1. Tabela usuarios
+CREATE TABLE IF NOT EXISTS usuarios (
+    id_user INT AUTO_INCREMENT PRIMARY KEY,
+    img_user VARCHAR(255),
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    telefone VARCHAR(20) NOT NULL,
+    cpf_cnpj VARCHAR(20) UNIQUE NOT NULL,
+    tipo ENUM ('PF', 'PJ') NOT NULL,
+    categoria ENUM ('cliente', 'profissional', 'admin') NOT NULL,
+    especialidade VARCHAR(100) NULL,
+    status ENUM ('Disponível', 'Em Atendimento', 'Inativo') NULL,
+    valor_dia DECIMAL(10,2) NULL,
+    descricao_func TEXT NULL,
+    notas INT NULL CHECK (notas BETWEEN 0 AND 5)
+);
 
+<<<<<<< HEAD
 -- DESC usuarios;
 CREATE TABLE
     IF NOT EXISTS maquinas (
@@ -203,21 +200,7 @@ VALUES
         'motor_indutivo.png',
         'Motor de Indução Trifásico AC',
         'Motores',
-        'Elétrico',
-        'Motor elétrico de alta eficiência utilizado para acionamento de esteiras transportadoras e exaustores industriais.',
-        120
-    ),
-    (
-        'compressor_parafuso.png',
-        'Compressor de Parafuso Rotativo',
         'Pneumática',
-        'Geração de Ar',
-        'Equipamento responsável pelo fornecimento contínuo de ar comprimido para ferramentas e atuadores pneumáticos da fábrica.',
-        90
-    ),
-    (
-        'bomba_pistao.png',
-        'Bomba Hidráulica de Pistão Axial',
         'Hidráulica',
         'Alta Pressão',
         'Unidade geradora de fluxo hidráulico para sistemas de alta pressão, como prensas e braços mecânicos.',
