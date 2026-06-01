@@ -19,7 +19,7 @@ $base = BASE_URL;
 
             <ul class="nav-links">
                 <li><a href="<?= $base ?>inicio.php">Início</a></li>
-                <li><a href="<?= $base ?>inicio.php#Tecnologia">Tecnologia</a></li>
+                <li><a href="<?= $base ?>tecnologia.php">Tecnologia</a></li>
                 <li><a href="<?= $base ?>catalogo_profissionais.php">Profissionais</a></li>
                 <li><a href="<?= $base ?>equipe.php">Equipe</a></li>
                 <li><a href="<?= $base ?>suporte.php">Suporte</a></li>
