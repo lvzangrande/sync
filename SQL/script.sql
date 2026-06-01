@@ -18,274 +18,308 @@ CREATE TABLE IF NOT EXISTS usuarios (
     notas INT NULL CHECK (notas BETWEEN 0 AND 5)
 );
 
--- 2. Tabela maquinas
-CREATE TABLE IF NOT EXISTS maquinas (
-    id_maq INT AUTO_INCREMENT PRIMARY KEY,
-    img_maq VARCHAR(255),
-    nome_maq VARCHAR(100) NOT NULL,
-    tipo_maq ENUM (
+<<<<<<< HEAD
+-- DESC usuarios;
+CREATE TABLE
+    IF NOT EXISTS maquinas (
+        id_maq INT AUTO_INCREMENT PRIMARY KEY,
+        img_maq VARCHAR(255),
+        nome_maq VARCHAR(100) NOT NULL,
+        tipo_maq ENUM (
+            'Motores',
+            'Pneumática',
+            'Hidráulica',
+            'Equipamentos Industriais'
+        ) NOT NULL,
+        tipo2_maq VARCHAR(50),
+        desc_maq TEXT,
+        tempo_estimado_minutos INT NOT NULL
+    );
+
+-- DESC maquinas;
+CREATE TABLE
+    IF NOT EXISTS agenda (
+        id_os INT AUTO_INCREMENT PRIMARY KEY,
+        data DATE NOT NULL,
+        tempo_planejado INT NOT NULL,
+        valor_total DECIMAL(10, 2) NOT NULL,
+        descricao_problema TEXT NOT NULL,
+        tipo_servico ENUM (
+            'Manutenção Preventiva',
+            'Automação industrial',
+            'Engenharia de precisão',
+            'Mecatrônica'
+        ) NOT NULL,
+        endereco_servico VARCHAR(255) NOT NULL,
+        metodo_pagamento ENUM ('Pix', 'Débito') NOT NULL,
+        status_os ENUM (
+            'Pendente',
+            'Agendada',
+            'Em Andamento',
+            'Concluída',
+            'Cancelada'
+        ) DEFAULT 'Pendente',
+        id_cliente INT NOT NULL,
+        id_profissional INT NOT NULL,
+        FOREIGN KEY (id_cliente) REFERENCES usuarios (id_user),
+        FOREIGN KEY (id_profissional) REFERENCES usuarios (id_user)
+    );
+
+    CREATE TABLE
+    IF NOT EXISTS suporte (
+        id_sup INT AUTO_INCREMENT PRIMARY KEY,
+        nome_cliente VARCHAR(100),
+        desc_sup TEXT,
+        tel_sup VARCHAR(20),
+        email_sup VARCHAR(100),
+        id_usuario INT NOT NULL,
+        resposta_admin TEXT NULL,
+        status_suporte ENUM ('Pendente', 'Respondido') DEFAULT 'Pendente',
+        FOREIGN KEY (id_usuario) REFERENCES usuarios (id_user)
+    );
+
+INSERT INTO
+    usuarios (
+        img_user,
+        nome,
+        email,
+        senha,
+        telefone,
+        cpf_cnpj,
+        tipo,
+        categoria,
+        especialidade,
+        status,
+        valor_dia,
+        descricao_func,
+        notas
+    )
+VALUES
+    (
+        'techsolutions_cliente.png',
+        'TechSolutions Indústria LTDA',
+        'contato@techsolutions.com',
+        'hash_senha_123',
+        '(11) 98765-4321',
+        '55.666.777/0001-88',
+        'PJ',
+        'cliente',
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        5
+    ),
+    (
+        'maria_admin.png',
+        'Maria Oliveira (Admin)',
+        'admin@empresa.com.br',
+        'hash_senha_admin',
+        '(11) 90000-0000',
+        '00.111.222/0001-33',
+        'PJ',
+        'admin',
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL
+    ),
+    (
+        'carlos_profissional.png',
+        'Carlos Almeida Motores',
+        'carlos.motores@email.com',
+        'hash_senha_456',
+        '(11) 91111-1111',
+        '444.555.666-77',
+        'PF',
+        'profissional',
+        'Manutenção de Motores',
+        'Disponível',
+        250.00,
+        'Especialista em reparo, retífica e manutenção preventiva de motores elétricos e a combustão.',
+        5
+    ),
+    (
+        'ana_profissional.png',
+        'Ana Costa Pneumática',
+        'ana.pneumatica@email.com',
+        'hash_senha_789',
+        '(11) 92222-2222',
+        '777.888.999-00',
+        'PF',
+        'profissional',
+        'Sistemas Pneumáticos',
+        'Em Atendimento',
+        300.00,
+        'Manutenção e calibração de compressores de ar, válvulas e redes pneumáticas industriais.',
+        4
+    ),
+    (
+        'marcos_profissional.png',
+        'Marcos Ribeiro Hidráulica',
+        'marcos.hidraulica@email.com',
+        'hash_senha_101',
+        '(11) 93333-3333',
+        '222.333.444-55',
+        'PF',
+        'profissional',
+        'Sistemas Hidráulicos',
+        'Disponível',
+        400.00,
+        'Especialista no reparo de bombas, cilindros e unidades hidráulicas de alta pressão.',
+        5
+    ),
+    (
+        'ricardo_profissional.png',
+        'Ricardo Souza Equipamentos',
+        'ricardo.equipamentos@email.com',
+        'hash_senha_202',
+        '(11) 94444-4444',
+        '555.666.777-88',
+        'PF',
+        'profissional',
+        'Equipamentos Industriais',
+        'Inativo',
+        450.00,
+        'Manutenção corretiva e preventiva em esteiras, tornos CNC e maquinário pesado em geral.',
+        3
+    );
+
+    INSERT INTO
+    maquinas (
+        img_maq,
+        nome_maq,
+        tipo_maq,
+        tipo2_maq,
+        desc_maq,
+        tempo_estimado_minutos
+    )
+VALUES
+    (
+        'motor_indutivo.png',
+        'Motor de Indução Trifásico AC',
         'Motores',
         'Pneumática',
         'Hidráulica',
-        'Equipamentos Industriais'
-    ) NOT NULL,
-    tipo2_maq VARCHAR(50),
-    desc_maq TEXT,
-    tempo_estimado_minutos INT NOT NULL
-);
+        'Alta Pressão',
+        'Unidade geradora de fluxo hidráulico para sistemas de alta pressão, como prensas e braços mecânicos.',
+        180
+    ),
+    (
+        'torno_cnc.png',
+        'Torno CNC Industrial X-1000',
+        'Equipamentos Industriais',
+        'Usinagem',
+        'Maquinário automatizado para usinagem de precisão de peças metálicas e plásticas de alta complexidade.',
+        240
+    );
 
--- 3. Tabela agenda
-CREATE TABLE IF NOT EXISTS agenda (
-    id_os INT AUTO_INCREMENT PRIMARY KEY,
-    data DATE NOT NULL,
-    tempo_planejado INT NOT NULL,
-    valor_total DECIMAL(10,2) NOT NULL,
-    descricao_problema TEXT NOT NULL,
-    tipo_servico ENUM (
+INSERT INTO
+    agenda (
+        data,
+        tempo_planejado,
+        valor_total,
+        descricao_problema,
+        tipo_servico,
+        endereco_servico,
+        metodo_pagamento,
+        status_os,
+        id_cliente,
+        id_profissional
+    )
+VALUES
+    (
+        '2026-06-05',
+        120,
+        250.00,
+        'Motor trifásico apresentando superaquecimento e perda de potência durante operação contínua.',
         'Manutenção Preventiva',
-        'Automação industrial',
-        'Engenharia de precisão',
-        'Mecatrônica'
-    ) NOT NULL,
-    endereco_servico VARCHAR(255) NOT NULL,
-    metodo_pagamento ENUM ('Pix', 'Débito') NOT NULL,
-    status_os ENUM (
-        'Pendente',
+        'Rua das Indústrias, 1500 - São Paulo/SP',
+        'Pix',
         'Agendada',
-        'Em Andamento',
-        'Concluída',
-        'Cancelada'
-    ) DEFAULT 'Pendente',
-    id_cliente INT NOT NULL,
-    id_profissional INT NOT NULL,
-    FOREIGN KEY (id_cliente) REFERENCES usuarios(id_user),
-    FOREIGN KEY (id_profissional) REFERENCES usuarios(id_user)
-);
+        1,
+        3
+    ),
+    (
+        '2026-06-08',
+        180,
+        400.00,
+        'Sistema hidráulico da prensa industrial com vazamento e baixa pressão.',
+        'Mecatrônica',
+        'Av. Industrial, 3200 - Guarulhos/SP',
+        'Débito',
+        'Pendente',
+        1,
+        5
+    );
 
--- 4. Tabela suporte
-CREATE TABLE IF NOT EXISTS suporte (
-    id_sup INT AUTO_INCREMENT PRIMARY KEY,
-    nome_cliente VARCHAR(100),
-    desc_sup TEXT,
-    tel_sup VARCHAR(20),
-    email_sup VARCHAR(100),
-    id_usuario INT NOT NULL,
-    resposta_admin TEXT NULL,
-    status_suporte ENUM ('Pendente', 'Respondido') DEFAULT 'Pendente',
-    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_user)
-);
+-- DESC agenda;
 
--- =====================================================
--- INSERÇÕES
--- =====================================================
 
--- 1. Usuários
-INSERT INTO usuarios (
-    img_user,
-    nome,
-    email,
-    senha,
-    telefone,
-    cpf_cnpj,
-    tipo,
-    categoria,
-    especialidade,
-    status,
-    valor_dia,
-    descricao_func,
-    notas
-)
+INSERT INTO
+    suporte (
+        nome_cliente,
+        desc_sup,
+        tel_sup,
+        email_sup,
+        id_usuario,
+        resposta_admin,
+        status_suporte
+    )
 VALUES
-(
-    'techsolutions_cliente.png',
-    'TechSolutions Indústria LTDA',
-    'contato@techsolutions.com',
-    'hash_senha_123',
-    '(11) 98765-4321',
-    '55.666.777/0001-88',
-    'PJ',
-    'cliente',
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    5
-),
-(
-    'maria_admin.png',
-    'Maria Oliveira (Admin)',
-    'admin@empresa.com.br',
-    'hash_senha_admin',
-    '(11) 90000-0000',
-    '00.111.222/0001-33',
-    'PJ',
-    'admin',
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL
-),
-(
-    'carlos_profissional.png',
-    'Carlos Almeida Motores',
-    'carlos.motores@email.com',
-    'hash_senha_456',
-    '(11) 91111-1111',
-    '444.555.666-77',
-    'PF',
-    'profissional',
-    'Manutenção de Motores',
-    'Disponível',
-    250.00,
-    'Especialista em reparo de motores.',
-    5
-),
-(
-    'ana_profissional.png',
-    'Ana Costa Pneumática',
-    'ana.pneumatica@email.com',
-    'hash_senha_789',
-    '(11) 92222-2222',
-    '777.888.999-00',
-    'PF',
-    'profissional',
-    'Sistemas Pneumáticos',
-    'Em Atendimento',
-    300.00,
-    'Especialista em pneumática.',
-    4
-),
-(
-    'marcos_profissional.png',
-    'Marcos Ribeiro Hidráulica',
-    'marcos.hidraulica@email.com',
-    'hash_senha_101',
-    '(11) 93333-3333',
-    '222.333.444-55',
-    'PF',
-    'profissional',
-    'Sistemas Hidráulicos',
-    'Disponível',
-    400.00,
-    'Especialista em hidráulica.',
-    5
-),
-(
-    'ricardo_profissional.png',
-    'Ricardo Souza Equipamentos',
-    'ricardo.equipamentos@email.com',
-    'hash_senha_202',
-    '(11) 94444-4444',
-    '555.666.777-88',
-    'PF',
-    'profissional',
-    'Equipamentos Industriais',
-    'Inativo',
-    450.00,
-    'Especialista em equipamentos industriais.',
-    3
-);
+    (
+        'TechSolutions Indústria LTDA',
+        'Problema ao agendar manutenção para motor trifásico. O sistema apresenta erro ao confirmar a solicitação.',
+        '(11) 98765-4321',
+        'contato@techsolutions.com',
+        1,
+        NULL,
+        'Pendente'
+    ),
+    (
+        'TechSolutions Indústria LTDA',
+        'Solicitação de suporte para atualização de status de ordem de serviço que permanece como pendente.',
+        '(11) 98765-4321',
+        'contato@techsolutions.com',
+        1,
+        'Verificamos o problema e o status foi atualizado corretamente no sistema.',
+        'Respondido'
+    );
 
--- 2. Máquinas
-INSERT INTO maquinas (
-    img_maq,
-    nome_maq,
-    tipo_maq,
-    tipo2_maq,
-    desc_maq,
-    tempo_estimado_minutos
-)
+INSERT INTO
+    agenda (
+        data,
+        tempo_planejado,
+        descricao_problema,
+        tipo_servico,
+        endereco_servico,
+        status_os,
+        id_cliente,
+        id_profissional
+    )
 VALUES
-(
-    'motor_indutivo.png',
-    'Motor de Indução Trifásico AC',
-    'Motores',
-    'Elétrico',
-    'Motor elétrico industrial.',
-    120
-),
-(
-    'compressor_parafuso.png',
-    'Compressor de Parafuso Rotativo',
-    'Pneumática',
-    'Geração de Ar',
-    'Compressor industrial.',
-    90
-),
-(
-    'bomba_pistao.png',
-    'Bomba Hidráulica de Pistão Axial',
-    'Hidráulica',
-    'Alta Pressão',
-    'Bomba hidráulica industrial.',
-    180
-),
-(
-    'torno_cnc.png',
-    'Torno CNC Industrial X-1000',
-    'Equipamentos Industriais',
-    'Usinagem',
-    'Torno CNC de precisão.',
-    240
-);
+    (
+        '2026-06-05',
+        120,
+        'Motor trifásico apresentando superaquecimento e perda de potência durante operação contínua.',
+        'Manutenção Preventiva',
+        'Rua das Indústrias, 1500 - São Paulo/SP',
+        'Agendada',
+        1,
+        3
+    ),
+    (
+        '2026-06-08',
+        180,
+        'Sistema hidráulico da prensa industrial com vazamento e baixa pressão.',
+        'Mecatrônica',
+        'Av. Industrial, 3200 - Guarulhos/SP',
+        'Pendente',
+        1,
+        5
+    );
 
--- 3. Agenda
-INSERT INTO agenda (
-    data,
-    tempo_planejado,
-    valor_total,
-    descricao_problema,
-    tipo_servico,
-    endereco_servico,
-    metodo_pagamento,
-    status_os,
-    id_cliente,
-    id_profissional
-)
-VALUES
-(
-    '2026-06-05',
-    120,
-    250.00,
-    'Motor trifásico apresentando superaquecimento.',
-    'Manutenção Preventiva',
-    'Rua das Indústrias, 1500 - São Paulo/SP',
-    'Pix',
-    'Agendada',
-    1,
-    3
-),
-(
-    '2026-06-08',
-    180,
-    400.00,
-    'Sistema hidráulico com vazamento.',
-    'Mecatrônica',
-    'Av. Industrial, 3200 - Guarulhos/SP',
-    'Débito',
-    'Pendente',
-    1,
-    5
-);
+-- DESC suporte;
 
--- 4. Suporte
-INSERT INTO suporte (
-    nome_cliente,
-    desc_sup,
-    tel_sup,
-    email_sup,
-    id_usuario,
-    resposta_admin,
-    status_suporte
-)
-VALUES
-(
-    'TechSolutions Indústria LTDA',
-    'Não consigo visualizar os agendamentos.',
-    '(11) 98765-4321',
-    'contato@techsolutions.com',
-    1,
-    NULL,
-    'Pendente'
-);
+
