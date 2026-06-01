@@ -131,6 +131,7 @@ div.logo img {
         'opsz' 24;
     font-feature-settings: 'liga' 1;
     text-transform: none;
+    color: white;
 }
 
 /* PAGE LAYOUT */
