@@ -46,10 +46,13 @@ function nomeUsuario() {
     require_once '../partials/header.php';
     require_once '../php/saudacao.php';
     ?>
-    <div class='imgperfil'>
-        <img src=../img/uploads/usuarios/profissionais/<?=$user['img_user']?>>
-        <br>
-        <a href='editardados.php'><img src=../img/lapiseditar.png width='50'></a>
+    <div class="perfil">
+        <div class='imgperfil'>
+            <div class="status"></div>
+            <img class="fotoperfil" src=../img/uploads/usuarios/profissionais/<?=$user['img_user']?>>
+            <br>
+            <a href='editardados.php' class="editar"><img src=../img/lapiseditar.png width='50'></a>
+        </div>
     </div>
     <h1><?=nomeUsuario($pdo)?></h1>
     <div class="funcionalidades">
