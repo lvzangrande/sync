@@ -117,7 +117,7 @@
 
             <div class="team-card">
                 <div class="card-image-wrapper">
-                    <img src="img/foto-equipe/foto-gui.jpegj" alt="" class="card-img">
+                    <img src="img/foto-equipe/foto-gui.jpeg" alt="" class="card-img">
                 </div>
                 <div class="card-info-basic">
                     <span class="badge-funcao">Dev Back-End</span>
