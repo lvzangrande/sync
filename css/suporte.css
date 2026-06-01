@@ -172,7 +172,7 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
     transition: all 0.3s ease;
     gap: 15px;
-    color: var(--color-sky-light); /* ← move a cor pra cá */
+    color: var(--color-sky-light);
 }
 
 .upload-area:hover {
