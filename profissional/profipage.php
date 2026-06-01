@@ -42,7 +42,7 @@ function nomeUsuario() {
     require_once '../php/saudacao.php';
     ?>
     <div class='imgperfil'>
-        <img src=../img/<?=$user?>>
+        <img src=../img/uploads/usuarios/profissionais/<?=$user['img_user']?>>
         <br>
         <a href='editardados.php'><img src=../img/lapiseditar.png width='50'></a>
     </div>
