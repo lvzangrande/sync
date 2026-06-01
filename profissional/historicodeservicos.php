@@ -13,7 +13,6 @@ if (isset($_SESSION['mensagem'])) {
     unset($_SESSION['mensagem']);
 }
 //adiciona o método de pagamento na tabela do sql, só exibe no detalhe de contratações
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -21,14 +20,41 @@ if (isset($_SESSION['mensagem'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Histórico de contratações</title>
-    <link rel="stylesheet" href="../css/userpage.css">
+    <link rel="stylesheet" href="../css/profipage.css">
     <link rel="stylesheet" href="../css/partials.css">
 </head>
 <?php
 require_once '../partials/header.php';
 ?>
-<a href="./userpage.php">Voltar</a>
 <body>
+    <a href="./profipage.php">Voltar</a>
+    <div class="body">
+<?php
+    require_once '../crud.php';
+
+$tableAgenda = readAll($pdo,'agenda');
+
+
+$serv_pend = 0;
+$serv_conc = 0;
+foreach($tableAgenda as $agendamento){"";}
+if($agendamento['status_os'] == 'Concluída'){
+    foreach($tableAgenda as $agendamento)
+    $serv_conc++;
+;}
+if($agendamento['status_os'] != 'Concluída' && $agendamento['status_os'] != 'Cancelada'){
+    foreach($tableAgenda as $agendamento)
+    $serv_pend++;
+;}
+?>
+<div class="servicos">
+
+<p>Serviços pendentes<br><b class="pendente"><?=$serv_pend?></b></p>
+
+<a href="#" class="conferir">Conferir</a>
+
+<p>Serviços concluídos<br><b class="concluido"><?=$serv_conc?></b></p>
+</div>    
     <table>
         <tr>
             <!--<th colspan="99">Histórico de contratações<th>-->
@@ -43,9 +69,6 @@ require_once '../partials/header.php';
             <th class='td_verDetalhes'></th>
         </tr>
 <?php
-require_once '../crud.php';
-
-$tableAgenda = readAll($pdo,'agenda');
         foreach($tableAgenda as $agendamento){
 
     $nomeProfi = read_nome_via_ID($pdo,'usuarios',$agendamento['id_profissional']);
@@ -55,6 +78,7 @@ $palavras = explode(' ', trim($agendamento['descricao_problema']));
     $descricaoResumida = (count($palavras) > 4) 
         ? implode(' ', array_slice($palavras, 0, 4)) . '...' 
         : $agendamento['descricao_problema'];
+        
         if($agendamento['id_profissional'] === $_SESSION['id_user']){
             echo "<tr>
                     <td>".$agendamento['data']."</td>
@@ -68,9 +92,8 @@ $palavras = explode(' ', trim($agendamento['descricao_problema']));
                     <td class='td_verDetalhes'><a class='verDetalhes' href='detalhesContratacao.php?id=".$agendamento['id_os']."'>Ver detalhes</a></td>";
         }
     }
-    echo "</tr>";
 ?>
 </table>
-
+</div>
 </body>
 </html>

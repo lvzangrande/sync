@@ -26,6 +26,11 @@ function nomeUsuario() {
     $idUser = (int)$_SESSION['id_user'];
     $user = read($pdo,'usuarios',"id_user = $idUser");
 
+    $tableAgenda = readAll($pdo,'agenda');
+    $totalserv = 0;
+    foreach($tableAgenda as $agendamento){
+    $totalserv ++
+    ;}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -47,7 +52,11 @@ function nomeUsuario() {
         <a href='editardados.php'><img src=../img/lapiseditar.png width='50'></a>
     </div>
     <h1><?=nomeUsuario($pdo)?></h1>
-    <a class="historico" href="historicodeservicos.php">Ver histórico de serviços</a>
+    <div class="funcionalidades">
+    <a class="func" href="historicodeservicos.php">Ver histórico de serviços</a>
+    <p><b class="qntdserv"><?=$totalserv?></b><br>serviços prestados</p>
+    <a class="func" href="historicodeservicos.php">Ver serviços agendados</a>
+    </div>
     <footer>
         <p>Cadastrado desde de 2026</p>
     </footer>
