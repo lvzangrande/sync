@@ -26,6 +26,11 @@ function nomeUsuario() {
     $idUser = (int)$_SESSION['id_user'];
     $user = read($pdo,'usuarios',"id_user = $idUser");
 
+    $tableAgenda = readAll($pdo,'agenda');
+    $totalserv = 0;
+    foreach($tableAgenda as $agendamento){
+    $totalserv ++
+    ;}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -41,13 +46,20 @@ function nomeUsuario() {
     require_once '../partials/header.php';
     require_once '../php/saudacao.php';
     ?>
-    <div class='imgperfil'>
-        <img src=../img/<?=$user?>>
-        <br>
-        <a href='editardados.php'><img src=../img/lapiseditar.png width='50'></a>
+    <div class="perfil">
+        <div class='imgperfil'>
+            <div class="status"></div>
+            <img class="fotoperfil" src=../img/uploads/usuarios/profissionais/<?=$user['img_user']?>>
+            <br>
+            <a href='editardados.php' class="editar"><img src=../img/lapiseditar.png width='50'></a>
+        </div>
     </div>
     <h1><?=nomeUsuario($pdo)?></h1>
-    <a class="historico" href="historicodeservicos.php">Ver histórico de serviços</a>
+    <div class="funcionalidades">
+    <a class="func" href="historicodeservicos.php">Ver histórico de serviços</a>
+    <p><b class="qntdserv"><?=$totalserv?></b><br>serviços prestados</p>
+    <a class="func" href="historicodeservicos.php">Ver serviços agendados</a>
+    </div>
     <footer>
         <p>Cadastrado desde de 2026</p>
     </footer>
