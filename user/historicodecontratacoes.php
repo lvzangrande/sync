@@ -66,7 +66,7 @@ $palavras = explode(' ', trim($agendamento['descricao_problema']));
     
     $descricaoResumida = (count($palavras) > 4) 
         ? implode(' ', array_slice($palavras, 0, 4)) . '...' 
-        : $agendamento['descricao'];
+        : $agendamento['descricao_problema'];
     echo "<tr>
             <td>".$agendamento['data']."</td>
             <td>".$agendamento['tempo_planejado']."</td>
