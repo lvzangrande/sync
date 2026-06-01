@@ -94,7 +94,7 @@ if (isset($_POST['btn_salvar'])) {
         <div class="cadastro-container" style="max-width: 800px; margin: 40px auto; padding: 40px 30px;">
 
             <div class="cadastro-header">
-                <h1>Novo Profissional</h1>
+                <h1 style="font-weight: 600;">Novo Profissional</h1>
                 <p>Preencha os dados técnicos para criar o perfil</p>
             </div>
 

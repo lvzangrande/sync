@@ -43,7 +43,7 @@ $base = BASE_URL;
                     <a class="btn-entrar" href="<?= $base ?>login.php">Entrar</a>
                     <a class="btn-cadastro" href="<?= $base ?>cadastro.php">Começar <span class="material-symbols-outlined">arrow_outward</span></a>
                 <?php else: ?>
-                    <a class="btn-entrar" href="<?= $base ?>logout.php" style="background-color: #e63946; color: white; border: none; display: inline-flex; align-items: center; gap: 8px;">
+                    <a class="btn-entrar" href="<?= $base ?>logout.php" style="background-color: #e63946; color: white; border: none; display: inline-flex; align-items: center; gap: 8px; font-weight: 600;">
                         <i class="fas fa-power-off"></i> Sair
                     </a> <?php endif; ?>
             </div>

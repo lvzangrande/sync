@@ -90,7 +90,7 @@
     <div class="membros">
         <div class="perfil">
             <div class="foto">
-                <img src="#">
+                <img src="img/carlos.png">
                 <span class="nota"><i class="fa-solid fa-star"></i> 4.9</span>
                 <span class="qtd">247 serviços</span>
             </div>
@@ -100,7 +100,7 @@
 
         <div class="perfil">
             <div class="foto">
-                <img src="#">
+                <img src="img/ana.png">
                 <span class="nota"><i class="fa-solid fa-star"></i> 4.8</span>
                 <span class="qtd">189 serviços</span>
             </div>
@@ -110,7 +110,7 @@
 
         <div class="perfil">
             <div class="foto">
-                <img src="#">
+                <img src="img/roberto.png">
                 <span class="nota"><i class="fa-solid fa-star"></i> 5.0</span>
                 <span class="qtd">312 serviços</span>
             </div>
@@ -120,7 +120,7 @@
 
         <div class="perfil">
             <div class="foto">
-                <img src="#">
+                <img src="img/mariana.jpg">
                 <span class="nota"><i class="fa-solid fa-star"></i> 4.9</span>
                 <span class="qtd">156 serviços</span>
             </div>

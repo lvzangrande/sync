@@ -64,6 +64,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
 
     <?php require_once 'partials/header.php'; ?>
+
+    <div class="form-header">
+            <h1><span class="destaque-azul"><i class="fa-solid fa-screwdriver-wrench meu-icone3"></i>Suporte</span><br> Técnico Especializado</h1>
+            <p>Conte-nos sobre o problema técnico que você está enfrentando. Nossa equipe de <br>suporte está pronta para ajudar a resolver qualquer questão relacionada ao sistema SYNC.</p>
+        </div><br>
     <main class="main-container">
         <aside class="sidebar-info">
             <div class="status-card">

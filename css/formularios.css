@@ -16,27 +16,31 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
 }
 
 body {
-    background-color: var(--deep-midnight);
+    background: linear-gradient(to bottom, #1c4376, #001233);
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 20px;
+    font-family: "Montserrat", sans-serif;
+
 }
 
 /* ==========================================================================
    2. ESTRUTURA DOS CONTAINERS E HEADERS (LOGIN, CADASTRO E SENHA)
    ========================================================================== */
-.login-container, .cadastro-container {
-    background-color: var(--slate-gray);
-    border: 1px solid var(--cool-gray);
-    border-radius: 8px;
-    width: 100%;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+.login-container,
+.cadastro-container {
+    background-color: #092848;
+    border: 1px solid #33415c;
+    border-radius: 20px;
+    width: 700px;
 }
 
 .login-container {
@@ -47,14 +51,18 @@ body {
 .cadastro-container {
     max-width: 480px;
     padding: 35px 30px;
+    margin-bottom: 160px;
 }
 
-.login-header, .cadastro-header {
+.login-header,
+.cadastro-header {
     text-align: center;
     margin-bottom: 25px;
 }
 
-.login-header h1, .cadastro-header h1, .editar-header h1 {
+.login-header h1,
+.cadastro-header h1,
+.editar-header h1 {
     color: var(--misty-blue);
     font-size: 1.9rem;
     letter-spacing: 2px;
@@ -63,7 +71,9 @@ body {
     text-align: center;
 }
 
-.login-header p, .cadastro-header p, .editar-header p {
+.login-header p,
+.cadastro-header p,
+.editar-header p {
     color: var(--light-slate);
     font-size: 0.9rem;
     margin-bottom: 10px;
@@ -87,12 +97,12 @@ body {
 
 .input-control {
     width: 100%;
-    background-color: var(--navy-dark);
-    border: 1px solid var(--cool-gray);
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid #33415c;
     color: #ffffff;
     padding: 13px 15px;
-    font-size: 1rem;
-    border-radius: 4px;
+    font-size: 0.95rem;
+    border-radius: 10px;
     outline: none;
     transition: border-color 0.3s ease;
 }
@@ -126,7 +136,7 @@ select.input-control {
 }
 
 .btn-submit {
-    width: 100%;
+    width: 400px;
     background-color: var(--royal-industrial);
     color: #ffffff;
     border: none;
@@ -135,10 +145,11 @@ select.input-control {
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin-top: 10px;
+    text-align: center;
 }
 
 .btn-submit:hover {
@@ -153,8 +164,8 @@ select.input-control {
     align-items: center;
     gap: 15px;
     width: 100%;
-    background-color: var(--navy-dark); 
-    border: 1px dashed var(--cool-gray); 
+    background-color: var(--navy-dark);
+    border: 1px dashed var(--cool-gray);
     border-radius: 4px;
     padding: 12px 14px;
     cursor: pointer;
@@ -163,7 +174,7 @@ select.input-control {
 
 .upload-container:hover {
     border-color: var(--misty-blue);
-    background-color: rgba(139, 192, 214, 0.03); 
+    background-color: rgba(139, 192, 214, 0.03);
 }
 
 .upload-container span {
@@ -171,7 +182,7 @@ select.input-control {
     font-size: 0.9rem;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis; 
+    text-overflow: ellipsis;
 }
 
 .upload-icon {
@@ -198,7 +209,8 @@ select.input-control {
 /* ==========================================================================
    5. ALERTAS E RODAPÉS
    ========================================================================== */
-.alert, .alert-error {
+.alert,
+.alert-error {
     padding: 12px;
     border-radius: 4px;
     margin-bottom: 20px;
@@ -206,7 +218,8 @@ select.input-control {
     text-align: center;
 }
 
-.alert-erro, .alert-error {
+.alert-erro,
+.alert-error {
     background-color: #5c1e29;
     color: #f8d7da;
     border: 1px solid #721c24;
@@ -218,20 +231,23 @@ select.input-control {
     border: 1px solid #c3e6cb;
 }
 
-.login-footer, .cadastro-footer {
+.login-footer,
+.cadastro-footer {
     margin-top: 22px;
     text-align: center;
     font-size: 0.85rem;
     color: var(--light-slate);
 }
 
-.login-footer a, .cadastro-footer a {
+.login-footer a,
+.cadastro-footer a {
     color: var(--misty-blue);
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
-.login-footer a:hover, .cadastro-footer a:hover {
+.login-footer a:hover,
+.cadastro-footer a:hover {
     color: #ffffff;
     text-decoration: underline;
 }

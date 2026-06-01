@@ -17,19 +17,48 @@ body {
     align-items: center;
     min-height: 100vh;
     padding: 40px 20px;
+    background: linear-gradient(to bottom, #1c4376, #001233);
 }
 
 
 .main-container {
     display: grid;
-    grid-template-columns: 300px 1fr; 
+    grid-template-columns: 300px 1fr;
     gap: 30px;
     width: 100%;
     max-width: 1100px;
-    margin-top: 120px;
+    margin-top: 50px;
     margin-bottom: 120px;
 }
 
+.form-header {
+    text-align: center;
+    color: rgba(250, 245, 239, 0.87);
+    margin-bottom: 200px;
+    margin-top: 30px;
+}
+
+.form-header h1 {
+    font-size: 65px;
+    color: #f2f3f3;
+    font-weight: 650;
+}
+
+.destaque-azul {
+    color: #85b5cb;
+    font-weight: 500;
+    letter-spacing: 2.8px;
+}
+
+.meu-icone3 {
+    margin-right: 15px;
+    font-size: 4.0rem;
+}
+
+.form-header p {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+}
 
 .sidebar-info {
     display: flex;
@@ -37,14 +66,16 @@ body {
     gap: 20px;
 }
 
-.status-card, .contact-card {
+.status-card,
+.contact-card {
     background-color: var(--color-navy-dark);
     border: 1px solid var(--color-slate-blue);
     border-radius: 8px;
     padding: 25px;
 }
 
-.status-card h3, .contact-card h3 {
+.status-card h3,
+.contact-card h3 {
     font-size: 0.85rem;
     color: var(--color-sky-light);
     text-transform: uppercase;
@@ -85,8 +116,8 @@ body {
 .form-container {
     background-color: var(--color-navy-dark);
     border: 1px solid var(--color-slate-blue);
-    border-radius: 8px;
-    padding: 40px;
+    border-radius: 20px;
+    padding: 70px 50px;
 }
 
 .form-header {
@@ -124,6 +155,7 @@ body {
     position: relative;
     display: flex;
     align-items: center;
+
 }
 
 .input-wrapper i.icon {
@@ -133,24 +165,30 @@ body {
     font-size: 1rem;
 }
 
-.input-wrapper input, 
+.input-wrapper input,
 .support-form textarea {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.2);
     border: 1px solid var(--color-slate-blue);
-    border-radius: 4px;
-    padding: 14px 15px 14px 45px; 
+    border-radius: 10px;
+    padding: 14px 15px 14px 45px;
     color: var(--white);
     font-size: 0.95rem;
     transition: all 0.3s ease;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
 }
 
 .support-form textarea {
-    padding-left: 15px; 
+    padding-left: 15px;
     resize: none;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
-.input-wrapper input:focus, 
+.input-wrapper input:focus,
 .support-form textarea:focus {
     outline: none;
     border-color: var(--color-sky-light);
@@ -160,8 +198,8 @@ body {
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .upload-area {
@@ -172,7 +210,7 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
     transition: all 0.3s ease;
     gap: 15px;
-    color: var(--color-sky-light); /* ← move a cor pra cá */
+    color: var(--color-sky-light);
 }
 
 .upload-area:hover {
@@ -191,13 +229,18 @@ input::-webkit-inner-spin-button {
     color: var(--white);
     padding: 16px;
     border: none;
-    border-radius: 8px;
+    border-radius: 15px;
     font-size: 1rem;
     font-weight: bold;
     letter-spacing: 0.5px;
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 10px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    width: 400px;         
+    align-self: center;
+
 }
 
 .btn-submit:hover {
@@ -209,4 +252,3 @@ input::-webkit-inner-spin-button {
 .btn-submit:active {
     transform: translateY(0);
 }
-
