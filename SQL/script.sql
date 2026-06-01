@@ -68,47 +68,7 @@ CREATE TABLE
         FOREIGN KEY (id_profissional) REFERENCES usuarios (id_user)
     );
 
-INSERT INTO
-    agenda (
-        data,
-        tempo_planejado,
-        valor_total,
-        descricao_problema,
-        tipo_servico,
-        endereco_servico,
-        metodo_pagamento,
-        status_os,
-        id_cliente,
-        id_profissional
-    )
-VALUES
-    (
-        '2026-06-05',
-        120,
-        250.00,
-        'Motor trifásico apresentando superaquecimento e perda de potência durante operação contínua.',
-        'Manutenção Preventiva',
-        'Rua das Indústrias, 1500 - São Paulo/SP',
-        'Pix',
-        'Agendada',
-        1,
-        3
-    ),
-    (
-        '2026-06-08',
-        180,
-        400.00,
-        'Sistema hidráulico da prensa industrial com vazamento e baixa pressão.',
-        'Mecatrônica',
-        'Av. Industrial, 3200 - Guarulhos/SP',
-        'Débito',
-        'Pendente',
-        1,
-        5
-    );
-
--- DESC agenda;
-CREATE TABLE
+    CREATE TABLE
     IF NOT EXISTS suporte (
         id_sup INT AUTO_INCREMENT PRIMARY KEY,
         nome_cliente VARCHAR(100),
@@ -121,70 +81,6 @@ CREATE TABLE
         FOREIGN KEY (id_usuario) REFERENCES usuarios (id_user)
     );
 
-INSERT INTO
-    suporte (
-        nome_cliente,
-        desc_sup,
-        tel_sup,
-        email_sup,
-        id_usuario,
-        resposta_admin,
-        status_suporte
-    )
-VALUES
-    (
-        'TechSolutions Indústria LTDA',
-        'Problema ao agendar manutenção para motor trifásico. O sistema apresenta erro ao confirmar a solicitação.',
-        '(11) 98765-4321',
-        'contato@techsolutions.com',
-        1,
-        NULL,
-        'Pendente'
-    ),
-    (
-        'TechSolutions Indústria LTDA',
-        'Solicitação de suporte para atualização de status de ordem de serviço que permanece como pendente.',
-        '(11) 98765-4321',
-        'contato@techsolutions.com',
-        1,
-        'Verificamos o problema e o status foi atualizado corretamente no sistema.',
-        'Respondido'
-    );
-
-INSERT INTO
-    agenda (
-        data,
-        tempo_planejado,
-        descricao_problema,
-        tipo_servico,
-        endereco_servico,
-        status_os,
-        id_cliente,
-        id_profissional
-    )
-VALUES
-    (
-        '2026-06-05',
-        120,
-        'Motor trifásico apresentando superaquecimento e perda de potência durante operação contínua.',
-        'Manutenção Preventiva',
-        'Rua das Indústrias, 1500 - São Paulo/SP',
-        'Agendada',
-        1,
-        3
-    ),
-    (
-        '2026-06-08',
-        180,
-        'Sistema hidráulico da prensa industrial com vazamento e baixa pressão.',
-        'Mecatrônica',
-        'Av. Industrial, 3200 - Guarulhos/SP',
-        'Pendente',
-        1,
-        5
-    );
-
--- DESC suporte;
 INSERT INTO
     usuarios (
         img_user,
@@ -293,7 +189,7 @@ VALUES
         3
     );
 
-INSERT INTO
+    INSERT INTO
     maquinas (
         img_maq,
         nome_maq,
@@ -335,3 +231,112 @@ VALUES
         'Maquinário automatizado para usinagem de precisão de peças metálicas e plásticas de alta complexidade.',
         240
     );
+
+INSERT INTO
+    agenda (
+        data,
+        tempo_planejado,
+        valor_total,
+        descricao_problema,
+        tipo_servico,
+        endereco_servico,
+        metodo_pagamento,
+        status_os,
+        id_cliente,
+        id_profissional
+    )
+VALUES
+    (
+        '2026-06-05',
+        120,
+        250.00,
+        'Motor trifásico apresentando superaquecimento e perda de potência durante operação contínua.',
+        'Manutenção Preventiva',
+        'Rua das Indústrias, 1500 - São Paulo/SP',
+        'Pix',
+        'Agendada',
+        1,
+        3
+    ),
+    (
+        '2026-06-08',
+        180,
+        400.00,
+        'Sistema hidráulico da prensa industrial com vazamento e baixa pressão.',
+        'Mecatrônica',
+        'Av. Industrial, 3200 - Guarulhos/SP',
+        'Débito',
+        'Pendente',
+        1,
+        5
+    );
+
+-- DESC agenda;
+
+
+INSERT INTO
+    suporte (
+        nome_cliente,
+        desc_sup,
+        tel_sup,
+        email_sup,
+        id_usuario,
+        resposta_admin,
+        status_suporte
+    )
+VALUES
+    (
+        'TechSolutions Indústria LTDA',
+        'Problema ao agendar manutenção para motor trifásico. O sistema apresenta erro ao confirmar a solicitação.',
+        '(11) 98765-4321',
+        'contato@techsolutions.com',
+        1,
+        NULL,
+        'Pendente'
+    ),
+    (
+        'TechSolutions Indústria LTDA',
+        'Solicitação de suporte para atualização de status de ordem de serviço que permanece como pendente.',
+        '(11) 98765-4321',
+        'contato@techsolutions.com',
+        1,
+        'Verificamos o problema e o status foi atualizado corretamente no sistema.',
+        'Respondido'
+    );
+
+INSERT INTO
+    agenda (
+        data,
+        tempo_planejado,
+        descricao_problema,
+        tipo_servico,
+        endereco_servico,
+        status_os,
+        id_cliente,
+        id_profissional
+    )
+VALUES
+    (
+        '2026-06-05',
+        120,
+        'Motor trifásico apresentando superaquecimento e perda de potência durante operação contínua.',
+        'Manutenção Preventiva',
+        'Rua das Indústrias, 1500 - São Paulo/SP',
+        'Agendada',
+        1,
+        3
+    ),
+    (
+        '2026-06-08',
+        180,
+        'Sistema hidráulico da prensa industrial com vazamento e baixa pressão.',
+        'Mecatrônica',
+        'Av. Industrial, 3200 - Guarulhos/SP',
+        'Pendente',
+        1,
+        5
+    );
+
+-- DESC suporte;
+
+
