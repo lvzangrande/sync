@@ -131,7 +131,7 @@ if (!$item) {
         .form-edit-group input {
             width: 100%;
             padding: 10px;
-            border-radius: 4px;
+            border-radius: 10px;
             border: 1px solid #7D8597;
             background-color: #1d273b;
             color: #fff;
@@ -154,7 +154,7 @@ if (!$item) {
         .form-edit-group select {
             width: 100%;
             padding: 10px;
-            border-radius: 4px;
+            border-radius: 10px;
             border: 1px solid #7D8597;
             background-color: #1d273b;
             color: #fff;
@@ -177,7 +177,7 @@ if (!$item) {
             align-items: center;
             width: 96%;
             padding: 10px;
-            border-radius: 4px;
+            border-radius: 10px;
             border: 1px solid #7D8597;
             background-color: #1d273b;
             color: #fff !important;
@@ -186,6 +186,7 @@ if (!$item) {
             text-transform: none;
             font-weight: 500;
             margin-top: 5px;
+    
         }
 
         .upload-container-style .upload-text {

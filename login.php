@@ -92,7 +92,7 @@ function redirecionarPorPerfil($tipo)
 
     <div class="login-container">
         <div class="login-header">
-            <h1>SYNC</h1>
+            <img src="img/logosemfundo.png" class="logo-form">
             <p>Acesse sua conta industrial com segurança.</p>
         </div>
 

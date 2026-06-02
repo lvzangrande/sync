@@ -1,133 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
 /* ==========================================================================
-   1. VARIÁVEIS E CONFIGURAÇÕES GERAIS
+   1. VARIÁVEIS E CONFIGURAÇÕES GERAIS (Alinhadas com suporte.css)
    ========================================================================== */
 :root {
-    --deep-midnight: #000B1E;
-    --slate-gray: #0B1528;
-    --navy-dark: #07101E;
-    --royal-industrial: #1A437E;
-    --steel-blue: #255FA3;
-    --cool-gray: #1E2D4A;
-    --misty-blue: #8BC0D6;
-    --light-slate: #6F819A;
+    --color-night-blue: #001233;
+    --color-navy-dark: #092848;
+    --color-slate-blue: #33415C;
+    --white: #ffffff;
+    --color-cool-gray: #7d8597;
+    --color-deep-blue: #214174; 
+    --color-sky-light: #85b5cb; 
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
+    font-family: "Montserrat", sans-serif; 
 }
 
 body {
     background: linear-gradient(to bottom, #1c4376, #001233);
+    background-attachment: fixed;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; 
     min-height: 100vh;
-    padding: 20px;
-    font-family: "Montserrat", sans-serif;
-
+    padding: 80px 20px 40px 20px; 
 }
 
 /* ==========================================================================
-   2. ESTRUTURA DOS CONTAINERS E HEADERS (LOGIN, CADASTRO E SENHA)
+   2. CONTAINERS E LOGÓTIPO
    ========================================================================== */
 .login-container,
 .cadastro-container {
-    background-color: #092848;
-    border: 1px solid #33415c;
+    background-color: var(--color-navy-dark);
+    border: 1px solid rgba(51, 65, 92, 0.4); 
     border-radius: 20px;
-    width: 700px;
+    width: 100%;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    margin: auto; 
+}
+
+.logo-form {
+    max-width: 150px; 
+    height: auto;
+    margin: 0 auto 15px auto; 
+    display: block;
 }
 
 .login-container {
     max-width: 420px;
-    padding: 40px 30px;
+    padding: 50px 40px;
 }
 
 .cadastro-container {
-    max-width: 480px;
-    padding: 35px 30px;
-    margin-bottom: 160px;
+    max-width: 550px; 
+    padding: 45px 40px;
+    margin-bottom: 60px;
 }
 
-.login-header,
-.cadastro-header {
-    text-align: center;
-    margin-bottom: 25px;
-}
 
-.login-header h1,
-.cadastro-header h1,
-.editar-header h1 {
-    color: var(--misty-blue);
-    font-size: 1.9rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 5px;
-    text-align: center;
-}
-
-.login-header p,
-.cadastro-header p,
-.editar-header p {
-    color: var(--light-slate);
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-    text-align: center;
+.login-container:hover,
+.cadastro-container:hover {
+    border-color: var(--color-sky-light);
+    box-shadow: 0 0 15px rgba(133, 181, 203, 0.2);
 }
 
 /* ==========================================================================
-   3. ELEMENTOS DE FORMULÁRIO (COMPARTILHADOS)
+   3. HEADERS (Tipografia alinhada com a Home)
+   ========================================================================== */
+.login-header,
+.cadastro-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.login-header h1,
+.cadastro-header h1 {
+    color: var(--white);
+    font-size: 2.2rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+}
+
+.login-header p,
+.cadastro-header p {
+    color: var(--color-sky-light);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   4. ELEMENTOS DE FORMULÁRIO 
    ========================================================================== */
 .form-group {
-    margin-bottom: 18px;
+    margin-bottom: 20px;
 }
 
 .form-group label {
     display: block;
-    color: #ffffff;
-    margin-bottom: 7px;
-    font-size: 0.9rem;
-    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
 }
 
 .input-control {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.2);
-    border: 1px solid #33415c;
-    color: #ffffff;
-    padding: 13px 15px;
+    border: 1px solid var(--color-slate-blue);
+    color: var(--white);
+    padding: 14px 15px;
     font-size: 0.95rem;
     border-radius: 10px;
     outline: none;
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
+
 .input-control:focus {
-    border-color: var(--misty-blue);
+    border-color: var(--color-sky-light);
+    background-color: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 8px rgba(133, 181, 203, 0.25);
 }
 
 .input-control::placeholder {
-    color: var(--light-slate);
+    color: rgba(255, 255, 255, 0.4);
 }
 
-/* Estilização do Select do Cadastro */
 select.input-control {
     cursor: pointer;
     appearance: none;
-    background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%2385b5cb' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
     background-repeat: no-repeat;
-    background-position: right 10px center;
+    background-position: right 15px center;
 }
 
-/* Alinhamento de dois inputs na mesma linha */
 .form-separacao {
     display: flex;
-    gap: 20px;
+    gap: 15px;
     width: 100%;
 }
 
@@ -135,71 +152,58 @@ select.input-control {
     flex: 1;
 }
 
+/* ==========================================================================
+   5. BOTÕES 
+   ========================================================================== */
 .btn-submit {
-    width: 400px;
-    background-color: var(--royal-industrial);
-    color: #ffffff;
+    width: 100%;
+    background-color: var(--color-deep-blue);
+    color: var(--white);
     border: none;
-    padding: 14px;
+    padding: 16px;
     font-size: 1rem;
-    font-weight: bold;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 10px;
-    text-align: center;
+    transition: all 0.3s ease;
+    margin-top: 15px;
 }
 
 .btn-submit:hover {
-    background-color: var(--steel-blue);
+    background-color: #39678f;
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(33, 65, 116, 0.4);
 }
 
 /* ==========================================================================
-   4. UPLOAD DE IMAGEM (EXCLUSIVO DO CADASTRO)
+   6. UPLOAD DE IMAGEM
    ========================================================================== */
 .upload-container {
     display: flex;
     align-items: center;
     gap: 15px;
     width: 100%;
-    background-color: var(--navy-dark);
-    border: 1px dashed var(--cool-gray);
-    border-radius: 4px;
-    padding: 12px 14px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px dashed var(--color-slate-blue);
+    border-radius: 10px;
+    padding: 12px 15px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .upload-container:hover {
-    border-color: var(--misty-blue);
-    background-color: rgba(139, 192, 214, 0.03);
+    border-color: var(--color-sky-light);
+    background-color: rgba(133, 181, 203, 0.05);
 }
 
 .upload-container span {
-    color: var(--light-slate);
+    color: var(--color-sky-light);
     font-size: 0.9rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-.upload-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    background-color: rgba(111, 129, 154, 0.1);
-    border-radius: 4px;
-    color: #ffffff;
-    flex-shrink: 0;
-}
-
-.upload-icon svg {
-    width: 18px;
-    height: 18px;
 }
 
 .input-file-hidden {
@@ -207,47 +211,49 @@ select.input-control {
 }
 
 /* ==========================================================================
-   5. ALERTAS E RODAPÉS
+   7. ALERTAS E RODAPÉS
    ========================================================================== */
 .alert,
 .alert-error {
-    padding: 12px;
-    border-radius: 4px;
-    margin-bottom: 20px;
+    padding: 14px;
+    border-radius: 8px;
+    margin-bottom: 25px;
     font-size: 0.9rem;
     text-align: center;
+    font-weight: 500;
 }
 
 .alert-erro,
 .alert-error {
-    background-color: #5c1e29;
-    color: #f8d7da;
-    border: 1px solid #721c24;
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #ff8793;
+    border: 1px solid rgba(220, 53, 69, 0.3);
 }
 
 .alert-sucesso {
-    background-color: #1e4620;
-    color: #d4edda;
-    border: 1px solid #c3e6cb;
+    background-color: rgba(40, 167, 69, 0.1);
+    color: #8ce69f;
+    border: 1px solid rgba(40, 167, 69, 0.3);
 }
 
 .login-footer,
 .cadastro-footer {
-    margin-top: 22px;
+    margin-top: 30px;
     text-align: center;
     font-size: 0.85rem;
-    color: var(--light-slate);
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .login-footer a,
 .cadastro-footer a {
-    color: var(--misty-blue);
+    color: var(--color-sky-light);
     text-decoration: none;
-    transition: color 0.2s ease;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
 .login-footer a:hover,
 .cadastro-footer a:hover {
-    color: #ffffff;
+    color: var(--white);
     text-decoration: underline;
 }

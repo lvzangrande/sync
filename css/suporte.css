@@ -70,7 +70,7 @@ body {
 .contact-card {
     background-color: var(--color-navy-dark);
     border: 1px solid var(--color-slate-blue);
-    border-radius: 8px;
+    border-radius: 20px;
     padding: 25px;
 }
 

@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+
+:root {
+    --color-navy-dark: #092848;
+    --color-slate-blue: #33415C;
+    --white: #ffffff;
+    --color-deep-blue: #214174; 
+    --color-sky-light: #85b5cb; 
+}
+
+
+.cadastro-prof-container {
+    background-color: var(--color-navy-dark);
+    border: 1px solid rgba(51, 65, 92, 0.4); 
+    border-radius: 20px;
+    width: 100%;
+    max-width: 700px; 
+    margin: 140px auto 60px auto;
+    padding: 50px 45px;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    font-family: "Montserrat", sans-serif;
+    color: var(--white);
+    box-sizing: border-box;
+}
+
+
+.cadastro-prof-container:hover {
+    border-color: var(--color-sky-light);
+    box-shadow: 0 0 15px rgba(133, 181, 203, 0.2);
+}
+
+.cadastro-prof-container .cadastro-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.cadastro-prof-container .cadastro-header h1 {
+    font-size: 2.2rem;
+    font-weight: 800; 
+    text-transform: uppercase; 
+    letter-spacing: 1.5px;
+    color: var(--white);
+    margin-bottom: 8px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.cadastro-prof-container .cadastro-header p {
+    color: var(--color-sky-light);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.cadastro-prof-container .form-group {
+    margin-bottom: 25px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.cadastro-prof-container .form-separacao {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+.cadastro-prof-container .form-separacao .form-group {
+    flex: 1;
+    min-width: 0; 
+}
+
+.cadastro-prof-container .form-group label {
+    display: block;
+    color: var(--white);
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    font-family: "Montserrat", sans-serif;
+}
+
+
+.cadastro-prof-container .input-control {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--color-slate-blue);
+    color: var(--white);
+    padding: 14px 15px;
+    font-size: 0.95rem;
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.3s ease;
+    font-family: "Montserrat", sans-serif;
+    box-sizing: border-box;
+}
+
+.cadastro-prof-container textarea.input-control {
+    resize: vertical; 
+}
+
+
+.cadastro-prof-container .input-control:focus {
+    border-color: var(--color-sky-light);
+    background-color: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 8px rgba(133, 181, 203, 0.25);
+}
+
+.cadastro-prof-container .input-control::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+
+.cadastro-prof-container .upload-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px dashed var(--color-slate-blue);
+    border-radius: 10px;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.cadastro-prof-container .upload-container:hover {
+    border-color: var(--color-sky-light);
+    background-color: rgba(133, 181, 203, 0.05);
+}
+
+.cadastro-prof-container .upload-container span {
+    color: var(--color-sky-light);
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: "Montserrat", sans-serif;
+}
+
+.cadastro-prof-container .input-file-hidden {
+    display: none;
+}
+
+.cadastro-prof-container .btn-submit {
+    width: 100%;
+    background-color: var(--color-deep-blue);
+    color: var(--white);
+    border: none;
+    padding: 18px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.cadastro-prof-container .btn-submit:hover {
+    background-color: #39678f;
+    transform: scale(1.01);
+    box-shadow: 0 5px 15px rgba(33, 65, 116, 0.4);
+}
+
+
+.cadastro-prof-container .alert-error {
+    background-color: rgba(220, 53, 69, 0.1) !important;
+    color: #ff8793 !important;
+    border: 1px solid rgba(220, 53, 69, 0.3) !important;
+    padding: 14px !important;
+    border-radius: 8px !important;
+    margin-bottom: 25px !important;
+    text-align: center;
+    font-weight: 500;
+    font-family: "Montserrat", sans-serif;
+}
