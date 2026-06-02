@@ -28,12 +28,12 @@
         <header>
         <?php require_once "../partials/header.php";?>
             </header>
-            <a href="./historicodeservicos.php">Voltar</a>
+            <a href="<?=$_SERVER['HTTP_REFERER']?>">Voltar</a>
         <div class="container">
             <?php        
                 
+                $nomeCliente = read_nome_via_ID($pdo, 'usuarios', $agendamento['id_cliente']);
                 
-                        $nomeCliente = read_nome_via_ID($pdo, 'usuarios', $agendamento['id_cliente']);
                         $nomeProfi   = read_nome_via_ID($pdo, 'usuarios', $agendamento['id_profissional']);
                         
                         

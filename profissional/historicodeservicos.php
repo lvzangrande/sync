@@ -35,25 +35,31 @@ require_once '../partials/header.php';
 $tableAgenda = readAll($pdo,'agenda');
 
 
-$serv_pend = 0;
-$serv_conc = 0;
-foreach($tableAgenda as $agendamento){"";}
-if($agendamento['status_os'] == 'Concluída'){
-    foreach($tableAgenda as $agendamento)
-    $serv_conc++;
-;}
-if($agendamento['status_os'] != 'Concluída' && $agendamento['status_os'] != 'Cancelada'){
-    foreach($tableAgenda as $agendamento)
-    $serv_pend++;
-;}
+$serv_pend  = 0;
+$serv_conc  = 0;
+$serv_agend = 0;
+foreach($tableAgenda as $agendamento){
+    if($agendamento['status_os'] == 'Concluída'){
+        $serv_conc++;
+    ;}
+    elseif($agendamento['status_os'] == 'Pendente'){
+        foreach($tableAgenda as $agendamento)
+        $serv_pend++;
+    ;}
+    elseif($agendamento['status_os'] == 'Agendada'){
+        $serv_agend++;
+    ;}
+}
 ?>
 <div class="servicos">
 
-<p>Serviços pendentes<br><b class="pendente"><?=$serv_pend?></b></p>
+<p>Serviços pendentes<br><b class="servpendente"><?=$serv_pend?></b></p>
 
-<a href="#" class="conferir">Conferir</a>
+<a href="servagendados.php" class="conferir">Conferir</a>
 
-<p>Serviços concluídos<br><b class="concluido"><?=$serv_conc?></b></p>
+<p>Serviços agendados<br><b class="servpendente"><?=$serv_agend?></b></p>
+
+<p>Serviços concluídos<br><b class="servconcluido"><?=$serv_conc?></b></p>
 </div>    
     <table>
         <tr>

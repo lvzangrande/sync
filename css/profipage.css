@@ -74,6 +74,14 @@ margin-right: 15px;
     justify-content: center;
     align-items: center;
 }
+.servpendente{
+    font-size: 50px;
+    color: #ab0000;
+}
+.servconcluido{
+    color: green;
+    font-size: 50px;
+}
 /*HISTÓRICO DE SERVIÇOS*/
 
 .botaovoltar{
@@ -127,6 +135,7 @@ td{
     align-items: center;
 
     font-size: 25px;
+    white-space: nowrap;
 }
 
 .container{
@@ -205,23 +214,39 @@ button{
 
 /*SERVIÇOS AGENDADOS*/
 
-
-
+.tipos_status{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tipos_status div{
+    margin: 40px;
+}
 .concluido{
-    font-size:60px;
     background-color:limegreen;
     height: 20px;
     width: 20px;
+    border-radius: 50px;
+    margin: 30px;
 }
 .proximo{
-    font-size: 60px;
     background-color:#ffa900;
     height: 20px;
     width: 20px;
+    border-radius: 50px;
+    margin: 30px;
+}
+.distante{
+    background-color:#7e7e7e;
+    height: 20px;
+    width: 20px;
+    border-radius: 50px;
+    margin: 30px;
 }
 .atrasado{
-    font-size: 60px;
     background-color: #ab0000;
     height: 20px;
     width: 20px;
+    border-radius: 50px;
+    margin: 30px;
 }

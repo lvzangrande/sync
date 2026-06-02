@@ -18,21 +18,7 @@ require_once "../crud.php";
 $tableAgenda = readAll($pdo,'agenda');
 
 
-foreach($tableAgenda as $agendamento){
-        if($agendamento['status_os'] != 'Concluída' && $agendamento['status_os'] != 'Cancelada'){
-            foreach($tableAgenda as $agendamento){
-                echo "";
-            }
-        ;}
-}
 
-$hoje = new DateTime();
-$dataAgendamento = new DateTime($agendamento['data']);
-$diferença = $hoje->diff($dataAgendamento);
-
-$status = "";
-
-echo $diferença->days;
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -48,13 +34,16 @@ require_once '../partials/header.php';
 ?>
 <body>
     <div class="tipos_status">
-    <div class="concluido"></div>
+    
+    <div class="concluido"></div><a>Concluído</a>
 
-    <div class="proximo"></div>
+    <div class="proximo"></div><a>Próximo</a>
 
-    <div class="atrasado"></div>
+    <div class="distante"></div><a>Distante</a>
+
+    <div class="atrasado"></div><a>Pendente</a>
 </div>
-    <a href="./profipage.php">Voltar</a>
+<a href="./profipage.php">Voltar</a>
     <div class="body">
 <?php
     require_once '../crud.php';
@@ -65,6 +54,7 @@ $tableAgenda = readAll($pdo,'agenda');
     <table>
         <tr>
             <!--<th colspan="99">Histórico de contratações<th>-->
+            <th><th>
             <th>Data</th>
             <th>Tempo estimado</th>
             <th>Valor</th>
@@ -76,6 +66,8 @@ $tableAgenda = readAll($pdo,'agenda');
             <th class='td_verDetalhes'></th>
         </tr>
 <?php
+$hoje = new DateTime();
+
         foreach($tableAgenda as $agendamento){
 
     $nomeProfi = read_nome_via_ID($pdo,'usuarios',$agendamento['id_profissional']);
@@ -85,18 +77,36 @@ $palavras = explode(' ', trim($agendamento['descricao_problema']));
     $descricaoResumida = (count($palavras) > 4) 
         ? implode(' ', array_slice($palavras, 0, 4)) . '...' 
         : $agendamento['descricao_problema'];
-        
-        if($agendamento['id_profissional'] === $_SESSION['id_user']){
-            echo "<tr>
-                    <td>".$agendamento['data']."</td>
-                    <td>".$agendamento['tempo_planejado']."</td>
-                    <td>".$agendamento['valor_total']."</td>
-                    <td>".$descricaoResumida."</td>
-                    <td>".$agendamento['endereco_servico']."</td>
-                    <td>".$nomeCliente."</td>
-                    <td>".$nomeProfi."</td>
-                    <td>".$agendamento['status_os']."</td>
-                    <td class='td_verDetalhes'><a class='verDetalhes' href='detalhesserv.php?id=".$agendamento['id_os']."'>Ver detalhes</a></td>";
+
+        $dataAgendamento =new DateTime($agendamento['data']);
+                
+        $diferenca = (int)$hoje->diff($dataAgendamento)->format('%r%a');
+
+        $status = "";
+        if($diferenca <= 0){
+            $status="atrasado";
+        }
+        if($diferenca >= 21){
+            $status="distante";
+        }
+        else{
+            $status="proximo";
+        }
+            if($agendamento['id_profissional'] === $_SESSION['id_user']){
+                if($agendamento['status_os'] != 'Concluída' && $agendamento['status_os'] != 'Cancelada'){
+
+                        echo "<tr>
+                                <td><div class='".$status."'></div></td>
+                                <td>".$agendamento['data']."</td>
+                                <td>".$agendamento['tempo_planejado']."</td>
+                                <td>".$agendamento['valor_total']."</td>
+                                <td>".$descricaoResumida."</td>
+                                <td>".$agendamento['endereco_servico']."</td>
+                                <td>".$nomeCliente."</td>
+                                <td>".$nomeProfi."</td>
+                                <td>".$agendamento['status_os']."</td>
+                                <td class='td_verDetalhes'><a class='verDetalhes' href='detalhesserv.php?id=".$agendamento['id_os']."'>Ver detalhes</a></td>";
+                }
             }
         }
 ?>
