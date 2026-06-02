@@ -43,7 +43,7 @@ if (isset($_POST['btn_salvar'])) {
                 $extensao = pathinfo($_FILES['img_user']['name'], PATHINFO_EXTENSION);
                 $novonome = "profissional_" . uniqid() . "." . $extensao;
 
-                $dir = "../uploads/usuarios/";
+                $dir = "../img/uploads/usuarios/profissionais/";
                 $file = $dir . $novonome;
 
                 if (!is_dir($dir)) {
