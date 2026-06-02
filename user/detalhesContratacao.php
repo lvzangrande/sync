@@ -13,6 +13,7 @@
     $tableAgenda = readAll($pdo,'agenda');
     $idAgendamento = (int)$_GET['id'];
     $agendamento = read($pdo,'agenda',"id_os = $idAgendamento");
+    $valor = read($pdo, 'usuarios', 'id_user='.$agendamento['id_profissional']);
     unset($_SESSION['pedido']);
     ?>
     <!DOCTYPE html>
@@ -45,7 +46,7 @@
                 <a>".$agendamento['tempo_planejado']."</a><br><hr>
 
                 <label>Valor: </label>
-                <a>".$agendamento['valor_total']."</a><br><hr>
+                <a>".$agendamento['tempo_planejado'] * $valor['valor_dia']."</a><br><hr>
 
                 <label>Descrição</label>
                 <a>".$agendamento['descricao_problema']."</a><br><hr>

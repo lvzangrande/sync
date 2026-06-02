@@ -62,15 +62,16 @@ $tableAgenda = readAll($pdo,'agenda');
 
     $nomeProfi = read_nome_via_ID($pdo,'usuarios',$agendamento['id_profissional']);
     $nomeCliente = read_nome_via_ID($pdo,'usuarios',$agendamento['id_cliente']);
-$palavras = explode(' ', trim($agendamento['descricao_problema'])); 
+    $valor = read($pdo, 'usuarios', 'id_user='.$agendamento['id_profissional']);
+    $palavras = explode(' ', trim($agendamento['descricao_problema'])); 
     
     $descricaoResumida = (count($palavras) > 4) 
         ? implode(' ', array_slice($palavras, 0, 4)) . '...' 
-        : $agendamento['descricao'];
+        : $agendamento['descricao_problema'];
     echo "<tr>
             <td>".$agendamento['data']."</td>
             <td>".$agendamento['tempo_planejado']."</td>
-            <td>".$agendamento['valor_total']."</td>
+            <td>".$agendamento['tempo_planejado'] * $valor['valor_dia']."</td>
             <td>".$descricaoResumida."</td>
             <td>".$agendamento['endereco_servico']."</td>
             <td>".$nomeCliente."</td>
