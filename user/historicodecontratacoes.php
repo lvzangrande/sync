@@ -13,7 +13,7 @@ if (isset($_SESSION['mensagem'])) {
     unset($_SESSION['mensagem']);
 }
 //adiciona o método de pagamento na tabela do sql, só exibe no detalhe de contratações
-
+unset($_SESSION['pedido']);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
