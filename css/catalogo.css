@@ -229,7 +229,7 @@ body {
 
 /* Preço */
 .preco {
-    font-size: 26px;
+    font-size: 22px;
     color: var(--misty-blue);
     margin: 10px 24px 0;
     display: inline-block;
