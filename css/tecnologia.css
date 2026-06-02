@@ -1,0 +1,328 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    background: linear-gradient(to bottom, #1c4376, #001233);
+    background-attachment: fixed;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.destaque-azul {
+    color: #85b5cb;
+    font-weight: 500;
+    letter-spacing: 1.3px;
+}
+
+.tecnologia-badge {
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    font-size: 14px;
+}
+
+.tecnologia {
+    text-align: center;
+    color: rgba(250, 245, 239, 0.87);
+    margin-bottom: 200px;
+    margin-top: 100px;
+}
+
+.tecnologia h1 {
+    font-size: 55px;
+    color: #f2f3f3;
+    font-weight: 650;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.tecnologia p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.especialidades {
+    padding: 0 5% 150px 5%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.cima-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.titulo h1 {
+    font-size: 45px;
+    color: #ffffff;
+    font-weight: 700;
+    margin: 0;
+}
+
+.titulo .texto-claro {
+    color: #85b5cb;
+
+}
+
+.desc p {
+    text-align: right;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+
+.container-cards {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+.card {
+    background-color: #33415C;
+    border-radius: 16px;
+    overflow: hidden;
+    width: 32%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #33415c2f;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: #85b5cb;
+}
+
+.img-card {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.texto {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+}
+
+.texto h2 {
+    font-size: 22px;
+    color: #ffffff;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.texto p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+    margin-bottom: 30px;
+    flex-grow: 1;
+
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #85b5cb;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    color: #ffffff;
+    gap: 15px;
+
+}
+
+
+
+.equipe {
+    padding: 20px 8% 150px 8%;
+    max-width: 1650px; 
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.equipe .topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.tag {
+    font-size: 13px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 2px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.equipe h2 {
+    font-size: 45px;
+    color: #ffffff;
+    font-weight: 700;
+    margin: 0;
+}
+
+.vermais {
+    color: #85b5cb;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+    padding-bottom: 8px; 
+}
+
+.vermais:hover {
+    color: #ffffff;
+    gap: 15px;
+}
+
+
+.membros {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px; 
+    width: 100%;
+}
+
+.perfil {
+    flex: 1;
+    min-width: 230px; 
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.perfil:hover {
+    transform: translateY(-8px);
+}
+
+.foto {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.perfil:hover .foto img {
+    transform: scale(1.06);
+}
+
+.nota {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: rgba(10, 25, 55, 0.85);
+    backdrop-filter: blur(5px);
+    color: #ffffff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nota i {
+    color: #85b5cb;
+}
+
+.qtd {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 12px;
+    font-weight: 500;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.perfil h3 {
+    color: #ffffff;
+    font-size: 19px;
+    font-weight: 700;
+    margin: 0 0 6px 0;
+}
+
+.perfil p {
+    color: #85b5cb;
+    font-size: 14px;
+    margin: 0;
+    font-weight: 500;
+}
+
+.marcas {
+    padding: 60px 8% 100px 8%;
+    max-width: 1440px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 120px;
+}
+.marcas h2 {
+    font-size: 38px;
+    color: #ffffff;
+    margin: 10px 0 50px 0;
+}
+
+.marcas p {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 600px; 
+    margin: 0 auto 50px auto; 
+    line-height: 1.5;
+}
+
+.logos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+.logos img {
+    height: 100px; 
+    border-radius: 50px;
+    
+}
+.logos:hover {
+    opacity: 0.8;
+}
+

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
 :root {
     --deep-midnight: #001233;
     --navy-dark: #092848;
@@ -10,12 +12,13 @@
     --text-primary: #FFFFFF;
     --text-secondary: #979DAC;
 }
+
 body {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    background: var(--deep-midnight);
+    background: linear-gradient(to bottom, #1c4376, #001233);
     background-attachment: fixed;
     margin: 0;
     min-height: 100vh;
@@ -34,7 +37,7 @@ body {
 
 .linha-saudacao h1 {
     color: var(--misty-blue);
-    font-size: 28px;
+    font-size: 48px;
     font-weight: 700;
     margin: 0;
     padding: 0;
@@ -43,7 +46,7 @@ body {
 
 .nome-user {
     color: #fff;
-    font-size: 28px;
+    font-size: 48px;
     font-weight: 700;
 }
 
@@ -57,7 +60,7 @@ body {
     max-width: 1200px;
     margin: 40px auto;
     padding: 0 20px;
-    font-family: 'Lexend', sans-serif;
+    font-family: "Montserrat", sans-serif;
 }
 
 .admin-title {
@@ -195,9 +198,18 @@ body {
 }
 
 .btn-edit {
-    background-color: var(--steel-blue);
+    background-color: #214174;
+    border: 1px solid #32548b93;
 }
 
 .btn-edit:hover {
     background-color: var(--royal-industrial);
+}
+
+input, 
+select, 
+textarea, 
+button, 
+.btn-action {
+    font-family: "Montserrat", sans-serif;
 }

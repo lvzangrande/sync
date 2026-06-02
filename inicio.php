@@ -25,8 +25,6 @@
     <link rel="icon" type="image/png" href="imagens/logosemfundo.png">
 </head>
 
-</head>
-
 <body>
     <header>
         <?php include 'partials/header.php'; ?>

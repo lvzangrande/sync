@@ -1,5 +1,5 @@
-:root{
-    
+:root {
+
     --deep-midnight: #001233;
     --navy-dark: #092848;
     --royal-industrial: #164578;
@@ -12,17 +12,18 @@
     --text-secondary: #979DAC;
 }
 
-body{
-    font-family: "Lexend", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  background-color: var(--deep-midnight);
+body {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    background-color: var(--deep-midnight);
 }
 
 .cards i {
     color: yellow;
 }
+
 .container {
     max-width: 1550px;
     margin: 0 auto;
@@ -30,7 +31,7 @@ body{
 }
 
 /* Section da parte de cima sem o Header */
-.topo{
+.topo {
     width: 100%;
     background-color: var(--bg-primary);
     padding: 70px 80px;
@@ -42,11 +43,11 @@ body{
 }
 
 
-.topo .textos{
+.topo .textos {
     max-width: 650px;
 }
 
-.topo .textos span{
+.topo .textos span {
     display: block;
     color: var(--misty-blue);
     font-size: 13px;
@@ -56,7 +57,7 @@ body{
     margin-bottom: 18px;
 }
 
-.topo .textos h1{
+.topo .textos h1 {
     color: var(--text-primary);
     font-size: 58px;
     font-weight: 700;
@@ -64,16 +65,16 @@ body{
     margin-bottom: 18px;
 }
 
-.topo .textos p{
+.topo .textos p {
     color: var(--light-slate);
     font-size: 22px;
     line-height: 1.6;
 }
 
-.topo select{
+.topo select {
     background-color: #102449;
     color: var(--text-primary);
-    border: 1px solid rgba(255,255,255,0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 14px;
     padding: 18px 20px;
     font-size: 16px;
@@ -83,17 +84,17 @@ body{
     transition: 0.3s;
 }
 
-.topo select:hover{
+.topo select:hover {
     border-color: var(--steel-blue);
     background-color: #16335f;
 }
 
-.topo select:focus{
+.topo select:focus {
     border-color: var(--misty-blue);
 }
 
 /* Section dos cards */
-.catalogo{
+.catalogo {
     width: 100%;
     padding: 0 80px 60px;
     display: flex;
@@ -102,39 +103,39 @@ body{
 }
 
 /* Filtro */
-.sidebar-filtros{
+.sidebar-filtros {
     width: 280px;
     position: sticky;
     top: 20px;
 }
 
 /* Espaçamento do cards */
-.cards{
+.cards {
     flex: 1;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
 }
 
-.card{
+.card {
     width: 20vw;
-    background: linear-gradient( 180deg,#1a2f55 0%,#0b1833 100% );
+    background: linear-gradient(180deg, #1a2f55 0%, #0b1833 100%);
     border: 1px solid rgba(139, 192, 214, 0.15);
     border-radius: 22px;
     overflow: hidden;
     position: relative;
-    font-family: 'Segoe UI', sans-serif;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    font-family: "Montserrat", sans-serif;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
     transition: 0.3s ease;
 }
 
-.card:hover{
+.card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.45);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
 }
 
 /* Imagem do card */
-.card img{
+.card img {
     width: 100%;
     height: 270px;
     object-fit: cover;
@@ -142,23 +143,21 @@ body{
 }
 
 /* Deixa a a parte de baixo da imagem mais escura igual na refenrencia criada */
-.card::before{
+.card::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 270px;
-    background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0) 40%,
-        rgba(9,40,72,0.95) 100%
-    );
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0) 40%,
+            rgba(9, 40, 72, 0.95) 100%);
     z-index: 1;
 }
 
 /* Caixa da Disponibilidade/Indisponibilidade */
-.disponibilidade{
+.disponibilidade {
     position: absolute;
     top: 16px;
     left: 16px;
@@ -171,11 +170,11 @@ body{
     font-weight: 600;
     text-transform: uppercase;
     z-index: 3;
-    border: 1px solid rgba(255,255,255,0.15);
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 /* Avaliação */
-.avaliacao{
+.avaliacao {
     position: absolute;
     top: 16px;
     right: 16px;
@@ -186,25 +185,25 @@ body{
     font-weight: bold;
     font-size: 14px;
     z-index: 3;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Textos no card*/
 .card p,
 .card span,
-.card a{
+.card a {
     position: relative;
     z-index: 2;
 }
 
-.nome-profi{
+.nome-profi {
     font-size: 32px;
     font-weight: 700;
     color: white;
     margin: 24px 24px 5px;
 }
 
-.especialidade{
+.especialidade {
     font-size: 18px;
     font-weight: 600;
     color: var(--misty-blue);
@@ -212,7 +211,7 @@ body{
 }
 
 /* Descrição */
-.card span{
+.card span {
     display: inline-block;
     color: var(--light-slate);
     font-size: 14px;
@@ -229,7 +228,7 @@ body{
 }
 
 /* Preço */
-.preco{
+.preco {
     font-size: 26px;
     color: var(--misty-blue);
     margin: 10px 24px 0;
@@ -238,13 +237,13 @@ body{
 
 .p-d {
     display: inline-block;
-    color:var(--light-slate);
+    color: var(--light-slate);
     font-size: 16px;
     margin-left: -3rem;
 }
 
 /* Contratar */
-.card a{
+.card a {
     text-align: center;
     width: 125px;
     text-align: center;
@@ -257,7 +256,7 @@ body{
     transition: 0.3s;
 }
 
-.card a:hover{
+.card a:hover {
     background: var(--steel-blue);
     transform: scale(1.02);
 }
@@ -280,7 +279,7 @@ body{
     border-radius: 14px;
     font-weight: 600;
     transition: 0.3s;
-    
+
 }
 
 .btn-editar:hover {
@@ -290,7 +289,7 @@ body{
 
 /* Pate latela filtros de pesquisa side bar */
 
-.sidebar-filtros{
+.sidebar-filtros {
     display: flex;
     width: 280px;
     flex-direction: column;
@@ -298,10 +297,10 @@ body{
 }
 
 /* Box Filtros */
-.box-filtro{  
+.box-filtro {
     display: flex;
     background: #0f2145;
-    border: 1px solid rgba(255,255,255,0.06);
+    border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 18px;
     padding: 22px;
     flex-direction: column;
@@ -310,7 +309,7 @@ body{
 }
 
 /* Titulos*/
-.box-filtro p{
+.box-filtro p {
     color: var(--text-primary);
     font-size: 22px;
     font-weight: 700;
@@ -319,7 +318,7 @@ body{
 }
 
 /* Label */
-.box-filtro label{
+.box-filtro label {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -327,8 +326,7 @@ body{
 }
 
 /* Checkbox */
-.box-filtro 
-input[type="checkbox"]{
+.box-filtro input[type="checkbox"] {
     appearance: none;
     width: 20px;
     height: 20px;
@@ -341,15 +339,13 @@ input[type="checkbox"]{
 }
 
 /* Parte de dentro da check box */
-.box-filtro 
-input[type="checkbox"]:checked{
+.box-filtro input[type="checkbox"]:checked {
     background: var(--steel-blue);
     border-color: var(--steel-blue);
 }
 
 
-.box-filtro 
-input[type="checkbox"]:checked::before{
+.box-filtro input[type="checkbox"]:checked::before {
     content: "✓";
     color: white;
     font-size: 12px;
@@ -361,23 +357,23 @@ input[type="checkbox"]:checked::before{
 }
 
 /* Textos do filtro  */
-.box-filtro span{
+.box-filtro span {
     color: var(--light-slate);
     font-size: 17px;
     transition: 0.3s;
 }
 
-.box-filtro label:hover span{
+.box-filtro label:hover span {
     color: white;
 }
 
-.btn-limpar{
+.btn-limpar {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 55px;
-    border: 1px solid rgba(255,255,255,0.15);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 14px;
     background-color: transparent;
     color: white;
@@ -388,6 +384,6 @@ input[type="checkbox"]:checked::before{
     margin-top: 10px;
 }
 
-.btn-limpar:hover{
+.btn-limpar:hover {
     background-color: #11254a;
 }

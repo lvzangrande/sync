@@ -103,7 +103,7 @@ if (
 
     <div class="cadastro-container">
         <div class="cadastro-header">
-            <h1>Cadastro de Cliente</h1>
+            <h1 style="font-weight: 700; text-transform: uppercase;">Cadastro de Cliente</h1>
             <p>JUNTE SE A NÓS!</p>
         </div>
 

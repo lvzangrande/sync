@@ -37,11 +37,9 @@ if (isset($_POST['btn_salvar'])) {
 
             if (!in_array($_FILES['img_user']['type'], $tipos_permitidos)) {
                 $erro = "Tipo de arquivo não permitido.";
-            } 
-            elseif ($_FILES['img_user']['size'] > $tamanho_max) {
+            } elseif ($_FILES['img_user']['size'] > $tamanho_max) {
                 $erro = "O arquivo é muito grande. O tamanho máximo permitido é 1MB.";
-            } 
-            else {
+            } else {
                 $extensao = pathinfo($_FILES['img_user']['name'], PATHINFO_EXTENSION);
                 $novonome = "profissional_" . uniqid() . "." . $extensao;
 
@@ -76,7 +74,8 @@ if (isset($_POST['btn_salvar'])) {
     <title>Cadastro de profissonal | Sync</title>
 
     <link rel="stylesheet" href="../css/admin.css">
-    <link rel="stylesheet" href="../css/formularios.css">
+    <link rel="stylesheet" href="../css/cadastro_profissional.css">
+    <link rel="stylesheet" href="../css/partials.css">
     <link rel="stylesheet" href="../css/partials.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -91,10 +90,10 @@ if (isset($_POST['btn_salvar'])) {
 <body>
     <?php require_once '../partials/header.php' ?>
     <main>
-        <div class="cadastro-container" style="max-width: 800px; margin: 40px auto; padding: 40px 30px;">
+        <div class="cadastro-prof-container">
 
             <div class="cadastro-header">
-                <h1>Novo Profissional</h1>
+                <h1 style="font-weight: 600;">Novo Profissional</h1>
                 <p>Preencha os dados técnicos para criar o perfil</p>
             </div>
 

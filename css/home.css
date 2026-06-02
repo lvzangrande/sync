@@ -371,7 +371,7 @@ body {
 .depoimentos {
   padding: 120px 0;
   text-align: center;
-  margin-bottom: 200px;
+  margin-bottom: 160px;
 }
 
 .titulo-depoimentos {
@@ -523,8 +523,7 @@ body {
 .sincronize {
   text-align: center;
   color: rgba(250, 245, 239, 0.87);
-
-  margin-bottom: 230px;
+  margin-bottom: 270px;
 }
 
 .sincronize h1 {
@@ -549,6 +548,7 @@ body {
   border-radius: 100%;
   margin: 0;
   margin-right: 10px;
+  transition: transform 0.3s ease;
 
 }
 
@@ -572,8 +572,12 @@ body {
 }
 
 .btn-comecar2:hover {
+  background-color: #2b5596;
   transition: 0.3s;
-  transform: scale(1.5);
+}
+
+.btn-comecar2:hover .gear-icone {
+  transform: scale(1.1);
 }
 
 .carrossel-dots {
