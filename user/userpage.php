@@ -58,7 +58,6 @@ $categoria = $_SESSION['tipo'];
     require_once '../partials/header.php';
     require_once '../php/saudacao.php';
 
-
     ?>
 
     <div class="imgperfil">

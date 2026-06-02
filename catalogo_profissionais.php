@@ -191,7 +191,7 @@ unset($_SESSION['pedido']);
 
                             <div class="avaliacao"><i class="bi bi-star-fill"></i> ' . $card['notas'] . '</div>
 
-                            <img src="uploads/usuarios/' . $card['img_user'] . '"
+                            <img src="'.$base.'img/uploads/usuarios/profissionais/' . $card['img_user'] . '"
                             alt="Foto de ' . $card['nome'] . '">
 
                             <p class="nome-profi">' . $card['nome'] . '</p>
@@ -206,55 +206,55 @@ unset($_SESSION['pedido']);
                                 <p class="p-d">/dia</p>
                                 <div class="botoes">';
                                 
-                    if ($card['status'] == 'Inativo') {
-                        echo '<a>Indisponível</a>';
-                    } elseif ($card['status'] == 'Em Atendimento') {
-                        echo '<a>Indisponível</a>';
-                    } else {
-                        echo '<a href="contratar.php?id=' . $card['id_user'] . '">Contratar</a>';
-                    }
-                    echo '  
-                                    <a class="btn-editar" href="'.$base.'admin/editar_item.php?id=' . $card['id_user'] . '&tipo=profissional">Editar</a>  
-                                </div>    
+                            if ($card['status'] == 'Inativo') {
+                                echo '<a>Indisponível</a>';
+                            } elseif ($card['status'] == 'Em Atendimento') {
+                                echo '<a>Indisponível</a>';
+                            } else {
+                                echo '<a href="contratar.php?id=' . $card['id_user'] . '">Contratar</a>';
+                            }
+                            echo '  
+                                            <a class="btn-editar" href="'.$base.'admin/editar_item.php?id=' . $card['id_user'] . '&tipo=profissional">Editar</a>  
+                                        </div>    
+                                    </div>
+
                             </div>
-
-                        </div>
                         ';
-                } else {
-                     echo
-                            '<div class="card">
-
-                            <div class="disponibilidade">' . $card['status'] . '</div>
-
-                            <div class="avaliacao"><i class="bi bi-star-fill"></i> ' . $card['notas'] . '</div>
-
-                            <img src="uploads/usuarios/' . $card['img_user'] . '"
-                            alt="Foto de ' . $card['nome'] . '">
-
-                            <p class="nome-profi">' . $card['nome'] . '</p>
-
-                            <p class="especialidade">' . $card['especialidade'] . '</p>
-
-                            <span>15 meses</span>
-
-                            <span>320</span>
-                            <div class="rodape">
-                                <p class="preco">R$' . $card['valor_dia'] . '</p>
-                                <p class="p-d">/dia</p>';
-
-                    if ($card['status'] == 'Inativo') {
-                        echo '<a>Indisponível</a>';
-                    } elseif ($card['status'] == 'Em Atendimento') {
-                        echo '<a>Indisponível</a>';
                     } else {
-                        echo '<a href="contratar.php?id=' . $card['id_user'] . '">Contratar</a>';
-                    }
-                    echo '            
-                            </div>
+                        echo
+                                '<div class="card">
 
-                        </div>
-                        ';
-                }
+                                <div class="disponibilidade">' . $card['status'] . '</div>
+
+                                <div class="avaliacao"><i class="bi bi-star-fill"></i> ' . $card['notas'] . '</div>
+
+                                <img src="'.$base.'img/uploads/usuarios/profissionais/' . $card['img_user'] . '"
+                                alt="Foto de ' . $card['nome'] . '">
+
+                                <p class="nome-profi">' . $card['nome'] . '</p>
+
+                                <p class="especialidade">' . $card['especialidade'] . '</p>
+
+                                <span>15 meses</span>
+
+                                <span>320</span>
+                                <div class="rodape">
+                                    <p class="preco">R$' . $card['valor_dia'] . '</p>
+                                    <p class="p-d">/dia</p>';
+
+                        if ($card['status'] == 'Inativo') {
+                            echo '<a>Indisponível</a>';
+                        } elseif ($card['status'] == 'Em Atendimento') {
+                            echo '<a>Indisponível</a>';
+                        } else {
+                            echo '<a href="contratar.php?id=' . $card['id_user'] . '">Contratar</a>';
+                        }
+                        echo '            
+                                </div>
+
+                            </div>
+                            ';
+                    }
                 }
                 ?>
 

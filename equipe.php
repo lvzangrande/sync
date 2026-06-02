@@ -56,11 +56,11 @@
                 </div>
                 <div class="card-info-basic">
                     <span class="badge-funcao">Dev Back-End</span>
-                    <h3 class="dev-name">Silas Porssales</h3>
+                    <h3 class="dev-name">Silas Possarle</h3>
                 </div>
                 <div class="card-hover-panel">
                     <span class="badge-funcao">Dev Back-End</span>
-                    <h3 class="dev-name-hover">Silas Porssales</h3>
+                    <h3 class="dev-name-hover">Silas Possarle</h3>
                     <p class="dev-contribution">
                         Responsável pela área de contratação de profissionais, desenvolvendo
                         funcionalidades relacionadas ao formulário de contratação, visualização de profissionais,
