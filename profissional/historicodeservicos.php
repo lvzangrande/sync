@@ -89,7 +89,7 @@ $palavras = explode(' ', trim($agendamento['descricao_problema']));
                     <td>".$nomeCliente."</td>
                     <td>".$nomeProfi."</td>
                     <td>".$agendamento['status_os']."</td>
-                    <td class='td_verDetalhes'><a class='verDetalhes' href='detalhesContratacao.php?id=".$agendamento['id_os']."'>Ver detalhes</a></td>";
+                    <td class='td_verDetalhes'><a class='verDetalhes' href='detalhesserv.php?id=".$agendamento['id_os']."'>Ver detalhes</a></td>";
         }
     }
 ?>

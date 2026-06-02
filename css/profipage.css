@@ -25,14 +25,6 @@ img{
 .botaoEditarDados img{
     background-color: #326b93;
 }
-.concluido{
-    font-size:60px;
-    color:limegreen;
-}
-.pendente{
-    font-size: 60px;
-    color:#ffa900;
-}
 .conferir{
     background-color: #164578;
     padding: 5px;
@@ -82,7 +74,7 @@ margin-right: 15px;
     justify-content: center;
     align-items: center;
 }
-/*HISTÓRICO DE CONTRAÇÕES*/
+/*HISTÓRICO DE SERVIÇOS*/
 
 .botaovoltar{
     background-color: red;
@@ -209,4 +201,27 @@ button{
     font-size: 14px;
     color: #326b93;
     transition: 0.3s;
+}
+
+/*SERVIÇOS AGENDADOS*/
+
+
+
+.concluido{
+    font-size:60px;
+    background-color:limegreen;
+    height: 20px;
+    width: 20px;
+}
+.proximo{
+    font-size: 60px;
+    background-color:#ffa900;
+    height: 20px;
+    width: 20px;
+}
+.atrasado{
+    font-size: 60px;
+    background-color: #ab0000;
+    height: 20px;
+    width: 20px;
 }

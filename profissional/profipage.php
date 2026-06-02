@@ -58,7 +58,7 @@ function nomeUsuario() {
     <div class="funcionalidades">
     <a class="func" href="historicodeservicos.php">Ver histórico de serviços</a>
     <p><b class="qntdserv"><?=$totalserv?></b><br>serviços prestados</p>
-    <a class="func" href="historicodeservicos.php">Ver serviços agendados</a>
+    <a class="func" href="servagendados.php">Ver serviços agendados</a>
     </div>
     <footer>
         <p>Cadastrado desde de 2026</p>
