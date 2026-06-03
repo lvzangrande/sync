@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
     notas INT NULL CHECK (notas BETWEEN 0 AND 5)
 );
 
-<<<<<<< HEAD
+
 -- DESC usuarios;
 CREATE TABLE
     IF NOT EXISTS maquinas (
@@ -184,36 +184,153 @@ VALUES
         450.00,
         'Manutenção corretiva e preventiva em esteiras, tornos CNC e maquinário pesado em geral.',
         3
-    );
-
-    INSERT INTO
-    maquinas (
-        img_maq,
-        nome_maq,
-        tipo_maq,
-        tipo2_maq,
-        desc_maq,
-        tempo_estimado_minutos
-    )
-VALUES
-    (
-        'motor_indutivo.png',
-        'Motor de Indução Trifásico AC',
-        'Motores',
-        'Pneumática',
-        'Hidráulica',
-        'Alta Pressão',
-        'Unidade geradora de fluxo hidráulico para sistemas de alta pressão, como prensas e braços mecânicos.',
-        180
     ),
     (
-        'torno_cnc.png',
-        'Torno CNC Industrial X-1000',
-        'Equipamentos Industriais',
-        'Usinagem',
-        'Maquinário automatizado para usinagem de precisão de peças metálicas e plásticas de alta complexidade.',
-        240
+        'fernando_automacao.png',
+        'Fernando Lima Automação',
+        'fernando.automacao@email.com',
+        'hash_senha_303',
+        '(11) 95555-1111',
+        '111.222.333-44',
+        'PF',
+        'profissional',
+        'Automação Industrial',
+        'Disponível',
+        550.00,
+        'Projetos e manutenção de CLPs, sensores e sistemas automatizados.',
+        5
+    ),
+    (
+        'juliana_robotica.png',
+        'Juliana Mendes Robótica',
+        'juliana.robotica@email.com',
+        'hash_senha_304',
+        '(11) 95555-2222',
+        '222.333.444-66',
+        'PF',
+        'profissional',
+        'Robótica Industrial',
+        'Em Atendimento',
+        650.00,
+        'Integração e manutenção de células robotizadas industriais.',
+        5
+    ),
+    (
+        'paulo_eletrica.png',
+        'Paulo Henrique Elétrica',
+        'paulo.eletrica@email.com',
+        'hash_senha_305',
+        '(11) 95555-3333',
+        '333.444.555-77',
+        'PF',
+        'profissional',
+        'Elétrica Industrial',
+        'Disponível',
+        380.00,
+        'Instalação e manutenção de painéis elétricos industriais.',
+        4
+    ),
+    (
+        'rodrigo_cnc.png',
+        'Rodrigo Martins CNC',
+        'rodrigo.cnc@email.com',
+        'hash_senha_306',
+        '(11) 95555-4444',
+        '444.555.666-99',
+        'PF',
+        'profissional',
+        'Usinagem CNC',
+        'Disponível',
+        700.00,
+        'Programação e manutenção de centros de usinagem CNC.',
+        5
+    ),
+    (
+        'beatriz_instrumentacao.png',
+        'Beatriz Santos Instrumentação',
+        'beatriz.instrumentacao@email.com',
+        'hash_senha_307',
+        '(11) 95555-5555',
+        '555.666.777-11',
+        'PF',
+        'profissional',
+        'Instrumentação Industrial',
+        'Em Atendimento',
+        480.00,
+        'Calibração e manutenção de instrumentos de medição industrial.',
+        4
+    ),
+    (
+        'gabriel_mecatronica.png',
+        'Gabriel Rocha Mecatrônica',
+        'gabriel.mecatronica@email.com',
+        'hash_senha_308',
+        '(11) 95555-6666',
+        '666.777.888-22',
+        'PF',
+        'profissional',
+        'Mecatrônica',
+        'Disponível',
+        520.00,
+        'Manutenção integrada de sistemas mecânicos, elétricos e eletrônicos.',
+        5
+    ),
+    (
+    'metalurgica_abc.png',
+    'Metalúrgica ABC LTDA',
+    'contato@metalurgicaabc.com.br',
+    'hash_senha_401',
+    '(11) 98888-1111',
+    '12.345.678/0001-90',
+    'PJ',
+    'cliente',
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    4
+    ),
+    (
+        'industria_novaera.png',
+        'Indústria Nova Era LTDA',
+        'contato@novaera.com.br',
+        'hash_senha_402',
+        '(11) 98888-2222',
+        '98.765.432/0001-10',
+        'PJ',
+        'cliente',
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        5
     );
+
+INSERT INTO maquinas (
+    img_maq,
+    nome_maq,
+    tipo_maq,
+    tipo2_maq,
+    desc_maq,
+    tempo_estimado_minutos
+)
+VALUES
+(
+    'motor_indutivo.png',
+    'Motor de Indução Trifásico AC',
+    'Motores',
+    'Elétrico',
+    'Motor trifásico utilizado em aplicações industriais de médio e grande porte.',
+    180
+),
+(
+    'torno_cnc.png',
+    'Torno CNC Industrial X-1000',
+    'Equipamentos Industriais',
+    'Usinagem',
+    'Maquinário automatizado para usinagem de precisão de peças metálicas e plásticas de alta complexidade.',
+    240
+);
 
 INSERT INTO
     agenda (
@@ -252,6 +369,30 @@ VALUES
         'Pendente',
         1,
         5
+    ),
+    (
+        '2026-06-10',
+        180,
+        550.00,
+        'Falha na comunicação entre CLP e sensores da linha de produção.',
+        'Automação industrial',
+        'Rua Industrial Norte, 150 - Osasco/SP',
+        'Pix',
+        'Agendada',
+        1,
+        7
+    ),
+    (
+        '2026-06-12',
+        240,
+        650.00,
+        'Robô de soldagem apresentando desalinhamento durante operação.',
+        'Mecatrônica',
+        'Av. das Empresas, 800 - Barueri/SP',
+        'Débito',
+        'Pendente',
+        13,
+        8
     );
 
 -- DESC agenda;
@@ -285,41 +426,58 @@ VALUES
         1,
         'Verificamos o problema e o status foi atualizado corretamente no sistema.',
         'Respondido'
-    );
-
-INSERT INTO
-    agenda (
-        data,
-        tempo_planejado,
-        descricao_problema,
-        tipo_servico,
-        endereco_servico,
-        status_os,
-        id_cliente,
-        id_profissional
-    )
-VALUES
-    (
-        '2026-06-05',
-        120,
-        'Motor trifásico apresentando superaquecimento e perda de potência durante operação contínua.',
-        'Manutenção Preventiva',
-        'Rua das Indústrias, 1500 - São Paulo/SP',
-        'Agendada',
-        1,
-        3
     ),
     (
-        '2026-06-08',
-        180,
-        'Sistema hidráulico da prensa industrial com vazamento e baixa pressão.',
-        'Mecatrônica',
-        'Av. Industrial, 3200 - Guarulhos/SP',
-        'Pendente',
+    'TechSolutions Indústria LTDA',
+    'Não consigo anexar imagens ao abrir um chamado de suporte.',
+    '(11) 98765-4321',
+    'contato@techsolutions.com',
+    1,
+    NULL,
+    'Pendente'
+    ),
+    (
+        'TechSolutions Indústria LTDA',
+        'Erro ao visualizar o histórico de ordens de serviço concluídas.',
+        '(11) 98765-4321',
+        'contato@techsolutions.com',
         1,
-        5
+        'O problema foi corrigido e o histórico já está disponível.',
+        'Respondido'
+    ),
+    (
+        'Metalúrgica ABC LTDA',
+        'Dúvida sobre alteração do profissional vinculado a uma ordem de serviço.',
+        '(11) 98888-1111',
+        'contato@metalurgicaabc.com.br',
+        13,
+        NULL,
+        'Pendente'
+    ),
+    (
+        'Metalúrgica ABC LTDA',
+        'Solicitação de relatório com todos os atendimentos realizados no mês.',
+        '(11) 98888-1111',
+        'contato@metalurgicaabc.com.br',
+        13,
+        'O relatório foi disponibilizado na área administrativa.',
+        'Respondido'
+    ),
+    (
+        'Indústria Nova Era LTDA',
+        'Página de acompanhamento da manutenção está carregando lentamente.',
+        '(11) 98888-2222',
+        'contato@novaera.com.br',
+        14,
+        NULL,
+        'Pendente'
+    ),
+    (
+        'Indústria Nova Era LTDA',
+        'Erro ao atualizar os dados de contato da empresa.',
+        '(11) 98888-2222',
+        'contato@novaera.com.br',
+        14,
+        'Os dados foram atualizados manualmente e o problema foi encaminhado para correção.',
+        'Respondido'
     );
-
--- DESC suporte;
-
-
