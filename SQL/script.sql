@@ -371,16 +371,16 @@ VALUES
         5
     ),
     (
-    '2026-06-10',
-    180,
-    550.00,
-    'Falha na comunicação entre CLP e sensores da linha de produção.',
-    'Automação industrial',
-    'Rua Industrial Norte, 150 - Osasco/SP',
-    'Pix',
-    'Agendada',
-    1,
-    7
+        '2026-06-10',
+        180,
+        550.00,
+        'Falha na comunicação entre CLP e sensores da linha de produção.',
+        'Automação industrial',
+        'Rua Industrial Norte, 150 - Osasco/SP',
+        'Pix',
+        'Agendada',
+        1,
+        7
     ),
     (
         '2026-06-12',
@@ -393,54 +393,6 @@ VALUES
         'Pendente',
         13,
         8
-    ),
-    (
-        '2026-06-15',
-        120,
-        380.00,
-        'Painel elétrico apresentando aquecimento excessivo.',
-        'Manutenção Preventiva',
-        'Rua Central, 95 - Santo André/SP',
-        'Pix',
-        'Em Andamento',
-        14,
-        9
-    ),
-    (
-        '2026-06-18',
-        150,
-        480.00,
-        'Calibração de transmissores e sensores de pressão.',
-        'Manutenção Preventiva',
-        'Av. Brasil, 2000 - Campinas/SP',
-        'Pix',
-        'Concluída',
-        13,
-        11
-    ),
-    (
-        '2026-06-20',
-        210,
-        520.00,
-        'Falha de sincronização entre módulos mecatrônicos.',
-        'Mecatrônica',
-        'Rua Tecnológica, 450 - Jundiaí/SP',
-        'Débito',
-        'Agendada',
-        14,
-        12
-    ),
-    (
-        '2026-06-25',
-        240,
-        400.00,
-        'Baixa pressão em sistema hidráulico principal.',
-        'Mecatrônica',
-        'Rua Gama, 600 - Mauá/SP',
-        'Pix',
-        'Pendente',
-        1,
-        5
     );
 
 -- DESC agenda;
