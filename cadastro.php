@@ -134,7 +134,7 @@ if (
             </div>
 
             <div class="form-group">
-                <label for="senha">Senha de Acesso</label>
+                <label for="senha">Senha</label>
                 <input type="password" id="senha" name="senha" class="input-control" placeholder="Crie uma senha segura" required>
             </div>
 
