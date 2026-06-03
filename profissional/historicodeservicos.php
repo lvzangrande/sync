@@ -19,7 +19,7 @@ if (isset($_SESSION['mensagem'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Histórico de contratações</title>
+    <title>Histórico de serviços</title>
     <link rel="stylesheet" href="../css/profipage.css">
     <link rel="stylesheet" href="../css/partials.css">
 </head>
@@ -28,7 +28,7 @@ require_once '../partials/header.php';
 ?>
 <body>
     <a href="./profipage.php">Voltar</a>
-    <div class="body">
+    <div class="bodyhist">
 <?php
     require_once '../crud.php';
 
@@ -53,26 +53,15 @@ foreach($tableAgenda as $agendamento){
 ?>
 <div class="servicos">
 
-<p>Serviços pendentes<br><b class="servpendente"><?=$serv_pend?></b></p>
+<p>SERVIÇOS PENDENTES<br><a class="servpendente"><?=$serv_pend?></a></p>
 
+<p>SERVIÇOS AGENDADOS<br><a class="servagend"><b><?=$serv_agend?></a></b></p>
 <a href="servagendados.php" class="conferir">Conferir</a>
-
-<p>Serviços agendados<br><b class="servpendente"><?=$serv_agend?></b></p>
-
-<p>Serviços concluídos<br><b class="servconcluido"><?=$serv_conc?></b></p>
+<p>SERVIÇOS CONCLUIDOS<br><a class="servconcluido"><?=$serv_conc?></a></p>
 </div>    
-    <table>
+    <table class="históricoserv">
         <tr>
-            <!--<th colspan="99">Histórico de contratações<th>-->
-            <th>Data</th>
-            <th>Tempo estimado</th>
-            <th>Valor</th>
-            <th>Descrição</th>
-            <th>Endereço</th>
-            <th>Contratante</th>
-            <th>Profissional</th>
-            <th>Status</th>
-            <th class='td_verDetalhes'></th>
+            <th colspan="99"><h2>HISTÓRICO DE SERVIÇOS</h2><th>
         </tr>
 <?php
         foreach($tableAgenda as $agendamento){
@@ -86,16 +75,11 @@ $palavras = explode(' ', trim($agendamento['descricao_problema']));
         : $agendamento['descricao_problema'];
         
         if($agendamento['id_profissional'] === $_SESSION['id_user']){
-            echo "<tr>
+            echo "<tr class='linhatabela'>
+                    <td>".$descricaoResumida."...</td>
                     <td>".$agendamento['data']."</td>
-                    <td>".$agendamento['tempo_planejado']."</td>
-                    <td>".$agendamento['valor_total']."</td>
-                    <td>".$descricaoResumida."</td>
-                    <td>".$agendamento['endereco_servico']."</td>
-                    <td>".$nomeCliente."</td>
-                    <td>".$nomeProfi."</td>
-                    <td>".$agendamento['status_os']."</td>
-                    <td class='td_verDetalhes'><a class='verDetalhes' href='detalhesserv.php?id=".$agendamento['id_os']."'>Ver detalhes</a></td>";
+                    <td><a class='verDetalhes' href='detalhesserv.php?id=".$agendamento['id_os']."'>Ver detalhes</a></td>
+                  </tr>";
         }
     }
 ?>

@@ -62,12 +62,14 @@
 
                 <label>Status: </label>
                 <a>".$agendamento['status_os']."</a><br><hr>";
+
+                if()
     }
                 if (!$agendamento) {
                     die("Agendamento não encontrado.");
                 }
-
             ?>
         </div>
+        <!--adicionar verificação para caso esteja no dia do serviço aparecer uma opção de marcar como concluída-->
     </body>
     </html>

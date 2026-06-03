@@ -5,12 +5,13 @@
 body{
     background-color: #001233;
     color: aliceblue;
-    font-family: sans-serif;
+    font-family: "Montserrat", sans-serif;;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     font-size: 20px;
+    
 }
 .body{
     display: flex;
@@ -78,6 +79,10 @@ margin-right: 15px;
     font-size: 50px;
     color: #ab0000;
 }
+.servagend{
+    font-size: 50px;
+    color: #fb4d00;
+}
 .servconcluido{
     color: green;
     font-size: 50px;
@@ -86,9 +91,9 @@ margin-right: 15px;
 
 .botaovoltar{
     background-color: red;
-    
-    
 }
+    
+
 .historico{
     padding: 20px;
     border-radius: 50px;
@@ -100,7 +105,8 @@ table{
     border-radius: 50px;
     background-color: #164578;
     width: 1500px;
-    height: 700px;
+    height: 700px;  
+    border-spacing: 0;
 }
 .td_verDetalhes{
  background-color: #006eff;
@@ -113,30 +119,35 @@ table{
 
 td{
     background-color:#326b93;
-    margin: 20px;
+    margin: 0px;
     text-align: center;
 }
 td a{
     margin: 10px;
 }
-td{
-    margin: 100px;
-}
-/*ver detalhes*/
-
-.body{
+.bodyhist{
     background-color: #001233;
     color: aliceblue;
     font-family: sans-serif;
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-
     font-size: 25px;
     white-space: nowrap;
+
+    display: flex;
+    flex-direction: row;     /* ← linha a lado */
+    align-items: flex-start;
+    justify-content: center;
+    gap: 100px;
+    padding: 40px;
+    width: 100%;
 }
+.servicos{
+    font-size: 40px;
+    width: 400px;
+    background-color: #ffa900;
+    text-align: center;
+}
+
+/*ver detalhes*/
 
 .container{
     display: flex;
@@ -213,6 +224,10 @@ button{
 }
 
 /*SERVIÇOS AGENDADOS*/
+
+.linhatabela{
+    background-color: #001233;
+}
 
 .tipos_status{
     display: flex;

@@ -28,13 +28,13 @@ function nomeUsuario() {
 
     $tableAgenda = readAll($pdo,'agenda');
     $totalserv = 0;
-    $servcanc = 0
+    $servcanc = 0;
     foreach($tableAgenda as $agendamento){
-        if($agendamento['status_os'] ==){
-            $totalserv ++
-        ;}
+        if($agendamento['status_os'] == "Concluido"){
+            $totalserv ++;
+            }
         elseif($agendamento['status_os'] == "Cancelada"){
-            $servcanc ++
+            $servcanc ++;
         }
     }
     
