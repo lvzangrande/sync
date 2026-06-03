@@ -17,7 +17,7 @@ body {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    background-color: var(--deep-midnight);
+     background: linear-gradient(to bottom, var(--royal-industrial), var(--deep-midnight));
 }
 
 .cards i {
@@ -100,13 +100,6 @@ body {
     display: flex;
     gap: 30px;
     align-items: start;
-}
-
-/* Filtro */
-.sidebar-filtros {
-    width: 280px;
-    position: sticky;
-    top: 20px;
 }
 
 /* Espaçamento do cards */
@@ -296,6 +289,7 @@ body {
 .sidebar-filtros {
     display: flex;
     width: 280px;
+    top: 20px;
     flex-direction: column;
     gap: 20px;
 }
