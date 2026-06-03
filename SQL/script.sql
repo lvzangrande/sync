@@ -306,34 +306,31 @@ VALUES
         5
     );
 
-INSERT INTO
-    maquinas (
-        img_maq,
-        nome_maq,
-        tipo_maq,
-        tipo2_maq,
-        desc_maq,
-        tempo_estimado_minutos
-    )
+INSERT INTO maquinas (
+    img_maq,
+    nome_maq,
+    tipo_maq,
+    tipo2_maq,
+    desc_maq,
+    tempo_estimado_minutos
+)
 VALUES
-    (
-        'motor_indutivo.png',
-        'Motor de Indução Trifásico AC',
-        'Motores',
-        'Pneumática',
-        'Hidráulica',
-        'Alta Pressão',
-        'Unidade geradora de fluxo hidráulico para sistemas de alta pressão, como prensas e braços mecânicos.',
-        180
-    ),
-    (
-        'torno_cnc.png',
-        'Torno CNC Industrial X-1000',
-        'Equipamentos Industriais',
-        'Usinagem',
-        'Maquinário automatizado para usinagem de precisão de peças metálicas e plásticas de alta complexidade.',
-        240
-    );
+(
+    'motor_indutivo.png',
+    'Motor de Indução Trifásico AC',
+    'Motores',
+    'Elétrico',
+    'Motor trifásico utilizado em aplicações industriais de médio e grande porte.',
+    180
+),
+(
+    'torno_cnc.png',
+    'Torno CNC Industrial X-1000',
+    'Equipamentos Industriais',
+    'Usinagem',
+    'Maquinário automatizado para usinagem de precisão de peças metálicas e plásticas de alta complexidade.',
+    240
+);
 
 INSERT INTO
     agenda (
