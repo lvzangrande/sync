@@ -186,7 +186,7 @@ VALUES
         3
     ),
     (
-        'fernando_automacao.png',
+        'fernando_automacao.jpg',
         'Fernando Lima Automação',
         'fernando.automacao@email.com',
         'hash_senha_303',
@@ -201,7 +201,7 @@ VALUES
         5
     ),
     (
-        'juliana_robotica.png',
+        'juliana_robotica.jpg',
         'Juliana Mendes Robótica',
         'juliana.robotica@email.com',
         'hash_senha_304',
@@ -216,7 +216,7 @@ VALUES
         5
     ),
     (
-        'paulo_eletrica.png',
+        'paulo_eletrica.jpg',
         'Paulo Henrique Elétrica',
         'paulo.eletrica@email.com',
         'hash_senha_305',
@@ -231,7 +231,7 @@ VALUES
         4
     ),
     (
-        'rodrigo_cnc.png',
+        'rodrigo_cnc.jpg',
         'Rodrigo Martins CNC',
         'rodrigo.cnc@email.com',
         'hash_senha_306',
@@ -246,7 +246,7 @@ VALUES
         5
     ),
     (
-        'beatriz_instrumentacao.png',
+        'beatriz_instrumentacao.jpg',
         'Beatriz Santos Instrumentação',
         'beatriz.instrumentacao@email.com',
         'hash_senha_307',
@@ -261,7 +261,7 @@ VALUES
         4
     ),
     (
-        'gabriel_mecatronica.png',
+        'gabriel_mecatronica.jpg',
         'Gabriel Rocha Mecatrônica',
         'gabriel.mecatronica@email.com',
         'hash_senha_308',
