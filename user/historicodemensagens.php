@@ -28,14 +28,7 @@ require_once '../partials/header.php';
 <body>
     <table>
         <tr>
-            <th>ID</th>
-            <th>Cliente</th>
-            <th>Telefone</th>
-            <th>E-mail</th>
-            <th>Mensagem/Descrição</th>
-            <th>Status</th>
-            <th>Resposta do Admin</th>
-            <th class='td_verDetalhes'></th>
+            <th colspan='99'>HISTÓRICO DE SUPORTE</th>
         </tr>
 <?php
 require_once '../crud.php';
@@ -59,12 +52,9 @@ if ($tableSuporte) {
         $respostaResumida = (count($palavrasResp) > 4)
             ? implode(' ', array_slice($palavrasResp, 0, 4)) . '...' 
             : $resposta;
-
+        if ($ticket['nome_cliente'] == $_SESSION['nome']){
         echo "<tr>
-                <td>".$ticket['id_sup']."</td>
                 <td>".$ticket['nome_cliente']."</td>
-                <td>".$ticket['tel_sup']."</td>
-                <td>".$ticket['email_sup']."</td>
                 <td title='".$ticket['desc_sup']."'>".$descricaoResumida."</td>
                 <td>".$ticket['status_suporte']."</td>
                 <td title='".$ticket['resposta_admin']."'>".$respostaResumida."</td>
@@ -72,6 +62,7 @@ if ($tableSuporte) {
                     <a class='verDetalhes' href='detalhesSuporte.php?id=".$ticket['id_sup']."'>Ver detalhes</a>
                 </td>
               </tr>";
+        }
     }
 } else {
     echo "<tr><td colspan='8'>Nenhum ticket de suporte encontrado.</td></tr>";

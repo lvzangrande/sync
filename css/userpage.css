@@ -54,9 +54,9 @@ table{
     background-color: #164578;
     padding: 20px;
     border-radius: 50px;
-    background-color: #164578;
     width: 1500px;
-    height: 700px;
+    height: 700px;  
+    border-spacing: 0;
 }
 .td_verDetalhes{
  background-color: #006eff;
@@ -71,6 +71,7 @@ td{
     background-color:#326b93;
     margin: 20px;
     text-align: center;
+    border-bottom: #164578 solid 10px;
 }
 td a{
     margin: 10px;
