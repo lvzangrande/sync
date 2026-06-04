@@ -13,7 +13,7 @@ if (!isset($_SESSION['autenticado'])) {
     $idUser = (int)$_SESSION['id_user'];
     $user = read($pdo,'usuarios',"id_user = $idUser");
 
-function nomeUsuario()
+function nomeUsuario($user)
 {
     if (isset($user['nome'])) {
         $nomeCompleto = trim($user['nome']);
@@ -24,10 +24,10 @@ function nomeUsuario()
 
         $nomeEncurtado = implode(" ", $duasPalavras);
 
-        echo htmlspecialchars($nomeEncurtado);
-    } else {
-        echo "Usuário";
+        return htmlspecialchars($nomeEncurtado);
     }
+
+    return "Usuário";
 }
 
 if ($user['img_user'] != '' && file_exists('../img/uploads/usuarios/clientes/'. $user['img_user'])) {
@@ -48,7 +48,7 @@ $categoria = $_SESSION['tipo'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Olá <?= nomeUsuario(); ?></title>
+    <title>Olá <?=nomeUsuario($user);?></title>
     <link rel="stylesheet" href="../css/userpage.css">
     <link rel="stylesheet" href="../css/partials.css">
 
@@ -63,7 +63,7 @@ $categoria = $_SESSION['tipo'];
     ?>
 
     <div class="imgperfil">
-        <img src="../img/uploads/usuarios/clientes/<?= $foto ?>" width="900" alt="Foto de Perfil">
+        <img class="fotoperfil" src="../img/uploads/usuarios/clientes/<?= $foto ?>" width="900" alt="Foto de Perfil">
         <br>
         <div class="botaoEditarDados">
             <a href="editardados.php">
@@ -76,7 +76,7 @@ $categoria = $_SESSION['tipo'];
     <div class="funcionalidades">
         <a class="historico" href="historicodecontratacoes.php">Ver histórico de contratações</a>
 
-        <a class="historico" href="historicodecontratacoes.php">Visualizar mensagens de suporte</a>
+        <a class="historico" href="historicodemensagens.php">Visualizar mensagens de suporte</a>
     </div>
     <footer>
         <p>Cadastrado desde de 2026</p>
