@@ -83,15 +83,16 @@ $palavras = explode(' ', trim($agendamento['descricao_problema']));
         $diferenca = (int)$hoje->diff($dataAgendamento)->format('%r%a');
 
         $status = "";
-        if($diferenca <= 0){
-            $status="atrasado";
+           $status="atrasado";
         }
         elseif($diferenca >= 21){
             $status="distante";
+            update($pdo,'agenda',);
         }
         else{
             $status="proximo";
-        }
+        }   if($diferenca <= 0){
+      
             if($agendamento['id_profissional'] === $_SESSION['id_user']){
                 if($agendamento['status_os'] != 'Concluída' && $agendamento['status_os'] != 'Cancelada'){
 

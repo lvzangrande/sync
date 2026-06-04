@@ -21,9 +21,10 @@
 
 if(isset($_GET['acao']) && $_GET['acao'] == 'concluir' && isset($_GET['id'])){
     $id = $_GET['id'];
+    /*opção de Iniciar serviço e marcar como concluída apenas o cliente após o serviço ser iniciado*/
     update($pdo, 'agenda', ['status_os' => 'Concluída'], "id_os = $id");
     $_SESSION['mensagem'] = "Serviço concluído com sucesso";
-    header('Location: historicodeservicos.php');/*REDIRECIONAR PARA O HISTÓRICO DE SERVIÇOS*/
+    header('Location: historicodeservicos.php');
     exit;
 }
     ?>
