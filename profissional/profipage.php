@@ -37,6 +37,12 @@ function nomeUsuario() {
             $servcanc ++;
         }
     }
+if ($user['img_user'] != '' && file_exists('../img/uploads/usuarios/clientes/'. $user['img_user'])) {
+    $foto = $user['img_user'];
+}
+else{
+    $foto = 'foto_default.png';
+}
     
 ?>
 <!DOCTYPE html>
@@ -56,7 +62,7 @@ function nomeUsuario() {
     <div class="perfil">
         <div class='imgperfil'>
             <div class="status"></div>
-            <img class="fotoperfil" src=../img/uploads/usuarios/profissionais/<?=$user['img_user']?>>
+            <img class="fotoperfil" src=../img/uploads/usuarios/profissionais/<?=$foto?>>
             <br>
             <a href='editardados.php' class="editar"><img src=../img/lapiseditar.png width='50'></a>
         </div>

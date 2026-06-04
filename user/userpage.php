@@ -30,10 +30,12 @@ function nomeUsuario()
     }
 }
 
-if (isset($user['img_user'])) {
+if ($user['img_user'] != '' && file_exists('../img/uploads/usuarios/clientes/'. $user['img_user'])) {
     $foto = $user['img_user'];
 }
-//else{} receber foto default
+else{
+    $foto = 'foto_default.png';
+}
 if (isset($user['nome'])) {
     $nomeCompleto = trim($user['nome']);
 }
