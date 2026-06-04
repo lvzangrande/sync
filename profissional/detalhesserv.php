@@ -81,7 +81,7 @@ if(isset($_GET['acao']) && $_GET['acao'] == 'concluir' && isset($_GET['id'])){
                 <a>".$agendamento['status_os']."</a><br><hr>";
 
                 if($agendamento['status_os'] != 'Concluída'){
-                    if($hoje->format('Y-m-d') == $dataAgendamento->format('Y-m-d')){
+                    if($hoje->format('Y-m-d') == $dataAgendamento->format('Y-m-d') || $hoje->format('Y-m-d') > $dataAgendamento->format('Y-m-d')){
                         echo "<a href='?id=".$agendamento['id_os']."&acao=concluir'>Marcar como concluída</a>";
                     }
                 }
