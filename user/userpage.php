@@ -73,8 +73,11 @@ $categoria = $_SESSION['tipo'];
     </div>
 
     <h1><?= $nomeCompleto ?></h1>
+    <div class="funcionalidades">
+        <a class="historico" href="historicodecontratacoes.php">Ver histórico de contratações</a>
 
-    <a class="historico" href="historicodecontratacoes.php">Ver histórico de contratações</a>
+        <a class="historico" href="historicodecontratacoes.php">Visualizar mensagens de suporte</a>
+    </div>
     <footer>
         <p>Cadastrado desde de 2026</p>
     </footer>

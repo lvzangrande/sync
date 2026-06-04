@@ -22,7 +22,15 @@ img{
 .botaoEditarDados img{
     background-color: #326b93;
 }
+.funcionalidades{
+    display: flex;
+}
+.funcionalidades a{
+    margin-top: 20px;
+    margin-bottom: 20px;
 
+    margin: 50px;
+}
 /*HISTÓRICO DE CONTRAÇÕES*/
 
 .botaovoltar{
