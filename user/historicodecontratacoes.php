@@ -31,16 +31,7 @@ require_once '../partials/header.php';
 <body>
     <table>
         <tr>
-            <!--<th colspan="99">Histórico de contratações<th>-->
-            <th>Data</th>
-            <th>Tempo estimado</th>
-            <th>Valor</th>
-            <th>Descrição</th>
-            <th>Endereço</th>
-            <th>Contratante</th>
-            <th>Profissional</th>
-            <th>Status</th>
-            <th class='td_verDetalhes'></th>
+            <th colspan="99">HISTÓRICO DE CONTRATAÇÕES<th>
         </tr>
 <?php
 require_once '../crud.php';
@@ -70,12 +61,7 @@ $tableAgenda = readAll($pdo,'agenda');
         : $agendamento['descricao_problema'];
     echo "<tr>
             <td>".$agendamento['data']."</td>
-            <td>".$agendamento['tempo_planejado']."</td>
-            <td>".$agendamento['tempo_planejado'] * $valor['valor_dia']."</td>
             <td>".$descricaoResumida."</td>
-            <td>".$agendamento['endereco_servico']."</td>
-            <td>".$nomeCliente."</td>
-            <td>".$nomeProfi."</td>
             <td>".$agendamento['status_os']."</td>
             <td class='td_verDetalhes'><a class='verDetalhes' href='detalhesContratacao.php?id=".$agendamento['id_os']."'>Ver detalhes</a></td>";
     }

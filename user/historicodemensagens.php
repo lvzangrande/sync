@@ -57,12 +57,12 @@ if ($tableSuporte) {
                 <td>".$ticket['nome_cliente']."</td>
                 <td title='".$ticket['desc_sup']."'>".$descricaoResumida."</td>
                 <td>".$ticket['status_suporte']."</td>
-                <td title='".$ticket['resposta_admin']."'>".$respostaResumida."</td>
                 <td class='td_verDetalhes'>
                     <a class='verDetalhes' href='detalhesSuporte.php?id=".$ticket['id_sup']."'>Ver detalhes</a>
                 </td>
               </tr>";
         }
+        //adicionar data de envio e data de resposta
     }
 } else {
     echo "<tr><td colspan='8'>Nenhum ticket de suporte encontrado.</td></tr>";
