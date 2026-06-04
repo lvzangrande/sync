@@ -55,6 +55,7 @@ $categoria = $_SESSION['tipo'];
 </head>
 
 <body>
+    
     <?php
 
     require_once '../partials/header.php';

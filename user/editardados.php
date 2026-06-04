@@ -21,7 +21,7 @@ if (!isset($_SESSION['autenticado'])) {
     <title>Editar dados pessoais</title>
 </head>
 <body>
-
+<a href="./userpage.php">Voltar</a>
 
 <?php require_once '../partials/header.php';
     $tableUser = readAll($pdo,'agenda');
