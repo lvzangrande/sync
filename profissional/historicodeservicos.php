@@ -39,16 +39,18 @@ $serv_pend  = 0;
 $serv_conc  = 0;
 $serv_agend = 0;
 foreach($tableAgenda as $agendamento){
-    if($agendamento['status_os'] == 'Concluída'){
-        $serv_conc++;
-    ;}
-    elseif($agendamento['status_os'] == 'Pendente'){
-        foreach($tableAgenda as $agendamento)
-        $serv_pend++;
-    ;}
-    elseif($agendamento['status_os'] == 'Agendada'){
-        $serv_agend++;
-    ;}
+    if($agendamento['id_profissional'] === $_SESSION['id_user']){
+        if($agendamento['status_os'] == 'Concluída'){
+            $serv_conc++;
+        ;}
+        elseif($agendamento['status_os'] == 'Pendente'){
+            foreach($tableAgenda as $agendamento)
+            $serv_pend++;
+        ;}
+        elseif($agendamento['status_os'] == 'Agendada'){
+            $serv_agend++;
+        ;}
+    }
 }
 ?>
 <div class="servicos">
@@ -64,6 +66,7 @@ foreach($tableAgenda as $agendamento){
             <th colspan="99"><h2>HISTÓRICO DE SERVIÇOS</h2><th>
         </tr>
 <?php
+$temAgendamento = false;
         foreach($tableAgenda as $agendamento){
 
     $nomeProfi = read_nome_via_ID($pdo,'usuarios',$agendamento['id_profissional']);
@@ -74,14 +77,22 @@ $palavras = explode(' ', trim($agendamento['descricao_problema']));
         ? implode(' ', array_slice($palavras, 0, 4)) . '...' 
         : $agendamento['descricao_problema'];
         
-        if($agendamento['id_profissional'] === $_SESSION['id_user']){
+        
+
+        if($agendamento['id_profissional'] === $_SESSION['id_user'] && $agendamento['status_os'] == 'Concluída'){
+            $temAgendamento = true;
             echo "<tr class='linhatabela'>
-                    <td>".$descricaoResumida."...</td>
+                    <td>".$descricaoResumida."</td>
                     <td>".$agendamento['data']."</td>
                     <td><a class='verDetalhes' href='detalhesserv.php?id=".$agendamento['id_os']."'>Ver detalhes</a></td>
                   </tr>";
         }
     }
+            if($temAgendamento == false){
+            echo "<tr class='linhatabela'>
+                    <td colspan='99'>Nenhum serviço foi concluído</td>
+                  </tr>";
+        }
 ?>
 </table>
 </div>

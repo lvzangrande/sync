@@ -22,8 +22,8 @@
 if(isset($_GET['acao']) && $_GET['acao'] == 'concluir' && isset($_GET['id'])){
     $id = $_GET['id'];
     update($pdo, 'agenda', ['status_os' => 'Concluída'], "id_os = $id");
-    $_SESSION['mensagem'] = "Serviço concluído com sucesso"
-    header('Location: detalhesserv.php?id=' . $id);/*REDIRECIONAR PARA O HISTÓRICO DE SERVIÇOS*/
+    $_SESSION['mensagem'] = "Serviço concluído com sucesso";
+    header('Location: historicodeservicos.php');/*REDIRECIONAR PARA O HISTÓRICO DE SERVIÇOS*/
     exit;
 }
     ?>

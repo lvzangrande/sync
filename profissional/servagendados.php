@@ -86,7 +86,7 @@ $palavras = explode(' ', trim($agendamento['descricao_problema']));
         if($diferenca <= 0){
             $status="atrasado";
         }
-        if($diferenca >= 21){
+        elseif($diferenca >= 21){
             $status="distante";
         }
         else{
