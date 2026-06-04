@@ -385,3 +385,29 @@ body {
 .btn-limpar:hover {
     background-color: #11254a;
 }
+
+select, option, input, button {
+    font-family: "Montserrat", sans-serif;
+}
+
+select {
+    background-color: var(--navy-dark);
+    color: var(--text-primary);
+    border: 1px solid var(--slate-gray);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+select:focus {
+    border-color: var(--misty-blue);
+    box-shadow: 0 0 8px rgba(139, 192, 214, 0.2);
+}
+
+select option {
+    background-color: var(--deep-midnight);
+    color: var(--text-primary);
+}

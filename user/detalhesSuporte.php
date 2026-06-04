@@ -10,10 +10,8 @@ if (!isset($_SESSION['autenticado'])) {
     exit();
 }
 
-// Resgata o ID do ticket enviado via GET
 $idSuporte = (int)$_GET['id'];
 
-// Busca os dados do ticket na tabela 'suporte' (ajuste o nome se for diferente no seu banco)
 $ticket = read($pdo, 'suporte', "id_sup = $idSuporte");
 
 if (!$ticket) {
@@ -38,7 +36,6 @@ if (!$ticket) {
     <div class="container">
         <?php     
         if($idSuporte){
-            // Verifica se existe uma resposta do administrador, senão define uma mensagem padrão
             $respostaAdmin = !empty($ticket['resposta_admin']) ? $ticket['resposta_admin'] : "Aguardando resposta do administrador.";
             
             echo "  
@@ -58,7 +55,7 @@ if (!$ticket) {
                 <a>".$ticket['id_usuario']."</a><br><hr>
 
                 <label>Mensagem / Descrição do Problema: </label>
-                <div style='margin-top: 5px; padding: 10px; background: #f9f9f9; border-radius: 4px;'>
+                <div style='margin-top: 10px; padding: 15px; background: rgba(0, 0, 0, 0.2); border: 1px solid #33415C; border-radius: 8px; color: #ffffff; line-height: 1.5;'>
                     ".nl2br($ticket['desc_sup'])."
                 </div><br><hr>
 
@@ -66,7 +63,7 @@ if (!$ticket) {
                 <strong><a>".$ticket['status_suporte']."</a></strong><br><hr>
 
                 <label>Resposta do Administrador: </label>
-                <div style='margin-top: 5px; padding: 10px; background: #f0f7ff; border-left: 4px solid #007bff; border-radius: 4px;'>
+                <div style='margin-top: 10px; padding: 15px; background: rgba(133, 181, 203, 0.1); border-left: 4px solid #85b5cb; border-radius: 8px; color: #ffffff; line-height: 1.5;'>
                     ".nl2br($respostaAdmin)."
                 </div><br><hr>";
         }
