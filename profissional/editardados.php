@@ -24,10 +24,11 @@ if (!isset($_SESSION['autenticado'])) {
 
 
 <?php require_once '../partials/header.php';
-    $tableUser = readAll($pdo,'agenda');
+    $tableUser = readAll($pdo,'usuarios');
     $idUser = (int)$_SESSION['id_user'];
     $user = read($pdo,'usuarios',"id_user = $idUser");
 ?>
+<a href="<?=$_SERVER['HTTP_REFERER']?>">Voltar</a>
 
     <h2>Editar Dados Pessoais</h2>
     <div class='formulario'>

@@ -30,7 +30,7 @@ function nomeUsuario() {
     $totalserv = 0;
     $servcanc = 0;
     foreach($tableAgenda as $agendamento){
-        if($agendamento['status_os'] == "Concluido"){
+        if($agendamento['status_os'] == "Concluída"){
             $totalserv ++;
             }
         elseif($agendamento['status_os'] == "Cancelada"){
@@ -46,7 +46,7 @@ function nomeUsuario() {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/partials.css">
     <link rel="stylesheet" href="../css/profipage.css">
-    <title>Olá <?=nomeUsuario($pdo);?></title>
+    <title>Olá <?=nomeUsuario();?></title>
 </head>
 <body>
     <?php

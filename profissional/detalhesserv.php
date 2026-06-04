@@ -24,6 +24,7 @@ if(isset($_GET['acao']) && $_GET['acao'] == 'concluir' && isset($_GET['id'])){
     /*opção de Iniciar serviço e marcar como concluída apenas o cliente após o serviço ser iniciado*/
     update($pdo, 'agenda', ['status_os' => 'Concluída'], "id_os = $id");
     $_SESSION['mensagem'] = "Serviço concluído com sucesso";
+    unset($_SESSION['mensagem']);
     header('Location: historicodeservicos.php');
     exit;
 }
@@ -47,6 +48,8 @@ if(isset($_GET['acao']) && $_GET['acao'] == 'concluir' && isset($_GET['id'])){
                 $nomeCliente = read_nome_via_ID($pdo, 'usuarios', $agendamento['id_cliente']);
                 
                 $nomeProfi   = read_nome_via_ID($pdo, 'usuarios', $agendamento['id_profissional']);
+                $agendamento = read($pdo,'agenda',"id_os = $idAgendamento");
+                if (!$agendamento) { die("Agendamento não encontrado."); }
                 
                 $hoje = new DateTime();
 
@@ -59,7 +62,7 @@ if(isset($_GET['acao']) && $_GET['acao'] == 'concluir' && isset($_GET['id'])){
                 <label>Tempo estimado:</label>
                 <a>".$agendamento['tempo_planejado']."</a><br><hr>
                 
-                <label>Tempo estimado:</label>
+                <label>Método de pagamento:</label>
                 <a>".$agendamento['metodo_pagamento']."</a><br><hr>
 
                 <label>Valor: </label>

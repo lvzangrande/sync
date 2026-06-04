@@ -3,16 +3,14 @@ if (session_status() === PHP_SESSION_NONE){
     session_start();
 }
 if (isset($_SESSION['mensagem'])) {
-
     echo "
     <script>
         alert('{$_SESSION['mensagem']}');
     </script>
     ";
-
     unset($_SESSION['mensagem']);
 }
-//adiciona o método de pagamento na tabela do sql, só exibe no detalhe de contratações
+// adiciona o método de pagamento na tabela do sql, só exibe no detalhe de contratações
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -24,77 +22,72 @@ if (isset($_SESSION['mensagem'])) {
     <link rel="stylesheet" href="../css/partials.css">
 </head>
 <?php
+require_once '../crud.php';
 require_once '../partials/header.php';
-?>
-<body>
-    <a href="./profipage.php">Voltar</a>
-    <div class="bodyhist">
-<?php
-    require_once '../crud.php';
 
-$tableAgenda = readAll($pdo,'agenda');
-
+$tableAgenda = readAll($pdo, 'agenda');
 
 $serv_pend  = 0;
 $serv_conc  = 0;
 $serv_agend = 0;
+
 foreach($tableAgenda as $agendamento){
     if($agendamento['id_profissional'] === $_SESSION['id_user']){
         if($agendamento['status_os'] == 'Concluída'){
             $serv_conc++;
-        ;}
+        }
         elseif($agendamento['status_os'] == 'Pendente'){
-            foreach($tableAgenda as $agendamento)
             $serv_pend++;
-        ;}
+        }
         elseif($agendamento['status_os'] == 'Agendada'){
             $serv_agend++;
-        ;}
+        }
     }
 }
 ?>
-<div class="servicos">
-
-<p>SERVIÇOS PENDENTES<br><a class="servpendente"><?=$serv_pend?></a></p>
-
-<p>SERVIÇOS AGENDADOS<br><a class="servagend"><b><?=$serv_agend?></a></b></p>
-<a href="servagendados.php" class="conferir">Conferir</a>
-<p>SERVIÇOS CONCLUIDOS<br><a class="servconcluido"><?=$serv_conc?></a></p>
-</div>    
-    <table class="históricoserv">
-        <tr>
-            <th colspan="99"><h2>HISTÓRICO DE SERVIÇOS</h2><th>
-        </tr>
+<body>
+    <a href="./profipage.php">Voltar</a>
+    <div class="bodyhist">
+        <div class="servicos">
+            <p>SERVIÇOS PENDENTES<br><a class="servpendente"><?=$serv_pend?></a></p>
+            <p>SERVIÇOS AGENDADOS<br><a class="servagend"><b><?=$serv_agend?></b></a></p>
+            <a href="servagendados.php" class="conferir">Conferir</a>
+            <p>SERVIÇOS CONCLUÍDOS<br><a class="servconcluido"><?=$serv_conc?></a></p>
+        </div>
+        <table class="históricoserv">
+            <tr>
+                <th colspan="99"><h2>HISTÓRICO DE SERVIÇOS</h2></th>
+            </tr>
 <?php
 $temAgendamento = false;
-        foreach($tableAgenda as $agendamento){
 
-    $nomeProfi = read_nome_via_ID($pdo,'usuarios',$agendamento['id_profissional']);
-    $nomeCliente = read_nome_via_ID($pdo,'usuarios',$agendamento['id_cliente']);
-$palavras = explode(' ', trim($agendamento['descricao_problema'])); 
-    
-    $descricaoResumida = (count($palavras) > 4) 
-        ? implode(' ', array_slice($palavras, 0, 4)) . '...' 
+foreach($tableAgenda as $agendamento){
+
+    $nomeProfi   = read_nome_via_ID($pdo, 'usuarios', $agendamento['id_profissional']);
+    $nomeCliente = read_nome_via_ID($pdo, 'usuarios', $agendamento['id_cliente']);
+
+    $palavras = explode(' ', trim($agendamento['descricao_problema']));
+    $descricaoResumida = (count($palavras) > 4)
+        ? implode(' ', array_slice($palavras, 0, 4)) . '...'
         : $agendamento['descricao_problema'];
-        
-        
 
-        if($agendamento['id_profissional'] === $_SESSION['id_user'] && $agendamento['status_os'] == 'Concluída'){
-            $temAgendamento = true;
-            echo "<tr class='linhatabela'>
-                    <td>".$descricaoResumida."</td>
-                    <td>".$agendamento['data']."</td>
-                    <td><a class='verDetalhes' href='detalhesserv.php?id=".$agendamento['id_os']."'>Ver detalhes</a></td>
-                  </tr>";
-        }
+    if($agendamento['id_profissional'] === $_SESSION['id_user'] && $agendamento['status_os'] == 'Concluída'){
+        $temAgendamento = true;
+        echo "<tr class='linhatabela'>
+                <td>".$descricaoResumida."</td>
+                <td>".$agendamento['data']."</td>
+                <td><a class='verDetalhes' href='detalhesserv.php?id=".$agendamento['id_os']."'>Ver detalhes</a></td>
+              </tr>";
     }
-            if($temAgendamento == false){
-            echo "<tr class='linhatabela'>
-                    <td colspan='99'>Nenhum serviço foi concluído</td>
-                  </tr>";
-        }
+}
+
+if($temAgendamento == false){
+    echo "<tr class='linhatabela'>
+            <td colspan='99'>Nenhum serviço foi concluído</td>
+          </tr>";
+}
 ?>
-</table>
-</div>
+        </table>
+    </div>
 </body>
 </html>
