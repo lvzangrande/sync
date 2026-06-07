@@ -325,3 +325,32 @@ tr:hover td {
     color: var(--color-night-blue);
     box-shadow: 0 0 10px rgba(133, 181, 203, 0.4);
 }
+.filtros {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 0 auto 20px auto;
+}
+
+.filtros a {
+    background-color: var(--color-slate-blue);
+    color: var(--white);
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.filtros a:hover {
+    background-color: var(--color-sky-light);
+    color: var(--color-night-blue);
+}
+
+.filtros a.ativo {
+    background-color: var(--color-sky-light);
+    color: var(--color-night-blue);
+}

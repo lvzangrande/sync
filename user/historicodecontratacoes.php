@@ -10,7 +10,15 @@ if (isset($_SESSION['mensagem'])) {
     unset($_SESSION['mensagem']);
 }
 
-$tableAgenda = readAll($pdo, 'agenda');
+$statusFiltro = $_GET['status'] ?? 'Todas';
+
+$where = null;
+
+if ($statusFiltro !== 'Todas') {
+    $where = "status_os = '$statusFiltro'";
+}
+
+$tableAgenda = readAll($pdo, 'agenda', $where);
 
 foreach ($tableAgenda as $agendamento) {
     if (new DateTime($agendamento['data']) < new DateTime()) {
@@ -30,11 +38,34 @@ foreach ($tableAgenda as $agendamento) {
 </head>
 <body>
 <?php require_once '../partials/header.php'; ?>
+
 <a href="./userpage.php">Voltar</a>
+
+<div class="filtros">
+    <?php
+    $filtros = [
+        'Todas',
+        'Agendada',
+        'Pendente',
+        'Concluída',
+        'Cancelada',
+        'Em andamento'
+    ];
+
+    foreach ($filtros as $filtro):
+        $ativo = ($statusFiltro === $filtro) ? 'ativo' : '';
+    ?>
+        <a class="<?= $ativo ?>" href="?status=<?= urlencode($filtro) ?>">
+            <?= $filtro ?>
+        </a>
+    <?php endforeach; ?>
+</div>
+
 <table>
     <tr>
         <th colspan="99">HISTÓRICO DE CONTRATAÇÕES</th>
     </tr>
+
     <?php foreach ($tableAgenda as $agendamento): ?>
         <?php
             $nomeProfi   = read_nome_via_ID($pdo, 'usuarios', $agendamento['id_profissional']);
@@ -58,5 +89,6 @@ foreach ($tableAgenda as $agendamento) {
         </tr>
     <?php endforeach; ?>
 </table>
+
 </body>
 </html>
