@@ -257,3 +257,26 @@ select.input-control {
     color: var(--white);
     text-decoration: underline;
 }
+
+.voltar{
+    background-color: var(--color-slate-blue);
+    color: var(--white);
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    text-decoration: none;
+}
+
+.voltar{
+    background-color: var(--color-navy-dark);
+    border-color: var(--color-sky-light);
+    box-shadow: 0 0 10px rgba(133, 181, 203, 0.2);
+    color: var(--white);
+}

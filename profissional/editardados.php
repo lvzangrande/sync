@@ -28,7 +28,7 @@ if (!isset($_SESSION['autenticado'])) {
     $idUser = (int)$_SESSION['id_user'];
     $user = read($pdo,'usuarios',"id_user = $idUser");
 ?>
-<a href="<?=$_SERVER['HTTP_REFERER']?>">Voltar</a>
+<a href="profipage.php" class='voltar'>Voltar</a>
 
     <h2>Editar Dados Pessoais</h2>
     <div class='formulario'>

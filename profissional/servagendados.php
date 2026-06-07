@@ -18,7 +18,7 @@ $tableAgenda = readAll($pdo,'agenda');
 $filtro = $_GET['filtro'] ?? 'Todos';
 
 foreach ($tableAgenda as $agendamento) {
-    if (new DateTime($agendamento['data']) < new DateTime()) {
+    if ($agendamento['status_os'] != 'Concluída' && new DateTime($agendamento['data']) < new DateTime()) {
         update($pdo, 'agenda', ['status_os' => 'Pendente'], "id_os = {$agendamento['id_os']}");
         $agendamento['status_os'] = 'Pendente';
     }
@@ -136,9 +136,16 @@ foreach($tableAgenda as $agendamento){
 }
 
 if($temAgendamento == false){
+    if($filtro == 'Todos'){
+        echo "<tr>
+            <td colspan='99'>Nenhum serviço agendado</td>
+          </tr>";
+    }
+    else{
     echo "<tr>
             <td colspan='99'>Nenhum serviço agendado com o status '".$filtro."'</td>
           </tr>";
+    }
 }
 ?>
         </table>

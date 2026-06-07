@@ -47,12 +47,34 @@ foreach($tableAgenda as $agendamento){
 ?>
 <body>
     <a href="./profipage.php">Voltar</a>
-        <div class="servicos">
-            <p>SERVIÇOS PENDENTES<br><a class="servpendente"><b><?=$serv_pend?></b></a></p>
-            <p>SERVIÇOS AGENDADOS<br><a class="servagend"><b><?=$serv_agend?></b></a></p>
-            <a href="servagendados.php" class="conferir"><b>Conferir</b></a>
-            <p>SERVIÇOS CONCLUÍDOS<br><a class="servconcluido"><b><?=$serv_conc?></b></a></p>
+
+    <?php
+    $agenPendOuAgend = 0;
+        foreach($tableAgenda as $agendamento){
+            if(($agendamento['status_os'] === 'Pendente' || $agendamento['status_os'] === 'Agendada') && $agendamento['id_profissional'] === $_SESSION['id_user']){
+                $agenPendOuAgend++;
+            }
+        }
+    if($agenPendOuAgend > 0){
+    echo "
+    <div class='servicos'>
+        <h2>Atenção você tem:</h2>
+
+        <div class='pendeagen'>
+            <p>SERVIÇOS PENDENTES<br><a class='servpendente'><b>{$serv_pend}</b></a></p>
+
+            <p>SERVIÇOS AGENDADOS<br><a class='servagend'><b>{$serv_agend}</b></a></p>
         </div>
+
+        <a href='servagendados.php'>
+            <div class='conferir'>
+                <b>Conferir</b>
+            </div>
+        </a>
+    </div>";
+}
+    ?>
+        
         <table class="históricoserv">
             <tr>
                 <th colspan="99"><h2>HISTÓRICO DE SERVIÇOS</h2></th>

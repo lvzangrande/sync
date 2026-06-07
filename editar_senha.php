@@ -54,9 +54,13 @@ if (isset($_POST['senha_atual']) && isset($_POST['nova_senha']) && isset($_POST[
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar senha | Sync Mecatronics</title>
     <link rel="stylesheet" href="css/formularios.css">
+    <link rel="stylesheet" href="css/partials.css">
 </head>
-
+<?php
+require_once 'partials/header.php';
+?>
 <body>
+    <a href="<?=$_SERVER['HTTP_REFERER']?>" class="voltar">Voltar</a>
     <div class="login-container">
 
         <div class="login-header">
