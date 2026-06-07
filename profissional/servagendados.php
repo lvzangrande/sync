@@ -96,7 +96,7 @@ foreach($tableAgenda as $agendamento){
         }
     }
 }
-
+//
 if($temAgendamento == false){
     echo "<tr>
             <td colspan='99'>Nenhum serviço agendado</td>

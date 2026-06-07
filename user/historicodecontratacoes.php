@@ -66,8 +66,10 @@ foreach ($tableAgenda as $agendamento) {
         <th colspan="99">HISTÓRICO DE CONTRATAÇÕES</th>
     </tr>
 
-    <?php foreach ($tableAgenda as $agendamento): ?>
-        <?php
+    <?php
+    $semContrato = false;
+    foreach ($tableAgenda as $agendamento){
+        $semContrato = true;
             $nomeProfi   = read_nome_via_ID($pdo, 'usuarios', $agendamento['id_profissional']);
             $nomeCliente = read_nome_via_ID($pdo, 'usuarios', $agendamento['id_cliente']);
             $valor       = read($pdo, 'usuarios', 'id_user=' . $agendamento['id_profissional']);
@@ -78,16 +80,22 @@ foreach ($tableAgenda as $agendamento) {
             } else {
                 $descricaoResumida = $agendamento['descricao_problema'];
             }
-        ?>
-        <tr>
-            <td><?= $agendamento['data'] ?></td>
-            <td><?= $descricaoResumida ?></td>
-            <td><?= $agendamento['status_os'] ?></td>
-            <td class='td_verDetalhes'>
-                <a class='verDetalhes' href='detalhesContratacao.php?id=<?= $agendamento['id_os'] ?>'>Ver detalhes</a>
-            </td>
-        </tr>
-    <?php endforeach; ?>
+    echo "
+    <tr>
+        <td>{$agendamento['data']}</td>
+        <td>{$descricaoResumida}</td>
+        <td>{$agendamento['status_os']}</td>
+        <td class='td_verDetalhes'>
+            <a class='verDetalhes' href='detalhesContratacao.php?id={$agendamento['id_os']}'>Ver detalhes</a>
+        </td>
+    </tr>";
+    }
+        if($semContrato == false){
+            echo "<tr>
+            <td colspan='99'>Não há serviços com status '$statusFiltro'</td>
+          </tr>";
+        }
+?>
 </table>
 
 </body>

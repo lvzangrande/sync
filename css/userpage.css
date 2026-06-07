@@ -326,6 +326,7 @@ tr:hover td {
     box-shadow: 0 0 10px rgba(133, 181, 203, 0.4);
 }
 .filtros {
+    justify-content: center;
     width: 90%;
     max-width: 1200px;
     display: flex;
