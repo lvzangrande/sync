@@ -51,6 +51,9 @@
                 <label>Descrição</label>
                 <a>".$agendamento['descricao_problema']."</a><br><hr>
 
+                <label>Metódo de pagamento</label>
+                <a>".$agendamento['metodo_pagamento']."</a><br><hr>
+
                 <label>Endereço:</label>
                 <a>".$agendamento['endereco_servico']."</a><br><hr>
 
