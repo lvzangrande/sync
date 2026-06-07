@@ -1,6 +1,7 @@
 <?php
 
 require_once '../crud.php';
+
 if (session_status() === PHP_SESSION_NONE){
     session_start();
 }
@@ -12,23 +13,47 @@ if (!isset($_SESSION['autenticado'])) {
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+    $idProfissional = intval($_POST['id_profissional']);
+    $dataEscolhida = $_POST['data'];
+
+    // Verifica se já existe agendamento para esse profissional nessa data
+    $agendamentoExistente = read(
+        $pdo,
+        'agenda',
+        "id_profissional = $idProfissional AND data = '$dataEscolhida'"
+    );
+
+    if ($agendamentoExistente) {
+        echo "
+        <script>
+            alert('Este profissional já possui um agendamento nesta data.');
+            window.location.href='../contratar.php?id=$idProfissional';
+        </script>
+        ";
+        exit();
+    }
+
     $_SESSION['pedido'] = [
-        'id_profissional' => $_POST['id_profissional'],
+        'id_profissional' => $idProfissional,
         'tipo_serv' => $_POST['tipo_serv'],
         'desc' => $_POST['desc'],
-        'data' => $_POST['data'],
+        'data' => $dataEscolhida,
         'tempo' => $_POST['tempo'],
         'end_serv' => $_POST['end_serv']
     ];
 }
+
+if (!isset($_SESSION['pedido'])) {
+    header("Location: ../catalogo_profissionais.php");
+    exit();
+}
+
 $pedido = $_SESSION['pedido'];
 
 $idcard = $pedido['id_profissional'];
-
 $tempo = $pedido['tempo'];
 
-$profissional = read($pdo, "usuarios", "id_user=$idcard");
-
+$profissional = read($pdo, "usuarios", "id_user = $idcard");
 
 ?>
 

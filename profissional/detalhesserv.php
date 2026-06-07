@@ -12,22 +12,46 @@
 
     if (isset($_SESSION['mensagem'])){
         echo "<script>alert('".$_SESSION['mensagem']."')</script>";
+        unset($_SESSION['mensagem']);
     }
+
+    // Primeiro pegamos o ID vindo da URL de forma segura
+    $idAgendamento = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+
+    // Executa as ações alterando o banco ANTES de carregar os dados finais da página
+    if(isset($_GET['acao']) && $idAgendamento > 0){
+        $acao = $_GET['acao'];
+
+        if ($acao == 'iniciar') {
+            update($pdo, 'agenda', ['status_os' => 'Em andamento'], "id_os = $idAgendamento");
+            $_SESSION['mensagem'] = "Serviço iniciado com sucesso.";
+            header("Location: ?id=$idAgendamento");
+            exit;
+        } 
+        elseif ($acao == 'concluir') {
+            update($pdo, 'agenda', ['status_os' => 'Concluída'], "id_os = $idAgendamento");
+            $_SESSION['mensagem'] = "Serviço concluído com sucesso";
+            header('Location: historicodeservicos.php');
+            exit;
+        } 
+        elseif ($acao == 'cancelar') {
+            update($pdo, 'agenda', ['status_os' => 'Cancelada'], "id_os = $idAgendamento");
+            $_SESSION['mensagem'] = "Serviço cancelado com sucesso.";
+            header('Location: historicodeservicos.php');
+            exit;
+        }
+    }
+
+    // Agora que o banco já foi atualizado, buscamos os dados novos do agendamento
     $tableAgenda = readAll($pdo,'agenda');
-    $idAgendamento = (int)$_GET['id'];
     $agendamento = read($pdo,'agenda',"id_os = $idAgendamento");
+    
+    if (!$agendamento) { 
+        die("Agendamento não encontrado."); 
+    }
+
     $valor = read($pdo, 'usuarios', 'id_user='.$agendamento['id_profissional']);
     unset($_SESSION['pedido']);
-
-if(isset($_GET['acao']) && $_GET['acao'] == 'concluir' && isset($_GET['id'])){
-    $id = $_GET['id'];
-    /*opção de Iniciar serviço e marcar como concluída apenas o cliente após o serviço ser iniciado*/
-    update($pdo, 'agenda', ['status_os' => 'Concluída'], "id_os = $id");
-    $_SESSION['mensagem'] = "Serviço concluído com sucesso";
-    unset($_SESSION['mensagem']);
-    header('Location: historicodeservicos.php');
-    exit;
-}
     ?>
     <!DOCTYPE html>
     <html lang="pt-br">
@@ -48,8 +72,6 @@ if(isset($_GET['acao']) && $_GET['acao'] == 'concluir' && isset($_GET['id'])){
                 $nomeCliente = read_nome_via_ID($pdo, 'usuarios', $agendamento['id_cliente']);
                 
                 $nomeProfi   = read_nome_via_ID($pdo, 'usuarios', $agendamento['id_profissional']);
-                $agendamento = read($pdo,'agenda',"id_os = $idAgendamento");
-                if (!$agendamento) { die("Agendamento não encontrado."); }
                 
                 $hoje = new DateTime();
 
@@ -83,17 +105,21 @@ if(isset($_GET['acao']) && $_GET['acao'] == 'concluir' && isset($_GET['id'])){
                 <label>Status: </label>
                 <a>".$agendamento['status_os']."</a><br><hr>";
 
-                if($agendamento['status_os'] != 'Concluída'){
-                    if($hoje->format('Y-m-d') == $dataAgendamento->format('Y-m-d') || $hoje->format('Y-m-d') > $dataAgendamento->format('Y-m-d')){
-                        echo "<a href='?id=".$agendamento['id_os']."&acao=concluir'>Marcar como concluída</a>";
+                $statusAtual = $agendamento['status_os'];
+                $dataValida = ($hoje->format('Y-m-d') >= $dataAgendamento->format('Y-m-d'));
+
+            if ($statusAtual == 'Em Andamento') {
+                    // Se já estiver em andamento, mostra APENAS Concluir e Cancelar
+                    echo "<a href='?id=".$agendamento['id_os']."&acao=concluir' style='margin-right: 15px;' class='voltar'>Concluir</a>";
+                    echo "<a href='?id=".$agendamento['id_os']."&acao=cancelar' onclick=\"return confirm('Tem certeza de que quer mesmo cancelar este serviço?');\">Cancelar</a>";
+                } 
+                elseif ($statusAtual != 'Concluída' && $statusAtual != 'Cancelada') {
+                    if ($dataValida) {
+                        echo "<a href='?id=".$agendamento['id_os']."&acao=iniciar' class='voltar'>Iniciar serviço</a>";
                     }
                 }
     }
-                if (!$agendamento) {
-                    die("Agendamento não encontrado.");
-                }
             ?>
         </div>
-        <!--adicionar verificação para caso esteja no dia do serviço aparecer uma opção de marcar como concluída-->
     </body>
     </html>

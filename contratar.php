@@ -12,6 +12,23 @@ if (session_status() === PHP_SESSION_NONE) {
 $idcard = intval($_GET['id']);
 
 $profissional = read($pdo, 'usuarios', "id_user=$idcard");
+
+if ($_SESSION['tipo'] == 'profissional') {
+    $_SESSION['mensagem'] = "Apenas usuários clientes podem contratar profissionais.";
+
+    header('Location: catalogo_profissionais.php');
+    exit();
+}
+if (!empty($user['img_user']) && file_exists('img/uploads/usuarios/profissionais/'. $user['img_user'])) {
+    $foto = $user['img_user'];
+} else {
+    $foto = 'foto_default.png';
+}
+$trabalhos = 0;
+$trabalhosConc =readAll($pdo,'agenda',"status_os = 'Concluída' and id_profissional = $idcard");
+foreach($trabalhosConc as $trabalho){
+    $trabalhos++;
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -40,7 +57,7 @@ $profissional = read($pdo, 'usuarios', "id_user=$idcard");
 
                     <!-- Foto -->
                     <div class="foto-profissional">
-                    <img src="uploads/usuarios/' . $profissional['img_user'] . '"
+                    <img src="img/uploads/usuarios/profissionais/' . $foto . '"
                     alt="Foto de ' . $profissional['nome'] . '">
                     </div>
 
@@ -56,8 +73,8 @@ $profissional = read($pdo, 'usuarios', "id_user=$idcard");
 
                         <div class="meta-info">
                             <span class="avaliacao"><i class="bi bi-star-fill"></i>' . $profissional['notas'] . '</span>
-                            <span>(247 trabalhos)</span>
-                            <span>12 anos</span>
+                            <span>('.$trabalhos.' trabalhos)</span>
+                            <span>11</span>
                         </div>
                     </div>
 
@@ -91,7 +108,7 @@ $profissional = read($pdo, 'usuarios', "id_user=$idcard");
 
                     <div class="campo">
                         <label>Tipo de Serviço</label>
-                        <select name="tipo_serv">
+                        <select name="tipo_serv" required>
                             <option selected disabled>Selecione o tipo de serviço</option>
                             <option value="Automação Industrial">Automação Industrial</option>
                             <option values="Manutenção Preventiva">Manutenção Preventiva</option>
@@ -103,24 +120,24 @@ $profissional = read($pdo, 'usuarios', "id_user=$idcard");
                     <div class="campo">
                         <label>Descrição do Problema</label>
                         <textarea name="desc" maxlength="500"
-                            placeholder="Descreva detalhadamente o problema, equipamento, modelo......"></textarea>
+                            placeholder="Descreva detalhadamente o problema, equipamento, modelo......" required></textarea>
                     </div>
 
                     <div class="linha-dupla">
                         <div class="campo">
                             <label>Data Desejada</label>
-                            <input type="date" name="data">
+                            <input type="date" name="data" required>
                         </div>
 
                         <div class="campo">
-                            <label for="">Tempo Estimado em Dias</label>
-                            <input type="number" name="tempo" placeholder="ex: 20 dias">
+                            <label for="">Tempo Estimado em minutos</label>
+                            <input type="number" name="tempo" placeholder="ex: 210" required>
                         </div>
                     </div>
 
                     <div class="campo">
                         <label>Local da Intervenção</label>
-                        <input name="end_serv" type="text" placeholder="Endereço completo da unidade industrial">
+                        <input name="end_serv" type="text" placeholder="Endereço completo da unidade industrial" required>
                     </div>
 
                     <button class="btn-prosseguir">
@@ -163,5 +180,4 @@ $profissional = read($pdo, 'usuarios', "id_user=$idcard");
 
     <?php require_once 'partials/footer.php'; ?>
 </body>
-
 </html>

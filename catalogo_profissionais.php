@@ -6,6 +6,10 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 $tipo_usuario = $_SESSION['tipo'] ?? 'visitante';
 unset($_SESSION['pedido']);
+
+if (isset($_SESSION['mensagem'])){
+    echo "<script>alert('".$_SESSION['mensagem']."')</script>";
+}
 ?>
 
 <!DOCTYPE html>
