@@ -74,9 +74,19 @@ if (!empty($user['img_user']) && file_exists('../img/uploads/usuarios/profission
         <p><b class="qntdserv"><?= $totalserv ?></b><br>Serviços prestados</p>
         <a class="func" href="servagendados.php">Ver serviços agendados</a>
     </div>
-    
+    <?php
+$meses = [
+    1 => 'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho',
+    'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'
+];
+
+$dataCadastro = new DateTime($user['data_cadastro']);
+
+$mesNome = $meses[(int)$dataCadastro->format('m')];
+$ano = $dataCadastro->format('Y');
+?>
     <footer>
-        <p>Cadastrado desde de 2026</p>
+        <p>Cadastrado desde de <?=$mesNome?> de <?=$ano?></p>
     </footer>
 </body>
 </html>

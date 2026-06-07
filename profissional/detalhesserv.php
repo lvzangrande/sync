@@ -63,9 +63,22 @@
     </head>
     <body class="body">
         <header>
-        <?php require_once "../partials/header.php";?>
+        <?php
+        if($agendamento['status_os'] === 'Em Andamento'){
+               '';
+            }
+            else{
+                require_once "../partials/header.php";
+            }
+        ?>
             </header>
-            <a href="<?=$_SERVER['HTTP_REFERER']?>" class="voltar">Voltar</a>
+            <?php if($agendamento['status_os'] === 'Em Andamento'){
+               '';
+            }
+            else{
+                echo '<a href="'.$_SERVER['HTTP_REFERER'].'" class="voltar">Voltar</a>';
+            }
+            ?>
         <div class="container">
             <?php        
                 
