@@ -93,10 +93,15 @@ $tableSuporte = readAll($pdo, 'suporte', $where);
             }
         } 
         
-        if ($temTicket == false) {
+        if($temTicket == false && $statusFiltro != 'Todos'){
             echo "<tr>
-                    <td colspan='99'>Não há tickets de suporte com status '{$statusFiltro}'.</td>
-                  </tr>";
+            <td colspan='99'>Não há mensagens com status '$statusFiltro'</td>
+          </tr>";
+        }
+        elseif($temTicket = 'Todas'){
+        echo "<tr>
+            <td colspan='99'>Ainda não há mensagens</td>
+          </tr>";
         }
         ?>
     </table>

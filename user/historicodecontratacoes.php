@@ -92,7 +92,7 @@ foreach ($tableAgenda as $agendamento) {
     }
         if($semContrato == false){
             echo "<tr>
-            <td colspan='99'>Ainda não há serviços com status '$statusFiltro'</td>
+            <td colspan='99'>Não há serviços $status</td>
           </tr>";
         }
 ?>

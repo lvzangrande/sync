@@ -78,14 +78,20 @@ $categoria = $_SESSION['tipo'];
 
         <a class="historico" href="historicodemensagens.php">Visualizar mensagens de suporte</a>
     </div>
-    <footer>
-        <p>Cadastrado desde de 2026</p><!--criar uma coluna no sql pra data de cadastro
-        ai não esquece de alterar tbm na página de contratar profissional
-        -->
-    </footer>
     <?php
+$meses = [
+    1 => 'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho',
+    'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'
+];
 
-    ?>
+$dataCadastro = new DateTime($user['data_cadastro']);
+
+$mesNome = $meses[(int)$dataCadastro->format('m')];
+$ano = $dataCadastro->format('Y');
+?>
+    <footer>
+        <p>Cadastrado desde de <?=$mesNome?> de <?=$ano?></p>
+    </footer>
 </body>
 
 </html>
