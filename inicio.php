@@ -1,3 +1,12 @@
+<?php
+function loginInteligente(){
+    if (isset($_SESSION)) {
+        echo "login.php";
+    } else {
+        echo "cadastro.php";
+    }
+};
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -234,7 +243,8 @@
         <h1>Sincronize Sua <div class="destaque-azul">Operação</div>
         </h1>
         <p>Reduza paradas não planejadas<br> e maximize a eficiência produtiva</p>
-        <a href="./cadastro.php" class="btn-comecar2">
+
+        <a href="./<?php loginInteligente()?>" class="btn-comecar2">
             <i class="fa-solid fa-gear gear-icone"></i> COMEÇAR AGORA <i class="fa-solid fa-arrow-right seta-icone"></i>
         </a>
 
