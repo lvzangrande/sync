@@ -91,12 +91,12 @@ require_once 'crud.php';
 $tableProfissionais = readAll($pdo, 'usuarios', "categoria = 'profissional' ORDER BY notas DESC LIMIT 4");
 
 echo '<div class="membros">';
-foreach ($tableProfissionais as $profissionais) {
-    $servicos = readAll($pdo, 'agenda', "id_profissional = {$profissionais['id_user']} AND status_os = 'Concluída'");
+foreach ($tableProfissionais as $profissional) {
+    $servicos = readAll($pdo, 'agenda', "id_profissional = {$profissional['id_user']} AND status_os = 'Concluída'");
     $total_servicos = count($servicos);
 
-    if ($profissionais['img_user'] != '' && file_exists('img/uploads/usuarios/profissionais/' . $profissionais['img_user'])) {
-        $foto = $profissionais['img_user'];
+    if ($profissional['img_user'] != '' && file_exists('img/uploads/usuarios/profissionais/' . $profissional['img_user'])) {
+        $foto = $profissional['img_user'];
     } else {
         $foto = 'foto_default.png';
     }
@@ -104,12 +104,12 @@ foreach ($tableProfissionais as $profissionais) {
     echo "
         <div class='perfil'>
             <div class='foto'>
-                <a href='contratar.php?id={$profissionais['id_user']}'><img src='img/uploads/usuarios/profissionais/{$foto}'><a/>
-                <span class='nota'><i class='fa-solid fa-star'></i> {$profissionais['notas']}</span>
+                <a href='contratar.php?id={$profissional['id_user']}'><img src='img/uploads/usuarios/profissionais/{$foto}'><a/>
+                <span class='nota'><i class='fa-solid fa-star'></i> {$profissional['notas']}</span>
                 <span class='qtd'>{$total_servicos} serviços</span>
             </div>
-            <h3>{$profissionais['nome']}</h3>
-            <p>{$profissionais['especialidade']}</p>
+            <h3>{$profissional['nome']}</h3>
+            <p>{$profissional['especialidade']}</p>
         </div>
     ";
 }
@@ -122,15 +122,15 @@ echo '</div>';
     <p class="tag">Compatibilidade Total</p>
     <h2>Sistemas e Fabricantes <span class="destaque-azul">Suportados</span></h2>
     <p>Técnicos totalmente capacitados para diagnosticar, calibrar e reparar componentes e equipamentos das principais marcas do mercado industrial.</p>
-    <div class="logos">
-        <img src="img/siemens.png" >
-        <img src="img/weg.png" >
-        <img src="img/schneider.png" >
-        <img src="img/abb.png" >
-        <img src="img/rockwell.png" >
-        <img src="img/kuka.jpg" >
-        <img src="img/yaskawa.png" >
-    </div>
+<div class="logos">
+    <div class="logo"><a href="https://www.siemens.com" target="_blank"><img src="img/siemens.png"></a></div>
+    <div class="logo"><a href="https://www.weg.net" target="_blank"><img src="img/weg.png"></a></div>
+    <div class="logo"><a href="https://www.se.com" target="_blank"><img src="img/schneider.png"></a></div>
+    <div class="logo"><a href="https://www.abb.com" target="_blank"><img src="img/abb.png"></a></div>
+    <div class="logo"><a href="https://www.rockwellautomation.com" target="_blank"><img src="img/rockwell.png"></a></div>
+    <div class="logo"><a href="https://www.kuka.com" target="_blank"><img src="img/kuka.jpg"></a></div>
+    <div class="logo"><a href="https://www.yaskawa.com" target="_blank"><img src="img/yaskawa.png"></a></div>
+</div>
 </section>
 
 
