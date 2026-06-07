@@ -66,15 +66,10 @@ foreach ($tableAgenda as $agendamento) {
     <div class="body">
         <table>
             <tr>
-                <th></th>
+                <th>Status</th>
                 <th>Data</th>
-                <th>Tempo estimado</th>
-                <th>Valor</th>
                 <th>Descrição</th>
                 <th>Endereço</th>
-                <th>Contratante</th>
-                <th>Profissional</th>
-                <th>Status</th>
                 <th class='td_verDetalhes'></th>
             </tr>
 
@@ -138,13 +133,8 @@ foreach($tableAgenda as $agendamento){
             echo "<tr>
                     <td><div class='".$status."'></div></td>
                     <td>".$agendamento['data']."</td>
-                    <td>".$agendamento['tempo_planejado']."</td>
-                    <td>".$agendamento['valor_total']."</td>
                     <td>".$descricaoResumida."</td>
                     <td>".$agendamento['endereco_servico']."</td>
-                    <td>".$nomeCliente."</td>
-                    <td>".$nomeProfi."</td>
-                    <td>".$agendamento['status_os']."</td>
                     <td class='td_verDetalhes'>
                         <a class='verDetalhes' href='detalhesserv.php?id=".$agendamento['id_os']."'>
                             Ver detalhes

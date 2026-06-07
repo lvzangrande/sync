@@ -198,6 +198,7 @@ table {
     border-radius: 15px;
     overflow: hidden;
     margin: 40px auto;
+    white-space: nowrap;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
