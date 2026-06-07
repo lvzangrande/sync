@@ -64,14 +64,15 @@ if (
         if ($tipo_mensagem !== "erro") {
 
             $dados = [
-                'img_user'  => $img_user,
-                'nome'      => $nome,
-                'email'     => $email,
-                'senha'     => $senha,
-                'telefone'  => $telefone,
-                'cpf_cnpj'  => $cpf_cnpj,
-                'tipo'      => $tipo,
-                'categoria' => $categoria
+                'img_user'      => $img_user,
+                'nome'          => $nome,
+                'email'         => $email,
+                'senha'         => $senha,
+                'telefone'      => $telefone,
+                'cpf_cnpj'      => $cpf_cnpj,
+                'tipo'          => $tipo,
+                'categoria'     => $categoria,
+                'data_cadastro' => date('Y-m-d H:i:s')
             ];
 
             $sucesso = create($pdo, 'usuarios', $dados);

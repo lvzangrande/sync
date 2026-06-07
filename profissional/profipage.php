@@ -1,5 +1,6 @@
-<?php require_once '../crud.php';
-session_start();//não esquece de adicionar o filtro nas páginas!!!!
+<?php 
+require_once '../crud.php';
+session_start();
 
 if (!isset($_SESSION['autenticado'])) {
     header("Location: ../login.php");
@@ -9,41 +10,36 @@ if (!isset($_SESSION['autenticado'])) {
 function nomeUsuario() {
     if (isset($_SESSION['nome'])) {
         $nomeCompleto = trim($_SESSION['nome']);
-        
         $palavras = explode(" ", $nomeCompleto);
-        
         $duasPalavras = array_slice($palavras, 0, 2);
-        
         $nomeEncurtado = implode(" ", $duasPalavras);
 
-        echo htmlspecialchars($nomeEncurtado);
+        return htmlspecialchars($nomeEncurtado);
     } else {
-        echo "Usuário";
+        return "Usuário";
     }
 }
 
-    $tableUser = readAll($pdo,'agenda');
-    $idUser = (int)$_SESSION['id_user'];
-    $user = read($pdo,'usuarios',"id_user = $idUser");
+$idUser = (int)$_SESSION['id_user'];
+$user = read($pdo, 'usuarios', "id_user = $idUser");
 
-    $tableAgenda = readAll($pdo,'agenda');
-    $totalserv = 0;
-    $servcanc = 0;
-    foreach($tableAgenda as $agendamento){
-        if($agendamento['status_os'] == "Concluída"){
-            $totalserv ++;
-            }
-        elseif($agendamento['status_os'] == "Cancelada"){
-            $servcanc ++;
-        }
+$tableAgenda = readAll($pdo, 'agenda', "id_profissional = $idUser");
+$totalserv = 0;
+$servcanc = 0;
+
+foreach ($tableAgenda as $agendamento) {
+    if ($agendamento['status_os'] == "Concluída") {
+        $totalserv++;
+    } elseif ($agendamento['status_os'] == "Cancelada") {
+        $servcanc++;
     }
-if ($user['img_user'] != '' && file_exists('../img/uploads/usuarios/'.$user['categoria'].'/'. $user['img_user'])) {
+}
+
+if (!empty($user['img_user']) && file_exists('../img/uploads/usuarios/profissionais/' . $user['img_user'])) {
     $foto = $user['img_user'];
-}
-else{
+} else {
     $foto = 'foto_default.png';
 }
-    
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -52,27 +48,33 @@ else{
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/partials.css">
     <link rel="stylesheet" href="../css/profipage.css">
-    <title>Olá <?=nomeUsuario();?></title>
+    <title>Olá <?= nomeUsuario(); ?></title>
 </head>
 <body>
     <?php
     require_once '../partials/header.php';
     require_once '../php/saudacao.php';
     ?>
-    <h1><?=nomeUsuario($pdo)?></h1>
+    
+    <h1>Olá <?= nomeUsuario(); ?></h1>
+    
     <div class="perfil">
-        <div class='imgperfil'>
+        <div class="imgperfil">
             <div class="status"></div>
-            <img class="fotoperfil" src=../img/uploads/usuarios/profissionais/<?=$foto?>>
+            <img class="fotoperfil" src="../img/uploads/usuarios/profissionais/<?= $foto ?>" alt="Foto de Perfil">
             <br>
-            <a href='editardados.php' class="editar"><img src=../img/lapiseditar.png width='50'></a>
+            <a href="editardados.php" class="editar">
+                <img src="../img/lapiseditar.png" width="50" alt="Editar">
+            </a>
         </div>
     </div>
+    
     <div class="funcionalidades">
         <a class="func" href="historicodeservicos.php">Ver histórico de serviços</a>
-        <p><b class="qntdserv"><?=$totalserv?></b><br>Serviços prestados</p>
+        <p><b class="qntdserv"><?= $totalserv ?></b><br>Serviços prestados</p>
         <a class="func" href="servagendados.php">Ver serviços agendados</a>
     </div>
+    
     <footer>
         <p>Cadastrado desde de 2026</p>
     </footer>
