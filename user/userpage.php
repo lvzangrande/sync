@@ -57,22 +57,20 @@ $categoria = $_SESSION['tipo'];
 <body>
     
     <?php
-
     require_once '../partials/header.php';
-    require_once '../php/saudacao.php';
-
     ?>
-
-    <div class="imgperfil">
-        <img class="fotoperfil" src="../img/uploads/usuarios/clientes/<?= $foto ?>" width="900" alt="Foto de Perfil">
-        <br>
-        <div class="botaoEditarDados">
-            <a href="editardados.php">
-                <img src="../img/lapiseditar.png" width="80" alt="Editar Dados">
-            </a>
+    <div class="perfil">
+        <div class="imgperfil">
+            <img class="fotoperfil" src="../img/uploads/usuarios/clientes/<?= $foto ?>" width="900" alt="Foto de Perfil">
+            <br>
+            <div class="botaoEditarDados">
+                <a href="editardados.php">
+                    <img src="../img/lapiseditar.png" width="80" alt="Editar Dados">
+                </a>
+            </div>
         </div>
     </div>
-
+    <?php require_once '../php/saudacao.php';?>
     <h1><?= $nomeCompleto ?></h1>
     <div class="funcionalidades">
         <a class="historico" href="historicodecontratacoes.php">Ver histórico de contratações</a>
