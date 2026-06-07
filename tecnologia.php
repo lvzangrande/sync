@@ -92,10 +92,10 @@ $tableProfissionais = readAll($pdo, 'usuarios', "categoria = 'profissional' ORDE
 
 echo '<div class="membros">';
 foreach ($tableProfissionais as $profissionais) {
-    $servicos = readAll($pdo, 'agenda', "id_profissional = {$profissionais['id_user']}");
+    $servicos = readAll($pdo, 'agenda', "id_profissional = {$profissionais['id_user']} AND status_os = 'Concluída'");
     $total_servicos = count($servicos);
 
-    if ($profissionais['img_user'] != '' && file_exists('../img/uploads/usuarios/profissional/' . $profissionais['img_user'])) {
+    if ($profissionais['img_user'] != '' && file_exists('../img/uploads/usuarios/profissionais/' . $profissionais['img_user'])) {
         $foto = $profissionais['img_user'];
     } else {
         $foto = 'foto_default.png';
