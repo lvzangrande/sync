@@ -59,6 +59,7 @@ else{
     require_once '../partials/header.php';
     require_once '../php/saudacao.php';
     ?>
+    <h1><?=nomeUsuario($pdo)?></h1>
     <div class="perfil">
         <div class='imgperfil'>
             <div class="status"></div>
@@ -67,11 +68,10 @@ else{
             <a href='editardados.php' class="editar"><img src=../img/lapiseditar.png width='50'></a>
         </div>
     </div>
-    <h1><?=nomeUsuario($pdo)?></h1>
     <div class="funcionalidades">
-    <a class="func" href="historicodeservicos.php">Ver histórico de serviços</a>
-    <p><b class="qntdserv"><?=$totalserv?></b><br>serviços prestados</p>
-    <a class="func" href="servagendados.php">Ver serviços agendados</a>
+        <a class="func" href="historicodeservicos.php">Ver histórico de serviços</a>
+        <p><b class="qntdserv"><?=$totalserv?></b><br>Serviços prestados</p>
+        <a class="func" href="servagendados.php">Ver serviços agendados</a>
     </div>
     <footer>
         <p>Cadastrado desde de 2026</p>

@@ -59,9 +59,11 @@ $categoria = $_SESSION['tipo'];
     <?php
     require_once '../partials/header.php';
     ?>
+    <?php require_once '../php/saudacao.php';?>
+    <h1><?= $nomeCompleto ?></h1>
     <div class="perfil">
         <div class="imgperfil">
-            <img class="fotoperfil" src="../img/uploads/usuarios/clientes/<?= $foto ?>" width="900" alt="Foto de Perfil">
+            <a href="editardados.php"><img class="fotoperfil" src="../img/uploads/usuarios/clientes/<?= $foto ?>" width="900" alt="Foto de Perfil"></a>
             <br>
             <div class="botaoEditarDados">
                 <a href="editardados.php">
@@ -70,8 +72,7 @@ $categoria = $_SESSION['tipo'];
             </div>
         </div>
     </div>
-    <?php require_once '../php/saudacao.php';?>
-    <h1><?= $nomeCompleto ?></h1>
+    <h1>O que deseja fazer?</h1>
     <div class="funcionalidades">
         <a class="historico" href="historicodecontratacoes.php">Ver histórico de contratações</a>
 

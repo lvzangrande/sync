@@ -12,7 +12,10 @@ if (isset($_SESSION['mensagem'])) {
 }
 
 require_once "../crud.php";
+
 $tableAgenda = readAll($pdo,'agenda');
+
+$filtro = $_GET['filtro'] ?? 'Todos';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -25,13 +28,34 @@ $tableAgenda = readAll($pdo,'agenda');
 </head>
 <?php require_once '../partials/header.php'; ?>
 <body>
+
+    <a href="./profipage.php">Voltar</a>
+
+    <div class="filtros">
+        <?php
+        $filtros = [
+            'Todos',
+            'Concluído',
+            'Próximo',
+            'Distante',
+            'Pendente'
+        ];
+
+        foreach ($filtros as $item):
+            $ativo = ($filtro === $item) ? 'ativo' : '';
+        ?>
+            <a class="<?= $ativo ?>" href="?filtro=<?= urlencode($item) ?>">
+                <?= $item ?>
+            </a>
+        <?php endforeach; ?>
+    </div>
+    
     <div class="tipos_status">
         <div class="concluido"></div><a>Concluído</a>
         <div class="proximo"></div><a>Próximo</a>
         <div class="distante"></div><a>Distante</a>
         <div class="atrasado"></div><a>Pendente</a>
     </div>
-    <a href="./profipage.php">Voltar</a>
     <div class="body">
         <table>
             <tr>
@@ -46,6 +70,7 @@ $tableAgenda = readAll($pdo,'agenda');
                 <th>Status</th>
                 <th class='td_verDetalhes'></th>
             </tr>
+
 <?php
 $hoje = new DateTime();
 $temAgendamento = false;
@@ -64,11 +89,13 @@ foreach($tableAgenda as $agendamento){
     $diferenca = (int)$hoje->diff($dataAgendamento)->format('%r%a');
 
     $status = "";
+
     if($diferenca <= 0){
         $status = "atrasado";
-        // Só atualiza para Pendente se não estiver Concluída ou Cancelada
+
         if($agendamento['status_os'] != 'Concluída' && $agendamento['status_os'] != 'Cancelada'){
             update($pdo, 'agenda', ['status_os' => 'Pendente'], "id_os = ".$agendamento['id_os']);
+            $agendamento['status_os'] = 'Pendente';
         }
     }
     elseif($diferenca >= 21){
@@ -78,9 +105,29 @@ foreach($tableAgenda as $agendamento){
         $status = "proximo";
     }
 
+    $statusFiltroAtual = '';
+
+    if($agendamento['status_os'] == 'Concluída'){
+        $statusFiltroAtual = 'Concluído';
+    }
+    elseif($agendamento['status_os'] == 'Pendente'){
+        $statusFiltroAtual = 'Pendente';
+    }
+    elseif($status == 'proximo'){
+        $statusFiltroAtual = 'Próximo';
+    }
+    elseif($status == 'distante'){
+        $statusFiltroAtual = 'Distante';
+    }
+
+    if($filtro != 'Todos' && $filtro != $statusFiltroAtual){
+        continue;
+    }
+
     if($agendamento['id_profissional'] === $_SESSION['id_user']){
         if($agendamento['status_os'] != 'Concluída' && $agendamento['status_os'] != 'Cancelada'){
             $temAgendamento = true;
+
             echo "<tr>
                     <td><div class='".$status."'></div></td>
                     <td>".$agendamento['data']."</td>
@@ -91,12 +138,16 @@ foreach($tableAgenda as $agendamento){
                     <td>".$nomeCliente."</td>
                     <td>".$nomeProfi."</td>
                     <td>".$agendamento['status_os']."</td>
-                    <td class='td_verDetalhes'><a class='verDetalhes' href='detalhesserv.php?id=".$agendamento['id_os']."'>Ver detalhes</a></td>
+                    <td class='td_verDetalhes'>
+                        <a class='verDetalhes' href='detalhesserv.php?id=".$agendamento['id_os']."'>
+                            Ver detalhes
+                        </a>
+                    </td>
                   </tr>";
         }
     }
 }
-//
+
 if($temAgendamento == false){
     echo "<tr>
             <td colspan='99'>Nenhum serviço agendado</td>
