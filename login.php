@@ -137,6 +137,7 @@ function redirecionarPorPerfil($tipo)
             </p>
             <p style="margin-top: 8px;">
                 <a href="editar_senha.php">Esqueceu a senha?</a>
+                <!--Se não estiver logado não é possivel editar a senha,acho q nn tem mt sentido ter no login ent-->
             </p>
         </div>
     </div>

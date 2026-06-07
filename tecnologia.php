@@ -53,7 +53,7 @@
                 <div class="texto">
                     <h2>Automação e Controle Mecatrônico</h2>
                     <p>Assistência técnica validada e especializada em Servomotores (AC/DC) e Motores de Passo (Stepper Motors). Oferecemos também integração completa de Sensores e Controladores Mecatrônicos para garantir o controle total e a precisão dos seus processos produtivos.</p>
-                    <a href="#" class="btn">Contratar Serviço <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="catalogo_profissionais.php" class="btn">Contratar Serviço <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
 
@@ -62,7 +62,7 @@
                 <div class="texto">
                     <h2>Manutenção Técnica de Máquinas</h2>
                     <p>Serviços especializados para manter sua planta operando sem interrupções. Realize o agendamento de manutenção técnica preventiva e corretiva para Máquinas de Injeção de Plástico, Prensas de Estampagem ou Hidráulicas, e Unidades de Preparação de Ar (FRL).</p>
-                    <a href="#" class="btn">Contratar Serviço <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="catalogo_profissionais.php" class="btn">Contratar Serviço <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
 
@@ -71,7 +71,7 @@
                 <div class="texto">
                     <h2>Engenharia e Serviços Padrão</h2>
                     <p>Catálogo completo de soluções para a longevidade do seu maquinário. Disponibilizamos como serviços padrão as rigorosas rotinas de nivelamento, verificação de folgas, lubrificação de rolamentos e a inspeção detalhada de eixos e motores.</p>
-                    <a href="#" class="btn">Contratar Serviço <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="catalogo_profissionais.php" class="btn">Contratar Serviço <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
 
@@ -86,48 +86,36 @@
         </div>
         <a href="catalogo_profissionais.php" class="vermais">Ver Catálogo Completo <i class="fa-solid fa-arrow-right"></i></a>
     </div>
+<?php 
+require_once 'crud.php';
+$tableProfissionais = readAll($pdo, 'usuarios', "categoria = 'profissional' ORDER BY notas DESC LIMIT 4");
 
-    <div class="membros">
-        <div class="perfil">
-            <div class="foto">
-                <img src="img/carlos.png">
-                <span class="nota"><i class="fa-solid fa-star"></i> 4.9</span>
-                <span class="qtd">247 serviços</span>
-            </div>
-            <h3>Carlos Mendes</h3>
-            <p>Automação Preditiva</p>
-        </div>
+echo '<div class="membros">';
+foreach ($tableProfissionais as $profissionais) {
+    $servicos = readAll($pdo, 'agenda', "id_profissional = {$profissionais['id_user']}");
+    $total_servicos = count($servicos);
 
-        <div class="perfil">
-            <div class="foto">
-                <img src="img/ana.png">
-                <span class="nota"><i class="fa-solid fa-star"></i> 4.8</span>
-                <span class="qtd">189 serviços</span>
-            </div>
-            <h3>Ana Ferreira</h3>
-            <p>Engenharia de Precisão</p>
-        </div>
+    if ($profissionais['img_user'] != '' && file_exists('../img/uploads/usuarios/profissional/' . $profissionais['img_user'])) {
+        $foto = $profissionais['img_user'];
+    } else {
+        $foto = 'foto_default.png';
+    }
 
-        <div class="perfil">
-            <div class="foto">
-                <img src="img/roberto.png">
-                <span class="nota"><i class="fa-solid fa-star"></i> 5.0</span>
-                <span class="qtd">312 serviços</span>
+    echo "
+        <div class='perfil'>
+            <div class='foto'>
+                <img src='img/uploads/usuarios/profissionais/{$foto}'>
+                <span class='nota'><i class='fa-solid fa-star'></i> {$profissionais['notas']}</span>
+                <span class='qtd'>{$total_servicos} serviços</span>
             </div>
-            <h3>Roberto Silva</h3>
-            <p>CLP & SCADA</p>
+            <h3>{$profissionais['nome']}</h3>
+            <p>{$profissionais['especialidade']}</p>
         </div>
-
-        <div class="perfil">
-            <div class="foto">
-                <img src="img/mariana.jpg">
-                <span class="nota"><i class="fa-solid fa-star"></i> 4.9</span>
-                <span class="qtd">156 serviços</span>
-            </div>
-            <h3>Mariana Costa</h3>
-            <p>Termografia Industrial</p>
-        </div>
-    </div>
+    ";
+}
+echo '</div>';
+?>
+</div>
 </section>
 
 <section class="marcas">

@@ -55,7 +55,7 @@ function loginInteligente(){
                     <a href="./cadastro.php" class="btn-comecar">
                         Sincronizar operação <span class="material-symbols-outlined">arrow_outward</span>
                     </a>
-                    <a href="#saibamais" class="btn-profs">Explorar profissionais</a>
+                    <a href="catalogo_profissionais.php" class="btn-profs">Explorar profissionais</a>
                 </div>
 
                 <div class="estatisticas-container">

@@ -1,5 +1,5 @@
 <?php require_once '../crud.php';
-session_start();
+session_start();//não esquece de adicionar o filtro nas páginas!!!!
 
 if (!isset($_SESSION['autenticado'])) {
     header("Location: ../login.php");
@@ -37,7 +37,7 @@ function nomeUsuario() {
             $servcanc ++;
         }
     }
-if ($user['img_user'] != '' && file_exists('../img/uploads/usuarios/clientes/'. $user['img_user'])) {
+if ($user['img_user'] != '' && file_exists('../img/uploads/usuarios/'.$user['categoria'].'/'. $user['img_user'])) {
     $foto = $user['img_user'];
 }
 else{
