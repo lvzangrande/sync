@@ -86,8 +86,11 @@ function redirecionarPorPerfil($tipo)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | Sync Mecatronics</title>
     <link rel="stylesheet" href="css/formularios.css">
+    <link rel="stylesheet" href="css/partials.css">
 </head>
-
+    <header>
+        <?php include 'partials/header.php'; ?>
+    </header>
 <body>
 
     <div class="login-container">
