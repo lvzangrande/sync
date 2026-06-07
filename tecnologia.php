@@ -95,7 +95,7 @@ foreach ($tableProfissionais as $profissionais) {
     $servicos = readAll($pdo, 'agenda', "id_profissional = {$profissionais['id_user']} AND status_os = 'Concluída'");
     $total_servicos = count($servicos);
 
-    if ($profissionais['img_user'] != '' && file_exists('../img/uploads/usuarios/profissionais/' . $profissionais['img_user'])) {
+    if ($profissionais['img_user'] != '' && file_exists('img/uploads/usuarios/profissionais/' . $profissionais['img_user'])) {
         $foto = $profissionais['img_user'];
     } else {
         $foto = 'foto_default.png';
@@ -104,7 +104,7 @@ foreach ($tableProfissionais as $profissionais) {
     echo "
         <div class='perfil'>
             <div class='foto'>
-                <img src='img/uploads/usuarios/profissionais/{$foto}'>
+                <a href='contratar.php?id={$profissionais['id_user']}'><img src='img/uploads/usuarios/profissionais/{$foto}'><a/>
                 <span class='nota'><i class='fa-solid fa-star'></i> {$profissionais['notas']}</span>
                 <span class='qtd'>{$total_servicos} serviços</span>
             </div>
