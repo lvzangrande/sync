@@ -41,7 +41,7 @@ if(isset($_GET['acao']) && $_GET['acao'] == 'concluir' && isset($_GET['id'])){
         <header>
         <?php require_once "../partials/header.php";?>
             </header>
-            <a href="<?=$_SERVER['HTTP_REFERER']?>">Voltar</a>
+            <a href="<?=$_SERVER['HTTP_REFERER']?>" class="voltar">Voltar</a>
         <div class="container">
             <?php        
                 

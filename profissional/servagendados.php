@@ -16,6 +16,13 @@ require_once "../crud.php";
 $tableAgenda = readAll($pdo,'agenda');
 
 $filtro = $_GET['filtro'] ?? 'Todos';
+
+foreach ($tableAgenda as $agendamento) {
+    if (new DateTime($agendamento['data']) < new DateTime()) {
+        update($pdo, 'agenda', ['status_os' => 'Pendente'], "id_os = {$agendamento['id_os']}");
+        $agendamento['status_os'] = 'Pendente';
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
