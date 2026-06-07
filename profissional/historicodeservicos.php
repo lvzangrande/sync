@@ -47,12 +47,11 @@ foreach($tableAgenda as $agendamento){
 ?>
 <body>
     <a href="./profipage.php">Voltar</a>
-    <div class="bodyhist">
         <div class="servicos">
-            <p>SERVIÇOS PENDENTES<br><a class="servpendente"><?=$serv_pend?></a></p>
+            <p>SERVIÇOS PENDENTES<br><a class="servpendente"><b><?=$serv_pend?></b></a></p>
             <p>SERVIÇOS AGENDADOS<br><a class="servagend"><b><?=$serv_agend?></b></a></p>
-            <a href="servagendados.php" class="conferir">Conferir</a>
-            <p>SERVIÇOS CONCLUÍDOS<br><a class="servconcluido"><?=$serv_conc?></a></p>
+            <a href="servagendados.php" class="conferir"><b>Conferir</b></a>
+            <p>SERVIÇOS CONCLUÍDOS<br><a class="servconcluido"><b><?=$serv_conc?></b></a></p>
         </div>
         <table class="históricoserv">
             <tr>

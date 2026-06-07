@@ -42,10 +42,9 @@ foreach ($tableAgenda as $agendamento) {
         <?php
         $filtros = [
             'Todos',
-            'Concluído',
+            'Pendente',
             'Próximo',
             'Distante',
-            'Pendente'
         ];
 
         foreach ($filtros as $item):
@@ -58,19 +57,13 @@ foreach ($tableAgenda as $agendamento) {
     </div>
     
     <div class="tipos_status">
-        <div class="concluido"></div><a>Concluído</a>
+            <div class="atrasado"></div><a>Pendente</a>
         <div class="proximo"></div><a>Próximo</a>
         <div class="distante"></div><a>Distante</a>
-        <div class="atrasado"></div><a>Pendente</a>
     </div>
-    <div class="body">
         <table>
             <tr>
-                <th>Status</th>
-                <th>Data</th>
-                <th>Descrição</th>
-                <th>Endereço</th>
-                <th class='td_verDetalhes'></th>
+                <th colspan='99'>SERVIÇOS AGENDADOS</th>
             </tr>
 
 <?php
@@ -109,10 +102,7 @@ foreach($tableAgenda as $agendamento){
 
     $statusFiltroAtual = '';
 
-    if($agendamento['status_os'] == 'Concluída'){
-        $statusFiltroAtual = 'Concluído';
-    }
-    elseif($agendamento['status_os'] == 'Pendente'){
+    if($agendamento['status_os'] == 'Pendente'){
         $statusFiltroAtual = 'Pendente';
     }
     elseif($status == 'proximo'){
@@ -147,11 +137,10 @@ foreach($tableAgenda as $agendamento){
 
 if($temAgendamento == false){
     echo "<tr>
-            <td colspan='99'>Nenhum serviço agendado</td>
+            <td colspan='99'>Nenhum serviço agendado com o status '".$filtro."'</td>
           </tr>";
 }
 ?>
         </table>
-    </div>
 </body>
 </html>
