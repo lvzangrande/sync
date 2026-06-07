@@ -7,14 +7,14 @@ require_once 'crud.php';
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-
+//fazer verificação pra caso o usuário tente agendar o profissional em um dia na qual já está agendado, não permitir
 
 $idcard = intval($_GET['id']);
 
 $profissional = read($pdo, 'usuarios', "id_user=$idcard");
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">

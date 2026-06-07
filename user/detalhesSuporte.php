@@ -35,39 +35,35 @@ if (!$ticket) {
     
     <div class="container">
         <?php     
-        if($idSuporte){
-            $respostaAdmin = !empty($ticket['resposta_admin']) ? $ticket['resposta_admin'] : "Aguardando resposta do administrador.";
-            
-            echo "  
-                <label>Código do Chamado (ID): </label>
-                <a>#".$ticket['id_sup']."</a><br><hr>
+ if($idSuporte){
+    $respostaAdmin = !empty($ticket['resposta_admin']) ? $ticket['resposta_admin'] : "Aguardando resposta do administrador.";
 
-                <label>Nome do Cliente: </label>
-                <a>".$ticket['nome_cliente']."</a><br><hr>
+    echo "
+        <label>Código do Chamado: </label>
+        <a>#".$ticket['id_sup']."</a><br><br>
 
-                <label>Telefone de Contato: </label>
-                <a>".$ticket['tel_sup']."</a><br><hr>
+        <label>Nome do Cliente: </label>
+        <a>".$ticket['nome_cliente']."</a><br><br>
 
-                <label>E-mail: </label>
-                <a>".$ticket['email_sup']."</a><br><hr>
+        <label>Telefone de Contato: </label>
+        <a>".$ticket['tel_sup']."</a><br><br>
 
-                <label>ID do Usuário no Sistema: </label>
-                <a>".$ticket['id_usuario']."</a><br><hr>
+        <label>E-mail: </label>
+        <a>".$ticket['email_sup']."</a><br><br>
 
-                <label>Mensagem / Descrição do Problema: </label>
-                <div style='margin-top: 10px; padding: 15px; background: rgba(0, 0, 0, 0.2); border: 1px solid #33415C; border-radius: 8px; color: #ffffff; line-height: 1.5;'>
-                    ".nl2br($ticket['desc_sup'])."
-                </div><br><hr>
+        <label>Mensagem / Descrição do Problema: </label>
+        <div style='margin-top: 10px; padding: 15px; background: rgba(0, 0, 0, 0.2); border: 1px solid #33415C; border-radius: 8px; color: #ffffff; line-height: 1.5;'>
+            ".nl2br($ticket['desc_sup'])."
+        </div><br><hr>
 
-                <label>Status do Suporte: </label>
-                <strong><a>".$ticket['status_suporte']."</a></strong><br><hr>
+        <label>Status do Suporte: </label>
+        <strong><a>".$ticket['status_suporte']."</a></strong><br><br>
 
-                <label>Resposta do Administrador: </label>
-                <div style='margin-top: 10px; padding: 15px; background: rgba(133, 181, 203, 0.1); border-left: 4px solid #85b5cb; border-radius: 8px; color: #ffffff; line-height: 1.5;'>
-                    ".nl2br($respostaAdmin)."
-                </div><br><hr>";
-        }
-        ?>
-    </div>
+        <label>Resposta do Administrador: </label>
+        <div style='margin-top: 10px; padding: 15px; background: rgba(133, 181, 203, 0.1); border-left: 4px solid #85b5cb; border-radius: 8px; color: #ffffff; line-height: 1.5;'>
+            ".nl2br($respostaAdmin)."
+        </div><br>";
+}
+?>
 </body>
 </html>
