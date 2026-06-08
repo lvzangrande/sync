@@ -66,12 +66,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'nome'     => $_POST['nome'],
         'email'    => $_POST['email'],
         'telefone' => $_POST['tel'], 
-        'cpf_cnpj' => $_POST['cpf_cnpj']  
+        'cpf_cnpj' => $_POST['cpf_cnpj'] 
     ];
     if (isset($_FILES['img_user']) && $_FILES['img_user']['error'] === UPLOAD_ERR_OK) {
         $nome_foto = $_FILES['img_user']['name'];
         
-        if (move_uploaded_file($_FILES['img_user']['tmp_name'], "../uploads/" . $nome_foto)) {
+        if (move_uploaded_file($_FILES['img_user']['tmp_name'], "../uploads/usuarios/" . $nome_foto)) {
             $dadosAtualizados['img_user'] = $nome_foto;
         }
     }
