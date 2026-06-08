@@ -46,6 +46,9 @@ foreach ($tableAgenda as $agendamento) {
         $agendamento['status_os'] = 'Pendente';
     }
 }
+//Se algum serviço com status em andamento, exibir um alert e redirecionar para ele
+//Se algum serviço do profissional estiver com status em andamento não permitir iniciar mais serviços
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -66,7 +69,7 @@ foreach ($tableAgenda as $agendamento) {
     
     <div class="perfil">
         <div class="imgperfil">
-            <div class="status"></div>
+            <div class="status"></div><!--Se em andamento mudar a cor para laranja-->
             <img class="fotoperfil" src="../img/uploads/usuarios/profissionais/<?= $foto ?>" alt="Foto de Perfil">
             <br>
             <a href="editardados.php" class="editar">
