@@ -22,11 +22,11 @@ $order = '';
 if (!empty($_GET['ordenar'])) {
 
     if ($_GET['ordenar'] == 'mais_proxima') {
-        $order = '1=1 ORDER BY data ASC';
+        $order = '1=1 ORDER BY data DESC';
     }
 
     if ($_GET['ordenar'] == 'mais_distante') {
-        $order = '1=1 ORDER BY data DESC';
+        $order = '1=1 ORDER BY data ASC';
     }
 }
 
