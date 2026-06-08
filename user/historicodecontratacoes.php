@@ -94,19 +94,6 @@ foreach ($tableAgenda as $agendamento) {
         </tr>
 
         <?php
-        $order = '';
-
-        if (!empty($_GET['ordenar'])) {
-
-            if ($_GET['ordenar'] == 'mais_proxima') {
-                $order = ' ORDER BY data ASC';
-            }
-
-            if ($_GET['ordenar'] == 'mais_distante') {
-                $order = ' ORDER BY data DESC';
-            }
-        }
-        // $tableAgenda = readAll($pdo, 'agenda', $where . $order);
         $semContrato = false;
         foreach ($tableAgenda as $agendamento) {
             $semContrato = true;
