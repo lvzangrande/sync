@@ -40,6 +40,12 @@ if (!empty($user['img_user']) && file_exists('../img/uploads/usuarios/profission
 } else {
     $foto = 'foto_default.png';
 }
+foreach ($tableAgenda as $agendamento) {
+    if ($agendamento['status_os'] != 'Concluída' && new DateTime($agendamento['data']) < new DateTime()) {
+        update($pdo, 'agenda', ['status_os' => 'Pendente'], "id_os = {$agendamento['id_os']}");
+        $agendamento['status_os'] = 'Pendente';
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
