@@ -11,6 +11,7 @@ if (!isset($_SESSION['autenticado'])) {
 }
 $pedido = $_SESSION['pedido'];
 $nome = read($pdo, 'usuarios', "id_user = " . $pedido['id_profissional']);
+print_r($pedido);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

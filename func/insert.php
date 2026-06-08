@@ -20,7 +20,8 @@ $novo_contrato = [
     'tempo_planejado' => $pedido['tempo'],
     'endereco_servico' => $pedido['end_serv'],
     'id_profissional' => $pedido['id_profissional'],
-    'id_cliente' => $_SESSION['id_user']
+    'id_cliente' => $_SESSION['id_user'],
+    'metodo_pagamento' => $pedido['metodo_pagamento']
 ];
 
 
