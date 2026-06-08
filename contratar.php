@@ -13,7 +13,7 @@ $idcard = intval($_GET['id']);
 
 $profissional = read($pdo, 'usuarios', "id_user=$idcard");
 
-if ($_SESSION['tipo'] == 'profissional') {
+if (isset($_SESSION['tipo']) && $_SESSION['tipo'] === 'profissional') {
     $_SESSION['mensagem'] = "Apenas usuários clientes podem contratar profissionais.";
 
     header('Location: catalogo_profissionais.php');
