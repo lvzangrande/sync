@@ -23,17 +23,10 @@ $novo_contrato = [
     'id_cliente' => $_SESSION['id_user']
 ];
 
-$update_status = [
-    'status' => 'Em Atendimento'
-];
 
-$idnova_os = create(
-    $pdo,
-    'agenda',
-    $novo_contrato
-);
+$idnova_os = create($pdo, 'agenda', $novo_contrato);
 
-update($pdo, 'usuarios', $update_status, "id_user = " . $pedido['id_profissional']);
+
 
 
 
