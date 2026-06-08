@@ -1,22 +1,23 @@
 USE db_sync;
 
 -- 1. Tabela usuarios
-CREATE TABLE IF NOT EXISTS usuarios (
-    id_user INT AUTO_INCREMENT PRIMARY KEY,
-    img_user VARCHAR(255),
-    nome VARCHAR(100) NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
-    senha VARCHAR(255) NOT NULL,
-    telefone VARCHAR(20) NOT NULL,
-    cpf_cnpj VARCHAR(20) UNIQUE NOT NULL,
-    tipo ENUM ('PF', 'PJ') NOT NULL,
-    categoria ENUM ('cliente', 'profissional', 'admin') NOT NULL,
-    especialidade VARCHAR(100) NULL,
-    status ENUM ('Disponível', 'Em Atendimento', 'Inativo') NULL,
-    valor_dia DECIMAL(10,2) NULL,
-    descricao_func TEXT NULL,
-    notas INT NULL CHECK (notas BETWEEN 0 AND 5)
-);
+    CREATE TABLE IF NOT EXISTS usuarios (
+        id_user INT AUTO_INCREMENT PRIMARY KEY,
+        img_user VARCHAR(255),
+        nome VARCHAR(100) NOT NULL,
+        email VARCHAR(100) UNIQUE NOT NULL,
+        senha VARCHAR(255) NOT NULL,
+        telefone VARCHAR(20) NOT NULL,
+        cpf_cnpj VARCHAR(20) UNIQUE NOT NULL,
+        tipo ENUM ('PF', 'PJ') NOT NULL,
+        categoria ENUM ('cliente', 'profissional', 'admin') NOT NULL,
+        especialidade VARCHAR(100) NULL,
+        status ENUM ('Disponível', 'Em Atendimento', 'Inativo') NULL,
+        valor_dia DECIMAL(10,2) NULL,
+        descricao_func TEXT NULL,
+        notas INT NULL CHECK (notas BETWEEN 0 AND 5),
+        data_cadastro DATE NOT NULL DEFAULT (CURRENT_DATE)
+    );
 
 
 -- DESC usuarios;
@@ -92,7 +93,8 @@ INSERT INTO
         status,
         valor_dia,
         descricao_func,
-        notas
+        notas,
+        data_cadastro
     )
 VALUES
     (
@@ -108,7 +110,8 @@ VALUES
         NULL,
         NULL,
         NULL,
-        5
+        5,
+        '2021-04-12'
     ),
     (
         'maria_admin.png',
@@ -123,7 +126,8 @@ VALUES
         NULL,
         NULL,
         NULL,
-        NULL
+        NULL,
+        '2020-01-15'
     ),
     (
         'carlos_profissional.png',
@@ -138,7 +142,8 @@ VALUES
         'Disponível',
         250.00,
         'Especialista em reparo, retífica e manutenção preventiva de motores elétricos e a combustão.',
-        5
+        5,
+        '2023-08-24'
     ),
     (
         'ana_profissional.png',
@@ -153,7 +158,8 @@ VALUES
         'Em Atendimento',
         300.00,
         'Manutenção e calibração de compressores de ar, válvulas e redes pneumáticas industriais.',
-        4
+        4,
+        '2022-11-02'
     ),
     (
         'marcos_profissional.png',
@@ -168,7 +174,8 @@ VALUES
         'Disponível',
         400.00,
         'Especialista no reparo de bombas, cilindros e unidades hidráulicas de alta pressão.',
-        5
+        5,
+        '2020-07-19'
     ),
     (
         'ricardo_profissional.png',
@@ -183,7 +190,8 @@ VALUES
         'Inativo',
         450.00,
         'Manutenção corretiva e preventiva em esteiras, tornos CNC e maquinário pesado em geral.',
-        3
+        3,
+        '2025-03-14'
     ),
     (
         'fernando_automacao.jpg',
@@ -198,7 +206,8 @@ VALUES
         'Disponível',
         550.00,
         'Projetos e manutenção de CLPs, sensores e sistemas automatizados.',
-        5
+        5,
+        '2024-01-30'
     ),
     (
         'juliana_robotica.jpg',
@@ -213,7 +222,8 @@ VALUES
         'Em Atendimento',
         650.00,
         'Integração e manutenção de células robotizadas industriais.',
-        5
+        5,
+        '2023-05-17'
     ),
     (
         'paulo_eletrica.jpg',
@@ -228,7 +238,8 @@ VALUES
         'Disponível',
         380.00,
         'Instalação e manutenção de painéis elétricos industriais.',
-        4
+        4,
+        '2021-12-05'
     ),
     (
         'rodrigo_cnc.jpg',
@@ -243,7 +254,8 @@ VALUES
         'Disponível',
         700.00,
         'Programação e manutenção de centros de usinagem CNC.',
-        5
+        5,
+        '2025-10-11'
     ),
     (
         'beatriz_instrumentacao.jpg',
@@ -258,7 +270,8 @@ VALUES
         'Em Atendimento',
         480.00,
         'Calibração e manutenção de instrumentos de medição industrial.',
-        4
+        4,
+        '2022-04-29'
     ),
     (
         'gabriel_mecatronica.jpg',
@@ -273,22 +286,24 @@ VALUES
         'Disponível',
         520.00,
         'Manutenção integrada de sistemas mecânicos, elétricos e eletrônicos.',
-        5
+        5,
+        '2026-02-03'
     ),
     (
-    'metalurgica_abc.png',
-    'Metalúrgica ABC LTDA',
-    'contato@metalurgicaabc.com.br',
-    'hash_senha_401',
-    '(11) 98888-1111',
-    '12.345.678/0001-90',
-    'PJ',
-    'cliente',
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    4
+        'metalurgica_abc.png',
+        'Metalúrgica ABC LTDA',
+        'contato@metalurgicaabc.com.br',
+        'hash_senha_401',
+        '(11) 98888-1111',
+        '12.345.678/0001-90',
+        'PJ',
+        'cliente',
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        4,
+        '2024-09-18'
     ),
     (
         'industria_novaera.png',
@@ -303,96 +318,8 @@ VALUES
         NULL,
         NULL,
         NULL,
-        5
-    );
-
-INSERT INTO maquinas (
-    img_maq,
-    nome_maq,
-    tipo_maq,
-    tipo2_maq,
-    desc_maq,
-    tempo_estimado_minutos
-)
-VALUES
-(
-    'motor_indutivo.png',
-    'Motor de Indução Trifásico AC',
-    'Motores',
-    'Elétrico',
-    'Motor trifásico utilizado em aplicações industriais de médio e grande porte.',
-    180
-),
-(
-    'torno_cnc.png',
-    'Torno CNC Industrial X-1000',
-    'Equipamentos Industriais',
-    'Usinagem',
-    'Maquinário automatizado para usinagem de precisão de peças metálicas e plásticas de alta complexidade.',
-    240
-);
-
-INSERT INTO
-    agenda (
-        data,
-        tempo_planejado,
-        valor_total,
-        descricao_problema,
-        tipo_servico,
-        endereco_servico,
-        metodo_pagamento,
-        status_os,
-        id_cliente,
-        id_profissional
-    )
-VALUES
-    (
-        '2026-06-05',
-        15,
-        250.00,
-        'Motor trifásico apresentando superaquecimento e perda de potência durante operação contínua.',
-        'Manutenção Preventiva',
-        'Rua das Indústrias, 1500 - São Paulo/SP',
-        'Pix',
-        'Agendada',
-        1,
-        3
-    ),
-    (
-        '2026-06-08',
-        20,
-        400.00,
-        'Sistema hidráulico da prensa industrial com vazamento e baixa pressão.',
-        'Mecatrônica',
-        'Av. Industrial, 3200 - Guarulhos/SP',
-        'Débito',
-        'Pendente',
-        1,
-        5
-    ),
-    (
-        '2026-06-10',
-        45,
-        550.00,
-        'Falha na comunicação entre CLP e sensores da linha de produção.',
-        'Automação industrial',
-        'Rua Industrial Norte, 150 - Osasco/SP',
-        'Pix',
-        'Agendada',
-        1,
-        7
-    ),
-    (
-        '2026-06-12',
-        30,
-        650.00,
-        'Robô de soldagem apresentando desalinhamento durante operação.',
-        'Mecatrônica',
-        'Av. das Empresas, 800 - Barueri/SP',
-        'Débito',
-        'Pendente',
-        13,
-        8
+        5,
+        '2026-06-02' -- Conta recente, bem perto de hoje
     );
 
 -- DESC agenda;

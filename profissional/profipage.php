@@ -65,7 +65,7 @@ foreach ($tableAgenda as $agendamento) {
     require_once '../php/saudacao.php';
     ?>
     
-    <h1>Olá <?= nomeUsuario(); ?></h1>
+    <h1><?= nomeUsuario(); ?></h1>
     
     <div class="perfil">
         <div class="imgperfil">
