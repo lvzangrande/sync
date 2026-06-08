@@ -86,7 +86,7 @@ $profissional = read($pdo, "usuarios", "id_user = $idcard");
 
                     <!-- Foto -->
                     <div class="foto-profissional">
-                        <img src="' . $base .'uploads/usuarios/'. $profissional['img_user'] . '"
+                        <img src="' . $base .'img/uploads/usuarios/profissionais/'. $profissional['img_user'] . '"
                             alt="">
                     </div>
 

@@ -14,8 +14,8 @@ if ($_SESSION['tipo'] !== 'admin') {
 }
 
 
-$id   = $_GET['id'] ?? null;
-$tipo = $_GET['tipo'] ?? null;
+$id   = $_POST['id'] ?? $_GET['id'] ?? null;
+$tipo = $_POST['tipo'] ?? $_GET['tipo'] ?? null;
 
 $erro = "";
 
@@ -32,7 +32,7 @@ if (isset($_POST['btn_salvar'])) {
         if (isset($_FILES['img_user']) && $_FILES['img_user']['error'] === UPLOAD_ERR_OK) {
 
             $tipos_permitidos = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
-            $tamanho_max = 1 * 1024 * 1024; // 1MB
+            $tamanho_max = 3 * 1024 * 1024;
 
             if (!in_array($_FILES['img_user']['type'], $tipos_permitidos)) {
                 $erro = "Tipo de arquivo não permitido.";
@@ -42,7 +42,7 @@ if (isset($_POST['btn_salvar'])) {
                 $extensao = pathinfo($_FILES['img_user']['name'], PATHINFO_EXTENSION);
                 $novonome = "profissional_" . uniqid() . "." . $extensao;
 
-                $dir = "../uploads/usuarios/";
+                $dir = __DIR__ . "/../img/uploads/usuarios/profissionais/";
                 $file = $dir . $novonome;
 
                 if (!is_dir($dir)) {
@@ -186,7 +186,7 @@ if (!$item) {
             text-transform: none;
             font-weight: 500;
             margin-top: 5px;
-    
+
         }
 
         .upload-container-style .upload-text {
@@ -220,6 +220,8 @@ if (!$item) {
         <section class="section-box">
             <h2>Modificar Registro (<span style="text-transform: capitalize;"><?= $tipo; ?></span>)</h2>
             <form action="" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="<?= htmlspecialchars($id); ?>">
+                <input type="hidden" name="tipo" value="<?= htmlspecialchars($tipo); ?>">
                 <?php if ($tipo === 'profissional'): ?>
                     <div class="form-edit-group">
                         <label>Nome do Profissional</label>

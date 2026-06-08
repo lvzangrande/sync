@@ -13,14 +13,14 @@ $idcard = intval($_GET['id']);
 
 $profissional = read($pdo, 'usuarios', "id_user=$idcard");
 
-if ($_SESSION['tipo'] == 'profissional') {
+if (isset($_SESSION['tipo']) && $_SESSION['tipo'] === 'profissional') {
     $_SESSION['mensagem'] = "Apenas usuários clientes podem contratar profissionais.";
 
     header('Location: catalogo_profissionais.php');
     exit();
 }
-if (!empty($user['img_user']) && file_exists('img/uploads/usuarios/profissionais/'. $user['img_user'])) {
-    $foto = $user['img_user'];
+if (!empty($profissional['img_user']) && file_exists('./img/uploads/usuarios/profissionais/'. $profissional['img_user'])) {
+    $foto = $profissional['img_user'];
 } else {
     $foto = 'foto_default.png';
 }
@@ -58,7 +58,7 @@ foreach($trabalhosConc as $trabalho){
 
                     <!-- Foto -->
                     <div class="foto-profissional">
-                    <img src="img/uploads/usuarios/profissionais/' . $foto . '"
+                    <img src="./img/uploads/usuarios/profissionais/' . $foto . '"
                     alt="Foto de ' . $profissional['nome'] . '">
                     </div>
 
@@ -131,8 +131,8 @@ foreach($trabalhosConc as $trabalho){
                         </div>
 
                         <div class="campo">
-                            <label for="">Tempo Estimado em minutos</label>
-                            <input type="number" name="tempo" placeholder="ex: 210" required>
+                            <label for="">Tempo Estimado em Dias</label>
+                            <input type="number" name="tempo" placeholder="ex: 15" required>
                         </div>
                     </div>
 

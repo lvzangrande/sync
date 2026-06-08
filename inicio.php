@@ -1,6 +1,6 @@
 <?php
 function loginInteligente(){
-    if (isset($_SESSION)) {
+    if (isset($_SESSION['id_user'])) {
         echo "login.php";
     } else {
         echo "cadastro.php";
@@ -39,18 +39,19 @@ function loginInteligente(){
         <?php include 'partials/header.php'; ?>
     
 
-    <main>
-        <div class="banner">
+<main>
+    <div class="banner">
+
+        <div class="slide">
+            <img src="./img/fundomeca.png" alt="Plataforma Sync Mecatronics">
+            <div class="overlay"></div>
+            
             <div class="banner2">
-
                 <div class="simbolo">● Plataforma Sync Mecatronics</div>
-
                 <h1>Sync<br>Mecatronics</h1>
-
                 <p class="sub">Sincronize sua operação industrial com a plataforma premium de<br> manutenção
-                    mecatrônica. Técnicos especializados, métricas em<br>
-                    tempo real e excelência técnica comprovada.</p>
-
+                    mecatrônica. Técnicos especializados, métricas em<br> tempo real e excelência técnica comprovada.</p>
+                
                 <div class="btns">
                     <a href="./cadastro.php" class="btn-comecar">
                         Sincronizar operação <span class="material-symbols-outlined">arrow_outward</span>
@@ -72,7 +73,77 @@ function loginInteligente(){
                         <p>Taxa de Sucesso</p>
                     </div>
                 </div>
+            </div>
+        </div>
 
+        <div class="slide">
+            <img src="./img/fundomeca2.png" alt="Automação Inteligente"> 
+            <div class="overlay"></div>
+            
+            <div class="banner2">
+                <div class="simbolo">● Eficiência Máxima</div>
+                <h1>Automação<br>Inteligente</h1>
+                <p class="sub">Sistemas inteligentes programados para mitigar falhas industriais e<br>
+                    potencializar a produtividade da sua linha de produção em tempo recorde.</p>
+                
+                <div class="btns">
+                    <a href="./cadastro.php" class="btn-comecar">
+                        Agendar Diagnóstico <span class="material-symbols-outlined">arrow_outward</span>
+                    </a>
+                </div>
+
+                <div class="estatisticas-container">
+                    <div class="box">
+                        <h2>-45%</h2>
+                        <p>Tempo de Downtime</p>
+                    </div>
+                    <div class="box">
+                        <h2>150+</h2>
+                        <p>Indústrias Atendidas</p>
+                    </div>
+                    <div class="box">
+                        <h2>24/7</h2>
+                        <p>Suporte Técnico</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="./img/fundomeca3.png" alt="Manutenção Preditiva"> 
+            <div class="overlay"></div>
+            
+            <div class="banner2">
+                <div class="simbolo">● Tecnologia IoT</div>
+                <h1>Manutenção<br>Preditiva</h1>
+                <p class="sub">Evite paradas inesperadas na sua linha de produção utilizando análise de dados<br>
+                    avançada e sensores inteligentes de monitoramento contínuo.</p>
+                
+                <div class="btns">
+                    <a href="./cadastro.php" class="btn-comecar">
+                        Conhecer Tecnologia <span class="material-symbols-outlined">arrow_outward</span>
+                    </a>
+                </div>
+
+                <div class="estatisticas-container">
+                    <div class="box">
+                        <h2>94%</h2>
+                        <p>Previsibilidade de Falhas</p>
+                    </div>
+                    <div class="box">
+                        <h2>IoT</h2>
+                        <p>Sensores Integrados</p>
+                    </div>
+                    <div class="box">
+                        <h2>&lt; 2h</h2>
+                        <p>Tempo de Resposta</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
             </div>
         </div>
     </main>

@@ -202,27 +202,6 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
-.upload-area {
-    border: 2px dashed var(--color-slate-blue);
-    padding: 20px;
-    text-align: center;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    gap: 15px;
-    color: var(--color-sky-light);
-}
-
-.upload-area:hover {
-    background-color: rgba(51, 65, 92, 0.3);
-    border-color: var(--color-sky-light);
-}
-
-.upload-area i {
-    margin-right: 10px;
-    color: var(--color-sky-light);
-}
-
 
 .btn-submit {
     background-color: var(--color-deep-blue);

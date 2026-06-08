@@ -1,7 +1,7 @@
 <?php
 require_once '../crud.php';
 
-if (session_status() === PHP_SESSION_NONE){
+if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
@@ -28,6 +28,9 @@ $endereco = $pedido['end_serv'];
 $profissional = read($pdo, "usuarios", "id_user=$idcard");
 define('BASE_URL', 'http://localhost/2TD/sync/');
 $base = BASE_URL;
+
+$metodo = $_GET['metodo'] ?? 'cartao';
+$_SESSION['pedido']['metodo_pagamento'] = $metodo;
 ?>
 
 <!DOCTYPE html>
@@ -63,15 +66,15 @@ $base = BASE_URL;
             <!-- MÉTODOS -->
             <div class="metodos-pagamento">
 
-                <a  class="metodo <?= $metodo == 'cartao' ? 'ativo' : '' ?>">
+                <a href="?metodo=cartao" class="metodo <?= $metodo == 'cartao' ? 'ativo' : '' ?>">
                     Cartão
                 </a>
 
-                <a class="metodo <?= $metodo == 'pix' ? 'ativo' : '' ?>">
+                <a href="?metodo=pix" class="metodo <?= $metodo == 'pix' ? 'ativo' : '' ?>">
                     PIX
                 </a>
 
-                <a  class="metodo <?= $metodo == 'boleto' ? 'ativo' : '' ?>">
+                <a href="?metodo=boleto" class="metodo <?= $metodo == 'boleto' ? 'ativo' : '' ?>">
                     Boleto
                 </a>
 
@@ -79,7 +82,7 @@ $base = BASE_URL;
 
 
             <?php
-            // if ($metodo == 'cartao') {
+            if ($metodo == 'cartao') {
 
                 echo '
                     <div class="metodo-box">
@@ -95,19 +98,21 @@ $base = BASE_URL;
                                 <label>Número do Cartão</label>
                                 <input type="text">
                             </div>
-                            <input type="hidden" name="id_profissional" value="'.$idcard .'">
+                            <input type="hidden" name="id_profissional" value="' . $idcard . '">
 
-                            <input type="hidden" name="tipo_serv" value="'.$tipo .'">
+                            <input type="hidden" name="tipo_serv" value="' . $tipo . '">
 
-                            <input type="hidden" name="desc" value="'.$desc .'">
+                            <input type="hidden" name="desc" value="' . $desc . '">
 
-                            <input type="hidden" name="data" value="'.$data .'">
+                            <input type="hidden" name="data" value="' . $data . '">
                             
-                            <input type="hidden" name="tempo" value="'.$tempo .'">                                 
+                            <input type="hidden" name="tempo" value="' . $tempo . '">                                 
                             
-                            <input type="hidden" name="end_serv" value="'.$endereco .'">
+                            <input type="hidden" name="end_serv" value="' . $endereco . '">
+
+                            <input type="hidden" name="metodo_pagamento" value=" ' . $metodo . ' ">
                             
-                            <input type="hidden" name="id_cliente" value="'.$_SESSION['id_user'] .'">
+                            <input type="hidden" name="id_cliente" value="' . $_SESSION['id_user'] . '">
 
                             <button class="btn-pagar">
                                 Confirmar Pagamento
@@ -117,49 +122,85 @@ $base = BASE_URL;
 
                     </div>
                 ';
-            // } elseif ($metodo == 'pix') {
-            
-                // echo '
-                //     <div class="metodo-box">
+            } elseif ($metodo == 'pix') {
 
-                //         <div class="pix-box">
+                echo '
+                    <div class="metodo-box">
 
-                //             <h3>Pagamento via PIX</h3>
+                        <div class="pix-box">
 
-                //             <p>Escaneie o QR Code abaixo.</p>
+                            <h3>Pagamento via PIX</h3>
 
-                //             <div class="qr-code">
-                //                 QR CODE
-                //             </div>
+                            <p>Escaneie o QR Code abaixo.</p>
 
-                //             <a href="./confirmacao_pagamento.php" class="btn-pagar">
-                //                 Já Paguei
-                //             </a>
+                            <div class="qr-code">
+                                QR CODE
+                            </div>
 
-                //         </div>
+                            <form action="../func/insert.php" method="POST">
 
-                //     </div>
-                // ';
-            // } elseif ($metodo == 'boleto') {
-               
-                // echo '
-                // <div class="metodo-box">
+                                <input type="hidden" name="id_profissional" value="' . $idcard . '">
 
-                //     <div class="boleto-box">
+                                <input type="hidden" name="tipo_serv" value="' . $tipo . '">
 
-                //         <h3>Pagamento via Boleto</h3>
+                                <input type="hidden" name="desc" value="' . $desc . '">
 
-                //         <p>Gere o boleto abaixo.</p>
+                                <input type="hidden" name="data" value="' . $data . '">
+                                
+                                <input type="hidden" name="tempo" value="' . $tempo . '">                                 
+                                
+                                <input type="hidden" name="end_serv" value="' . $endereco . '">
+                                
+                                <input type="hidden" name="metodo_pagamento" value=" ' . $metodo . ' ">
 
-                //         <a href="#" class="btn-pagar">
-                //             Gerar Boleto
-                //         </a>
+                                <input type="hidden" name="id_cliente" value="' . $_SESSION['id_user'] . '">
 
-                //     </div>
+                                <button class="btn-pagar">
+                                    Já paguei
+                                </button>
+                            </form>
+                        </div>
 
-                // </div>
-                // ';
-            // }
+                    </div>
+                ';
+            } elseif ($metodo == 'boleto') {
+
+                echo '
+                <div class="metodo-box">
+
+                    <div class="boleto-box">
+
+                        <h3>Pagamento via Boleto</h3>
+
+                        <p>Gere o boleto abaixo.</p>
+
+                        <form action="../func/insert.php" method="POST">
+
+                            <input type="hidden" name="id_profissional" value="' . $idcard . '">
+
+                            <input type="hidden" name="tipo_serv" value="' . $tipo . '">
+
+                            <input type="hidden" name="desc" value="' . $desc . '">
+
+                            <input type="hidden" name="data" value="' . $data . '">
+                            
+                            <input type="hidden" name="tempo" value="' . $tempo . '">                                 
+                            
+                            <input type="hidden" name="end_serv" value="' . $endereco . '">
+
+                            <input type="hidden" name="metodo_pagamento" value=" ' . $metodo . ' ">
+                            
+                            <input type="hidden" name="id_cliente" value="' . $_SESSION['id_user'] . '">
+
+                            <button class="btn-pagar">
+                                Gerar Boleto
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+                ';
+            }
             ?>
 
         </section>
@@ -173,14 +214,14 @@ $base = BASE_URL;
 
             <div class="profissional-box">
 
-                <img src="'.$base .'uploads/usuarios/'. $profissional['img_user'] . '"
+                <img src="' . $base . 'img/uploads/usuarios/profissionais/' . $profissional['img_user'] . '"
                     alt="">
 
                 <div>
 
-                    <h3>'.$profissional['nome'].'</h3>
+                    <h3>' . $profissional['nome'] . '</h3>
 
-                    <p>'.$tipo.'</p>
+                    <p>' . $tipo . '</p>
 
                 </div>
 
@@ -188,19 +229,19 @@ $base = BASE_URL;
 
             <div class="linha-resumo">
                 <span>Valor/dia</span>
-                <strong>R$ '.$profissional['valor_dia'].'</strong>
+                <strong>R$ ' . $profissional['valor_dia'] . '</strong>
             </div>
 
             <div class="linha-resumo">
                 <span>Tempo de contrato</span>
-                <strong>'.$tempo.'</strong>
+                <strong>' . $tempo . '</strong>
             </div>
 
             <hr>
 
             <div class="total">
                 <span>Total</span>
-                <strong>R$'.$profissional['valor_dia'] * $tempo.'</strong>
+                <strong>R$' . $profissional['valor_dia'] * $tempo . '</strong>
             </div>
 
         </div>

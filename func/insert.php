@@ -20,20 +20,14 @@ $novo_contrato = [
     'tempo_planejado' => $pedido['tempo'],
     'endereco_servico' => $pedido['end_serv'],
     'id_profissional' => $pedido['id_profissional'],
-    'id_cliente' => $_SESSION['id_user']
+    'id_cliente' => $_SESSION['id_user'],
+    'metodo_pagamento' => $pedido['metodo_pagamento']
 ];
 
-$update_status = [
-    'status' => 'Em Atendimento'
-];
 
-$idnova_os = create(
-    $pdo,
-    'agenda',
-    $novo_contrato
-);
+$idnova_os = create($pdo, 'agenda', $novo_contrato);
 
-update($pdo, 'usuarios', $update_status, "id_user = " . $pedido['id_profissional']);
+
 
 
 
