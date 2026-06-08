@@ -1,6 +1,6 @@
 <?php
 function loginInteligente(){
-    if (isset($_SESSION)) {
+    if (isset($_SESSION['id_user'])) {
         echo "login.php";
     } else {
         echo "cadastro.php";
