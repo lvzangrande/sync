@@ -55,6 +55,8 @@ if (isset($_POST['senha_atual']) && isset($_POST['nova_senha']) && isset($_POST[
     <title>Editar senha | Sync Mecatronics</title>
     <link rel="stylesheet" href="css/formularios.css">
     <link rel="stylesheet" href="css/partials.css">
+    <link rel="icon" href="imagens/logosemfundo.png">
+    
 </head>
 <?php
 require_once 'partials/header.php';

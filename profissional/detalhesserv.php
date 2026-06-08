@@ -59,6 +59,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../css/userpage.css">
+        <link rel="icon" href="imagens/logosemfundo.png">
         <title>Agendamento <?=$agendamento['data']?></title>
     </head>
     <body class="body">

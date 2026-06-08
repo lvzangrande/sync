@@ -19,6 +19,7 @@ $nome = read($pdo, 'usuarios', "id_user = " . $pedido['id_profissional']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="icon" href="imagens/logosemfundo.png">
     <title>Pagamento Confirmado</title>
 
     <link rel="stylesheet" href="../css/confirmacao_pagamento.css">

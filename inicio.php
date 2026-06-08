@@ -35,9 +35,9 @@ function loginInteligente(){
 </head>
 
 <body>
-    <header>
+    
         <?php include 'partials/header.php'; ?>
-    </header>
+    
 
     <main>
         <div class="banner">

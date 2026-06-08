@@ -457,3 +457,9 @@ input[type="file"]::file-selector-button:hover {
     box-shadow: 0 0 10px rgba(133, 181, 203, 0.2);
     color: var(--white);
 }
+
+.saudacao{
+    font-size: 4rem;
+    color: var(--color-sky-light);
+  
+}

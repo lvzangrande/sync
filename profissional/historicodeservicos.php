@@ -20,6 +20,7 @@ if (isset($_SESSION['mensagem'])) {
     <title>Histórico de serviços</title>
     <link rel="stylesheet" href="../css/profipage.css">
     <link rel="stylesheet" href="../css/partials.css">
+    <link rel="icon" href="imagens/logosemfundo.png">
 </head>
 <?php
 require_once '../crud.php';

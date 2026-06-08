@@ -51,6 +51,7 @@ $categoria = $_SESSION['tipo'];
     <title>Olá <?=nomeUsuario($user);?></title>
     <link rel="stylesheet" href="../css/userpage.css">
     <link rel="stylesheet" href="../css/partials.css">
+    <link rel="icon" href="imagens/logosemfundo.png">
 
 </head>
 
@@ -59,9 +60,10 @@ $categoria = $_SESSION['tipo'];
     <?php
     require_once '../partials/header.php';
     ?>
+    <div class="perfil">
     <?php require_once '../php/saudacao.php';?>
     <h1><?= $nomeCompleto ?></h1>
-    <div class="perfil">
+    
         <div class="imgperfil">
             <a href="editardados.php"><img class="fotoperfil" src="../img/uploads/usuarios/clientes/<?= $foto ?>" width="900" alt="Foto de Perfil"></a>
             <br>

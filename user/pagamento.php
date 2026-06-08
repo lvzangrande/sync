@@ -36,6 +36,7 @@ $base = BASE_URL;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="imagens/logosemfundo.png">
     <title>Pagamento</title>
 
     <link rel="stylesheet" href="../css/pagamento.css">

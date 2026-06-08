@@ -48,17 +48,21 @@ if (!empty($user['img_user']) && file_exists('../img/uploads/usuarios/profission
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/partials.css">
     <link rel="stylesheet" href="../css/profipage.css">
+    <link rel="icon" href="imagens/logosemfundo.png">
     <title>Olá <?= nomeUsuario(); ?></title>
 </head>
 <body>
     <?php
     require_once '../partials/header.php';
+    ?>
+     <div class="perfil">
+     <?php
     require_once '../php/saudacao.php';
     ?>
     
-    <h1>Olá <?= nomeUsuario(); ?></h1>
+    <h1 style="text-align: center;">Olá <?= nomeUsuario(); ?></h1><br>
     
-    <div class="perfil">
+   
         <div class="imgperfil">
             <div class="status"></div>
             <img class="fotoperfil" src="../img/uploads/usuarios/profissionais/<?= $foto ?>" alt="Foto de Perfil">

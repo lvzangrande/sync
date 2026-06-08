@@ -325,14 +325,14 @@ body {
 .logos:hover {
     opacity: 0.8;
 }
-.logo{
+.marcas .logo{
     margin-left: 50px;
     margin-right: auto;
     transition: 0.3s;
 }
-.logo:hover{
+.marcas .logo:hover{
     transform: scale(1.4);
-  filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 1));
+    filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 1));
 }
 
 
