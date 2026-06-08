@@ -348,7 +348,7 @@ INSERT INTO
 VALUES
     (
         '2026-06-05',
-        120,
+        15,
         250.00,
         'Motor trifásico apresentando superaquecimento e perda de potência durante operação contínua.',
         'Manutenção Preventiva',
@@ -360,7 +360,7 @@ VALUES
     ),
     (
         '2026-06-08',
-        180,
+        20,
         400.00,
         'Sistema hidráulico da prensa industrial com vazamento e baixa pressão.',
         'Mecatrônica',
@@ -372,7 +372,7 @@ VALUES
     ),
     (
         '2026-06-10',
-        180,
+        45,
         550.00,
         'Falha na comunicação entre CLP e sensores da linha de produção.',
         'Automação industrial',
@@ -384,7 +384,7 @@ VALUES
     ),
     (
         '2026-06-12',
-        240,
+        30,
         650.00,
         'Robô de soldagem apresentando desalinhamento durante operação.',
         'Mecatrônica',
