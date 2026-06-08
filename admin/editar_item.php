@@ -49,16 +49,6 @@ if (isset($_POST['btn_salvar'])) {
                     mkdir($dir, 0777, true);
                 }
 
-                $prof_atual = readAll($pdo, 'usuarios', "id_user = $id");
-                $imagem_antiga = $prof_atual[0]['img_user'] ?? null;
-
-                if (!empty($imagem_antiga)) {
-                    $arquivo_antigo = $dir . $imagem_antiga;
-                    if (file_exists($arquivo_antigo)) {
-                        unlink($arquivo_antigo);
-                    }
-                }
-
                 if (move_uploaded_file($_FILES['img_user']['tmp_name'], $file)) {
                     $dados['img_user'] = $novonome;
                 } else {
