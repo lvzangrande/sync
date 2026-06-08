@@ -11,27 +11,22 @@ if (isset($_SESSION['mensagem'])) {
     unset($_SESSION['mensagem']);
 }
 require_once "../crud.php";
-$order = '';
+$id = $_SESSION['id_user'];
+$where = "id_profissional = $id";
 
 if (!empty($_GET['ordenar'])) {
-
-    if ($_GET['ordenar'] == 'mais_proxima') {
-        $order = '1=1 ORDER BY data DESC';
-    }
-
-    if ($_GET['ordenar'] == 'mais_distante') {
-        $order = '1=1 ORDER BY data ASC';
-    }
+    if ($_GET['ordenar'] == 'mais_proxima') $where .= " ORDER BY data DESC";
+    if ($_GET['ordenar'] == 'mais_distante') $where .= " ORDER BY data ASC";
 }
 
-$tableAgenda = readAll($pdo, 'agenda');
+$tableAgenda = readAll($pdo, 'agenda', $where);
 
 foreach ($tableAgenda as $agendamento) {
     if ($agendamento['status_os'] != 'Concluída' && new DateTime($agendamento['data']) < new DateTime()) {
         update($pdo, 'agenda', ['status_os' => 'Pendente'], "id_os = {$agendamento['id_os']}");
-        $agendamento['status_os'] = 'Pendente';
     }
 }
+$tableAgenda = readAll($pdo, 'agenda', $where);
 // adiciona o método de pagamento na tabela do sql, só exibe no detalhe de contratações
 ?>
 <!DOCTYPE html>
@@ -47,8 +42,6 @@ foreach ($tableAgenda as $agendamento) {
 <?php
 require_once '../crud.php';
 require_once '../partials/header.php';
-
-$tableAgenda = readAll($pdo, 'agenda', $order);
 
 $serv_pend = 0;
 $serv_conc = 0;
@@ -96,23 +89,23 @@ foreach ($tableAgenda as $agendamento) {
     </div>";
     }
     ?>
-    <form method="GET">
-        <select name="ordenar" onchange="this.form.submit()">
-            <option value="">Ordenar</option>
-
-            <option value="mais_proxima" <?= ($_GET['ordenar'] ?? '') == 'mais_proxima' ? 'selected' : '' ?>>
-                Data mais próxima
-            </option>
-
-            <option value="mais_distante" <?= ($_GET['ordenar'] ?? '') == 'mais_distante' ? 'selected' : '' ?>>
-                Data mais distante
-            </option>
-        </select>
-    </form>
     <table class="históricoserv">
         <tr>
-            <th colspan="99">
-                <h2>HISTÓRICO DE SERVIÇOS</h2>
+            <th colspan="99" style="background: transparent; border: none; border-bottom: 2px solid #8BC0D6; padding: 10px 15px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 0 10px;">
+                    <h2>HISTÓRICO DE SERVIÇOS</h2>
+                    <form method="GET" class="form-ordenar">
+                        <select name="ordenar" onchange="this.form.submit()">
+                            <option value="">Ordenar</option>
+                            <option value="mais_proxima" <?= ($_GET['ordenar'] ?? '') == 'mais_proxima' ? 'selected' : '' ?>>
+                                Data mais próxima
+                            </option>
+                            <option value="mais_distante" <?= ($_GET['ordenar'] ?? '') == 'mais_distante' ? 'selected' : '' ?>>
+                                Data mais distante
+                            </option>
+                        </select>
+                    </form>
+                </div>
             </th>
         </tr>
         <?php
@@ -128,7 +121,7 @@ foreach ($tableAgenda as $agendamento) {
                 ? implode(' ', array_slice($palavras, 0, 4)) . '...'
                 : $agendamento['descricao_problema'];
 
-            if ($agendamento['id_profissional'] === $_SESSION['id_user'] && $agendamento['status_os'] == 'Concluída') {
+            if ($agendamento['status_os'] == 'Concluída') {
                 $temAgendamento = true;
                 echo "<tr class='linhatabela'>
                 <td>" . $descricaoResumida . "</td>
