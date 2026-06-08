@@ -123,11 +123,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <textarea name="mensagem" rows="5" placeholder="Descreva os códigos de erro e comportamento do sistema..." required></textarea>
                 </div>
 
-                <label for="inserir-arquivo" class="upload-area">
-                    <i class="fa-solid fa-paperclip"></i>
-                    Anexar uma imagem do erro
-                    <input type="file" id="inserir-arquivo" name="arquivo_erro" accept="image/*" hidden>
-                </label>
 
                 <button type="submit" class="btn-submit">ENVIAR SOLICITAÇÃO TÉCNICA</button>
 
