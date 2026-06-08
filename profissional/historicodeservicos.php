@@ -10,6 +10,16 @@ if (isset($_SESSION['mensagem'])) {
     ";
     unset($_SESSION['mensagem']);
 }
+require_once "../crud.php";
+
+$tableAgenda = readAll($pdo,'agenda');
+
+foreach ($tableAgenda as $agendamento) {
+    if ($agendamento['status_os'] != 'Concluída' && new DateTime($agendamento['data']) < new DateTime()) {
+        update($pdo, 'agenda', ['status_os' => 'Pendente'], "id_os = {$agendamento['id_os']}");
+        $agendamento['status_os'] = 'Pendente';
+    }
+}
 // adiciona o método de pagamento na tabela do sql, só exibe no detalhe de contratações
 ?>
 <!DOCTYPE html>

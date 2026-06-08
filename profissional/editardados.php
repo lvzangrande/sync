@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_FILES['img_user']) && $_FILES['img_user']['error'] === UPLOAD_ERR_OK) {
         $nome_foto = $_FILES['img_user']['name'];
         
-        if (move_uploaded_file($_FILES['img_user']['tmp_name'], "../uploads/usuarios/" . $nome_foto)) {
+        if (move_uploaded_file($_FILES['img_user']['tmp_name'], "../img/uploads/usuarios/profissionais/" . $nome_foto)) {
             $dadosAtualizados['img_user'] = $nome_foto;
         }
     }
