@@ -130,8 +130,8 @@ foreach($trabalhosConc as $trabalho){
                         </div>
 
                         <div class="campo">
-                            <label for="">Tempo Estimado em minutos</label>
-                            <input type="number" name="tempo" placeholder="ex: 210" required>
+                            <label for="">Tempo Estimado em Dias</label>
+                            <input type="number" name="tempo" placeholder="ex: 15" required>
                         </div>
                     </div>
 
