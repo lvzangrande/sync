@@ -9,9 +9,9 @@ if (!isset($_SESSION['autenticado'])) {
     header("Location: ../login.php");
     exit();
 }
-    $tableUser = readAll($pdo,'agenda');
-    $idUser = (int)$_SESSION['id_user'];
-    $user = read($pdo,'usuarios',"id_user = $idUser");
+$tableUser = readAll($pdo, 'agenda');
+$idUser = (int)$_SESSION['id_user'];
+$user = read($pdo, 'usuarios', "id_user = $idUser");
 
 function nomeUsuario($user)
 {
@@ -30,10 +30,9 @@ function nomeUsuario($user)
     return "Usuário";
 }
 
-if ($user['img_user'] != '' && file_exists('../img/uploads/usuarios/clientes/'. $user['img_user'])) {
+if ($user['img_user'] != '' && file_exists('../img/uploads/usuarios/clientes/' . $user['img_user'])) {
     $foto = $user['img_user'];
-}
-else{
+} else {
     $foto = 'foto_default.png';
 }
 if (isset($user['nome'])) {
@@ -48,18 +47,18 @@ $categoria = $_SESSION['tipo'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Olá <?=nomeUsuario($user);?></title>
+    <title>Olá <?= nomeUsuario($user); ?></title>
     <link rel="stylesheet" href="../css/userpage.css">
     <link rel="stylesheet" href="../css/partials.css">
 
 </head>
 
 <body>
-    
+
     <?php
     require_once '../partials/header.php';
     ?>
-    <?php require_once '../php/saudacao.php';?>
+    <?php require_once '../php/saudacao.php'; ?>
     <h1><?= $nomeCompleto ?></h1>
     <div class="perfil">
         <div class="imgperfil">
@@ -79,22 +78,32 @@ $categoria = $_SESSION['tipo'];
         <a class="historico" href="historicodemensagens.php">Visualizar mensagens de suporte</a>
     </div>
     <?php
-$meses = [
-    1 => 'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho',
-    'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'
-];
+    $meses = [
+        1 => 'janeiro',
+        'fevereiro',
+        'março',
+        'abril',
+        'maio',
+        'junho',
+        'julho',
+        'agosto',
+        'setembro',
+        'outubro',
+        'novembro',
+        'dezembro'
+    ];
 
-if (!empty($user['data_cadastro'])) {
-    $dataCadastro = new DateTime($user['data_cadastro']);
-    $mesNome = $meses[(int)$dataCadastro->format('m')];
-    $ano = $dataCadastro->format('Y');
-} else {
-    $mesNome = null;
-    $ano = null;
-}
-?>
+    if (!empty($user['data_cadastro'])) {
+        $dataCadastro = new DateTime($user['data_cadastro']);
+        $mesNome = $meses[(int)$dataCadastro->format('m')];
+        $ano = $dataCadastro->format('Y');
+    } else {
+        $mesNome = null;
+        $ano = null;
+    }
+    ?>
     <footer>
-        <p>Cadastrado desde de <?=$mesNome?> de <?=$ano?></p>
+        <p>Cadastrado desde de <?= $mesNome ?> de <?= $ano ?></p>
     </footer>
 </body>
 

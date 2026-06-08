@@ -160,7 +160,7 @@ if (isset($_SESSION['mensagem'])) {
                     <a href="catalogo_profissionais.php" class="btn-limpar">
                         <i class="bi bi-arrow-clockwise"></i> Limpar filtros
                     </a>
-
+                        
                 </form>
             </div>
 
