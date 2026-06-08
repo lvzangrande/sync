@@ -84,10 +84,14 @@ $meses = [
     'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'
 ];
 
-$dataCadastro = new DateTime($user['data_cadastro']);
-
-$mesNome = $meses[(int)$dataCadastro->format('m')];
-$ano = $dataCadastro->format('Y');
+if (!empty($user['data_cadastro'])) {
+    $dataCadastro = new DateTime($user['data_cadastro']);
+    $mesNome = $meses[(int)$dataCadastro->format('m')];
+    $ano = $dataCadastro->format('Y');
+} else {
+    $mesNome = null;
+    $ano = null;
+}
 ?>
     <footer>
         <p>Cadastrado desde de <?=$mesNome?> de <?=$ano?></p>
