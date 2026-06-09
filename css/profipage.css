@@ -611,3 +611,16 @@ table tr:last-child td {
     outline: none;
     border-color: var(--color-sky-light);
 }
+footer.footer-perfil {
+    max-width: 450px;            
+    margin: 40px auto 20px auto; 
+    padding: 15px 25px;          
+    text-align: center;
+}
+
+footer.footer-perfil p {
+    text-align: center;
+    color: var(--color-sky-light); 
+    font-weight: 600;
+    margin: 0;
+}

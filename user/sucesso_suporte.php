@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="icon" href="imagens/logosemfundo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <title>Enviado com Sucesso - SYNC</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
@@ -75,10 +76,10 @@
     <main class="main-container">
         <div class="sucesso-container">
             <i class="fa-solid fa-check-double icon-sucesso"></i>
-            <h1>Pedido enviado com sucesso!</h1><br>
+            <h1>Ticket enviado com sucesso!</h1><br>
             <p>Nossa equipe técnica recebeu sua solicitação.<br>Aguarde nossa resposta em breve.</p>
 
-            <a href="../inicio.php" class="btn-voltar">Voltar para o Inicio</a>
+            <a href="../inicio.php" class="btn-voltar">Voltar para o index</a>
         </div>
     </main>
 </body>

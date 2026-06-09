@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once '../crud.php';
 session_start();
 
@@ -7,7 +7,8 @@ if (!isset($_SESSION['autenticado'])) {
     exit();
 }
 
-function nomeUsuario() {
+function nomeUsuario()
+{
     if (isset($_SESSION['nome'])) {
         $nomeCompleto = trim($_SESSION['nome']);
         $palavras = explode(" ", $nomeCompleto);
@@ -71,24 +72,29 @@ foreach($tableAgenda as $agendamento){
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/partials.css">
     <link rel="stylesheet" href="../css/profipage.css">
+    <link rel="stylesheet" href="../css/partials.css">
+
     <link rel="icon" href="imagens/logosemfundo.png">
     <title>Olá <?= nomeUsuario(); ?></title>
 </head>
+
 <body>
     <?php
     require_once '../partials/header.php';
     ?>
-     <div class="perfil">
-     <?php
-    require_once '../php/saudacao.php';
-    ?>
-    
-    <h1><?= nomeUsuario(); ?></h1>
+    <div class="perfil">
+        <div style="text-align: center; width: 100%;">
+            <?php require_once '../php/saudacao.php'; ?>
+        </div>
+
+        <h1 style="text-align: center;">Olá <?= nomeUsuario(); ?></h1><br>
+
+
     
    
         <div class="imgperfil">
@@ -100,25 +106,38 @@ foreach($tableAgenda as $agendamento){
             </a>
         </div>
     </div>
-    
+
     <div class="funcionalidades">
         <a class="func" href="historicodeservicos.php">Ver histórico de serviços</a>
         <p><b class="qntdserv"><?= $totalserv ?></b><br>Serviços prestados</p>
         <a class="func" href="servagendados.php">Ver serviços agendados</a>
     </div>
     <?php
-$meses = [
-    1 => 'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho',
-    'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'
-];
+    $meses = [
+        1 => 'Janeiro',
+        'Fevereiro',
+        'Março',
+        'Abril',
+        'Maio',
+        'Junho',
+        'Julho',
+        'Agosto',
+        'Setembro',
+        'Outubro',
+        'Novembro',
+        'Dezembro'
+    ];
 
-$dataCadastro = new DateTime($user['data_cadastro']);
+    $dataCadastro = new DateTime($user['data_cadastro']);
 
-$mesNome = $meses[(int)$dataCadastro->format('m')];
-$ano = $dataCadastro->format('Y');
-?>
-    <footer>
-        <p>Cadastrado desde de <?=$mesNome?> de <?=$ano?></p>
+    $mesNome = $meses[(int)$dataCadastro->format('m')];
+    $ano = $dataCadastro->format('Y');
+
+    
+    ?>
+    <footer class="footer-perfil">
+        <p>Cadastrado desde de <?= $mesNome ?> de <?= $ano ?></p>
     </footer>
 </body>
+
 </html>

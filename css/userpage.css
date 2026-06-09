@@ -388,3 +388,39 @@ tr:hover td {
 .botao{
     margin-top: 50px;
 }
+.th-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+}
+
+.th-header span {
+    flex: 1;
+    text-align: center;
+}
+
+.th-header .form-ordenar {
+    position: absolute;
+    right: 10px;
+}
+
+.th-header .form-ordenar select {
+    background-color: rgba(0, 0, 0, 0.25);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.th-header .form-ordenar select:focus,
+.th-header .form-ordenar select:hover {
+    outline: none;
+    border-color: var(--color-sky-light);
+}
