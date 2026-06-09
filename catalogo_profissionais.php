@@ -160,7 +160,7 @@ if (isset($_SESSION['mensagem'])) {
                     <a href="catalogo_profissionais.php" class="btn-limpar">
                         <i class="bi bi-arrow-clockwise"></i> Limpar filtros
                     </a>
-                        
+
                 </form>
             </div>
 
@@ -187,6 +187,8 @@ if (isset($_SESSION['mensagem'])) {
                 }
                 $cards = readALL($pdo, 'usuarios', $where . $order);
                 foreach ($cards as $card) {
+                    $meses = ($card['id_user'] * 3) % 60 + 1;
+                    $servicos = ($card['id_user'] * 17) % 500 + 50;
                     if ($tipo_usuario == 'admin') {
                         echo
                             '<div class="card">
@@ -202,9 +204,8 @@ if (isset($_SESSION['mensagem'])) {
 
                             <p class="especialidade">' . $card['especialidade'] . '</p>
 
-                            <span>15 meses</span>
+                            <span>' . $meses . ' meses <i class="bi bi-calendar2-week"></i></span>
 
-                            <span>320</span>
                             <div class="rodape">
                                 <p class="preco">R$' . $card['valor_dia'] . '</p>
                                 <p class="p-d">/dia</p>
@@ -234,9 +235,9 @@ if (isset($_SESSION['mensagem'])) {
 
                                 <p class="especialidade">' . $card['especialidade'] . '</p>
 
-                                <span>15 meses</span>
+                                <span>' . $meses . ' meses <i class="bi bi-calendar2-week"></i></span>
 
-                                <span>320</span>
+                                <span> ' . $servicos . ' serviços </span>
                                 <div class="rodape">
                                     <p class="preco">R$' . $card['valor_dia'] . '</p>
                                     <p class="p-d">/dia</p>';
