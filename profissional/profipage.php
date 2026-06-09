@@ -55,20 +55,14 @@ foreach ($tableAgenda as $agendamento) {
 //Se algum serviço com status em andamento, exibir um card na profipage que redireciona para o serviço em agendamento 
 //Se algum serviço do profissional estiver com status em andamento não permitir iniciar mais serviços
 $status = 'status';
-
+$idServEmAndamento = '';
 foreach($tableAgenda as $agendamento){
-    if ($agendamento['status_os'] == 'Em Andamento'){
-       $status = 'statusEmAndamento';
+    if ($agendamento['status_os'] == 'Em Andamento' && $agendamento['id_profissional'] == $_SESSION['id_user']){
+       $status = 'Em Andamento'; 
+       $idServEmAndamento = $agendamento['id_os'];
        break;
     }
 }
-
-
-/*function alertaagendamento($status){
-    if ($status == 'Em Andamento'){
-        echo ""
-    }
-}*/
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -80,6 +74,9 @@ foreach($tableAgenda as $agendamento){
     <link rel="stylesheet" href="../css/partials.css">
 
     <link rel="icon" href="imagens/logosemfundo.png">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Olá <?= nomeUsuario(); ?></title>
 </head>
 
@@ -106,12 +103,32 @@ foreach($tableAgenda as $agendamento){
             </a>
         </div>
     </div>
-
     <div class="funcionalidades">
         <a class="func" href="historicodeservicos.php">Ver histórico de serviços</a>
         <p><b class="qntdserv"><?= $totalserv ?></b><br>Serviços prestados</p>
         <a class="func" href="servagendados.php">Ver serviços agendados</a>
     </div>
+        <?php
+        $idCliente = $agendamento['id_cliente'];
+$nomeCliente = read_nome_via_id($pdo,'usuarios',$idCliente);
+    if ($status == 'Em Andamento'){
+        echo "
+        <div class='AlertaServico'>
+            <h1><i class='fa-solid fa-triangle-exclamation'></i> ATENÇÃO <i class='fa-solid fa-triangle-exclamation'></i></h1>
+            <p>VOCÊ INICIOU UM SERVIÇO PARA:</p>
+
+            <div class='pendeagen'>
+                <h2 class='nomecliente'><b>{$nomeCliente}</b></h2>
+            </div>
+             <a href='detalhesserv.php?id={$idServEmAndamento}'>
+                    <div class='continuar'>
+                        <b>CONTINUAR</b>
+                    </div>
+                </a>
+        </div>"; 
+    }
+
+    ?>
     <?php
     $meses = [
         1 => 'Janeiro',
