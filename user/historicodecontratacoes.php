@@ -77,7 +77,7 @@ foreach ($tableAgenda as $agendamento) {
         <?php endforeach; ?>
     </div>
     <form method="GET">
-        <select name="ordenar" onchange="this.form.submit()">
+        <select name="ordenar" class="ordenar" onchange="this.form.submit()">
             <option value="">Ordenar</option>
 
             <option value="mais_proxima" <?= ($_GET['ordenar'] ?? '') == 'mais_proxima' ? 'selected' : '' ?>>

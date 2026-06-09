@@ -72,6 +72,7 @@ $categoria = $_SESSION['tipo'];
                 </a>
             </div>
         </div>
+   
     </div>
     <h1>O que deseja fazer?</h1>
     <div class="funcionalidades">
@@ -104,9 +105,12 @@ $categoria = $_SESSION['tipo'];
         $ano = null;
     }
     ?>
-    <footer>
+    <footer class="footer-user">
         <p>Cadastrado desde de <?= $mesNome ?> de <?= $ano ?></p>
     </footer>
+
+    
+
 </body>
 
 </html>

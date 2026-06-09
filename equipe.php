@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nossa Equipe</title>
     <link rel="stylesheet" href="css/equipe.css">
-    <link rel="stylesheet" href="css/partials.css"> 
+    <link rel="stylesheet" href="css/partials.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -16,18 +16,22 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100..900;1,100..900&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Lexend+Deca:wght@100..900&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-    
+
 
     <link rel="icon" type="image/png" href="imagens/logosemfundo.png">
 </head>
 
 <body>
-    
-        <?php include 'partials/header.php'; ?>
-    
+
+    <?php include 'partials/header.php'; ?>
+
 
     <section class="team-section">
-        <h2 class="team-title">NOSSA <span>EQUIPE</span></h2>
+        <h2 class="team-title">
+            Conheça a nossa<br><span>Equipe</span><i class="fa-solid fa-users" style="color: var(--color-sky-light); margin-left: 10px; font-size: 3.7rem;"></i>
+            </h2>
+
+            <p class="subtitulo">Conheça as pessoas por trás da Sync Mecatronics. Um time unido que soma forças, talento e dedicação todos os dias para entregar o melhor em mecatrônica, inovação e resultados.</p>
 
         <div class="team-grid">
 
@@ -98,11 +102,11 @@
                     <img src="" alt="Lucas Zangrande" class="card-img">
                 </div>
                 <div class="card-info-basic">
-                    <span class="badge-funcao">Gerente de Projeto</span>
+                    <span class="badge-funcao">Gerente Full-stack</span>
                     <h3 class="dev-name">Lucas Zangrande</h3>
                 </div>
                 <div class="card-hover-panel">
-                    <span class="badge-funcao">Gerente de Projeto</span>
+                    <span class="badge-funcao">Gerente Full-stack</span>
                     <h3 class="dev-name-hover">Lucas Zangrande</h3>
                     <p class="dev-contribution">
                         Responsável pela organização e gerenciamento do projeto, além do desenvolvimento das áreas

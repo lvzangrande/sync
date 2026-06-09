@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
 
 
 body {
@@ -22,6 +22,14 @@ body {
     --color-sky-light: #8bc0d6;
 }
 
+.subtitulo {
+    font-size: 1.2rem;
+    color: #ffffffe1;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 
 .team-section {
@@ -33,16 +41,17 @@ body {
 }
 
 .team-title {
-    font-size: 2.0rem;
+    font-size: 4.0rem;
     font-weight: 700;
-    letter-spacing: 2px;
     margin-bottom: 50px;
     color: #ffffff;
     margin-top: 60px;
+    font-family: "Montserrat", sans-serif;
 }
 
 .team-title span {
     color: var(--color-sky-light);
+    letter-spacing: 2.5px;
 }
 
 .team-grid {
@@ -50,6 +59,8 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 24px;
     justify-content: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 40px;
 }
 
 .team-card {
