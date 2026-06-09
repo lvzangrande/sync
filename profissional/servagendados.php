@@ -47,9 +47,10 @@ foreach ($tableAgenda as $agendamento) {
     <link rel="stylesheet" href="../css/partials.css">
     <link rel="icon" href="imagens/logosemfundo.png">
 </head>
-<?php require_once '../partials/header.php'; ?>
 
 <body>
+
+    <?php require_once '../partials/header.php'; ?>
 
     <a href="./profipage.php">Voltar</a>
 
@@ -64,7 +65,7 @@ foreach ($tableAgenda as $agendamento) {
 
         foreach ($filtros as $item):
             $ativo = ($filtro === $item) ? 'ativo' : '';
-            ?>
+        ?>
             <a class="<?= $ativo ?>" href="?filtro=<?= urlencode($item) ?>">
                 <?= $item ?>
             </a>
@@ -76,22 +77,25 @@ foreach ($tableAgenda as $agendamento) {
         <div class="proximo"></div><a>Próximo</a>
         <div class="distante"></div><a>Distante</a>
     </div>
-    <form method="GET">
-        <select name="ordenar" onchange="this.form.submit()">
-            <option value="">Ordenar</option>
-
-            <option value="mais_proxima" <?= ($_GET['ordenar'] ?? '') == 'mais_proxima' ? 'selected' : '' ?>>
-                Data mais próxima
-            </option>
-
-            <option value="mais_distante" <?= ($_GET['ordenar'] ?? '') == 'mais_distante' ? 'selected' : '' ?>>
-                Data mais distante
-            </option>
-        </select>
-    </form>
     <table>
         <tr>
-            <th colspan='99'>SERVIÇOS AGENDADOS</th>
+            <th colspan='99'>
+                <div class="th-header">
+                    <span>SERVIÇOS AGENDADOS</span>
+                    <form method="GET" class="form-ordenar">
+                        <input type="hidden" name="filtro" value="<?= htmlspecialchars($filtro) ?>">
+                        <select name="ordenar" onchange="this.form.submit()">
+                            <option value="">Ordenar</option>
+                            <option value="mais_proxima" <?= ($_GET['ordenar'] ?? '') == 'mais_proxima' ? 'selected' : '' ?>>
+                                Data mais próxima
+                            </option>
+                            <option value="mais_distante" <?= ($_GET['ordenar'] ?? '') == 'mais_distante' ? 'selected' : '' ?>>
+                                Data mais distante
+                            </option>
+                        </select>
+                    </form>
+                </div>
+            </th>
         </tr>
 
         <?php

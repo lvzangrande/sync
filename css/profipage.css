@@ -458,7 +458,6 @@ input[type="file"]::file-selector-button:hover {
     color: var(--white);
 }
 
-<<<<<<< HEAD
 .form-ordenar {
     background: none;
     border: none;
@@ -491,10 +490,111 @@ input[type="file"]::file-selector-button:hover {
     outline: none;
     border-color: #8BC0D6;
 }
-=======
-.saudacao{
-    font-size: 4rem;
-    color: var(--color-sky-light);
-  
+
+/* ===== APENAS A TABELA DE HISTÓRICO DE SERVIÇOS ===== */
+table.históricoserv {
+    width: 90%;
+    max-width: 1000px;
+    border-collapse: collapse;
+    background-color: var(--color-navy-dark);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 40px auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
->>>>>>> 61edbcef3755bd8777f5ece47f7e062da17a35d8
+/* Linhas de dados (tr) */
+.linhatabela {
+    transition: background-color 0.2s ease;
+}
+.linhatabela:hover {
+    background-color: rgba(51, 65, 92, 0.4);
+}
+/* Células de dados (td) */
+.linhatabela td {
+    padding: 20px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--white);
+    font-size: 0.95rem;
+    vertical-align: middle;
+}
+/* COLUNA 1: Descrição do Problema (Alinhada à esquerda para melhor leitura) */
+.linhatabela td:nth-child(1) {
+    text-align: left;
+    padding-left: 25px;
+    width: 55%;
+    white-space: normal; /* Permite quebra de linha se o texto for maior */
+}
+/* COLUNA 2: Data (Centralizada com tom mais suave) */
+.linhatabela td:nth-child(2) {
+    text-align: center;
+    width: 20%;
+    color: var(--color-cool-gray);
+    font-weight: 500;
+}
+/* COLUNA 3: Botão Ver Detalhes (Alinhado à direita) */
+.linhatabela td:nth-child(3) {
+    text-align: right;
+    padding-right: 25px;
+    width: 25%;
+}
+/* Remove a borda da última linha para não quebrar o arredondado do fundo */
+table tr:last-child td { 
+    border-bottom: none; 
+}
+/* Estilização do Botão Ver Detalhes */
+.verDetalhes {
+    background-color: var(--color-slate-blue);
+    color: var(--white);
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.verDetalhes:hover {
+    background-color: var(--color-sky-light);
+    color: var(--color-night-blue);
+    border-color: var(--color-sky-light);
+    box-shadow: 0 4px 12px rgba(133, 181, 203, 0.3);
+}
+.th-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+}
+
+.th-header span {
+    flex: 1;
+    text-align: center;
+}
+
+.th-header .form-ordenar {
+    position: absolute;
+    right: 10px;
+}
+
+.th-header .form-ordenar select {
+    background-color: rgba(0, 0, 0, 0.25);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.th-header .form-ordenar select:focus,
+.th-header .form-ordenar select:hover {
+    outline: none;
+    border-color: var(--color-sky-light);
+}
