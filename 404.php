@@ -1,11 +1,15 @@
+<?php
+http_response_code(404);
+?>
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="imagens/logosemfundo.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <title>Enviado com Sucesso - SYNC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/home.css">
+    <title>Erro 404</title>
+</head>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
@@ -36,7 +40,7 @@
             padding: 40px 20px;
         }
 
-        .sucesso-container {
+        .erro-container {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -46,9 +50,9 @@
             color: #fff;
         }
 
-        .icon-sucesso {
+        .icon-erro {
             font-size: 80px;
-            color: #2ecc71;
+            color: #ca0909;
             margin-bottom: 20px;
         }
 
@@ -60,6 +64,8 @@
             text-decoration: none;
             border-radius: 5px;
             transition: 0.3s;
+            width: 220px;
+            text-align: center;
         }
 
         .btn-voltar:hover {
@@ -70,18 +76,16 @@
         }
 
     </style>
-</head>
-
 <body>
     <main class="main-container">
-        <div class="sucesso-container">
-            <i class="fa-solid fa-check-double icon-sucesso"></i>
-            <h1>Ticket enviado com sucesso!</h1><br>
-            <p>Nossa equipe técnica recebeu sua solicitação.<br>Aguarde nossa resposta em breve.</p>
-
-            <a href="../inicio.php" class="btn-voltar">Voltar para o index</a>
+        <div class="erro-container">
+            <i class="fa-solid fa-triangle-exclamation icon-erro"></i>
+            <h1>Página não encontrada</h1>
+            <p>Ops! A página que você está procurando não foi encontrada.</p>
+            <p>Pode ser que o link esteja quebrado ou a página tenha sido removida.</p>
+            <a href="inicio.php" class="btn-voltar">Voltar para o início</a>
+            <a href="suporte.php" class="btn-voltar">Falar com o suporte</a>
         </div>
     </main>
 </body>
-
 </html>

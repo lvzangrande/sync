@@ -12,13 +12,13 @@ if (isset($_SESSION['mensagem'])) {
 
 $statusFiltro = $_GET['status'] ?? 'Todos';
 
-$where = null;
+$nomeUsuarioLogado = $_SESSION['nome'] ?? '';
+$where = "nome_cliente = '$nomeUsuarioLogado'";
 
 if ($statusFiltro !== 'Todos') {
-    $where = "status_suporte = '$statusFiltro'";
+    $where .= " AND status_suporte = '$statusFiltro'";
 }
 
-// Lê todos os registros da tabela de suporte (ajuste o nome 'suporte' se sua tabela tiver outro nome)
 $tableSuporte = readAll($pdo, 'suporte', $where);
 ?>
 <!DOCTYPE html>
@@ -54,57 +54,48 @@ $tableSuporte = readAll($pdo, 'suporte', $where);
     </div>
 
     <table>
-        <tr>
-            <th colspan='99'>HISTÓRICO DE SUPORTE</th>
-        </tr>
-        <?php
-        $temTicket = false; 
-
-        // Verifica se há registros antes de fazer o loop
-        if ($tableSuporte) {
-            foreach($tableSuporte as $ticket){
-                
-                // Resume a descrição enviada pelo usuário (limita a 4 palavras)
-                $palavrasDesc = explode(' ', trim($ticket['desc_sup'])); 
-                $descricaoResumida = (count($palavrasDesc) > 4) 
-                    ? implode(' ', array_slice($palavrasDesc, 0, 4)) . '...' 
-                    : $ticket['desc_sup'];
-
-                // Resume a resposta do administrador, caso exista
-                $resposta = $ticket['resposta_admin'] ? trim($ticket['resposta_admin']) : 'Aguardando...';
-                $palavrasResp = explode(' ', $resposta);
-                $respostaResumida = (count($palavrasResp) > 4)
-                    ? implode(' ', array_slice($palavrasResp, 0, 4)) . '...' 
-                    : $resposta;
-                
-                if ($ticket['nome_cliente'] == $_SESSION['nome']){
-                    $temTicket = true;
+        <thead>
+            <tr>
+                <th colspan='4'>HISTÓRICO DE SUPORTE</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            if (!empty($tableSuporte)) {
+                foreach($tableSuporte as $ticket){
                     
+                    $palavrasDesc = explode(' ', trim($ticket['desc_sup'])); 
+                    $descricaoResumida = (count($palavrasDesc) > 4) 
+                        ? implode(' ', array_slice($palavrasDesc, 0, 4)) . '...' 
+                        : $ticket['desc_sup'];
+
                     echo "
                     <tr>
-                        <td>{$ticket['nome_cliente']}</td>
-                        <td title='{$ticket['desc_sup']}'>{$descricaoResumida}</td>
-                        <td>{$ticket['status_suporte']}</td>
+                        <td>" . htmlspecialchars($ticket['nome_cliente']) . "</td>
+                        <td title='" . htmlspecialchars($ticket['desc_sup']) . "'>{$descricaoResumida}</td>
+                        <td>" . htmlspecialchars($ticket['status_suporte']) . "</td>
                         <td class='td_verDetalhes'>
                             <a class='verDetalhes' href='detalhesSuporte.php?id={$ticket['id_sup']}'>Ver detalhes</a>
                         </td>
                     </tr>";
                 }
-                //adicionar data de envio e data de resposta
+            } else {
+                if ($statusFiltro !== 'Todos') {
+                    echo "<tr>
+                            <td colspan='4' style='text-align: center; padding: 20px; color: #979DAC;'>
+                                Não há mensagens com status '$statusFiltro'
+                            </td>
+                          </tr>";
+                } else {
+                    echo "<tr>
+                            <td colspan='4' style='text-align: center; padding: 20px; color: #979DAC;'>
+                                Ainda não há mensagens no seu histórico.
+                            </td>
+                          </tr>";
+                }
             }
-        } 
-        
-        if($temTicket == false && $statusFiltro != 'Todos'){
-            echo "<tr>
-            <td colspan='99'>Não há mensagens com status '$statusFiltro'</td>
-          </tr>";
-        }
-        elseif($temTicket = 'Todas'){
-        echo "<tr>
-            <td colspan='99'>Ainda não há mensagens</td>
-          </tr>";
-        }
-        ?>
+            ?>
+        </tbody>
     </table>
 </body>
 </html>

@@ -15,10 +15,8 @@
         unset($_SESSION['mensagem']);
     }
 
-    // Primeiro pegamos o ID vindo da URL de forma segura
     $idAgendamento = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
-    // Executa as ações alterando o banco ANTES de carregar os dados finais da página
     if(isset($_GET['acao']) && $idAgendamento > 0){
         $acao = $_GET['acao'];
 
@@ -42,7 +40,6 @@
         }
     }
 
-    // Agora que o banco já foi atualizado, buscamos os dados novos do agendamento
     $tableAgenda = readAll($pdo,'agenda');
     $agendamento = read($pdo,'agenda',"id_os = $idAgendamento");
     
@@ -74,7 +71,7 @@
         ?>
             </header>
             <?php if($agendamento['status_os'] === 'Em Andamento'){
-               '';
+               echo '<a href="profipage.php" class="voltar">SAIR</a>';
             }
             else{
                 echo '<a href="'.$_SERVER['HTTP_REFERER'].'" class="voltar">Voltar</a>';

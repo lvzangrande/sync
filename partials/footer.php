@@ -28,8 +28,8 @@ $base = BASE_URL;
         <div class="footer-section">
             <h3 class="heading">Empresa</h3>
             <ul>
-                <li><a href="<?= $base ?>inicio.php">Sobre</a></li>
-                <li><a href="<?= $base ?>inicio.php#Tecnologia">Tecnologias</a></li>
+                <li><a href="<?= $base ?>index.php">Sobre</a></li>
+                <li><a href="<?= $base ?>index.php#Tecnologia">Tecnologias</a></li>
 
                 <?php if ($tipo_usuario === 'admin'): ?>
                     <li><a href="<?= $base ?>admin/adminpage.php">Painel Admin</a></li>

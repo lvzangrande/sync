@@ -388,25 +388,52 @@ tr:hover td {
 .botao{
     margin-top: 50px;
 }
-
-.footer-user{
-    margin-top: 100px;
-    padding: 20px 0;
-    text-align: center;
-    background-color: var(--color-navy-dark);
-    color: var(--white);
-    width: 100%;
+.th-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
 }
 
-.ordenar {
-    background-color: var(--color-sky-light);
-    color: var(--color-night-blue);
-    padding: 10px 18px;
-    border-radius: 8px;
-    font-size: 0.85rem;
+.th-header span {
+    flex: 1;
+    text-align: center;
+}
+
+.th-header .form-ordenar {
+    position: absolute;
+    right: 10px;
+}
+
+.th-header .form-ordenar select {
+    background-color: rgba(0, 0, 0, 0.25);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
     font-weight: 600;
-    text-transform: uppercase;
-    border: none;
-    font-family: "Montserrat", sans-serif;
-    margin-bottom: 40px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.th-header .form-ordenar select:focus,
+.th-header .form-ordenar select:hover {
+    outline: none;
+    border-color: var(--color-sky-light);
+}
+footer.footer-perfil {
+    max-width: 450px;            
+    margin: 40px auto 20px auto; 
+    padding: 15px 25px;          
+    text-align: center;
+}
+
+footer.footer-perfil p {
+    text-align: center;
+    color: var(--color-sky-light); 
+    font-weight: 600;
+    margin: 0;
 }

@@ -28,13 +28,6 @@ if (!empty($_GET['ordenar'])) {
 $tableAgenda = readAll($pdo, 'agenda', $order);
 
 $filtro = $_GET['filtro'] ?? 'Todos';
-
-foreach ($tableAgenda as $agendamento) {
-    if ($agendamento['status_os'] != 'Concluída' && new DateTime($agendamento['data']) < new DateTime()) {
-        update($pdo, 'agenda', ['status_os' => 'Pendente'], "id_os = {$agendamento['id_os']}");
-        $agendamento['status_os'] = 'Pendente';
-    }
-}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -120,7 +113,9 @@ foreach ($tableAgenda as $agendamento) {
             if ($diferenca <= 0) {
                 $status = "atrasado";
 
-                if ($agendamento['status_os'] != 'Concluída' && $agendamento['status_os'] != 'Cancelada') {
+                if ($agendamento['status_os'] != 'Concluída' 
+                && $agendamento['status_os']  != 'Cancelada' 
+                && $agendamento['status_os']  != 'Em Andamento') {
                     update($pdo, 'agenda', ['status_os' => 'Pendente'], "id_os = " . $agendamento['id_os']);
                     $agendamento['status_os'] = 'Pendente';
                 }
@@ -145,7 +140,10 @@ foreach ($tableAgenda as $agendamento) {
             }
 
             if ($agendamento['id_profissional'] === $_SESSION['id_user']) {
-                if ($agendamento['status_os'] != 'Concluída' && $agendamento['status_os'] != 'Cancelada') {
+                if ($agendamento['status_os'] != 'Concluída' 
+                && $agendamento['status_os'] != 'Cancelada'
+                && $agendamento['status_os']  != 'Em Andamento'
+                ) {
                     $temAgendamento = true;
 
                     echo "<tr>

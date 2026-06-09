@@ -39,13 +39,6 @@ if (isset($_POST['acao']) && isset($_POST['id_prof']) && ($_POST['acao'] === 'at
     exit();
 }
 
-if (isset($_POST['acao']) && $_POST['acao'] === 'resolver' && isset($_POST['id_sup'])) {
-    $id_sup = (int)$_POST['id_sup'];
-    delete($pdo, 'suporte', "id_sup = $id_sup");
-    header("Location: adminpage.php");
-    exit();
-}
-
 if (isset($_POST['acao']) && $_POST['acao'] === 'excluir_ativo' && isset($_POST['id_prof'])) {
     $id_prof = (int)$_POST['id_prof'];
     $busca_prof = read($pdo, 'usuarios', "id_user = $id_prof");
@@ -61,7 +54,7 @@ if (isset($_POST['acao']) && $_POST['acao'] === 'excluir_ativo' && isset($_POST[
 }
 
 $profissionaisPendentes = readAll($pdo, 'usuarios', "categoria = 'profissional' AND status = 'Inativo'");
-$chamadosSuporte = readAll($pdo, 'suporte');
+$chamadosSuporte = readAll($pdo, 'suporte', "status_suporte = 'Pendente'");
 $profissionaisAtivos = readAll($pdo, 'usuarios', "categoria = 'profissional' AND status != 'Inativo'");
 $listaMaquinas = readAll($pdo, 'maquinas');
 $osAtivas = readAll($pdo, 'agenda', "status_os = 'Em Andamento' OR status_os = 'Agendada' OR status_os = 'Pendente'");
@@ -93,7 +86,7 @@ $osAtivas = readAll($pdo, 'agenda', "status_os = 'Em Andamento' OR status_os = '
     <?php require_once '../partials/header.php'; ?>
 
     <main class="admin-container">
-        
+
 
         <div class="admin-header-saudacao">
             <div class="linha-saudacao">
@@ -201,13 +194,9 @@ $osAtivas = readAll($pdo, 'agenda', "status_os = 'Em Andamento' OR status_os = '
                                     <?= htmlspecialchars($chamado['desc_sup'] ?? $chamado['mensagem']); ?>
                                 </td>
                                 <td>
-                                    <form action="adminpage.php" method="POST" style="display: inline;">
-                                        <input type="hidden" name="acao" value="resolver">
-                                        <input type="hidden" name="id_sup" value="<?= $chamado['id_sup']; ?>">
-                                        <button type="submit" class="btn-action">
-                                            <span class="material-symbols-outlined" style="font-size: 16px;">check_circle</span> Resolver
-                                        </button>
-                                    </form>
+                                    <a href="responder_suporte.php?id=<?= $chamado['id_sup']; ?>" class="btn-action" style="display: inline-flex; align-items: center; gap: 4px; text-decoration: none;">
+                                        <span class="material-symbols-outlined" style="font-size: 16px;">chat</span> Responder
+                                    </a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -218,6 +207,13 @@ $osAtivas = readAll($pdo, 'agenda', "status_os = 'Em Andamento' OR status_os = '
                         </tr>
                     <?php endif; ?>
                 </tbody>
+                <?php if (isset($_SESSION['sucesso_suporte'])): ?>
+                    <div class="alert-success" style="padding: 12px; background-color: #092848; color: #FFFFFF; border: 1px solid #8BC0D6; border-radius: 4px; margin-bottom: 20px; text-align: center; font-family: 'Lexend', sans-serif;">
+                        <i class="bi bi-check-circle-fill" style="color: #8BC0D6; margin-right: 8px;"></i> <?= $_SESSION['sucesso_suporte']; ?>
+                    </div>
+                    <?php unset($_SESSION['sucesso_suporte']);
+                    ?>
+                <?php endif; ?>
             </table>
         </section>
 
@@ -262,9 +258,9 @@ $osAtivas = readAll($pdo, 'agenda', "status_os = 'Em Andamento' OR status_os = '
                                         <button type="submit" class="btn-action btn-delete">
                                             <span class="material-symbols-outlined" style="font-size: 16px;">delete</span> Excluir
                                         </button>
-                                        
+
                                     </form>
-                                    
+
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -277,22 +273,22 @@ $osAtivas = readAll($pdo, 'agenda', "status_os = 'Em Andamento' OR status_os = '
                     <?php endif; ?>
                 </tbody>
                 <?php if (isset($_SESSION['erro_admin'])): ?>
-    <div class="alert-error" style="padding: 12px; background-color: #5c1e29; color: #f8d7da; border: 1px solid #721c24; border-radius: 4px; margin-bottom: 20px; text-align: center; font-family: 'Lexend', sans-serif;">
-        <?= $_SESSION['erro_admin']; ?>
-    </div>
-    <?php unset($_SESSION['erro_admin']); ?>
-<?php endif; ?>
+                    <div class="alert-error" style="padding: 12px; background-color: #5c1e29; color: #f8d7da; border: 1px solid #721c24; border-radius: 4px; margin-bottom: 20px; text-align: center; font-family: 'Lexend', sans-serif;">
+                        <?= $_SESSION['erro_admin']; ?>
+                    </div>
+                    <?php unset($_SESSION['erro_admin']); ?>
+                <?php endif; ?>
 
-<?php if (isset($_SESSION['sucesso_admin'])): ?>
-    <div class="alert-success" style="padding: 12px; background-color: #092848; color: #FFFFFF; border: 1px solid #8BC0D6; border-radius: 4px; margin-bottom: 20px; text-align: center; font-family: 'Lexend', sans-serif;">
-        <i class="bi bi-check-circle-fill" style="color: #8BC0D6; margin-right: 8px;"></i> <?= $_SESSION['sucesso_admin']; ?>
-    </div>
-    <?php unset($_SESSION['sucesso_admin']); ?>
-<?php endif; ?>
+                <?php if (isset($_SESSION['sucesso_admin'])): ?>
+                    <div class="alert-success" style="padding: 12px; background-color: #092848; color: #FFFFFF; border: 1px solid #8BC0D6; border-radius: 4px; margin-bottom: 20px; text-align: center; font-family: 'Lexend', sans-serif;">
+                        <i class="bi bi-check-circle-fill" style="color: #8BC0D6; margin-right: 8px;"></i> <?= $_SESSION['sucesso_admin']; ?>
+                    </div>
+                    <?php unset($_SESSION['sucesso_admin']); ?>
+                <?php endif; ?>
             </table>
-            
+
         </section>
-        
+
 
         <section class="section-box">
             <h2>Catálogo de Equipamentos e Serviços</h2>
