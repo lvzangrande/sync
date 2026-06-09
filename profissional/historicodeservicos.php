@@ -41,9 +41,6 @@ $tableAgenda = readAll($pdo, 'agenda', $where);
     <link rel="icon" href="imagens/logosemfundo.png">
 </head>
 <?php
-require_once '../crud.php';
-require_once '../partials/header.php';
-
 $serv_pend = 0;
 $serv_conc = 0;
 $serv_agend = 0;
@@ -62,6 +59,8 @@ foreach ($tableAgenda as $agendamento) {
 ?>
 
 <body>
+    <?php require_once '../partials/header.php'; ?>
+
     <a href="./profipage.php">Voltar</a>
 
     <?php
@@ -90,11 +89,11 @@ foreach ($tableAgenda as $agendamento) {
     </div>";
     }
     ?>
-    <table class="históricoserv">
+    <table>
         <tr>
-            <th colspan="99" style="background: transparent; border: none; border-bottom: 2px solid #8BC0D6; padding: 10px 15px;">
-                <div style="display: flex; align-items: center; justify-content: space-between; padding: 0 10px;">
-                    <h2>HISTÓRICO DE SERVIÇOS</h2>
+            <th colspan='99'>
+                <div class="th-header">
+                    <span>HISTÓRICO DE SERVIÇOS</span>
                     <form method="GET" class="form-ordenar">
                         <select name="ordenar" onchange="this.form.submit()">
                             <option value="">Ordenar</option>
