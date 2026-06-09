@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 :root {
 
     --deep-midnight: #001233;
@@ -20,7 +21,7 @@
 
 body{
     background-color: var(--deep-midnight);
-    font-family: "Lexend", sans-serif;
+    font-family: "Montserrat", sans-serif;
     color: var(--text-primary);
 }
 

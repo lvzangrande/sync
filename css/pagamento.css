@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 :root {
 
     --deep-midnight: #001233;
@@ -21,7 +22,7 @@
 body{
     background-color: var(--deep-midnight);
 
-    font-family: "Lexend", sans-serif;
+    font-family: "Montserrat", sans-serif;
 
     color: white;
 }
@@ -133,6 +134,10 @@ body{
     border-radius: 14px;
     font-weight: 600;
     transition: 0.3s;
+    font-family: "Montserrat", sans-serif;
+    border: none;
+    font-size: 1rem;
+    
 }
 
 .btn-pagar:hover{
@@ -219,4 +224,5 @@ body{
     background-color: #11254a;
     color: white;
     transition: 0.3s;
+    font-family: "Montserrat", sans-serif;
 }

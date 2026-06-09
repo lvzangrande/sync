@@ -277,6 +277,7 @@ main {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-family: "Montserrat", sans-serif;
 }
 
 .btn-prosseguir:hover {
@@ -446,6 +447,8 @@ main {
   font-size: 1rem;
   font-weight: 600;
   transition: 0.3s;
+  border: none;
+  font-family: "Montserrat", sans-serif;
 }
 
 .btn-continuar:hover {
