@@ -78,7 +78,7 @@
             <h1>Pedido enviado com sucesso!</h1><br>
             <p>Nossa equipe técnica recebeu sua solicitação.<br>Aguarde nossa resposta em breve.</p>
 
-            <a href="../inicio.php" class="btn-voltar">Voltar para o Inicio</a>
+            <a href="../index.php" class="btn-voltar">Voltar para o index</a>
         </div>
     </main>
 </body>
