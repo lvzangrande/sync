@@ -26,9 +26,9 @@
 </head>
 
 <body>
-    <header>
+    
         <?php include 'partials/header.php'; ?>
-    </header>
+    
 
     <section class="tecnologia">
         <div class="tecnologia-badge">Tecnologia Aplicada</div>

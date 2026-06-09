@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="imagens/logosemfundo.png">
     <title>Enviado com Sucesso - SYNC</title>
     <style>
-            :root {
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+        :root {
             --color-night-blue: #001233;
             --color-navy-dark: #092848;
             --color-slate-blue: #33415c;
@@ -13,6 +17,7 @@
             --color-deep-blue: #164578;
             --color-sky-light: #8bc0d6;
         }
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -21,7 +26,7 @@
 
         body {
             background-color: var(--color-night-blue);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Montserrat, sans-serif;
             color: var(--white);
             display: flex;
             justify-content: center;
@@ -29,7 +34,7 @@
             min-height: 100vh;
             padding: 40px 20px;
         }
-        
+
         .sucesso-container {
             display: flex;
             flex-direction: column;
@@ -39,32 +44,43 @@
             text-align: center;
             color: #fff;
         }
+
         .icon-sucesso {
             font-size: 80px;
             color: #2ecc71;
             margin-bottom: 20px;
         }
+
         .btn-voltar {
-            margin-top: 30px;
+            margin-top: 20px;
             padding: 12px 25px;
-            background: #3498db;
+            background: var(--color-deep-blue);
             color: white;
             text-decoration: none;
             border-radius: 5px;
             transition: 0.3s;
         }
-        .btn-voltar:hover { background: #2980b9; }
+
+        .btn-voltar:hover {
+            background-color: #39678f;
+            color: white;
+            transition: 0.3s;
+            transform: scale(1.05);
+        }
+
     </style>
 </head>
+
 <body>
     <main class="main-container">
         <div class="sucesso-container">
             <i class="fa-solid fa-check-double icon-sucesso"></i>
-            <h1>Pedido enviado com sucesso!</h1>
+            <h1>Pedido enviado com sucesso!</h1><br>
             <p>Nossa equipe técnica recebeu sua solicitação.<br>Aguarde nossa resposta em breve.</p>
-            
+
             <a href="../inicio.php" class="btn-voltar">Voltar para o Inicio</a>
         </div>
     </main>
 </body>
+
 </html>

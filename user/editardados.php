@@ -18,10 +18,11 @@ if (!isset($_SESSION['autenticado'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/userpage.css">
     <link rel="stylesheet" href="../css/partials.css">
+    <link rel="icon" href="imagens/logosemfundo.png">
     <title>Editar dados pessoais</title>
 </head>
 <body>
-<a href="./userpage.php">Voltar</a>
+<a href="./userpage.php" class="botao">Voltar</a>
 
 <?php require_once '../partials/header.php';
     $tableUser = readAll($pdo,'agenda');
@@ -70,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_FILES['img_user']) && $_FILES['img_user']['error'] === UPLOAD_ERR_OK) {
         $nome_foto = $_FILES['img_user']['name'];
         
-        if (move_uploaded_file($_FILES['img_user']['tmp_name'], "../uploads/" . $nome_foto)) {
+        if (move_uploaded_file($_FILES['img_user']['tmp_name'], "../img/uploads/usuarios/clientes/" . $nome_foto)) {
             $dadosAtualizados['img_user'] = $nome_foto;
         }
     }

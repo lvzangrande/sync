@@ -6,6 +6,7 @@
     <title>Responder SAQ | Sync</title>
     <link rel="stylesheet" href="../css/partials.css">
     <link rel="stylesheet" href="../css/formularios.css">
+    <link rel="icon" href="imagens/logosemfundo.png">
 </head>
 <body>
     

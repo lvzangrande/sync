@@ -24,6 +24,7 @@ if (!$ticket) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/userpage.css">
+    <link rel="icon" href="imagens/logosemfundo.png">
     <title>Suporte #<?=$ticket['id_sup']?> - <?=$ticket['nome_cliente']?></title>
 </head>
 <body class="body">
