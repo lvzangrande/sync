@@ -28,7 +28,6 @@ $endereco = $pedido['end_serv'];
 $profissional = read($pdo, "usuarios", "id_user=$idcard");
 define('BASE_URL', 'http://localhost/2TD/sync/');
 $base = BASE_URL;
-
 $metodo = $_GET['metodo'] ?? 'cartao';
 $_SESSION['pedido']['metodo_pagamento'] = $metodo;
 ?>
