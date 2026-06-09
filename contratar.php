@@ -39,6 +39,7 @@ foreach($trabalhosConc as $trabalho){
     <link rel="stylesheet" href="./css/contratar.css">
     <link rel="stylesheet" href="./css/partials.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="icon" href="imagens/logosemfundo.png">
     <title>Pagina de Contrato</title>
 </head>
 

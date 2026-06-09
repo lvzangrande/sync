@@ -87,6 +87,7 @@ function redirecionarPorPerfil($tipo)
     <title>Login | Sync Mecatronics</title>
     <link rel="stylesheet" href="css/formularios.css">
     <link rel="stylesheet" href="css/partials.css">
+    <link rel="icon" href="imagens/logosemfundo.png">
 </head>
     <header>
         <?php include 'partials/header.php'; ?>

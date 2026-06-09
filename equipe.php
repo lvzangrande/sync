@@ -22,9 +22,9 @@
 </head>
 
 <body>
-    <header>
+    
         <?php include 'partials/header.php'; ?>
-    </header>
+    
 
     <section class="team-section">
         <h2 class="team-title">NOSSA <span>EQUIPE</span></h2>

@@ -49,12 +49,13 @@ foreach ($tableAgenda as $agendamento) {
     <title>Histórico de contratações</title>
     <link rel="stylesheet" href="../css/userpage.css">
     <link rel="stylesheet" href="../css/partials.css">
+    <link rel="icon" href="imagens/logosemfundo.png">
 </head>
 
 <body>
     <?php require_once '../partials/header.php'; ?>
 
-    <a href="./userpage.php">Voltar</a>
+<a href="./userpage.php" class="botao">Voltar</a>
 
     <div class="filtros">
         <?php

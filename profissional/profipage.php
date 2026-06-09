@@ -57,17 +57,25 @@ foreach ($tableAgenda as $agendamento) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/partials.css">
     <link rel="stylesheet" href="../css/profipage.css">
+    <link rel="icon" href="imagens/logosemfundo.png">
     <title>Olá <?= nomeUsuario(); ?></title>
 </head>
 <body>
     <?php
     require_once '../partials/header.php';
+    ?>
+     <div class="perfil">
+     <?php
     require_once '../php/saudacao.php';
     ?>
     
+<<<<<<< HEAD
     <h1><?= nomeUsuario(); ?></h1>
+=======
+    <h1 style="text-align: center;">Olá <?= nomeUsuario(); ?></h1><br>
+>>>>>>> 62b894924f3efdaa8a83486c32eedd81a767f65d
     
-    <div class="perfil">
+   
         <div class="imgperfil">
             <div class="status"></div><!--Se em andamento mudar a cor para laranja-->
             <img class="fotoperfil" src="../img/uploads/usuarios/profissionais/<?= $foto ?>" alt="Foto de Perfil">
