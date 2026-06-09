@@ -76,6 +76,8 @@ foreach ($tableAgenda as $agendamento) {
         <h1 style="text-align: center;">Olá <?= nomeUsuario(); ?></h1><br>
 
 
+    
+   
         <div class="imgperfil">
             <div class="status"></div><!--Se em andamento mudar a cor para laranja-->
             <img class="fotoperfil" src="../img/uploads/usuarios/profissionais/<?= $foto ?>" alt="Foto de Perfil">

@@ -72,7 +72,7 @@ if (
                 'cpf_cnpj'      => $cpf_cnpj,
                 'tipo'          => $tipo,
                 'categoria'     => $categoria,
-                'data_cadastro' => date('Y-m-d H:i:s')
+                'data_cadastro' => date('Y-m-d')
             ];
 
             $sucesso = create($pdo, 'usuarios', $dados);
