@@ -104,6 +104,9 @@ $categoria = $_SESSION['tipo'];
         $ano = null;
     }
     ?>
+        <footer class="footer-perfil">
+        <p>Cadastrado desde de <?= $mesNome ?> de <?= $ano ?></p>
+    </footer>
 </body>
 
 </html>
