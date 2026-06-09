@@ -113,6 +113,8 @@ foreach ($tableAgenda as $agendamento) {
 
     $mesNome = $meses[(int)$dataCadastro->format('m')];
     $ano = $dataCadastro->format('Y');
+
+    
     ?>
     <footer class="footer-perfil">
         <p>Cadastrado desde de <?= $mesNome ?> de <?= $ano ?></p>

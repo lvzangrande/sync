@@ -76,22 +76,25 @@ foreach ($tableAgenda as $agendamento) {
             </a>
         <?php endforeach; ?>
     </div>
-    <form method="GET">
-        <select name="ordenar" onchange="this.form.submit()">
-            <option value="">Ordenar</option>
 
-            <option value="mais_proxima" <?= ($_GET['ordenar'] ?? '') == 'mais_proxima' ? 'selected' : '' ?>>
-                Data mais próxima
-            </option>
-
-            <option value="mais_distante" <?= ($_GET['ordenar'] ?? '') == 'mais_distante' ? 'selected' : '' ?>>
-                Data mais distante
-            </option>
-        </select>
-    </form>
     <table>
-        <tr>
-            <th colspan="99">HISTÓRICO DE CONTRATAÇÕES</th>
+       <tr>
+            <th colspan='99'>
+                <div class="th-header">
+                    <span>HISTÓRICO DE CONTRATAÇÕES</span>
+                    <form method="GET" class="form-ordenar">
+                        <select name="ordenar" onchange="this.form.submit()">
+                            <option value="">Ordenar</option>
+                            <option value="mais_proxima" <?= ($_GET['ordenar'] ?? '') == 'mais_proxima' ? 'selected' : '' ?>>
+                                Data mais próxima
+                            </option>
+                            <option value="mais_distante" <?= ($_GET['ordenar'] ?? '') == 'mais_distante' ? 'selected' : '' ?>>
+                                Data mais distante
+                            </option>
+                        </select>
+                    </form>
+                </div>
+            </th>
         </tr>
 
         <?php
