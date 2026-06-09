@@ -28,9 +28,9 @@ $totalserv = 0;
 $servcanc = 0;
 
 foreach ($tableAgenda as $agendamento) {
-    if ($agendamento['status_os'] == "Concluída") {
+    if ($agendamento['status_os'] == "Concluída" && $agendamento['id_profissional'] == $_SESSION['id_user']) {
         $totalserv++;
-    } elseif ($agendamento['status_os'] == "Cancelada") {
+    } elseif ($agendamento['status_os'] == "Cancelada" && $agendamento['id_profissional'] == $_SESSION['id_user']) {
         $servcanc++;
     }
 }
@@ -41,14 +41,33 @@ if (!empty($user['img_user']) && file_exists('../img/uploads/usuarios/profission
     $foto = 'foto_default.png';
 }
 foreach ($tableAgenda as $agendamento) {
-    if ($agendamento['status_os'] != 'Concluída' && new DateTime($agendamento['data']) < new DateTime()) {
+    if ($agendamento['status_os'] != 'Concluída' 
+    && $agendamento['status_os'] != 'Em Andamento'
+    && $agendamento['id_profissional'] == $_SESSION['id_user'] 
+    && new DateTime($agendamento['data']) < new DateTime()
+    )
+     {
         update($pdo, 'agenda', ['status_os' => 'Pendente'], "id_os = {$agendamento['id_os']}");
         $agendamento['status_os'] = 'Pendente';
     }
 }
-//Se algum serviço com status em andamento, exibir um alert e redirecionar para ele
+//Se algum serviço com status em andamento, exibir um card na profipage que redireciona para o serviço em agendamento 
 //Se algum serviço do profissional estiver com status em andamento não permitir iniciar mais serviços
+$status = 'status';
 
+foreach($tableAgenda as $agendamento){
+    if ($agendamento['status_os'] == 'Em Andamento'){
+       $status = 'statusEmAndamento';
+       break;
+    }
+}
+
+
+/*function alertaagendamento($status){
+    if ($status == 'Em Andamento'){
+        echo ""
+    }
+}*/
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -69,15 +88,11 @@ foreach ($tableAgenda as $agendamento) {
     require_once '../php/saudacao.php';
     ?>
     
-<<<<<<< HEAD
     <h1><?= nomeUsuario(); ?></h1>
-=======
-    <h1 style="text-align: center;">Olá <?= nomeUsuario(); ?></h1><br>
->>>>>>> 62b894924f3efdaa8a83486c32eedd81a767f65d
     
    
         <div class="imgperfil">
-            <div class="status"></div><!--Se em andamento mudar a cor para laranja-->
+            <div class=<?="$status"?>></div><!--Se em andamento mudar a cor para laranja-->
             <img class="fotoperfil" src="../img/uploads/usuarios/profissionais/<?= $foto ?>" alt="Foto de Perfil">
             <br>
             <a href="editardados.php" class="editar">

@@ -18,16 +18,7 @@ if (!empty($_GET['ordenar'])) {
     if ($_GET['ordenar'] == 'mais_proxima') $where .= " ORDER BY data DESC";
     if ($_GET['ordenar'] == 'mais_distante') $where .= " ORDER BY data ASC";
 }
-
 $tableAgenda = readAll($pdo, 'agenda', $where);
-
-foreach ($tableAgenda as $agendamento) {
-    if ($agendamento['status_os'] != 'Concluída' && new DateTime($agendamento['data']) < new DateTime()) {
-        update($pdo, 'agenda', ['status_os' => 'Pendente'], "id_os = {$agendamento['id_os']}");
-    }
-}
-$tableAgenda = readAll($pdo, 'agenda', $where);
-// adiciona o método de pagamento na tabela do sql, só exibe no detalhe de contratações
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

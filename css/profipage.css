@@ -104,6 +104,19 @@ text-shadow: 0 0 5px limegreen;
     box-shadow: 0 0 10px rgba(50, 205, 50, 0.5);
     z-index: 3;
 }
+.statusEmAndamento{
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    margin-left: 65px; /* Empurra a bolinha para a borda da imagem de 200px */
+    background-color: #fd7038;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    border: 3px solid var(--color-night-blue);
+    box-shadow: 0 0 10px rgba(255, 128, 25, 0.5);
+    z-index: 3;
+}
 
 .editar {
     margin-top: -35px;
