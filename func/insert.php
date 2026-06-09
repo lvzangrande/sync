@@ -21,6 +21,7 @@ $novo_contrato = [
     'endereco_servico' => $pedido['end_serv'],
     'id_profissional' => $pedido['id_profissional'],
     'id_cliente' => $_SESSION['id_user'],
+    'valor_total' => $pedido['tempo'] * read($pdo, "usuarios", "id_user={$pedido['id_profissional']}")['valor_dia'],
     'metodo_pagamento' => $pedido['metodo_pagamento']
 ];
 
