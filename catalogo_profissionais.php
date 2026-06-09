@@ -235,7 +235,7 @@ if (isset($_SESSION['mensagem'])) {
 
                                 <p class="especialidade">' . $card['especialidade'] . '</p>
 
-                                <span>' . $meses . ' meses <i class="bi bi-calendar2-week"></i></span>
+                                <span class="calendar">' . $meses . ' meses <i class="bi bi-calendar2-week"></i></span>
 
                                 <span> ' . $servicos . ' serviços </span>
                                 <div class="rodape">
