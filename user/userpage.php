@@ -61,7 +61,7 @@ $categoria = $_SESSION['tipo'];
     ?>
     <div class="perfil">
     <?php require_once '../php/saudacao.php';?>
-    <h1><?= $nomeCompleto ?></h1>
+    <h1 style="text-align: center; text-transform: capitalize;"><?= $nomeCompleto ?></h1>
     
         <div class="imgperfil">
             <a href="editardados.php"><img class="fotoperfil" src="../img/uploads/usuarios/clientes/<?= $foto ?>" width="900" alt="Foto de Perfil"></a>
