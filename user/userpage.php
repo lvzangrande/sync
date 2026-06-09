@@ -61,7 +61,7 @@ $categoria = $_SESSION['tipo'];
     ?>
     <div class="perfil">
     <?php require_once '../php/saudacao.php';?>
-    <h1><?= $nomeCompleto ?></h1>
+    <h1 style="text-align: center; text-transform: capitalize;"><?= $nomeCompleto ?></h1>
     
         <div class="imgperfil">
             <a href="editardados.php"><img class="fotoperfil" src="../img/uploads/usuarios/clientes/<?= $foto ?>" width="900" alt="Foto de Perfil"></a>
@@ -72,6 +72,7 @@ $categoria = $_SESSION['tipo'];
                 </a>
             </div>
         </div>
+   
     </div>
     <h1>O que deseja fazer?</h1>
     <div class="funcionalidades">
@@ -81,18 +82,18 @@ $categoria = $_SESSION['tipo'];
     </div>
     <?php
     $meses = [
-        1 => 'janeiro',
-        'fevereiro',
-        'março',
-        'abril',
-        'maio',
-        'junho',
-        'julho',
-        'agosto',
-        'setembro',
-        'outubro',
-        'novembro',
-        'dezembro'
+        1 => 'Janeiro',
+        'Fevereiro',
+        'Março',
+        'Abril',
+        'Maio',
+        'Junho',
+        'Julho',
+        'Agosto',
+        'Setembro',
+        'Outubro',
+        'Novembro',
+        'Dezembro'
     ];
 
     if (!empty($user['data_cadastro'])) {
@@ -104,6 +105,12 @@ $categoria = $_SESSION['tipo'];
         $ano = null;
     }
     ?>
+        <footer class="footer-perfil">
+        <p>Cadastrado desde de <?= $mesNome ?> de <?= $ano ?></p>
+    </footer>
+
+    
+
 </body>
 
 </html>
