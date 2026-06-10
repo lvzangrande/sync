@@ -84,6 +84,11 @@ body{
     background-color: var(--steel-blue);
 }
 
+.qr-code{
+    width: 60%;
+    height: 60%;
+}
+
 .ativo{
     background-color: var(--royal-industrial);
 }
