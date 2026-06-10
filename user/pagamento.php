@@ -29,7 +29,6 @@ $profissional = read($pdo, "usuarios", "id_user=$idcard");
 define('BASE_URL', 'http://localhost/2TD/sync/');
 $base = BASE_URL;
 $metodo = $_GET['metodo'] ?? 'cartao';
-$_SESSION['pedido']['metodo_pagamento'] = $metodo;
 ?>
 
 <!DOCTYPE html>
@@ -72,11 +71,6 @@ $_SESSION['pedido']['metodo_pagamento'] = $metodo;
                 <a href="?metodo=pix" class="metodo <?= $metodo == 'pix' ? 'ativo' : '' ?>">
                     PIX
                 </a>
-
-                <a href="?metodo=boleto" class="metodo <?= $metodo == 'boleto' ? 'ativo' : '' ?>">
-                    Boleto
-                </a>
-
             </div>
 
 
@@ -109,7 +103,7 @@ $_SESSION['pedido']['metodo_pagamento'] = $metodo;
                             
                             <input type="hidden" name="end_serv" value="' . $endereco . '">
 
-                            <input type="hidden" name="metodo_pagamento" value=" ' . $metodo . ' ">
+                            <input type="hidden" name="metodo_pagamento" value="Débito">
                             
                             <input type="hidden" name="id_cliente" value="' . $_SESSION['id_user'] . '">
 
@@ -133,8 +127,10 @@ $_SESSION['pedido']['metodo_pagamento'] = $metodo;
                             <p>Escaneie o QR Code abaixo.</p>
 
                             <div class="qr-code">
-                                QR CODE
+                                QR CODE <br>
+                                <img src="../img/qr-code.webp" alt="" class="qr-code">
                             </div>
+                            
 
                             <form action="../func/insert.php" method="POST">
 
@@ -150,7 +146,7 @@ $_SESSION['pedido']['metodo_pagamento'] = $metodo;
                                 
                                 <input type="hidden" name="end_serv" value="' . $endereco . '">
                                 
-                                <input type="hidden" name="metodo_pagamento" value=" ' . $metodo . ' ">
+                                <input type="hidden" name="metodo_pagamento" value="Pix">
 
                                 <input type="hidden" name="id_cliente" value="' . $_SESSION['id_user'] . '">
 
@@ -161,43 +157,6 @@ $_SESSION['pedido']['metodo_pagamento'] = $metodo;
                         </div>
 
                     </div>
-                ';
-            } elseif ($metodo == 'boleto') {
-
-                echo '
-                <div class="metodo-box">
-
-                    <div class="boleto-box">
-
-                        <h3>Pagamento via Boleto</h3>
-
-                        <p>Gere o boleto abaixo.</p>
-
-                        <form action="../func/insert.php" method="POST">
-
-                            <input type="hidden" name="id_profissional" value="' . $idcard . '">
-
-                            <input type="hidden" name="tipo_serv" value="' . $tipo . '">
-
-                            <input type="hidden" name="desc" value="' . $desc . '">
-
-                            <input type="hidden" name="data" value="' . $data . '">
-                            
-                            <input type="hidden" name="tempo" value="' . $tempo . '">                                 
-                            
-                            <input type="hidden" name="end_serv" value="' . $endereco . '">
-
-                            <input type="hidden" name="metodo_pagamento" value=" ' . $metodo . ' ">
-                            
-                            <input type="hidden" name="id_cliente" value="' . $_SESSION['id_user'] . '">
-
-                            <button class="btn-pagar">
-                                Gerar Boleto
-                            </button>
-                        </form>
-                    </div>
-
-                </div>
                 ';
             }
             ?>

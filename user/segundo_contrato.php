@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'end_serv' => $_POST['end_serv']
     ];
 }
-
+    
 if (!isset($_SESSION['pedido'])) {
     header("Location: ../catalogo_profissionais.php");
     exit();
@@ -54,7 +54,14 @@ $idcard = $pedido['id_profissional'];
 $tempo = $pedido['tempo'];
 
 $profissional = read($pdo, "usuarios", "id_user = $idcard");
-
+    $meses = ($profissional['id_user'] * 3) % 60 + 1;
+    $servicos = ($profissional['id_user'] * 17) % 500 + 50;
+$trabalhos = 0;
+$trabalhosConc =readAll($pdo,'agenda',"status_os = 'Concluída' and id_profissional = $idcard");
+foreach($trabalhosConc as $trabalho){    
+    $trabalhos++;
+}
+$nt = $trabalhos + $servicos;
 ?>
 
 <!DOCTYPE html>
@@ -102,8 +109,8 @@ $profissional = read($pdo, "usuarios", "id_user = $idcard");
 
                         <div class="meta-info">
                             <span class="avaliacao"><i class="bi bi-star-fill"></i> ' . $profissional['notas'] . '</span>
-                            <span>(247 trabalhos)</span>
-                            <span>12 anos</span>
+                            <span>(' . $nt . ' trabalhos)</span>
+                            <span>' . $meses . ' meses de experiência<i class="bi bi-calendar2-week"></i></span>
                         </div>
                     </div>
 

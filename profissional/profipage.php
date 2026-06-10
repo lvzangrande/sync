@@ -41,34 +41,42 @@ if (!empty($user['img_user']) && file_exists('../img/uploads/usuarios/profission
 } else {
     $foto = 'foto_default.png';
 }
+
+$hoje = (new DateTime())->format('Y-m-d');
+
 foreach ($tableAgenda as $agendamento) {
     if ($agendamento['status_os'] != 'Concluída' 
     && $agendamento['status_os'] != 'Em Andamento'
     && $agendamento['id_profissional'] == $_SESSION['id_user'] 
-    && new DateTime($agendamento['data']) < new DateTime()
+    && (new DateTime($agendamento['data']))->format('Y-m-d') < $hoje
     )
      {
         update($pdo, 'agenda', ['status_os' => 'Pendente'], "id_os = {$agendamento['id_os']}");
         $agendamento['status_os'] = 'Pendente';
     }
+
+
+    if ($agendamento['id_profissional'] == $_SESSION['id_user']
+    && (new DateTime($agendamento['data']))->format('Y-m-d') == $hoje 
+    && $agendamento['status_os'] == 'Pendente'
+    ) {
+        update($pdo, 'agenda', ['status_os' => 'Agendado'], "id_os = {$agendamento['id_os']}");
+        $agendamento['status_os'] = 'Agendada';
+    }
 }
-//Se algum serviço com status em andamento, exibir um card na profipage que redireciona para o serviço em agendamento 
 //Se algum serviço do profissional estiver com status em andamento não permitir iniciar mais serviços
 $status = 'status';
+$idServEmAndamento = '';
+foreach ($tableAgenda as $agendamento) {
+    if ($agendamento['status_os'] == 'Em Andamento' && $agendamento['id_profissional'] == $_SESSION['id_user']) {
+        $status = 'Em Andamento';
+        $idServEmAndamento = $agendamento['id_os'];
 
-foreach($tableAgenda as $agendamento){
-    if ($agendamento['status_os'] == 'Em Andamento'){
-       $status = 'statusEmAndamento';
-       break;
+        $idCliente = $agendamento['id_cliente'];
+        $nomeClienteEmAndamento = read_nome_via_id($pdo, 'usuarios', $idCliente);
+        break; 
     }
 }
-
-
-/*function alertaagendamento($status){
-    if ($status == 'Em Andamento'){
-        echo ""
-    }
-}*/
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -80,6 +88,9 @@ foreach($tableAgenda as $agendamento){
     <link rel="stylesheet" href="../css/partials.css">
 
     <link rel="icon" href="imagens/logosemfundo.png">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Olá <?= nomeUsuario(); ?></title>
 </head>
 
@@ -95,10 +106,10 @@ foreach($tableAgenda as $agendamento){
         <h1 style="text-align: center;">Olá <?= nomeUsuario(); ?></h1><br>
 
 
-    
-   
+
+
         <div class="imgperfil">
-            <div class=<?="$status"?>></div><!--Se em andamento mudar a cor para laranja-->
+            <div class=<?= "$status" ?>></div><!--Se Em Andamento mudar a cor para laranja-->
             <img class="fotoperfil" src="../img/uploads/usuarios/profissionais/<?= $foto ?>" alt="Foto de Perfil">
             <br>
             <a href="editardados.php" class="editar">
@@ -106,12 +117,30 @@ foreach($tableAgenda as $agendamento){
             </a>
         </div>
     </div>
-
     <div class="funcionalidades">
         <a class="func" href="historicodeservicos.php">Ver histórico de serviços</a>
         <p><b class="qntdserv"><?= $totalserv ?></b><br>Serviços prestados</p>
         <a class="func" href="servagendados.php">Ver serviços agendados</a>
     </div>
+    <?php
+    if ($status == 'Em Andamento') {
+        echo "
+        <div class='AlertaServico'>
+            <h1><i class='fa-solid fa-triangle-exclamation'></i> ATENÇÃO <i class='fa-solid fa-triangle-exclamation'></i></h1>
+            <p>VOCÊ INICIOU UM SERVIÇO PARA:</p>
+
+            <div class='pendeagen'>
+                <h2 class='nomecliente'><b>{$nomeClienteEmAndamento}</b></h2>
+            </div>
+             <a href='detalhesserv.php?id={$idServEmAndamento}'>
+                    <div class='continuar'>
+                        <b>CONTINUAR</b>
+                    </div>
+                </a>
+        </div>";
+    }
+
+    ?>
     <?php
     $meses = [
         1 => 'Janeiro',
@@ -133,7 +162,7 @@ foreach($tableAgenda as $agendamento){
     $mesNome = $meses[(int)$dataCadastro->format('m')];
     $ano = $dataCadastro->format('Y');
 
-    
+
     ?>
     <footer class="footer-perfil">
         <p>Cadastrado desde de <?= $mesNome ?> de <?= $ano ?></p>

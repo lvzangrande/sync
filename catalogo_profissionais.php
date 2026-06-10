@@ -189,6 +189,27 @@ if (isset($_SESSION['mensagem'])) {
                 foreach ($cards as $card) {
                     $meses = ($card['id_user'] * 3) % 60 + 1;
                     $servicos = ($card['id_user'] * 17) % 500 + 50;
+
+                    $trabalhos = 0;
+
+                    $trabalhosConc = readAll(
+                        $pdo,
+                        'agenda',
+                        "status_os = 'Concluída' AND id_profissional = " . $card['id_user']
+                    );
+
+                    foreach ($trabalhosConc as $trabalho) {
+                        $trabalhos++;
+                    }
+
+                    $nt = $servicos + $trabalhos;
+                    $servicos = count(
+                        readAll(
+                            $pdo,
+                            'agenda',
+                            "status_os = 'Concluída' AND id_profissional = " . $card['id_user']
+                        )
+                    );
                     if ($tipo_usuario == 'admin') {
                         echo
                             '<div class="card">
@@ -205,6 +226,8 @@ if (isset($_SESSION['mensagem'])) {
                             <p class="especialidade">' . $card['especialidade'] . '</p>
 
                             <span>' . $meses . ' meses <i class="bi bi-calendar2-week"></i></span>
+                            
+                            <span> ' . $nt . ' serviços </span>
 
                             <div class="rodape">
                                 <p class="preco">R$' . $card['valor_dia'] . '</p>
@@ -237,7 +260,7 @@ if (isset($_SESSION['mensagem'])) {
 
                                 <span class="calendar">' . $meses . ' meses <i class="bi bi-calendar2-week"></i></span>
 
-                                <span> ' . $servicos . ' serviços </span>
+                                <span> ' . $nt . ' serviços </span>
                                 <div class="rodape">
                                     <p class="preco">R$' . $card['valor_dia'] . '</p>
                                     <p class="p-d">/dia</p>';
