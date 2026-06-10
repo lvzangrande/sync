@@ -13,6 +13,8 @@ $idcard = intval($_GET['id']);
 
 $profissional = read($pdo, 'usuarios', "id_user=$idcard");
 
+    $meses = ($profissional['id_user'] * 3) % 60 + 1;
+    $servicos = ($profissional['id_user'] * 17) % 500 + 50;
 if (isset($_SESSION['tipo']) && $_SESSION['tipo'] === 'profissional') {
     $_SESSION['mensagem'] = "Apenas usuários clientes podem contratar profissionais.";
 
@@ -26,9 +28,10 @@ if (!empty($profissional['img_user']) && file_exists('./img/uploads/usuarios/pro
 }
 $trabalhos = 0;
 $trabalhosConc =readAll($pdo,'agenda',"status_os = 'Concluída' and id_profissional = $idcard");
-foreach($trabalhosConc as $trabalho){
+foreach($trabalhosConc as $trabalho){    
     $trabalhos++;
 }
+$nt = $trabalhos + $servicos;
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -74,8 +77,8 @@ foreach($trabalhosConc as $trabalho){
 
                         <div class="meta-info">
                             <span class="avaliacao"><i class="bi bi-star-fill"></i>' . $profissional['notas'] . '</span>
-                            <span>('.$trabalhos.' trabalhos)</span>
-                            <span>11</span>
+                            <span>('.$nt.' trabalhos)</span>
+                            <span>'.$meses.' meses de experiência<i class="bi bi-calendar2-week"></i></span>
                         </div>
                     </div>
 
