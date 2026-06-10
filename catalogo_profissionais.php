@@ -210,6 +210,16 @@ if (isset($_SESSION['mensagem'])) {
                             "status_os = 'Concluída' AND id_profissional = " . $card['id_user']
                         )
                     );
+                       /* $servicos = readAll($pdo, 'agenda', "id_profissional = {$profissional['id_user']} AND status_os = 'Concluída'");
+
+                        $total_servicos = count($servicos);
+
+                        if ($profissional['img_user'] != '' && file_exists('img/uploads/usuarios/profissionais/' . $profissional['img_user'])) {
+                            $foto = $profissional['img_user'];
+                        } else {
+                            $foto = 'foto_default.png';
+                        }*/
+                        
                     if ($tipo_usuario == 'admin') {
                         echo
                             '<div class="card">
