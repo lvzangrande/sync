@@ -17,7 +17,7 @@ if (isset($_SESSION['mensagem'])){
 
 $idAgendamento = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
-if(isset($_GET['acao']) && $idAgendamento > 0){
+if (isset($_GET['acao']) && $idAgendamento > 0) {
     $acao = $_GET['acao'];
 
     if ($acao == 'iniciar') {
@@ -51,14 +51,13 @@ if(isset($_GET['acao']) && $idAgendamento > 0){
     }
 }
 
-$tableAgenda = readAll($pdo,'agenda');
-$agendamento = read($pdo,'agenda',"id_os = $idAgendamento");
+$agendamento = read($pdo, 'agenda', "id_os = $idAgendamento");
 
 if (!$agendamento) { 
     die("Agendamento não encontrado."); 
 }
 
-$valor = read($pdo, 'usuarios', 'id_user='.$agendamento['id_profissional']);
+$valor = read($pdo, 'usuarios', 'id_user=' . $agendamento['id_profissional']);
 unset($_SESSION['pedido']);
 ?>
 <!DOCTYPE html>
@@ -68,32 +67,36 @@ unset($_SESSION['pedido']);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/userpage.css">
     <link rel="icon" href="imagens/logosemfundo.png">
-    <title>Agendamento <?=$agendamento['data']?></title>
+    <title>Agendamento <?= $agendamento['data'] ?></title>
 </head>
 <body class="body">
     <header>
-    <?php
+        <?php
+        if ($agendamento['status_os'] !== 'Em Andamento') {
             require_once "../partials/header.php";
-        
-    ?>
-        </header>
-        <?php if($agendamento['status_os'] === 'Em Andamento'){
-           echo '<a href="profipage.php" class="voltar">SAIR</a>';
-        }
-        else{
-            echo '<a href="'.$_SERVER['HTTP_REFERER'].'" class="voltar">Voltar</a>';
         }
         ?>
+    </header>
+
+    <?php 
+    if ($agendamento['status_os'] === 'Em Andamento') {
+        echo '<a href="profipage.php" class="voltar">SAIR</a>';
+    } else {
+        $origem = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'profipage.php';
+        echo '<a href="' . $origem . '" class="voltar">Voltar</a>';
+    }
+    ?>
+
     <div class="container">
         <?php        
-            
-            $nomeCliente = read_nome_via_ID($pdo, 'usuarios', $agendamento['id_cliente']);
-            $nomeProfi   = read_nome_via_ID($pdo, 'usuarios', $agendamento['id_profissional']);
-            $hoje = new DateTime();
+        $nomeCliente = read_nome_via_ID($pdo, 'usuarios', $agendamento['id_cliente']);
+        $nomeProfi   = read_nome_via_ID($pdo, 'usuarios', $agendamento['id_profissional']);
+        $hoje = new DateTime();
 
-if($idAgendamento){
-    $dataAgendamento = new DateTime($agendamento['data']);
-    echo "  
+        if ($idAgendamento) {
+            $dataAgendamento = new DateTime($agendamento['data']);
+            
+            echo "  
             <label>Data: </label>
             <a>".$agendamento['data']."</a><br><hr>
 
@@ -124,16 +127,16 @@ if($idAgendamento){
             $statusAtual = $agendamento['status_os'];
             $dataValida = ($hoje->format('Y-m-d') >= $dataAgendamento->format('Y-m-d'));
 
-        if ($statusAtual == 'Em Andamento') {
+            if ($statusAtual == 'Em Andamento') {
                 echo "<a href='?id=".$agendamento['id_os']."&acao=concluir' style='margin-right: 15px;' class='voltar'>Concluir</a>";
-                echo "<a href='?id=".$agendamento['id_os']."&acao=cancelar' onclick=\"return confirm('Tem certeza de que quer mesmo cancelar este serviço?');\">Cancelar</a>";
+                echo "<a href='?id=".$agendamento['id_os']."&acao=cancelar' class='voltar' onclick=\"return confirm('Tem certeza de que quer mesmo cancelar este serviço?');\">Cancelar</a>";
             } 
             elseif ($statusAtual != 'Concluída' && $statusAtual != 'Cancelada') {
                 if ($dataValida) {
                     echo "<a href='?id=".$agendamento['id_os']."&acao=iniciar' class='voltar'>Iniciar serviço</a>";
                 }
             }
-}
+        }
         ?>
     </div>
 </body>

@@ -27,12 +27,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 130px; 
+    padding-top: 130px;
     padding-bottom: 60px;
-}
-
-h1, h2, h3, p, span, div, label, input, button {
-    font-family: "Montserrat", sans-serif;
 }
 
 a {
@@ -44,7 +40,8 @@ a {
 a:hover {
     color: var(--white);
 }
-.voltar{
+
+.voltar {
     background-color: var(--color-slate-blue);
     color: var(--white);
     padding: 10px 24px;
@@ -52,14 +49,14 @@ a:hover {
     font-size: 0.9rem;
     font-weight: 600;
     text-transform: uppercase;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     display: inline-flex;
     align-items: center;
     justify-content: center;
     margin: 20px;
 }
 
-.voltar{
+.voltar {
     background-color: var(--color-navy-dark);
     border-color: var(--color-sky-light);
     box-shadow: 0 0 10px rgba(133, 181, 203, 0.2);
@@ -67,8 +64,8 @@ a:hover {
 }
 
 
-body > a[href*="userpage"], 
-body > a[href*="historico"] {
+body>a[href*="userpage"],
+body>a[href*="historico"] {
     background-color: var(--color-slate-blue);
     color: var(--white);
     padding: 10px 24px;
@@ -81,31 +78,78 @@ body > a[href*="historico"] {
     margin-bottom: 25px;
     display: inline-flex;
     align-items: center;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-body > a[href*="userpage"]:hover, 
-body > a[href*="historico"]:hover {
+.historico {
+    margin-top: 30px;
+    background-color: var(--color-navy-dark);
+    border: 1px solid var(--color-slate-blue);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--white);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    flex: 1;
+    width: 600px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.historico p {
+    margin-top: 5px;
+    font-size: 0.85rem;
+    color: rgba(250, 245, 239, 0.548);
+    font-weight: 400;
+   
+}
+
+
+body>a[href*="userpage"]:hover,
+body>a[href*="historico"]:hover {
     background-color: var(--color-navy-dark);
     border-color: var(--color-sky-light);
     box-shadow: 0 0 10px rgba(133, 181, 203, 0.2);
 }
-.perfil{
-    margin-top: 60px;
+
+.perfil {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 40px;
+    width: 90%;
+    max-width: 1200px;
+    margin-left: 90px;
+    margin-right: auto;
+    font-size: 0.7rem;
 }
+
+.perfil-textos {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+
 .imgperfil {
-    text-align: center;
     margin-bottom: 40px;
-    margin-top: 20px;
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: auto;
 }
 
 .fotoperfil {
-    width: 200px;
-    height: 200px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
     object-fit: cover;
     border: 4px solid var(--color-slate-blue);
@@ -128,8 +172,8 @@ body > a[href*="historico"]:hover {
     border: 2px solid var(--color-navy-dark);
     border-radius: 50%;
     padding: 12px;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     transition: all 0.3s ease;
 }
 
@@ -140,43 +184,32 @@ body > a[href*="historico"]:hover {
 }
 
 .funcionalidades {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
+    gap: 10px;
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
 }
 
-.funcionalidades a {
-    margin-top: 30px;
-    background-color: var(--color-navy-dark);
-    border: 1px solid var(--color-slate-blue);
-    border-radius: 15px;
-    padding: 25px 30px;
-    text-align: center;
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--white);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
-    flex: 1;
-    min-width: 280px;
-}
 
-.funcionalidades a:hover {
+.historico:hover {
     border-color: var(--color-sky-light);
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(133, 181, 203, 0.2);
 }
 
-h2 { 
-    margin-bottom: 20px; 
-    font-weight: 700; 
-    color: var(--white); 
+h2 {
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: var(--white);
 }
 
-.container, .formulario {
+.container,
+.formulario {
     background-color: var(--color-navy-dark);
     border: 1px solid rgba(51, 65, 92, 0.4);
     border-radius: 20px;
@@ -188,7 +221,8 @@ h2 {
     transition: all 0.3s ease;
 }
 
-.container:hover, .formulario:hover {
+.container:hover,
+.formulario:hover {
     border-color: var(--color-sky-light);
     box-shadow: 0 0 15px rgba(133, 181, 203, 0.15);
 }
@@ -204,7 +238,8 @@ h2 {
     margin-bottom: 5px;
 }
 
-.container a, .container div {
+.container a,
+.container div {
     color: var(--white);
     font-size: 1rem;
     font-weight: 500;
@@ -266,6 +301,7 @@ h2 {
     background-color: #39678f;
     transform: scale(1.02);
 }
+
 .editarsenha {
     display: block;
     text-align: center;
@@ -348,6 +384,7 @@ tr:hover td {
     color: var(--color-night-blue);
     box-shadow: 0 0 10px rgba(133, 181, 203, 0.4);
 }
+
 .filtros {
     justify-content: center;
     width: 90%;
@@ -379,15 +416,16 @@ tr:hover td {
     color: var(--color-night-blue);
 }
 
-.saudacao{
+.saudacao {
     font-size: 4rem;
     color: var(--color-sky-light);
     text-align: center;
 }
 
-.botao{
+.botao {
     margin-top: 50px;
 }
+
 .th-header {
     display: flex;
     align-items: center;
@@ -424,16 +462,34 @@ tr:hover td {
     outline: none;
     border-color: var(--color-sky-light);
 }
+
 footer.footer-perfil {
-    max-width: 450px;            
-    margin: 40px auto 20px auto; 
-    padding: 15px 25px;          
+    max-width: 450px;
+    margin: 40px auto 20px auto;
+    padding: 15px 25px;
     text-align: center;
 }
 
 footer.footer-perfil p {
     text-align: center;
-    color: var(--color-sky-light); 
+    color: var(--color-sky-light);
     font-weight: 600;
     margin: 0;
 }
+
+.icon-func {
+    color: var(--color-sky-light);
+    margin-right: 50px;       
+    background-color: rgba(51, 65, 92, 0.5); 
+    font-size: 2.0rem;                   
+    padding: 15px;                     
+    border-radius: 12px;                 
+    margin-right: 20px;                  
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: 60px; 
+    height: 60px;
+    
+}
+
