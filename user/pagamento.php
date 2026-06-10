@@ -127,9 +127,10 @@ $metodo = $_GET['metodo'] ?? 'cartao';
                             <p>Escaneie o QR Code abaixo.</p>
 
                             <div class="qr-code">
-                                QR CODE
-                                <img src="../img/qr-code.png" alt="">
+                                QR CODE <br>
+                                <img src="../img/qr-code.webp" alt="" class="qr-code">
                             </div>
+                            
 
                             <form action="../func/insert.php" method="POST">
 
