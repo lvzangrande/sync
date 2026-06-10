@@ -19,6 +19,8 @@ if (!empty($_GET['ordenar'])) {
     if ($_GET['ordenar'] == 'mais_distante') $where .= " ORDER BY data ASC";
 }
 $tableAgenda = readAll($pdo, 'agenda', $where);
+
+$filtro = $_GET['filtro'] ?? 'Todos';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -47,6 +49,7 @@ foreach ($tableAgenda as $agendamento) {
         }
     }
 }
+
 ?>
 
 <body>
@@ -80,6 +83,23 @@ foreach ($tableAgenda as $agendamento) {
     </div>";
     }
     ?>
+        <div class="filtros">
+        <?php
+        $filtros = [
+            'Todos',
+            'Concluída',
+            'Cancelada',
+        ];
+
+        foreach ($filtros as $item):
+            $ativo = ($filtro === $item) ? 'ativo' : '';
+        ?>
+            <a class="<?= $ativo ?>" href="?filtro=<?= urlencode($item) ?>">
+                <?= $item ?>
+            </a>
+            
+        <?php endforeach; ?>
+    </div>
     <table>
         <tr>
             <th colspan='99'>
@@ -111,6 +131,23 @@ foreach ($tableAgenda as $agendamento) {
             $descricaoResumida = (count($palavras) > 4)
                 ? implode(' ', array_slice($palavras, 0, 4)) . '...'
                 : $agendamento['descricao_problema'];
+
+            $status = "";
+
+            $statusFiltroAtual = '';
+
+            if ($agendamento['status_os'] == 'Pendente') {
+                $statusFiltroAtual = 'Pendente';
+            } elseif ($status == 'proximo') {
+                $statusFiltroAtual = 'Próximo';
+            } elseif ($status == 'distante') {
+                $statusFiltroAtual = 'Distante';
+            }
+
+            if ($filtro != 'Todos' && $filtro != $statusFiltroAtual) {
+                continue;
+            }
+
 
             if ($agendamento['status_os'] == 'Concluída') {
                 $temAgendamento = true;

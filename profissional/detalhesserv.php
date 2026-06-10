@@ -32,7 +32,6 @@ if(isset($_GET['acao']) && $idAgendamento > 0){
             exit;
         }
 
-        // Se não tiver, permite iniciar (padronizei para 'Em Andamento' respeitando seu código do profipage)
         update($pdo, 'agenda', ['status_os' => 'Em Andamento'], "id_os = $idAgendamento");
         $_SESSION['mensagem'] = "Serviço iniciado com sucesso.";
         header("Location: ?id=$idAgendamento");
@@ -74,12 +73,8 @@ unset($_SESSION['pedido']);
 <body class="body">
     <header>
     <?php
-    if($agendamento['status_os'] === 'Em Andamento'){
-           '';
-        }
-        else{
             require_once "../partials/header.php";
-        }
+        
     ?>
         </header>
         <?php if($agendamento['status_os'] === 'Em Andamento'){
@@ -130,12 +125,10 @@ if($idAgendamento){
             $dataValida = ($hoje->format('Y-m-d') >= $dataAgendamento->format('Y-m-d'));
 
         if ($statusAtual == 'Em Andamento') {
-                // Se já estiver em andamento, mostra APENAS Concluir e Cancelar
                 echo "<a href='?id=".$agendamento['id_os']."&acao=concluir' style='margin-right: 15px;' class='voltar'>Concluir</a>";
                 echo "<a href='?id=".$agendamento['id_os']."&acao=cancelar' onclick=\"return confirm('Tem certeza de que quer mesmo cancelar este serviço?');\">Cancelar</a>";
             } 
             elseif ($statusAtual != 'Concluída' && $statusAtual != 'Cancelada') {
-                // 2. CORREÇÃO: Apenas checamos se a data é válida e se não é Em Andamento
                 if ($dataValida) {
                     echo "<a href='?id=".$agendamento['id_os']."&acao=iniciar' class='voltar'>Iniciar serviço</a>";
                 }
