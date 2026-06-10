@@ -17,11 +17,11 @@ $order = '';
 if (!empty($_GET['ordenar'])) {
 
     if ($_GET['ordenar'] == 'mais_proxima') {
-        $order = '1=1 ORDER BY data DESC';
+        $order = '1=1 ORDER BY data ASC';
     }
 
     if ($_GET['ordenar'] == 'mais_distante') {
-        $order = '1=1 ORDER BY data ASC';
+        $order = '1=1 ORDER BY data DESC';
     }
 }
 
@@ -92,7 +92,8 @@ $filtro = $_GET['filtro'] ?? 'Todos';
         </tr>
 
         <?php
-        $hoje = new DateTime();
+        $hojeObj = new DateTime('today'); 
+        $hoje = $hojeObj->format('Y-m-d'); 
         $temAgendamento = false;
 
         foreach ($tableAgenda as $agendamento) {
@@ -106,16 +107,17 @@ $filtro = $_GET['filtro'] ?? 'Todos';
                 : $agendamento['descricao_problema'];
 
             $dataAgendamento = new DateTime($agendamento['data']);
-            $diferenca = (int) $hoje->diff($dataAgendamento)->format('%r%a');
+            $diferenca = (int) $hojeObj->diff($dataAgendamento)->format('%r%a');
 
             $status = "";
-
-            if ($diferenca <= 0) {
+            
+            if ($diferenca <= 0 && $dataAgendamento->format('Y-m-d') != $hoje) {
                 $status = "atrasado";
 
                 if ($agendamento['status_os'] != 'Concluída' 
                 && $agendamento['status_os']  != 'Cancelada' 
-                && $agendamento['status_os']  != 'Em Andamento') {
+                && $agendamento['status_os']  != 'Em Andamento'
+                && $dataAgendamento->format('Y-m-d') != $hoje) {
                     update($pdo, 'agenda', ['status_os' => 'Pendente'], "id_os = " . $agendamento['id_os']);
                     $agendamento['status_os'] = 'Pendente';
                 }
@@ -160,7 +162,6 @@ $filtro = $_GET['filtro'] ?? 'Todos';
                 }
             }
         }
-
         if ($temAgendamento == false) {
             if ($filtro == 'Todos') {
                 echo "<tr>

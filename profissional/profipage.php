@@ -41,18 +41,29 @@ if (!empty($user['img_user']) && file_exists('../img/uploads/usuarios/profission
 } else {
     $foto = 'foto_default.png';
 }
+
+$hoje = (new DateTime())->format('Y-m-d');
+
 foreach ($tableAgenda as $agendamento) {
     if ($agendamento['status_os'] != 'Concluída' 
     && $agendamento['status_os'] != 'Em Andamento'
     && $agendamento['id_profissional'] == $_SESSION['id_user'] 
-    && new DateTime($agendamento['data']) < new DateTime()
+    && (new DateTime($agendamento['data']))->format('Y-m-d') < $hoje
     )
      {
         update($pdo, 'agenda', ['status_os' => 'Pendente'], "id_os = {$agendamento['id_os']}");
         $agendamento['status_os'] = 'Pendente';
     }
+
+
+    if ($agendamento['id_profissional'] == $_SESSION['id_user']
+    && (new DateTime($agendamento['data']))->format('Y-m-d') == $hoje 
+    && $agendamento['status_os'] == 'Pendente'
+    ) {
+        update($pdo, 'agenda', ['status_os' => 'Agendado'], "id_os = {$agendamento['id_os']}");
+        $agendamento['status_os'] = 'Agendada';
+    }
 }
-//Se algum serviço com status em andamento, exibir um card na profipage que redireciona para o serviço em agendamento 
 //Se algum serviço do profissional estiver com status em andamento não permitir iniciar mais serviços
 $status = 'status';
 $idServEmAndamento = '';
