@@ -72,7 +72,6 @@ unset($_SESSION['pedido']);
 <body class="body">
     <header>
         <?php
-        // Não exibe o header padrão se o serviço estiver Em Andamento (foco total na OS)
         if ($agendamento['status_os'] !== 'Em Andamento') {
             require_once "../partials/header.php";
         }
@@ -83,7 +82,6 @@ unset($_SESSION['pedido']);
     if ($agendamento['status_os'] === 'Em Andamento') {
         echo '<a href="profipage.php" class="voltar">SAIR</a>';
     } else {
-        // Se houver uma página anterior no histórico, volta para ela, se não vai para o painel
         $origem = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'profipage.php';
         echo '<a href="' . $origem . '" class="voltar">Voltar</a>';
     }
