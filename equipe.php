@@ -99,7 +99,7 @@
 
             <div class="team-card">
                 <div class="card-image-wrapper">
-                    <img src="" alt="Lucas Zangrande" class="card-img">
+                    <img src="img/foto-equipe/foto-lucas.jpg" alt="Lucas Zangrande" class="card-img">
                 </div>
                 <div class="card-info-basic">
                     <span class="badge-funcao">Gerente Full-stack</span>

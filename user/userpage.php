@@ -50,7 +50,7 @@ $categoria = $_SESSION['tipo'];
     <title>Olá <?= nomeUsuario($user); ?></title>
     <link rel="stylesheet" href="../css/userpage.css">
     <link rel="stylesheet" href="../css/partials.css">
-    <link rel="icon" href="imagens/logosemfundo.png">
+    <link rel="icon" type="image/png" href="../img/logosemfundo.png">
 
 </head>
 
@@ -59,26 +59,37 @@ $categoria = $_SESSION['tipo'];
     <?php
     require_once '../partials/header.php';
     ?>
+
     <div class="perfil">
-    <?php require_once '../php/saudacao.php';?>
-    <h1 style="text-align: center; text-transform: capitalize;"><?= $nomeCompleto ?></h1>
-    
         <div class="imgperfil">
             <a href="editardados.php"><img class="fotoperfil" src="../img/uploads/usuarios/clientes/<?= $foto ?>" width="900" alt="Foto de Perfil"></a>
             <br>
             <div class="botaoEditarDados">
                 <a href="editardados.php">
-                    <img src="../img/lapiseditar.png" width="80" alt="Editar Dados">
+                    <img src="../img/lapiseditar.png" width="90" alt="Editar Dados">
                 </a>
             </div>
         </div>
-   
-    </div>
-    <h1>O que deseja fazer?</h1>
-    <div class="funcionalidades">
-        <a class="historico" href="historicodecontratacoes.php">Ver histórico de contratações</a>
 
-        <a class="historico" href="historicodemensagens.php">Visualizar mensagens de suporte</a>
+        <div class="perfil-textos">
+            <?php require_once '../php/saudacao.php'; ?>
+            <h1 style="text-align: center; text-transform: capitalize;"><?= $nomeCompleto ?>.</h1>
+            <p style="font-size: 1.0rem; margin-top: 20px;">Bem-vindo ao seu painel de controle Sync Mecatronics,<br> gerencie seus dados e acompanhe suas inovações em um só lugar.</p>
+        </div>
+
+        
+
+    </div>
+    <h1 style="text-transform: uppercase; letter-spacing: 1.5px; font-size: 1.2rem;">O que deseja fazer?</h1>
+    <div class="funcionalidades">
+        <div class="historico">
+        <a href="historicodecontratacoes.php"><i class="fa-solid fa-clipboard-list icon-func"></i>Histórico de contratações</a>
+        <p>Clique aqui para acessar o seu<br> histórico completo.</p>
+        </div>
+        <div class="historico">
+        <a href="historicodemensagens.php"><i class="fa-solid fa-headset icon-func"></i>Mensagens de suporte</a>
+        <p>Clique aqui para visualizar suas <br>mensagens de suporte.</p>
+        </div>
     </div>
     <?php
     $meses = [
@@ -105,11 +116,11 @@ $categoria = $_SESSION['tipo'];
         $ano = null;
     }
     ?>
-        <footer class="footer-perfil">
+    <footer class="footer-perfil">
         <p>Cadastrado desde de <?= $mesNome ?> de <?= $ano ?></p>
     </footer>
 
-    
+
 
 </body>
 
