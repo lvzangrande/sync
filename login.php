@@ -1,5 +1,5 @@
 <?php
-if (session_status() === PHP_SESSION_NONE){
+if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
@@ -18,15 +18,14 @@ if (isset($_POST['usuario']) && isset($_POST['senha'])) {
     $senha_digitada   = trim($_POST['senha']);
 
     if (empty($usuario_digitado) || empty($senha_digitada)) {
-        
+
         $erro = "Preencha todos os campos!";
-        
     } else {
         $condicao = "email = '$usuario_digitado'";
         $resultado = read($pdo, 'usuarios', $condicao);
 
         if ($resultado) {
-            
+
             if (isset($resultado[0])) {
                 $usuario_banco = $resultado[0];
             } else {
@@ -34,7 +33,7 @@ if (isset($_POST['usuario']) && isset($_POST['senha'])) {
             }
 
             if ($senha_digitada === $usuario_banco['senha']) {
-                
+
                 $_SESSION['autenticado'] = true;
                 $_SESSION['id_user']     = $usuario_banco['id_user'];
                 $_SESSION['nome']        = $usuario_banco['nome'];
@@ -46,12 +45,11 @@ if (isset($_POST['usuario']) && isset($_POST['senha'])) {
 
                 redirecionarPorPerfil($_SESSION['tipo']);
                 exit();
-                
             } else {
                 $erro = "Acesso negado! Dados incorretos.";
             }
             //if $_SESSION['tipo'] = profissional -> pegar os dados específicos do profissional
-            
+
         } else {
             $erro = "Acesso negado! Dados incorretos.";
         }
@@ -89,9 +87,10 @@ function redirecionarPorPerfil($tipo)
     <link rel="stylesheet" href="css/partials.css">
     <link rel="icon" href="imagens/logosemfundo.png">
 </head>
-    <header>
-        <?php include 'partials/header.php'; ?>
-    </header>
+<header>
+    <?php include 'partials/header.php'; ?>
+</header>
+
 <body>
 
     <div class="login-container">
@@ -137,8 +136,7 @@ function redirecionarPorPerfil($tipo)
                 Não tem uma conta? <a href="cadastro.php">Cadastre-se aqui</a>
             </p>
             <p style="margin-top: 8px;">
-                <a href="editar_senha.php">Esqueceu a senha?</a>
-                <!--Se não estiver logado não é possivel editar a senha,acho q nn tem mt sentido ter no login ent-->
+                <a href="editar_senha.php?modo=recuperar">Esqueceu a senha?</a> 
             </p>
         </div>
     </div>
