@@ -22,7 +22,7 @@ $novo_contrato = [
     'id_profissional' => $pedido['id_profissional'],
     'id_cliente' => $_SESSION['id_user'],
     'valor_total' => $pedido['tempo'] * read($pdo, "usuarios", "id_user={$pedido['id_profissional']}")['valor_dia'],
-    'metodo_pagamento' => $pedido['metodo_pagamento']
+    'metodo_pagamento' => $_POST['metodo_pagamento']
 ];
 
 
