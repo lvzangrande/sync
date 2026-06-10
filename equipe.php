@@ -110,7 +110,7 @@
                     <h3 class="dev-name-hover">Lucas Zangrande</h3>
                     <p class="dev-contribution">
                         Responsável pela organização e gerenciamento do projeto, além do desenvolvimento das áreas
-                        do usuário, profsissional, administração e serviços agendados incluindo funcionalidades como
+                        do usuário, profissional, administração e serviços agendados incluindo funcionalidades como
                         edição de informações, gerenciamneto de serviços e controle administrativo da plataforma.
                     </p>
                     <div class="social-links">

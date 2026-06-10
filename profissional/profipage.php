@@ -67,11 +67,14 @@ foreach ($tableAgenda as $agendamento) {
 //Se algum serviço do profissional estiver com status em andamento não permitir iniciar mais serviços
 $status = 'status';
 $idServEmAndamento = '';
-foreach($tableAgenda as $agendamento){
-    if ($agendamento['status_os'] == 'Em Andamento' && $agendamento['id_profissional'] == $_SESSION['id_user']){
-       $status = 'Em Andamento'; 
-       $idServEmAndamento = $agendamento['id_os'];
-       break;
+foreach ($tableAgenda as $agendamento) {
+    if ($agendamento['status_os'] == 'Em Andamento' && $agendamento['id_profissional'] == $_SESSION['id_user']) {
+        $status = 'Em Andamento';
+        $idServEmAndamento = $agendamento['id_os'];
+
+        $idCliente = $agendamento['id_cliente'];
+        $nomeClienteEmAndamento = read_nome_via_id($pdo, 'usuarios', $idCliente);
+        break; 
     }
 }
 ?>
@@ -85,7 +88,7 @@ foreach($tableAgenda as $agendamento){
     <link rel="stylesheet" href="../css/partials.css">
 
     <link rel="icon" href="imagens/logosemfundo.png">
-    
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Olá <?= nomeUsuario(); ?></title>
@@ -103,10 +106,10 @@ foreach($tableAgenda as $agendamento){
         <h1 style="text-align: center;">Olá <?= nomeUsuario(); ?></h1><br>
 
 
-    
-   
+
+
         <div class="imgperfil">
-            <div class=<?="$status"?>></div><!--Se em andamento mudar a cor para laranja-->
+            <div class=<?= "$status" ?>></div><!--Se Em Andamento mudar a cor para laranja-->
             <img class="fotoperfil" src="../img/uploads/usuarios/profissionais/<?= $foto ?>" alt="Foto de Perfil">
             <br>
             <a href="editardados.php" class="editar">
@@ -119,24 +122,22 @@ foreach($tableAgenda as $agendamento){
         <p><b class="qntdserv"><?= $totalserv ?></b><br>Serviços prestados</p>
         <a class="func" href="servagendados.php">Ver serviços agendados</a>
     </div>
-        <?php
-        $idCliente = $agendamento['id_cliente'];
-$nomeCliente = read_nome_via_id($pdo,'usuarios',$idCliente);
-    if ($status == 'Em Andamento'){
+    <?php
+    if ($status == 'Em Andamento') {
         echo "
         <div class='AlertaServico'>
             <h1><i class='fa-solid fa-triangle-exclamation'></i> ATENÇÃO <i class='fa-solid fa-triangle-exclamation'></i></h1>
             <p>VOCÊ INICIOU UM SERVIÇO PARA:</p>
 
             <div class='pendeagen'>
-                <h2 class='nomecliente'><b>{$nomeCliente}</b></h2>
+                <h2 class='nomecliente'><b>{$nomeClienteEmAndamento}</b></h2>
             </div>
              <a href='detalhesserv.php?id={$idServEmAndamento}'>
                     <div class='continuar'>
                         <b>CONTINUAR</b>
                     </div>
                 </a>
-        </div>"; 
+        </div>";
     }
 
     ?>
@@ -161,7 +162,7 @@ $nomeCliente = read_nome_via_id($pdo,'usuarios',$idCliente);
     $mesNome = $meses[(int)$dataCadastro->format('m')];
     $ano = $dataCadastro->format('Y');
 
-    
+
     ?>
     <footer class="footer-perfil">
         <p>Cadastrado desde de <?= $mesNome ?> de <?= $ano ?></p>
