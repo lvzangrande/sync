@@ -59,10 +59,11 @@ if (!$chamado) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=home" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../img/logosemfundo.png">
 
     <style>
         body {
-            font-family: 'Lexend', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             background-color: #001233;
             /* --deep-midnight */
             color: #FFFFFF;
@@ -141,7 +142,7 @@ if (!$chamado) {
             background-color: #092848;
             /* --navy-dark */
             color: #fff;
-            font-family: 'Lexend', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-size: 15px;
             box-sizing: border-box;
             resize: vertical;
