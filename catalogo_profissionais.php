@@ -10,6 +10,7 @@ unset($_SESSION['pedido']);
 if (isset($_SESSION['mensagem'])) {
     echo "<script>alert('" . $_SESSION['mensagem'] . "')</script>";
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -192,12 +193,7 @@ if (isset($_SESSION['mensagem'])) {
 
                     $trabalhos = 0;
 
-                    $trabalhosConc = readAll(
-                        $pdo,
-                        'agenda',
-                        "status_os = 'Concluída' AND id_profissional = " . $card['id_user']
-                    );
-
+                    $trabalhosConc = readAll($pdo, 'agenda', "status_os = 'Concluída' AND id_profissional = " . $card['id_user']);
                     foreach ($trabalhosConc as $trabalho) {
                         $trabalhos++;
                     }
