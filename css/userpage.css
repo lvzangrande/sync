@@ -18,6 +18,10 @@
     box-sizing: border-box;
 }
 
+label, input, button, a, p, h1, h2 {
+    font-family: "Montserrat", sans-serif;
+}
+
 body {
     font-family: "Montserrat", sans-serif;
     background: linear-gradient(to bottom, #1c4376, #001233);
