@@ -47,8 +47,7 @@
                     <span class="badge-funcao">Dev Front-End</span>
                     <h3 class="dev-name-hover">Eloah Barbosa</h3>
                     <p class="dev-contribution">
-                        Responsável pela página Home, trabalhando na interface visual, organização dos
-                        elementos e experiência do usuário dentro do site.
+                        Responsável pela criação da página Home (focando no visual e na jornada do usuário), pelos ajustes e padronização do CSS em todas as páginas da aplicação, e por toda a organização da documentação.
                     </p>
 
                 </div>
