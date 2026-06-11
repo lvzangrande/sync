@@ -6,6 +6,8 @@ require_once 'crud.php';
 
 $mensagem = "";
 $tipo_mensagem = "";
+$link_voltar = "login.php";
+
 
 if (
     isset($_POST['nome']) &&
@@ -32,18 +34,16 @@ if (
         $tipo_mensagem = "erro";
     } else {
 
-       if (isset($_FILES['img_user']) && $_FILES['img_user']['error'] === UPLOAD_ERR_OK) {
+        if (isset($_FILES['img_user']) && $_FILES['img_user']['error'] === UPLOAD_ERR_OK) {
 
             $tipos_permitidos = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
             $tamanho_max = 1 * 1024 * 1024; // 1MB
 
             if (!in_array($_FILES['img_user']['type'], $tipos_permitidos)) {
                 $erro = "Tipo de arquivo não permitido.";
-            } 
-            elseif ($_FILES['img_user']['size'] > $tamanho_max) {
+            } elseif ($_FILES['img_user']['size'] > $tamanho_max) {
                 $erro = "O arquivo é muito grande. O tamanho máximo permitido é 1MB.";
-            } 
-            else {
+            } else {
                 $extensao = pathinfo($_FILES['img_user']['name'], PATHINFO_EXTENSION);
                 $novonome = "user_" . uniqid() . "." . $extensao;
 
@@ -101,10 +101,13 @@ if (
     <link rel="stylesheet" href="css/partials.css">
     <link rel="icon" href="imagens/logosemfundo.png">
 </head>
-    <header>
-        <?php include 'partials/header.php'; ?>
-    </header>
+<header>
+    <?php include 'partials/header.php'; ?>
+</header>
+
 <body>
+    <a href="<?= $link_voltar ?>" class="voltar">Voltar</a>
+
 
     <div class="cadastro-container">
         <div class="cadastro-header">
