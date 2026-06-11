@@ -82,30 +82,40 @@ body>a[href*="historico"] {
 }
 
 .historico {
-    margin-top: 30px;
+    margin-top: 20px;
     background-color: var(--color-navy-dark);
-    border: 1px solid var(--color-slate-blue);
-    border-radius: 15px;
-    padding: 30px;
-    text-align: center;
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: var(--white);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
-    flex: 1;
+    border: 1px solid rgba(51, 65, 92, 0.5);
+    border-radius: 12px;
+    padding: 25px 30px 25px 100px;
+    position: relative;
     width: 600px;
+    max-width: 90vw;
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 110px;
+    
+}
+
+.historico a {
+    color: var(--color-sky-light);
+    font-size: 1.15rem;
+    font-weight: 700;
+    text-decoration: none;
+    margin-bottom: 2px;
+    display: block;
 }
 
 .historico p {
-    margin-top: 5px;
+    margin: 0;
     font-size: 0.85rem;
-    color: rgba(250, 245, 239, 0.548);
+    color: rgba(255, 255, 255, 0.6);
     font-weight: 400;
-   
+    text-align: left;
+    line-height: 1.4;
+
 }
 
 
@@ -198,8 +208,8 @@ body>a[href*="historico"]:hover {
 
 .historico:hover {
     border-color: var(--color-sky-light);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(133, 181, 203, 0.2);
+    transform: translateY(-3px); /* Um pulinho mais sutil e elegante */
+    box-shadow: 0 8px 25px rgba(133, 181, 203, 0.15);
 }
 
 h2 {
@@ -479,17 +489,19 @@ footer.footer-perfil p {
 
 .icon-func {
     color: var(--color-sky-light);
-    margin-right: 50px;       
-    background-color: rgba(51, 65, 92, 0.5); 
-    font-size: 2.0rem;                   
-    padding: 15px;                     
-    border-radius: 12px;                 
-    margin-right: 20px;                  
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    width: 60px; 
+    background-color: rgba(51, 65, 92, 0.4);
+    border-radius: 12px;
+    font-size: 1.6rem;
+    width: 60px;
     height: 60px;
-    
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 0 !important; 
 }
-
