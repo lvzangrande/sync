@@ -46,7 +46,8 @@ unset($agendamento);
     <title>Histórico de contratações</title>
     <link rel="stylesheet" href="../css/userpage.css">
     <link rel="stylesheet" href="../css/partials.css">
-    <link rel="icon" href="imagens/logosemfundo.png">
+    <link rel="icon" href="../img/logosemfundo.png">
+    
 </head>
 
 <body>

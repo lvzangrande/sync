@@ -33,18 +33,21 @@ if (isset($_GET['acao']) && $idAgendamento > 0) {
         }
 
         update($pdo, 'agenda', ['status_os' => 'Em Andamento'], "id_os = $idAgendamento");
+        update($pdo, 'usuarios', ['status' => 'Em Atendimento'], "id_user = ". $_SESSION['id_user']);
         $_SESSION['mensagem'] = "Serviço iniciado com sucesso.";
         header("Location: ?id=$idAgendamento");
         exit;
     } 
     elseif ($acao == 'concluir') {
         update($pdo, 'agenda', ['status_os' => 'Concluída'], "id_os = $idAgendamento");
+        update($pdo, 'usuarios',['status' => 'Disponível'], "id_user = " . $_SESSION['id_user']);
         $_SESSION['mensagem'] = "Serviço concluído com sucesso";
         header('Location: historicodeservicos.php');
         exit;
     } 
     elseif ($acao == 'cancelar') {
         update($pdo, 'agenda', ['status_os' => 'Cancelada'], "id_os = $idAgendamento");
+        update($pdo, 'usuarios',['status' => 'Disponível'], "id_user = " . $_SESSION['id_user']);
         $_SESSION['mensagem'] = "Serviço cancelado com sucesso.";
         header('Location: historicodeservicos.php');
         exit;
