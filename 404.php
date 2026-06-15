@@ -1,5 +1,6 @@
 <?php
 http_response_code(404);
+//arruma
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">

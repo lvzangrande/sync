@@ -6,7 +6,8 @@ require_once 'crud.php';
 
 $mensagem = "";
 $tipo_mensagem = "";
-
+//formatar os inputs para tel e etv
+//se for pf ou pj mudar o nome do input cpf e cnpj
 if (
     isset($_POST['nome']) &&
     isset($_POST['email']) &&

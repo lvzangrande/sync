@@ -8,7 +8,8 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 //fazer verificação pra caso o usuário tente agendar o profissional em um dia na qual já está agendado, não permitir
-
+//mudar o fundo igual das outras páginas e fazer os bagui funcionar
+//mudar o tempo estimado de dias para minutos
 $idcard = intval($_GET['id']);
 
 $profissional = read($pdo, 'usuarios', "id_user=$idcard");

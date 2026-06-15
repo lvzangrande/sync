@@ -11,7 +11,7 @@ if (!isset($_SESSION['autenticado'])) {
 }
 
 
-
+// centraliza os qr code pai
 if (!isset($_SESSION['pedido'])) {
 
     header("Location: catalogo.php");

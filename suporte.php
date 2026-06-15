@@ -1,7 +1,7 @@
 <?php
 require_once "crud.php";
 session_start();
-
+//pega os dados da session pra mandar pro suporte
 $mensagem_sucesso = "";
 
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
+<!--Redirecionar para a tabela de histórico suporte-->
 <head>
     <meta charset="UTF-8">
     <link rel="icon" href="imagens/logosemfundo.png">

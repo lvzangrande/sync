@@ -219,7 +219,7 @@ if (isset($_SESSION['mensagem'])) {
                         } else {
                             $foto = 'foto_default.png';
                         }*/
-                        
+                        //adiciona uma msg se não retornar nada no filtro
                     if ($tipo_usuario == 'admin') {
                         echo
                             '<div class="card">

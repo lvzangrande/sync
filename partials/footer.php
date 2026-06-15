@@ -12,7 +12,7 @@ if (!defined('BASE_URL')) {
 
 $base = BASE_URL;
 ?>
-
+<!--Atualizar o link do footer e criar os termos de uso-->
 <footer>
     <div class="footer-container">
 

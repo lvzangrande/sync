@@ -1,6 +1,6 @@
 <?php
 require_once '../crud.php';
-
+//não funcionou quando usei o bagui do suporte
 if (session_status() === PHP_SESSION_NONE){
     session_start();
 }
