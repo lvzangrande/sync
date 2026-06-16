@@ -138,7 +138,7 @@ if (
 
                 <div class="form-group">
                     <label for="telefone">Telefone / WhatsApp</label>
-                    <input type="text" id="telefone" name="telefone" class="input-control" placeholder="(11) 99999-9999" required>
+                    <input type="tel" id="telefone" name="telefone" class="input-control" placeholder="(11) 99999-9999" required>
                 </div>
 
             </div>
