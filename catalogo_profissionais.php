@@ -209,12 +209,12 @@ if (isset($_SESSION['mensagem'])) {
                        /* $servicos = readAll($pdo, 'agenda', "id_profissional = {$profissional['id_user']} AND status_os = 'Concluída'");
 
                         $total_servicos = count($servicos);
-
-                        if ($profissional['img_user'] != '' && file_exists('img/uploads/usuarios/profissionais/' . $profissional['img_user'])) {
-                            $foto = $profissional['img_user'];
+*/
+                        if ($card['img_user'] != '' && file_exists('img/uploads/usuarios/profissionais/' . $card['img_user'])) {
+                            $foto = $card['img_user'];
                         } else {
                             $foto = 'foto_default.png';
-                        }*/
+                        }
                         //adiciona uma msg se não retornar nada no filtro
                     if ($tipo_usuario == 'admin') {
                         echo
@@ -224,7 +224,7 @@ if (isset($_SESSION['mensagem'])) {
 
                             <div class="avaliacao"><i class="bi bi-star-fill"></i> ' . $card['notas'] . '</div>
 
-                            <img src="' . $base . 'img/uploads/usuarios/profissionais/' . $card['img_user'] . '"
+                            <img src="' . $base . 'img/uploads/usuarios/profissionais/' . $foto . '"
                             alt="Foto de ' . $card['nome'] . '">
 
                             <p class="nome-profi">' . $card['nome'] . '</p>
@@ -257,7 +257,7 @@ if (isset($_SESSION['mensagem'])) {
 
                                 <div class="avaliacao"><i class="bi bi-star-fill"></i> ' . $card['notas'] . '</div>
 
-                                <img src="' . $base . 'img/uploads/usuarios/profissionais/' . $card['img_user'] . '"
+                                <img src="' . $base . 'img/uploads/usuarios/profissionais/' . $foto . '"
                                 alt="Foto de ' . $card['nome'] . '">
 
                                 <p class="nome-profi">' . $card['nome'] . '</p>
