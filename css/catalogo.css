@@ -254,7 +254,9 @@ body {
     font-weight: 600;
     transition: 0.3s;
 }
-
+.inativo{
+     background-color: #7D8597 !important;
+}
 .card a:hover {
     background: var(--steel-blue);
     transform: scale(1.02);

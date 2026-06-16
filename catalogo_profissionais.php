@@ -275,7 +275,12 @@ if (isset($_SESSION['mensagem'])) {
                                 <div class="rodape">
                                     <p class="preco">R$' . $card['valor_dia'] . '</p>
                                     <p class="p-d">/dia</p>';
-                        echo '<a href="contratar.php?id=' . $card['id_user'] . '">Contratar</a>';
+                                    if($card['status'] !== 'Inativo'){
+                                    echo '<a href="contratar.php?id=' . $card['id_user'] . '">Contratar</a>';
+                                    }
+                                    elseif($card['status'] == 'Inativo'){
+                                    echo '<a class="inativo">Profissional inativo</a>';
+                                    }
                         echo '            
                                 </div>
 
