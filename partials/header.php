@@ -42,8 +42,8 @@ $base = BASE_URL;
                     <a class="btn-cadastro" href="<?= $base ?>cadastro.php">Começar <span
                             class="material-symbols-outlined">arrow_outward</span></a>
                 <?php else: ?>
-                    <button id="btn-menu">
-                        ☰
+                    <button class="btn-list" id="btn-menu">
+                       <i class="bi bi-list"></i>
                     </button>
 
                     <nav id="sidebar" class="sidebar">

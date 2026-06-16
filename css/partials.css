@@ -20,6 +20,27 @@ nav {
 }
 
 
+
+.btn-list{
+    width: 40px;
+    height: 40px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #173a6b;
+
+    color: #fff;
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.btn-list:hover{
+    background: #214d8b;
+}
 .sidebar{
     position: fixed;
     top: 0;
@@ -36,7 +57,7 @@ nav {
 }
 
 .sidebar{
-position: fixed;
+    position: fixed;
     top: 0;
     right: -100%;
     width: 300px;
@@ -106,17 +127,36 @@ position: fixed;
 }
 
 .btn-fechar{
-    background: none;
-    border: none;
+    position: absolute;
+    top: 15px;
+    right: 15px;
 
-    color: white;
-    font-size: 20px;
+    width: 40px;
+    height: 40px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: rgba(255,255,255,0.08);
+
+    color: #fff;
+    font-size: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     cursor: pointer;
+
+    transition: .2s;
 }
 
 .btn-fechar:hover{
-    color: #00d9ff;
+    background: rgba(255,255,255,0.15);
+}
+
+.btn-fechar i{
+    pointer-events: none;
 }
 
 .btn-sair{

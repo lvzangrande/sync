@@ -1,6 +1,12 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 http_response_code(404);
-//arruma
+
+define('BASE_URL', 'http://localhost/2TD/sync/');
+$base = BASE_URL;
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -9,6 +15,7 @@ http_response_code(404);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/partials.css">
     <title>Erro 404</title>
 </head>
     <style>
@@ -78,14 +85,18 @@ http_response_code(404);
 
     </style>
 <body>
+
+
     <main class="main-container">
         <div class="erro-container">
             <i class="fa-solid fa-triangle-exclamation icon-erro"></i>
             <h1>Página não encontrada</h1>
             <p>Ops! A página que você está procurando não foi encontrada.</p>
             <p>Pode ser que o link esteja quebrado ou a página tenha sido removida.</p>
-            <a href="inicio.php" class="btn-voltar">Voltar para o início</a>
-            <a href="suporte.php" class="btn-voltar">Falar com o suporte</a>
+
+            <a href="<?= $base ?>inicio.php" class="btn-voltar">Voltar para o início</a>
+            <a href="<?= $base ?>suporte.php" class="btn-voltar">Falar com o suporte</a>
+
         </div>
     </main>
 </body>
