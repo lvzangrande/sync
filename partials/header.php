@@ -61,11 +61,11 @@ $base = BASE_URL;
                         </div>
                         <?php
                         if ($tipo_usuario === 'admin') {
-                            echo '<a href="../admin/adminpage.php">
+                            echo '<a href="' . $base . 'admin/adminpage.php">
                                 <i class="bi bi-house"></i>
                                 Dashboard
                             </a>
-                            <a href="../admin/cadastro_profissional.php">
+                            <a href="' . $base . 'admin/cadastro_profissional.php">
                                 <i class="bi bi-people"></i>
                                 Cadastrar Profissional
                             </a>
@@ -74,17 +74,17 @@ $base = BASE_URL;
                             <i class="fas fa-power-off"></i> Sair
                             </a>';
                         } elseif ($tipo_usuario === 'profissional') {
-                            echo '<a href="../profissional/profipage.php">
+                            echo '<a href="' . $base . 'profissional/profipage.php">
                                 <i class="bi bi-person"></i>
                                 Pefil
                             </a>
 
-                            <a href="../profissional/historicodeservicos.php">
+                            <a href="' . $base . 'profissional/historicodeservicos.php">
                                 <i class="bi bi-tools"></i>
                                 Serviços
                             </a>
 
-                            <a href="../profissional/servagendados.php">
+                            <a href="' . $base . 'profissional/servagendados.php">
                                 <i class="bi bi-calendar-event"></i>
                                 Agenda
                             </a>
@@ -94,15 +94,15 @@ $base = BASE_URL;
                             </a>';
                         } elseif ($tipo_usuario === 'cliente') {
                             echo '
-                                <a href="../user/userpage.php">
+                                <a href="'.$base.'user/userpage.php">
                                     <i class="bi bi-card-list"></i>
                                     Perfil
                                 </a>
-                                <a href="../user/historicodecontratacoes.php">
+                                <a href="'.$base.'user/historicodecontratacoes.php">
                                     <i class="bi bi-clock-history"></i>
                                     Histórico de serviços
                                 </a>
-                                <a href="../user/historicodemensagens.php">
+                                <a href="'.$base.'user/historicodemensagens.php">
                                     <i class="bi bi-headset"></i>
                                     Suporte
                                 </a>

@@ -80,7 +80,7 @@ $categoria = $_SESSION['tipo'];
         
 
     </div>
-    <h1 style="text-transform: uppercase; letter-spacing: 1.5px; font-size: 1.2rem;">O que deseja fazer?</h1>
+    <h1 style="text-transform: uppercase; letter-spacing: 1.5px; font-size: 1.2rem; margin-top: 60px;">O que deseja fazer?</h1>
     <div class="funcionalidades">
         <div class="historico">
         <a href="historicodecontratacoes.php"><i class="fa-solid fa-clipboard-list icon-func"></i>Histórico de contratações</a>
