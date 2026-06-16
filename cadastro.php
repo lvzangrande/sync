@@ -138,7 +138,7 @@ if (
 
                 <div class="form-group">
                     <label for="telefone">Telefone / WhatsApp</label>
-                    <input type="text" id="telefone" name="telefone" class="input-control" placeholder="(11) 99999-9999" required>
+                    <input type="text" id="telefone" name="telefone" class="input-control" placeholder="(11) 99999-9999" maxlength="11" required>
                 </div>
 
             </div>
@@ -159,7 +159,7 @@ if (
 
             <div class="form-group">
                 <label for="cpf_cnpj">CPF ou CNPJ</label>
-                <input type="text" id="cpf_cnpj" name="cpf_cnpj" class="input-control" placeholder="Apenas números" required>
+                <input type="text" id="cpf_cnpj" name="cpf_cnpj" class="input-control" placeholder="Apenas números" maxlength="11" required>
             </div>
 
             <div class="form-group">
@@ -169,6 +169,14 @@ if (
                     <input type="file" id="foto" name="img_user" accept="image/*" class="input-file-hidden">
                 </label>
             </div>
+
+            <label class="checkbox-label">
+            <input type="checkbox" name="aceita_termos" id="aceita_termos" required>
+            <span class="checkbox-custom"></span>
+            <span class="texto-termos">
+                    Li e concordo com os <a href="termosdeuso.php">Termos de Uso</a> e a <a href="privacidade.php">Política de Privacidade</a>.
+                </span>
+            </label>
 
             <button type="submit" class="btn-submit">Registrar Cliente</button>
         </form>

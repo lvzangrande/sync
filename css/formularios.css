@@ -282,3 +282,66 @@ select.input-control {
     box-shadow: 0 0 10px rgba(133, 181, 203, 0.2);
     color: var(--white);
 }
+
+/* Checkbox termos */
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox-label input[type="checkbox"] { display: none; }
+
+.checkbox-custom {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    border: 1px solid var(--color-slate-blue);
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.2);
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.checkbox-label input:checked + .checkbox-custom {
+    background: var(--color-deep-blue);
+    border-color: var(--color-sky-light);
+}
+
+.checkbox-label input:checked + .checkbox-custom::after {
+    content: '';
+    width: 5px;
+    height: 9px;
+    border: 2px solid var(--color-sky-light);
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg) translateY(-1px);
+    display: block;
+}
+
+.checkbox-label:hover .checkbox-custom {
+    border-color: var(--color-sky-light);
+    box-shadow: 0 0 8px rgba(133, 181, 203, 0.25);
+}
+
+.texto-termos {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.texto-termos a {
+    color: var(--color-sky-light);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.texto-termos a:hover {
+    color: var(--white);
+    text-decoration: underline;
+}
