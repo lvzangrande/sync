@@ -14,22 +14,28 @@ $idcard = intval($_GET['id']);
 
 $profissional = read($pdo, 'usuarios', "id_user=$idcard");
 
-    $meses = ($profissional['id_user'] * 3) % 60 + 1;
+    $dataCadastro = new DateTime($profissional['data_cadastro']);
+    $dataAtual = new DateTime();
+
+    $diferenca = $dataCadastro->diff($dataAtual);
+
+    $meses = ($diferenca->y * 12) + $diferenca->m;
     $servicos = ($profissional['id_user'] * 17) % 500 + 50;
+    
 if (isset($_SESSION['tipo']) && $_SESSION['tipo'] === 'profissional') {
     $_SESSION['mensagem'] = "Apenas usuários clientes podem contratar profissionais.";
 
     header('Location: catalogo_profissionais.php');
     exit();
 }
-if (!empty($profissional['img_user']) && file_exists('./img/uploads/usuarios/profissionais/'. $profissional['img_user'])) {
+if (!empty($profissional['img_user']) && file_exists('./img/uploads/usuarios/profissionais/' . $profissional['img_user'])) {
     $foto = $profissional['img_user'];
 } else {
     $foto = 'foto_default.png';
 }
 $trabalhos = 0;
-$trabalhosConc =readAll($pdo,'agenda',"status_os = 'Concluída' and id_profissional = $idcard");
-foreach($trabalhosConc as $trabalho){    
+$trabalhosConc = readAll($pdo, 'agenda', "status_os = 'Concluída' and id_profissional = $idcard");
+foreach ($trabalhosConc as $trabalho) {
     $trabalhos++;
 }
 $nt = $trabalhos + $servicos;
@@ -78,8 +84,8 @@ $nt = $trabalhos + $servicos;
 
                         <div class="meta-info">
                             <span class="avaliacao"><i class="bi bi-star-fill"></i>' . $profissional['notas'] . '</span>
-                            <span>('.$nt.' trabalhos)</span>
-                            <span>'.$meses.' meses de experiência<i class="bi bi-calendar2-week"></i></span>
+                            <span>(' . $nt . ' trabalhos)</span>
+                            <span>' . $meses . ' meses de experiência<i class="bi bi-calendar2-week"></i></span>
                         </div>
                     </div>
 
@@ -125,7 +131,8 @@ $nt = $trabalhos + $servicos;
                     <div class="campo">
                         <label>Descrição do Problema</label>
                         <textarea name="desc" maxlength="500"
-                            placeholder="Descreva detalhadamente o problema, equipamento, modelo......" required></textarea>
+                            placeholder="Descreva detalhadamente o problema, equipamento, modelo......"
+                            required></textarea>
                     </div>
 
                     <div class="linha-dupla">
@@ -142,7 +149,8 @@ $nt = $trabalhos + $servicos;
 
                     <div class="campo">
                         <label>Local da Intervenção</label>
-                        <input name="end_serv" type="text" placeholder="Endereço completo da unidade industrial" required>
+                        <input name="end_serv" type="text" placeholder="Endereço completo da unidade industrial"
+                            required>
                     </div>
 
                     <button class="btn-prosseguir">
@@ -185,4 +193,5 @@ $nt = $trabalhos + $servicos;
 
     <?php require_once 'partials/footer.php'; ?>
 </body>
+
 </html>
