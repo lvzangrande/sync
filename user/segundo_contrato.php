@@ -54,7 +54,12 @@ $idcard = $pedido['id_profissional'];
 $tempo = $pedido['tempo'];
 
 $profissional = read($pdo, "usuarios", "id_user = $idcard");
-    $meses = ($profissional['id_user'] * 3) % 60 + 1;
+    $dataCadastro = new DateTime($profissional['data_cadastro']);
+    $dataAtual = new DateTime();
+
+    $diferenca = $dataCadastro->diff($dataAtual);
+
+    $meses = ($diferenca->y * 12) + $diferenca->m;
     $servicos = ($profissional['id_user'] * 17) % 500 + 50;
 $trabalhos = 0;
 $trabalhosConc =readAll($pdo,'agenda',"status_os = 'Concluída' and id_profissional = $idcard");
