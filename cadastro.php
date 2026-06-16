@@ -102,7 +102,7 @@ if (
 </head>
 <header>
     <?php include 'partials/header.php'; 
-    $link_voltar = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'profipage.php';
+
     ?>
 </header>
 
@@ -174,7 +174,7 @@ if (
             <input type="checkbox" name="aceita_termos" id="aceita_termos" required>
             <span class="checkbox-custom"></span>
             <span class="texto-termos">
-                    Li e concordo com os <a href="termosdeuso.php">Termos de Uso</a> e a <a href="privacidade.php">Política de Privacidade</a>.
+                    Li e concordo com os <a href="termosdeuso.php">Termos de Uso</a> 
                 </span>
             </label>
 
