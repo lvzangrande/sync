@@ -48,10 +48,10 @@ $base = BASE_URL;
             <h3>Conecte-se</h3>
             <ul class="icons">
                 <!--Redirecionar para os sites reais-->
-                <li><a href="#"><i class="fa-brands fa-linkedin meu-icone"></i>Linkedin</a></li>
-                <li><a href="#"><i class="fa-brands fa-instagram meu-icone"></i>Instagram</a></li>
-                <li><a href="#"><i class="fa-brands fa-square-facebook meu-icone"></i>Facebook</a></li>
-                <li><a href="#"><i class="fa-brands fa-youtube meu-icone"></i>YouTube</a></li>
+                <li><a href="https://www.linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin meu-icone"></i>Linkedin</a></li>
+                <li><a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram meu-icone"></i>Instagram</a></li>
+                <li><a href="https://pt-br.facebook.com/" target="_blank"><i class="fa-brands fa-square-facebook meu-icone"></i>Facebook</a></li>
+                <li><a href="https://youtube.com/" target="_blank"><i class="fa-brands fa-youtube meu-icone"></i>YouTube</a></li>
             </ul>
         </div>
 
