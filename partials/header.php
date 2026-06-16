@@ -51,7 +51,7 @@ $base = BASE_URL;
                         <div class="topo-sidebar">
 
                             <div class="titulo">
-                                Sync
+                                <img src="<?= $base ?>img/logosemfundo.png" alt="Logo Sync" class="logo-sidebar">
                             </div>
 
                             <button id="fechar-menu" class="btn-fechar">
@@ -59,7 +59,7 @@ $base = BASE_URL;
                             </button>
 
                         </div>
-                        <?php 
+                        <?php
                         if ($tipo_usuario === 'admin') {
                             echo '<a href="../admin/adminpage.php">
                                 <i class="bi bi-house"></i>
@@ -69,11 +69,10 @@ $base = BASE_URL;
                                 <i class="bi bi-people"></i>
                                 Cadastrar Profissional
                             </a>
-                            <a class="btn-entrar" href="'. $base .'logout.php"
+                            <a class="btn-entrar" href="' . $base . 'logout.php"
                             style="background-color: #e63946; color: white; border: none; display: inline-flex; align-items: center; gap: 8px; font-weight: 600;">
                             <i class="fas fa-power-off"></i> Sair
                             </a>';
-
                         } elseif ($tipo_usuario === 'profissional') {
                             echo '<a href="../profissional/profipage.php">
                                 <i class="bi bi-person"></i>
@@ -89,7 +88,7 @@ $base = BASE_URL;
                                 <i class="bi bi-calendar-event"></i>
                                 Agenda
                             </a>
-                            <a class="btn-entrar" href="'. $base .'logout.php"
+                            <a class="btn-entrar" href="' . $base . 'logout.php"
                             style="background-color: #e63946; color: white; border: none; display: inline-flex; align-items: center; gap: 8px; font-weight: 600;">
                             <i class="fas fa-power-off"></i> Sair
                             </a>';
@@ -107,7 +106,7 @@ $base = BASE_URL;
                                     <i class="bi bi-headset"></i>
                                     Suporte
                                 </a>
-                                <a class="btn-entrar" href="'. $base .'logout.php"
+                                <a class="btn-entrar" href="' . $base . 'logout.php"
                                     style="background-color: #e63946; color: white; border: none; display: inline-flex; align-items: center; gap: 8px; font-weight: 600;">
                                     <i class="fas fa-power-off"></i> Sair
                                 </a>
