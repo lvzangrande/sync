@@ -188,7 +188,12 @@ if (isset($_SESSION['mensagem'])) {
                 }
                 $cards = readALL($pdo, 'usuarios', $where . $order);
                 foreach ($cards as $card) {
-                    $meses = ($card['id_user'] * 3) % 60 + 1;
+                    $dataCadastro = new DateTime($card['data_cadastro']);
+                    $dataAtual = new DateTime();
+
+                    $diferenca = $dataCadastro->diff($dataAtual);
+
+                    $meses = ($diferenca->y * 12) + $diferenca->m;
                     $servicos = ($card['id_user'] * 17) % 500 + 50;
 
                     $trabalhos = 0;
@@ -206,16 +211,16 @@ if (isset($_SESSION['mensagem'])) {
                             "status_os = 'Concluída' AND id_profissional = " . $card['id_user']
                         )
                     );
-                       /* $servicos = readAll($pdo, 'agenda', "id_profissional = {$profissional['id_user']} AND status_os = 'Concluída'");
+                    /* $servicos = readAll($pdo, 'agenda', "id_profissional = {$profissional['id_user']} AND status_os = 'Concluída'");
 
-                        $total_servicos = count($servicos);
+                     $total_servicos = count($servicos);
 */
-                        if ($card['img_user'] != '' && file_exists('img/uploads/usuarios/profissionais/' . $card['img_user'])) {
-                            $foto = $card['img_user'];
-                        } else {
-                            $foto = 'foto_default.png';
-                        }
-                        //adiciona uma msg se não retornar nada no filtro
+                    if ($card['img_user'] != '' && file_exists('img/uploads/usuarios/profissionais/' . $card['img_user'])) {
+                        $foto = $card['img_user'];
+                    } else {
+                        $foto = 'foto_default.png';
+                    }
+                    //adiciona uma msg se não retornar nada no filtro
                     if ($tipo_usuario == 'admin') {
                         echo
                             '<div class="card">
