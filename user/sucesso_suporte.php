@@ -78,8 +78,8 @@
             <i class="fa-solid fa-check-double icon-sucesso"></i>
             <h1>Ticket enviado com sucesso!</h1><br>
             <p>Nossa equipe técnica recebeu sua solicitação.<br>Aguarde nossa resposta em breve.</p>
-
-            <a href="../inicio.php" class="btn-voltar">Voltar para o index</a>
+<!--Fazer uma verificação se está logado e é usuário cliente-->
+            <a href="../inicio.php" class="btn-voltar">Voltar para o início</a>
         </div>
     </main>
 </body>

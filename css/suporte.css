@@ -231,3 +231,32 @@ input::-webkit-inner-spin-button {
 .btn-submit:active {
     transform: translateY(0);
 }
+
+.btn-submit-semsession {
+    background-color: var(--color-deep-blue);
+    color: var(--white);
+    padding: 16px;
+    border: none;
+    border-radius: 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    width: 400px;         
+    align-self: center;
+
+}
+
+.btn-submit-semsession:hover {
+    background-color: var(--color-ocean-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(22, 69, 120, 0.3);
+}
+
+.btn-submit-semsession:active {
+    transform: translateY(0);
+}

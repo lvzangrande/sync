@@ -1,7 +1,9 @@
 <?php
 require_once "crud.php";
-session_start();
-//pega os dados da session pra mandar pro suporte
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+    
+}
 $mensagem_sucesso = "";
 
 
@@ -88,7 +90,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
             </div>
         </aside>
-
         <section class="form-container">
             <form action="#" method="POST" class="support-form" enctype="multipart/form-data">
 
@@ -97,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <label>Nome Completo</label>
                         <div class="input-wrapper">
                             <i class="fa-regular fa-user icon"></i>
-                            <input type="text" name="nome" placeholder="Nome do Operador/Engenheiro" required>
+                            <input type="text" name="nome" value="" placeholder="Nome do Operador/Engenheiro" required>
                         </div>
                     </div>
 
@@ -117,18 +118,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <input type="number" name="telefone" placeholder="+55 (11) 93056-9806" required>
                     </div>
                 </div>
-
                 <div class="form-group full-width">
                     <label>Descrição Detalhada do Problema Técnico</label>
                     <textarea name="mensagem" rows="5" placeholder="Descreva os códigos de erro e comportamento do sistema..." required></textarea>
                 </div>
-
 
                 <button type="submit" class="btn-submit">ENVIAR SOLICITAÇÃO TÉCNICA</button>
 
             </form>
         </section>
     </main>
+
     <?php require_once 'partials/footer.php'; ?>
 </body>
 
