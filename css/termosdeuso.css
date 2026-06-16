@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+:root {
+    --deep-midnight: #001233;
+    --navy-dark: #092848;
+    --royal-industrial: #164578;
+    --steel-blue: #326B93;
+    --slate-gray: #33415C;
+    --cool-gray: #7D8597;
+    --misty-blue: #8BC0D6;
+    --light-slate: #979DAC;
+    --white-text: #ffffff;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    background: linear-gradient(to bottom, var(--navy-dark), var(--deep-midnight));
+    background-attachment: fixed;
+    margin: 0;
+    min-height: 100vh;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    color: var(--light-slate);
+}
+
+.termos-container {
+    background-color: var(--slate-gray);
+    max-width: 1000px;
+    width: 100%;
+    border-radius: 16px;
+    border: 1px solid rgba(125, 133, 151, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 18, 51, 0.6);
+    overflow: hidden;
+}
+
+.termos-header {
+    background-color: var(--navy-dark);
+    padding: 50px 40px;
+    text-align: center;
+    border-bottom: 2px solid var(--royal-industrial);
+}
+
+.tecnologia-badge {
+    color: var(--misty-blue);
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 13px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.termos-header h1 {
+    font-size: 32px;
+    color: var(--white-text);
+    font-weight: 700;
+    margin: 0 0 10px 0;
+}
+
+.destaque-azul {
+    color: var(--misty-blue);
+    font-weight: 500;
+    letter-spacing: 1.3px;
+    margin: 0;
+}
+
+.conteudo-termos {
+    padding: 50px 60px;
+    max-height: 60vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--steel-blue) var(--slate-gray);
+}
+
+.conteudo-termos::-webkit-scrollbar {
+    width: 8px;
+}
+.conteudo-termos::-webkit-scrollbar-track {
+    background: var(--slate-gray);
+}
+.conteudo-termos::-webkit-scrollbar-thumb {
+    background-color: var(--steel-blue);
+    border-radius: 10px;
+}
+
+.aviso-juridico {
+    background-color: rgba(22, 69, 120, 0.4);
+    border-left: 4px solid var(--misty-blue);
+    padding: 25px;
+    border-radius: 0 12px 12px 0;
+    margin: 0 0 40px 0;
+    color: var(--white-text);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.aviso-juridico strong {
+    color: var(--misty-blue);
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.clausula {
+    margin-bottom: 40px;
+}
+
+.clausula h2 {
+    font-size: 20px;
+    color: var(--white-text);
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(125, 133, 151, 0.2);
+}
+
+.clausula p {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: var(--light-slate);
+}
+
+.clausula strong {
+    color: var(--white-text);
+    font-weight: 600;
+}
+
+.clausula ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.clausula li {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--light-slate);
+    margin-bottom: 8px;
+}
+
+.clausula li::marker {
+    color: var(--steel-blue);
+}
+
+.acoes-termos {
+    background-color: var(--navy-dark);
+    padding: 30px 60px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    border-top: 1px solid rgba(125, 133, 151, 0.2);
+}
+
+.btn {
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    font-family: "Montserrat", sans-serif;
+}
+
+.btn-recusar {
+    background-color: transparent;
+    color: var(--light-slate);
+    border: 1px solid var(--cool-gray);
+}
+
+.btn-recusar:hover {
+    color: var(--white-text);
+    border-color: var(--white-text);
+}
+
+.btn-aceitar {
+    background-color: var(--royal-industrial);
+    color: var(--white-text);
+    box-shadow: 0 4px 15px rgba(22, 69, 120, 0.4);
+}
+
+.btn-aceitar:hover {
+    background-color: var(--steel-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(50, 107, 147, 0.6);
+}
+
+@media (max-width: 768px) {
+    .conteudo-termos, .acoes-termos {
+        padding: 30px 20px;
+    }
+    
+    .termos-header {
+        padding: 40px 20px;
+    }
+
+    .termos-header h1 {
+        font-size: 26px;
+    }
+
+    .acoes-termos {
+        flex-direction: column-reverse;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}   

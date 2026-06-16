@@ -12,7 +12,6 @@ if (!defined('BASE_URL')) {
 
 $base = BASE_URL;
 ?>
-<!--Atualizar o link do footer e criar os termos de uso-->
 <footer>
     <div class="footer-container">
 
@@ -72,8 +71,8 @@ $base = BASE_URL;
     <div class="footer-bottom">
         <p>© 2026 Sync Mecatronics. Todos os direitos reservados.</p>
         <ul>
-            <li><a href="#">Privacidade</a></li>
-            <li><a href="#">Termos de Uso</a></li>
+            <li><a href="<?= $base ?>privacidade.php">Privacidade</a></li>
+            <li><a href="<?= $base ?>termosdeuso.php">Termos de Uso</a></li>
             <li><a href="#">Cookies</a></li>
         </ul>
     </div>

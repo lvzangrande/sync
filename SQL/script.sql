@@ -1,6 +1,4 @@
 USE db_sync;
--- botar unique no email
--- botar unique no cpf
 -- 1. Tabela usuarios
     CREATE TABLE IF NOT EXISTS usuarios (
         id_user INT AUTO_INCREMENT PRIMARY KEY,

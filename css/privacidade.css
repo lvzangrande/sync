@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    background: linear-gradient(to bottom, #1c4376, #001233);
+    background-attachment: fixed;
+    margin: 0;
+    min-height: 100vh;
+    color: rgba(250, 245, 239, 0.87);
+}
+
+.header-privacidade {
+    text-align: center;
+    padding: 120px 5% 60px 5%;
+}
+
+.simbolo {
+    display: inline-block;
+    border: 1px solid #85b5cb;
+    background-color: rgba(255, 255, 255, 0.03);
+    color: #85b5cb;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.header-privacidade h1 {
+    font-size: 55px;
+    color: #f2f3f3;
+    font-weight: 650;
+    margin-top: 0;
+}
+
+.sincro {
+    color: #85b5cb;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+}
+
+.container-principal {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5% 100px 5%;
+}
+
+.texto-intro {
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 80px auto;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.container-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.caixa {
+    background-color: #33415C;
+    border: 1px solid #33415c2f;
+    border-radius: 35px;
+    padding: 40px;
+    flex: 1;
+    min-width: 300px;
+    max-width: 550px;
+    transition: all 0.5s ease;
+    box-sizing: border-box;
+}
+
+.caixa2 {
+    background-color: #092848;
+    border: 1px solid #09284823;
+    border-radius: 35px;
+    padding: 40px;
+    flex: 1;
+    min-width: 300px;
+    max-width: 550px;
+    transition: all 0.5s ease;
+    box-sizing: border-box;
+}
+
+.caixa:hover, .caixa2:hover {
+    border-color: #85b5cb;
+    box-shadow: 0 0 20px rgba(133, 181, 203, 0.2);
+    transform: translateY(-5px);
+}
+
+.icone-caixa {
+    font-size: 40px;
+    color: #85b5cb;
+    margin-bottom: 20px;
+}
+
+.caixa h2, .caixa2 h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 15px 0;
+}
+
+.caixa p, .caixa2 p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+.passos-seguranca {
+    margin-top: 120px;
+    text-align: center;
+}
+
+.passos-seguranca h2 {
+    font-size: 45px;
+    color: #f2f3f3;
+    margin-bottom: 60px;
+}
+
+.container-cards {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #092848;
+    border: 1px solid rgba(133, 181, 203, 0.1);
+    border-radius: 16px;
+    padding: 30px;
+    width: 250px;
+    min-height: 250px;
+    transition: all 0.5s ease;
+    text-align: left;
+    position: relative;
+}
+
+.card h1 {
+    font-size: 60px;
+    color: rgba(133, 181, 203, 0.15);
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    transition: 0.3s;
+}
+
+.card h3 {
+    font-size: 18px;
+    color: #ffffff;
+    margin: 0 0 10px 0;
+}
+
+.card p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(133, 181, 203, 0.4);
+}
+
+.card:hover h1 {
+    color: #85b5cb;
+}
+
+.card::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -30px;
+    width: 30px;
+    height: 1px;
+    background-color: rgba(133, 181, 203, 0.3);
+}
+
+.card:last-child::after {
+    display: none;
+}
+
+.destaque-azul {
+    color: #85b5cb;
+    font-weight: 500;
+    letter-spacing: 1.0px;
+}
+
+.sincronize {
+    text-align: center;
+    margin-top: 120px;
+    padding-bottom: 100px;
+}
+
+.btn-comecar2 {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    background-color: #214174;
+    padding: 15px 30px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    border: none;
+}
+
+.btn-comecar2:hover {
+    background-color: #39678f;
+    transform: scale(1.05);
+}
+
+.btn-comecar2 i {
+    margin-right: 10px;
+}
+
+@media (max-width: 900px) {
+    .card::after {
+        display: none;
+    }
+    .header-privacidade h1 {
+        font-size: 40px;
+    }
+}
