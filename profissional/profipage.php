@@ -45,20 +45,21 @@ if (!empty($user['img_user']) && file_exists('../img/uploads/usuarios/profission
 $hoje = (new DateTime())->format('Y-m-d');
 
 foreach ($tableAgenda as $agendamento) {
-    if ($agendamento['status_os'] != 'Concluída' 
-    && $agendamento['status_os'] != 'Em Andamento'
-    && $agendamento['id_profissional'] == $_SESSION['id_user'] 
-    && (new DateTime($agendamento['data']))->format('Y-m-d') < $hoje
-    )
-     {
+    if (
+        $agendamento['status_os'] != 'Concluída'
+        && $agendamento['status_os'] != 'Em Andamento'
+        && $agendamento['id_profissional'] == $_SESSION['id_user']
+        && (new DateTime($agendamento['data']))->format('Y-m-d') < $hoje
+    ) {
         update($pdo, 'agenda', ['status_os' => 'Pendente'], "id_os = {$agendamento['id_os']}");
         $agendamento['status_os'] = 'Pendente';
     }
 
 
-    if ($agendamento['id_profissional'] == $_SESSION['id_user']
-    && (new DateTime($agendamento['data']))->format('Y-m-d') == $hoje 
-    && $agendamento['status_os'] == 'Pendente'
+    if (
+        $agendamento['id_profissional'] == $_SESSION['id_user']
+        && (new DateTime($agendamento['data']))->format('Y-m-d') == $hoje
+        && $agendamento['status_os'] == 'Pendente'
     ) {
         update($pdo, 'agenda', ['status_os' => 'Agendado'], "id_os = {$agendamento['id_os']}");
         $agendamento['status_os'] = 'Agendada';
@@ -74,7 +75,7 @@ foreach ($tableAgenda as $agendamento) {
 
         $idCliente = $agendamento['id_cliente'];
         $nomeClienteEmAndamento = read_nome_via_id($pdo, 'usuarios', $idCliente);
-        break; 
+        break;
     }
 }
 ?>
@@ -98,30 +99,41 @@ foreach ($tableAgenda as $agendamento) {
     <?php
     require_once '../partials/header.php';
     ?>
+
     <div class="perfil">
-        <div style="text-align: center; width: 100%;">
-            <?php require_once '../php/saudacao.php'; ?>
-        </div>
-
-        <h1 style="text-align: center;">Olá <?= nomeUsuario(); ?></h1><br>
-
-
-
-
         <div class="imgperfil">
-            <div class=<?= "$status" ?>></div><!--Se Em Andamento mudar a cor para laranja-->
+            <div class=<?= "$status" ?>></div>
             <img class="fotoperfil" src="../img/uploads/usuarios/profissionais/<?= $foto ?>" alt="Foto de Perfil">
             <br>
-            <a href="editardados.php" class="editar">
-                <img src="../img/lapiseditar.png" width="50" alt="Editar">
-            </a>
+            <div class="botaoEditarDados">
+                <a href="editardados.php" class="editar">
+                    <img src="../img/lapiseditar.png" width="90" alt="Editar">
+                </a>
+            </div>
+        </div>
+
+        <div class="perfil-textos">
+            <?php require_once '../php/saudacao.php'; ?>
+            <h1 style="text-align: center; text-transform: capitalize;"><?= nomeUsuario(); ?>.</h1>
+            <p style="font-size: 1.0rem; margin-top: 20px;">Bem-vindo ao seu painel de controle do profissional Sync Mecatronics,<br> gerencie seus dados e acompanhe suas inovações em um só lugar.</p>
         </div>
     </div>
+
+    <h1 style="text-transform: uppercase; letter-spacing: 1.5px; font-size: 1.2rem; margin-top: 60px;">O que deseja fazer?</h1>
     <div class="funcionalidades">
-        <a class="func" href="historicodeservicos.php">Ver histórico de serviços</a>
+        <div class="historico">
+        <a href="historicodeservicos.php"><i class="fa-solid fa-clock-rotate-left icon-func"></i>Ver histórico de serviços</a>
+        <p>Clique para ver o histórico completo dos seus serviços.</p>
+        </div>
+
         <p><b class="qntdserv"><?= $totalserv ?></b><br>Serviços prestados</p>
-        <a class="func" href="servagendados.php">Ver serviços agendados</a>
+        
+        <div class="historico">
+        <a href="servagendados.php"><i class="fa-solid fa-calendar-check icon-func"></i>Ver serviços agendados</a>
+        <p>Clique para ver os serviços que você tem agendados.</p>
+        </div>
     </div>
+
     <?php
     if ($status == 'Em Andamento') {
         echo "
@@ -164,8 +176,8 @@ foreach ($tableAgenda as $agendamento) {
 
 
     ?>
-    <footer class="footer-perfil">
-        <p>Cadastrado desde de <?= $mesNome ?> de <?= $ano ?></p>
+    <footer class="footer-perfil" style="margin-top: 130px;">
+        <p>Cadastrado desde de <?= $mesNome ?> de <?= $ano ?>.</p>
     </footer>
 </body>
 

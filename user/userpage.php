@@ -76,10 +76,8 @@ $categoria = $_SESSION['tipo'];
             <h1 style="text-align: center; text-transform: capitalize;"><?= $nomeCompleto ?>.</h1>
             <p style="font-size: 1.0rem; margin-top: 20px;">Bem-vindo ao seu painel de controle Sync Mecatronics,<br> gerencie seus dados e acompanhe suas inovações em um só lugar.</p>
         </div>
-
-        
-
     </div>
+
     <h1 style="text-transform: uppercase; letter-spacing: 1.5px; font-size: 1.2rem; margin-top: 60px;">O que deseja fazer?</h1>
     <div class="funcionalidades">
         <div class="historico">
@@ -116,8 +114,8 @@ $categoria = $_SESSION['tipo'];
         $ano = null;
     }
     ?>
-    <footer class="footer-perfil">
-        <p>Cadastrado desde de <?= $mesNome ?> de <?= $ano ?></p>
+    <footer class="footer-perfil" style="margin-top: 130px;">
+        <p>Cadastrado desde de <?= $mesNome ?> de <?= $ano ?>.</p>
     </footer>
 
 
