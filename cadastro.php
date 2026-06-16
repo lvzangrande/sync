@@ -101,10 +101,13 @@ if (
     <link rel="icon" href="imagens/logosemfundo.png">
 </head>
 <header>
-    <?php include 'partials/header.php'; ?>
+    <?php include 'partials/header.php'; 
+    $link_voltar = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'profipage.php';
+    ?>
 </header>
 
 <body>
+    
     <a href="<?= $link_voltar ?>" class="voltar">Voltar</a>
 
 
