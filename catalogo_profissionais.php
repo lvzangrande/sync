@@ -187,6 +187,15 @@ if (isset($_SESSION['mensagem'])) {
                     }
                 }
                 $cards = readALL($pdo, 'usuarios', $where . $order);
+                if (empty($cards)) {
+                    echo '
+                        <div class="sem-resultados">
+                            <i class="bi bi-search"></i>
+                            <h3>Nenhum profissional encontrado</h3>
+                            <p>Tente alterar ou remover alguns filtros.</p>
+                        </div>
+                    ';
+                }
                 foreach ($cards as $card) {
                     $dataCadastro = new DateTime($card['data_cadastro']);
                     $dataAtual = new DateTime();
