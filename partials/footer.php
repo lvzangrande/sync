@@ -27,8 +27,8 @@ $base = BASE_URL;
         <div class="footer-section">
             <h3 class="heading">Empresa</h3>
             <ul>
-                <li><a href="<?= $base ?>index.php">Sobre</a></li>
-                <li><a href="<?= $base ?>index.php#Tecnologia">Tecnologias</a></li>
+                <li><a href="<?= $base ?>inicio.php">Sobre</a></li>
+                <li><a href="<?= $base ?>/tecnologia.php">Tecnologias</a></li>
 
                 <?php if ($tipo_usuario === 'admin'): ?>
                     <li><a href="<?= $base ?>admin/adminpage.php">Painel Admin</a></li>
@@ -47,6 +47,7 @@ $base = BASE_URL;
         <div class="footer-section">
             <h3>Conecte-se</h3>
             <ul class="icons">
+                <!--Redirecionar para os sites reais-->
                 <li><a href="#"><i class="fa-brands fa-linkedin meu-icone"></i>Linkedin</a></li>
                 <li><a href="#"><i class="fa-brands fa-instagram meu-icone"></i>Instagram</a></li>
                 <li><a href="#"><i class="fa-brands fa-square-facebook meu-icone"></i>Facebook</a></li>
@@ -73,7 +74,7 @@ $base = BASE_URL;
         <ul>
             <li><a href="<?= $base ?>privacidade.php">Privacidade</a></li>
             <li><a href="<?= $base ?>termosdeuso.php">Termos de Uso</a></li>
-            <li><a href="#">Cookies</a></li>
+            <!--<li><a href="#">Cookies</a></li>-->
         </ul>
     </div>
 </footer>

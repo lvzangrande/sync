@@ -1,6 +1,5 @@
 <?php
 require_once '../crud.php';
-//não funcionou quando usei o bagui do suporte
 if (session_status() === PHP_SESSION_NONE){
     session_start();
 }
@@ -9,13 +8,12 @@ if (isset($_SESSION['mensagem'])) {
     echo "<script>alert('{$_SESSION['mensagem']}');</script>";
     unset($_SESSION['mensagem']);
 }
-
 $statusFiltro = $_GET['status'] ?? 'Todos';
 
-$nomeUsuarioLogado = $_SESSION['nome'] ?? '';
-$where = "nome_cliente = '$nomeUsuarioLogado'";
+$idUsuarioLogado = $_SESSION['id_user'] ?? 0;
+$where = "id_usuario = $idUsuarioLogado";
 
-if ($statusFiltro !== 'Todos') {
+if ($statusFiltro !== 'Todos' && $statusFiltro !== '') {
     $where .= " AND status_suporte = '$statusFiltro'";
 }
 
