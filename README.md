@@ -1,4 +1,4 @@
-![logo da empresa](imagens/ChatGPT Image 21 de mai. de 2026, 15_49_52.png)
+![logo da empresa](banner_logo_empresa.png)
 # sync
 Plataforma desenvolvida para conectar indústrias a profissionais especializados em manutenção industrial, facilitando a contratação de serviços de manutenção preventiva e corretiva.
 
